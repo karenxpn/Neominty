@@ -14,6 +14,7 @@
 		FF18C24929BA8010004EF3A3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24829BA8010004EF3A3 /* FirebaseStorage */; };
 		FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */; };
 		FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */; };
+		FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25529BA8E70004EF3A3 /* Introduction.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FF18C25529BA8E70004EF3A3 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,6 +89,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF18C24E29BA8E1B004EF3A3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF18C24F29BA8E26004EF3A3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF18C25429BA8E5E004EF3A3 /* Authentication */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF18C25029BA8E2D004EF3A3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FF18C25229BA8E43004EF3A3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		FF18C25329BA8E4E004EF3A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF18C25429BA8E5E004EF3A3 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				FF18C25529BA8E70004EF3A3 /* Introduction.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 		FF628DF129BA2CD000FE35EE = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +157,11 @@
 		FF628DFC29BA2CD000FE35EE /* Banking */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C25329BA8E4E004EF3A3 /* Models */,
+				FF18C25229BA8E43004EF3A3 /* Services */,
+				FF18C25029BA8E2D004EF3A3 /* ViewModels */,
+				FF18C24F29BA8E26004EF3A3 /* Views */,
+				FF18C24E29BA8E1B004EF3A3 /* Utils */,
 				FF628DFD29BA2CD000FE35EE /* BankingApp.swift */,
 				FF628DFF29BA2CD000FE35EE /* ContentView.swift */,
 				FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */,
@@ -291,6 +342,7 @@
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
+				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
