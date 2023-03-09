@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FF18C23E29BA7E94004EF3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF18C23D29BA7E94004EF3A3 /* GoogleService-Info.plist */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
 		FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24229BA8010004EF3A3 /* FirebaseAuth */; };
 		FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24429BA8010004EF3A3 /* FirebaseFirestore */; };
 		FF18C24729BA8010004EF3A3 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24629BA8010004EF3A3 /* FirebaseFirestoreSwift */; };
 		FF18C24929BA8010004EF3A3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24829BA8010004EF3A3 /* FirebaseStorage */; };
 		FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */; };
+		FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -42,8 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FF18C23D29BA7E94004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 			children = (
 				FF628DFD29BA2CD000FE35EE /* BankingApp.swift */,
 				FF628DFF29BA2CD000FE35EE /* ContentView.swift */,
-				FF18C23D29BA7E94004EF3A3 /* GoogleService-Info.plist */,
+				FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */,
 				FF628E0129BA2CD200FE35EE /* Assets.xcassets */,
 				FF628E0329BA2CD200FE35EE /* Preview Content */,
 				FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */,
@@ -260,9 +260,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF18C23E29BA7E94004EF3A3 /* GoogleService-Info.plist in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
+				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
 				FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
