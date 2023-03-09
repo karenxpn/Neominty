@@ -14,6 +14,7 @@
 		FF628E0F29BA2CD200FE35EE /* BankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E0E29BA2CD200FE35EE /* BankingTests.swift */; };
 		FF628E1929BA2CD200FE35EE /* BankingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1829BA2CD200FE35EE /* BankingUITests.swift */; };
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
+		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		FF628E1429BA2CD200FE35EE /* BankingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628E1829BA2CD200FE35EE /* BankingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITests.swift; sourceTree = "<group>"; };
 		FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		FF628DF129BA2CD000FE35EE = {
 			isa = PBXGroup;
 			children = (
+				FF628E2829BA2D7600FE35EE /* .gitignore */,
 				FF628DFC29BA2CD000FE35EE /* Banking */,
 				FF628E0D29BA2CD200FE35EE /* BankingTests */,
 				FF628E1729BA2CD200FE35EE /* BankingUITests */,
@@ -232,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
+				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
 				FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
