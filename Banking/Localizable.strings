@@ -20,3 +20,6 @@
 "enterItHere" = "Enter it here to verify your identity";
 "confirm" = "Confirm";
 "resendCode" = "Resend Code";
+"enableBiometric" = "Enable biometric Access";
+"biometricAccessMessage" = "Login quickly and securely with the fingerprint stored on this device";
+"doItLater" = "I’ll do this later";

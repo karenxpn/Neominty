@@ -49,6 +49,8 @@
 		FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */; };
 		FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */; };
 		FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */; };
+		FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0829BBC7E100E774FD /* CreatePin.swift */; };
+		FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumber.swift; sourceTree = "<group>"; };
 		FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldView.swift; sourceTree = "<group>"; };
+		FFC2BD0829BBC7E100E774FD /* CreatePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePin.swift; sourceTree = "<group>"; };
+		FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableBiometricAuthentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,8 @@
 				FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */,
 				FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */,
 				FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */,
+				FFC2BD0829BBC7E100E774FD /* CreatePin.swift */,
+				FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
@@ -447,6 +454,7 @@
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
+				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
