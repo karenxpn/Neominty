@@ -12,19 +12,21 @@ struct Introduction: View {
     @State private var currentPage: Int = 0
     
     var body: some View {
-        ZStack {
-            if authVM.loading {
-                ProgressView()
-            } else if !authVM.introductionPages.isEmpty {
-                IntroductionPage(introduction: authVM.introductionPages[currentPage],
-                                 count: authVM.introductionPages.count,
-                                 index: $currentPage)
-                .transition(.slide)
+        NavigationStack {
+            ZStack {
+                if authVM.loading {
+                    ProgressView()
+                } else if !authVM.introductionPages.isEmpty {
+                    IntroductionPage(introduction: authVM.introductionPages[currentPage],
+                                     count: authVM.introductionPages.count,
+                                     index: $currentPage)
+                    .transition(.slide)
 
+                }
+                
+            }.onAppear {
+                authVM.getIntroductionPages()
             }
-            
-        }.onAppear {
-            authVM.getIntroductionPages()
         }
     }
 }

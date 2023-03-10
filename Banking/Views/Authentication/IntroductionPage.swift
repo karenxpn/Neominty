@@ -11,6 +11,7 @@ struct IntroductionPage: View {
     let introduction: IntroductionModel
     let count: Int
     @Binding var index: Int
+    @State private var authenticate: Bool = false
     
     var body: some View {
         ZStack {
@@ -40,7 +41,7 @@ struct IntroductionPage: View {
                         .multilineTextAlignment(.center)
 
                     HStack(spacing: 4) {
-                        ForEach(0..<count) { ind in
+                        ForEach(0..<count, id: \.self) { ind in
                             if ind != index {
                                 Circle()
                                     .fill(AppColors.lightGray)
@@ -56,19 +57,35 @@ struct IntroductionPage: View {
                     
                     ButtonHelper(disabled: false, label: index == count-1 ? NSLocalizedString("getStarted", comment: "") : NSLocalizedString("next", comment: "")) {
                         if index == count-1 {
-                            
+                            authenticate = true
                         } else {
                             withAnimation {
                                 index += 1
                             }
                         }
                     }.padding(.top, 18)
+                        .navigationDestination(isPresented: $authenticate) {
+                            Authentication()
+                        }
                     
                     
                 }.padding(45)
                     .background(Color.white)
             }
         }.edgesIgnoringSafeArea(.all)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        authenticate = true
+                    } label: {
+                        Text(NSLocalizedString("skip", comment: ""))
+                            .foregroundColor(.black)
+                    }.navigationDestination(isPresented: $authenticate) {
+                        Authentication()
+                    }
+
+                }
+            }
     }
 }
 
