@@ -48,6 +48,7 @@
 		FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0029BB6F0600E774FD /* Extensions.swift */; };
 		FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */; };
 		FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */; };
+		FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		FFC2BD0029BB6F0600E774FD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumber.swift; sourceTree = "<group>"; };
+		FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				FF18C26029BB29DA004EF3A3 /* Authentication.swift */,
 				FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */,
 				FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */,
+				FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
+				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
@@ -617,8 +621,9 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -646,8 +651,9 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

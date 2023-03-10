@@ -12,7 +12,7 @@ import FirebaseAuth
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @Published var country: String = "AM"
-    @Published var code: String = "+374"
+    @Published var code: String = "374"
     @Published var phoneNumber: String = ""
     @Published var flag: String = "🇦🇲"
     @Published var OTP: String = ""
@@ -48,7 +48,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func sendVerificationCode() {
+    @MainActor func sendVerificationCode(send: Bool = true) {
         loading = true
         Task {
             let result = await manager.sendVerificationCode(phone: "+\(code)\(phoneNumber)")
@@ -56,7 +56,11 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success(()):
-                self.navigate = true
+                if send {
+                    self.navigate = true
+                } else {
+                    break
+                }
             }
             
             if !Task.isCancelled {
@@ -65,11 +69,11 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func checkVerificationCode(code: String) {
+    @MainActor func checkVerificationCode() {
         loading = true
         Task {
             
-            let result = await manager.checkVerificationCode(code: code)
+            let result = await manager.checkVerificationCode(code: OTP)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)

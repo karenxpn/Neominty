@@ -65,7 +65,10 @@ struct IntroductionPage: View {
                     
                     
                 }.padding(45)
-                    .background(Color.white)
+                    .background(Color.white
+                        .shadow(color: Color.white, radius: 25, x: 0, y: -35)
+                        .mask(Rectangle().padding(.top, -30))
+                    )
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {

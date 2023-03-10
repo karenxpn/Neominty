@@ -12,3 +12,11 @@
 "hiThere" = "Hi There! 👋";
 "welcomeBack" = "Welcome back, Sign in to your account";
 "enterPhoneNumber" = "Enter your phone number";
+"loading" = "Loading...";
+"error" = "Error";
+"gotIt" = "Got it";
+"verifyItsYou" = "Verify it’s you";
+"weSentCode" = "We've sent the code to ";
+"enterItHere" = "Enter it here to verify your identity";
+"confirm" = "Confirm";
+"resendCode" = "Resend Code";

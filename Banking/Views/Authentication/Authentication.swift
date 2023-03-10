@@ -22,15 +22,12 @@ struct Authentication: View {
                 VStack( alignment: .leading, spacing: 8) {
                     TextHelper(text: NSLocalizedString("hiThere", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                     TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
-                    
                 }
-                
                 
                 HStack(spacing: 0) {
                     
                     Button {
                         showPicker.toggle()
-                        
                     } label: {
                         HStack {
                             TextHelper(text: "\(authVM.flag)",
@@ -61,11 +58,11 @@ struct Authentication: View {
                     authVM.sendVerificationCode()
                 }.padding(.horizontal, 7)
                     .navigationDestination(isPresented: $authVM.navigate, destination: {
-                        VerifyPhoneNumber(phone: "\(authVM.code)\(authVM.phoneNumber)")
+                        VerifyPhoneNumber(phone: "+\(authVM.code)\(authVM.phoneNumber)")
                             .environmentObject(authVM)
                     })
                 
-            }
+            }.padding(24)
         }.navigationBarHidden(true)
             .navigationBarTitle("")
         
@@ -76,16 +73,13 @@ struct Authentication: View {
                 maxHeight: .infinity,
                 alignment: .topLeading
             )
-            .padding([.horizontal, .top], 30)
-            .padding(.bottom, UIScreen.main.bounds.height * 0.08)
             .sheet(isPresented: $showPicker) {
                 CountryCodeSelection(isPresented: $showPicker, country: $authVM.country, code: $authVM.code, flag: $authVM.flag)
-            }
-            .alert(isPresented: $authVM.showAlert) {
-                Alert(title: Text(NSLocalizedString("error", comment: "")),
-                      message: Text(authVM.alertMessage),
-                      dismissButton: .default(Text(NSLocalizedString("gotIt", comment: ""))))
-            }
+            }.alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(authVM.alertMessage)
+            })
     }
 }
 
