@@ -38,6 +38,11 @@
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
+		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
+		FFC2BCF729BB612100E774FD /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */; };
+		FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */; };
+		FFC2BCF929BB612100E774FD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */; };
+		FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCFA29BB628D00E774FD /* TextHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +92,11 @@
 		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		FFC2BCFA29BB628D00E774FD /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +138,7 @@
 				FF18C26C29BB3226004EF3A3 /* AppColors.swift */,
 				FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */,
 				FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */,
+				FFC2BCFA29BB628D00E774FD /* TextHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -214,6 +225,7 @@
 				FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */,
 				FF18C26829BB3199004EF3A3 /* Credentials.swift */,
 				FFC2BCEF29BB5B7200E774FD /* Localizable.strings */,
+				FFC2BCF129BB60E300E774FD /* font */,
 			);
 			path = Banking;
 			sourceTree = "<group>";
@@ -241,6 +253,17 @@
 				FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */,
 			);
 			path = BankingUITests;
+			sourceTree = "<group>";
+		};
+		FFC2BCF129BB60E300E774FD /* font */ = {
+			isa = PBXGroup;
+			children = (
+				FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */,
+				FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */,
+				FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */,
+				FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -359,9 +382,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
 				FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
+				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
+				FFC2BCF929BB612100E774FD /* Roboto-Bold.ttf in Resources */,
+				FFC2BCF729BB612100E774FD /* Roboto-Light.ttf in Resources */,
 				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
 				FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */,
 			);
@@ -392,6 +419,7 @@
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
+				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,

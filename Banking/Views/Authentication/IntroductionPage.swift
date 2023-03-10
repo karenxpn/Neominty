@@ -25,21 +25,14 @@ struct IntroductionPage: View {
                 Spacer()
                 VStack(spacing: 16) {
 
-                    Text(introduction.title)
-                        .foregroundColor(AppColors.darkBlue)
-                        .font(.custom("Roboto", size: 24))
-                        .fontWeight(.heavy)
+                    TextHelper(text: introduction.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                         .kerning(0.3)
                         .multilineTextAlignment(.center)
                     
                     
-                    Text(introduction.body)
-                        .foregroundColor(.gray)
-                        .font(.custom("Roboto", size: 11))
-                        .fontWeight(.regular)
+                    TextHelper(text: introduction.body, color: AppColors.gray)
                         .kerning(0.3)
                         .multilineTextAlignment(.center)
-
                     HStack(spacing: 4) {
                         ForEach(0..<count, id: \.self) { ind in
                             if ind != index {
@@ -55,7 +48,9 @@ struct IntroductionPage: View {
                     }.padding(.top, 29)
                     // carousel
                     
-                    ButtonHelper(disabled: false, label: index == count-1 ? NSLocalizedString("getStarted", comment: "") : NSLocalizedString("next", comment: "")) {
+                    ButtonHelper(disabled: false, label: index == count-1 ?
+                                 NSLocalizedString("getStarted", comment: "") :
+                                    NSLocalizedString("next", comment: "")) {
                         if index == count-1 {
                             authenticate = true
                         } else {
@@ -78,8 +73,8 @@ struct IntroductionPage: View {
                     Button {
                         authenticate = true
                     } label: {
-                        Text(NSLocalizedString("skip", comment: ""))
-                            .foregroundColor(.black)
+                        TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
+                            .kerning(0.3)
                     }.navigationDestination(isPresented: $authenticate) {
                         Authentication()
                     }

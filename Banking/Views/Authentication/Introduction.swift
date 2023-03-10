@@ -26,7 +26,7 @@ struct Introduction: View {
                 
             }.onAppear {
                 authVM.getIntroductionPages()
-            }
+            }.navigationTitle(Text(""))
         }
     }
 }
