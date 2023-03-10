@@ -15,6 +15,11 @@
 		FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */; };
 		FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */; };
 		FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25529BA8E70004EF3A3 /* Introduction.swift */; };
+		FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */; };
+		FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */; };
+		FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25B29BB25AF004EF3A3 /* AuthService.swift */; };
+		FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25D29BB2677004EF3A3 /* APIHelper.swift */; };
+		FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26029BB29DA004EF3A3 /* Authentication.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -46,6 +51,12 @@
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF18C25529BA8E70004EF3A3 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
+		FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		FF18C25B29BB25AF004EF3A3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		FF18C25D29BB2677004EF3A3 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		FF18C25F29BB28F3004EF3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FF18C26029BB29DA004EF3A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +118,8 @@
 		FF18C25029BA8E2D004EF3A3 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */,
+				FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -114,6 +127,8 @@
 		FF18C25229BA8E43004EF3A3 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C25D29BB2677004EF3A3 /* APIHelper.swift */,
+				FF18C25B29BB25AF004EF3A3 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -129,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18C25529BA8E70004EF3A3 /* Introduction.swift */,
+				FF18C26029BB29DA004EF3A3 /* Authentication.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -157,6 +173,7 @@
 		FF628DFC29BA2CD000FE35EE /* Banking */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
 				FF18C25029BA8E2D004EF3A3 /* ViewModels */,
@@ -339,10 +356,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
+				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
+				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
+				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
+				FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,7 +526,7 @@
 				DEVELOPMENT_TEAM = 8GVVA24YR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -533,7 +555,7 @@
 				DEVELOPMENT_TEAM = 8GVVA24YR6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
