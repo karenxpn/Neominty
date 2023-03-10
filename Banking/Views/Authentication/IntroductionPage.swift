@@ -69,15 +69,17 @@ struct IntroductionPage: View {
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        authenticate = true
-                    } label: {
-                        TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
-                    }.navigationDestination(isPresented: $authenticate) {
-                        Authentication()
+                if index != count - 1 {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            authenticate = true
+                        } label: {
+                            TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
+                        }.navigationDestination(isPresented: $authenticate) {
+                            Authentication()
+                        }
+                        
                     }
-
                 }
             }
     }

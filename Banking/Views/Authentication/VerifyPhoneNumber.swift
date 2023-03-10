@@ -18,7 +18,7 @@ struct VerifyPhoneNumber: View {
                 TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                 TextHelper(text: "\(NSLocalizedString("weSentCode", comment: "")) \(phone).\n\(NSLocalizedString("enterItHere", comment: ""))", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
 
-                OTPTextFieldView { otp in
+                OTPTextFieldView(pin: $authVM.OTP) { otp in
                     authVM.OTP = otp
                 }.padding(.top, 20)
                 

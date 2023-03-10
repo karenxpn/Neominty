@@ -10,7 +10,7 @@ import SwiftUI
 struct OTPTextFieldView: View {
     
     var maxDigits: Int = 6
-    @State var pin: String = ""
+    @Binding var pin: String
     @FocusState var focus: Int?
 
     var handler: (String) -> Void
@@ -86,6 +86,6 @@ struct OTPTextFieldView: View {
 
 struct OTPTextFieldView_Previews: PreviewProvider {
     static var previews: some View {
-        OTPTextFieldView { otp in }
+        OTPTextFieldView(pin: .constant("")) { otp in }
     }
 }
