@@ -20,6 +20,14 @@
 		FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25B29BB25AF004EF3A3 /* AuthService.swift */; };
 		FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25D29BB2677004EF3A3 /* APIHelper.swift */; };
 		FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26029BB29DA004EF3A3 /* Authentication.swift */; };
+		FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26229BB2D0B004EF3A3 /* Enums.swift */; };
+		FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */; };
+		FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */; };
+		FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26829BB3199004EF3A3 /* Credentials.swift */; };
+		FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */; };
+		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
+		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
+		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -28,6 +36,8 @@
 		FF628E1929BA2CD200FE35EE /* BankingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1829BA2CD200FE35EE /* BankingUITests.swift */; };
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
+		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
+		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +67,13 @@
 		FF18C25D29BB2677004EF3A3 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		FF18C25F29BB28F3004EF3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FF18C26029BB29DA004EF3A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		FF18C26229BB2D0B004EF3A3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionModel.swift; sourceTree = "<group>"; };
+		FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPage.swift; sourceTree = "<group>"; };
+		FF18C26829BB3199004EF3A3 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
+		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +85,8 @@
 		FF628E1829BA2CD200FE35EE /* BankingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITests.swift; sourceTree = "<group>"; };
 		FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
+		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
 				FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */,
 				FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */,
@@ -103,6 +123,11 @@
 		FF18C24E29BA8E1B004EF3A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
+				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
+				FF18C26C29BB3226004EF3A3 /* AppColors.swift */,
+				FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */,
+				FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -136,6 +161,7 @@
 		FF18C25329BA8E4E004EF3A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18C25529BA8E70004EF3A3 /* Introduction.swift */,
+				FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */,
 				FF18C26029BB29DA004EF3A3 /* Authentication.swift */,
 			);
 			path = Authentication;
@@ -185,6 +212,8 @@
 				FF628E0129BA2CD200FE35EE /* Assets.xcassets */,
 				FF628E0329BA2CD200FE35EE /* Preview Content */,
 				FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */,
+				FF18C26829BB3199004EF3A3 /* Credentials.swift */,
+				FFC2BCEF29BB5B7200E774FD /* Localizable.strings */,
 			);
 			path = Banking;
 			sourceTree = "<group>";
@@ -236,6 +265,7 @@
 				FF18C24429BA8010004EF3A3 /* FirebaseFirestore */,
 				FF18C24629BA8010004EF3A3 /* FirebaseFirestoreSwift */,
 				FF18C24829BA8010004EF3A3 /* FirebaseStorage */,
+				FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -311,6 +341,7 @@
 			mainGroup = FF628DF129BA2CD000FE35EE;
 			packageReferences = (
 				FF18C23F29BA8010004EF3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -328,6 +359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
 				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
@@ -356,15 +388,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
+				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
+				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
+				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
+				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
+				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */,
+				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +739,14 @@
 				kind = branch;
 			};
 		};
+		FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -726,6 +774,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF18C23F29BA8010004EF3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

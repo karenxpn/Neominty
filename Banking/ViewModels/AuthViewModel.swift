@@ -19,6 +19,8 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     @Published var loading: Bool = false
     
     @Published var navigate: Bool = false
+    
+    @Published var introductionPages = [IntroductionModel]()
 
     
     @Published var showAlert: Bool = false
@@ -72,6 +74,24 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success( _):
                 break
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func getIntroductionPages() {
+        loading = true
+        Task {
+            
+            let result = await manager.fetchIntroduction()
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
+            case .success(let intro):
+                self.introductionPages = intro
             }
             
             if !Task.isCancelled {

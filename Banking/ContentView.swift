@@ -17,6 +17,7 @@ struct ContentView: View {
                 Text("User here")
             } else {
                 Introduction()
+                    .environmentObject(authVM)
             }
             
         }.onAppear {

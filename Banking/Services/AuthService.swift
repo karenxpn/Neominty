@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import FirebaseFirestore
 import FirebaseAuth
 
 protocol AuthServiceProtocol {
     func sendVerificationCode(phone: String) async -> Result<Void, Error>
     func checkVerificationCode(code: String) async -> Result<String, Error>
+    func fetchIntroduction() async -> Result<[IntroductionModel], Error>
 }
 
 class AuthService {
     static let shared: AuthServiceProtocol = AuthService()
+    let db = Firestore.firestore()
     private init() { }
 }
 
@@ -40,4 +43,18 @@ extension AuthService: AuthServiceProtocol {
             return .failure(error)
         }
     }
+    
+    func fetchIntroduction() async -> Result<[IntroductionModel], Error> {
+        do {
+            let result = try await db.collection(Paths.introduction.rawValue)
+                .getDocuments()
+                .documents.map({ try $0.data(as: IntroductionModel.self)})
+            
+            return .success(result)
+        } catch {
+            return .failure(error)
+        }
+    }
+    
+
 }
