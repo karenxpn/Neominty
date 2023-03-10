@@ -26,12 +26,10 @@ struct IntroductionPage: View {
                 VStack(spacing: 16) {
 
                     TextHelper(text: introduction.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                        .kerning(0.3)
                         .multilineTextAlignment(.center)
                     
                     
                     TextHelper(text: introduction.body, color: AppColors.gray)
-                        .kerning(0.3)
                         .multilineTextAlignment(.center)
                     HStack(spacing: 4) {
                         ForEach(0..<count, id: \.self) { ind in
@@ -46,6 +44,7 @@ struct IntroductionPage: View {
                             }
                         }
                     }.padding(.top, 29)
+                        .zIndex(10)
                     // carousel
                     
                     ButtonHelper(disabled: false, label: index == count-1 ?
@@ -65,10 +64,8 @@ struct IntroductionPage: View {
                     
                     
                 }.padding(45)
-                    .background(Color.white
-                        .shadow(color: Color.white, radius: 25, x: 0, y: -35)
-                        .mask(Rectangle().padding(.top, -30))
-                    )
+                    .background(Color.white)
+                    .shadow(color: .white, radius: 25, y: -50)
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {
@@ -77,7 +74,6 @@ struct IntroductionPage: View {
                         authenticate = true
                     } label: {
                         TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
-                            .kerning(0.3)
                     }.navigationDestination(isPresented: $authenticate) {
                         Authentication()
                     }

@@ -22,6 +22,7 @@ struct ContentView: View {
             
         }.onAppear {
             authVM.listenToAuthState()
+            authVM.signOut()
         }
     }
 }

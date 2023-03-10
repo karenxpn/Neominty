@@ -29,6 +29,7 @@ struct TextHelper: View {
             .foregroundColor(color)
             .font(font)
             .fixedSize(horizontal: false, vertical: true)
+            .kerning(0.3)
     }
 }
 
