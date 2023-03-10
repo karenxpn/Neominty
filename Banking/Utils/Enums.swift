@@ -40,13 +40,15 @@ enum Roboto : RawRepresentable, CaseIterable, Codable {
     case black
     case light
     case regular
+    case medium
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .bold,
         .regular,
         .light,
-        .black
+        .black,
+        .medium
         
     ]
     
@@ -61,6 +63,7 @@ enum Roboto : RawRepresentable, CaseIterable, Codable {
         case .black                     : return "Roboto-Black"
         case .regular                   : return "Roboto-Regular"
         case .light                     : return "Roboto-Light"
+        case .medium                    : return "Roboto-Medium"
         case let .unknown(value)                : return value
         }
     }

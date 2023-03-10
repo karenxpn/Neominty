@@ -11,9 +11,10 @@ import FirebaseAuth
 
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
-    @Published var country: String = "US"
-    @Published var code: String = "1"
+    @Published var country: String = "AM"
+    @Published var code: String = "+374"
     @Published var phoneNumber: String = ""
+    @Published var flag: String = "🇦🇲"
     @Published var OTP: String = ""
     
     @Published var loading: Bool = false
@@ -47,10 +48,10 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func sendVerificationCode(phone: String) {
+    @MainActor func sendVerificationCode() {
         loading = true
         Task {
-            let result = await manager.sendVerificationCode(phone: phone)
+            let result = await manager.sendVerificationCode(phone: "+\(code)\(phoneNumber)")
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)

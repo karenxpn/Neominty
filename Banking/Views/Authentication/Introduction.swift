@@ -21,10 +21,9 @@ struct Introduction: View {
                                      count: authVM.introductionPages.count,
                                      index: $currentPage)
                     .transition(.slide)
-
                 }
                 
-            }.onAppear {
+            }.task {
                 authVM.getIntroductionPages()
             }.navigationTitle(Text(""))
         }

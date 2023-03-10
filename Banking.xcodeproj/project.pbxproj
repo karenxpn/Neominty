@@ -43,6 +43,11 @@
 		FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */; };
 		FFC2BCF929BB612100E774FD /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */; };
 		FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCFA29BB628D00E774FD /* TextHelper.swift */; };
+		FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCFC29BB6E2800E774FD /* Loading.swift */; };
+		FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */; };
+		FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0029BB6F0600E774FD /* Extensions.swift */; };
+		FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */; };
+		FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +102,11 @@
 		FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		FFC2BCFA29BB628D00E774FD /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
+		FFC2BCFC29BB6E2800E774FD /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeSelection.swift; sourceTree = "<group>"; };
+		FFC2BD0029BB6F0600E774FD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyPhoneNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +149,8 @@
 				FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */,
 				FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */,
 				FFC2BCFA29BB628D00E774FD /* TextHelper.swift */,
+				FFC2BCFC29BB6E2800E774FD /* Loading.swift */,
+				FFC2BD0029BB6F0600E774FD /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -183,6 +195,8 @@
 				FF18C25529BA8E70004EF3A3 /* Introduction.swift */,
 				FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */,
 				FF18C26029BB29DA004EF3A3 /* Authentication.swift */,
+				FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */,
+				FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -258,6 +272,7 @@
 		FFC2BCF129BB60E300E774FD /* font */ = {
 			isa = PBXGroup;
 			children = (
+				FFC2BD0229BB72E300E774FD /* Roboto-Medium.ttf */,
 				FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */,
 				FFC2BCF529BB612100E774FD /* Roboto-Bold.ttf */,
 				FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */,
@@ -382,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */,
 				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
 				FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
@@ -417,15 +433,19 @@
 			files = (
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
+				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
+				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
+				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
+				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
