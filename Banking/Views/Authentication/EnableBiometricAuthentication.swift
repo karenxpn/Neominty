@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EnableBiometricAuthentication: View {
+    @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @EnvironmentObject var authVM: AuthViewModel
     
     var body: some View {
@@ -34,10 +35,11 @@ struct EnableBiometricAuthentication: View {
                 
                 VStack( spacing: 24 ) {
                     ButtonHelper(disabled: false, label: NSLocalizedString("enableBiometric", comment: "")) {
-                        
+                        authVM.biometricAuthentication()
                     }
                     
                     Button {
+                        biometricEnabled = false
                         authVM.path = []
                     } label: {
                         TextHelper(text: NSLocalizedString("doItLater", comment: ""), color: AppColors.green, fontName: Roboto.bold.rawValue, fontSize: 16)

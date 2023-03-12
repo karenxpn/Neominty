@@ -99,3 +99,11 @@ enum ViewPaths : RawRepresentable, CaseIterable, Codable {
         }
     }
 }
+
+
+enum AuthenticationState {
+    case notDetermind
+    case setPasscode
+    case enterPasscode
+    case authenticated
+}

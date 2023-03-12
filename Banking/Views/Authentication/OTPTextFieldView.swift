@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct OTPTextFieldView: View {
-    
+    @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
+
     var maxDigits: Int = 6
     @Binding var pin: String
     @FocusState var focus: Int?
     var boxWidth: CGFloat = 45
     var boxHeight: CGFloat = 45
+    var authState: AuthenticationState = .enterPasscode
 
     var handler: (String) -> Void
     
@@ -23,7 +25,9 @@ struct OTPTextFieldView: View {
             backgroundField
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                focus = 0
+                if authState != .enterPasscode || (authState == .enterPasscode && !biometricEnabled) {
+                    focus = 0
+                }
             }
         }
     }

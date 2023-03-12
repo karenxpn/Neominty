@@ -14,14 +14,14 @@ struct ConfirmPin: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("setNewPasscode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: NSLocalizedString("confirmYourNewPasscode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
 
-                OTPTextFieldView(maxDigits: 5, pin: $authVM.passwordConfirm, boxWidth: 56, boxHeight: 56) { otp in
+                OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                     
                 }.padding(.top, 80)
 
                 Spacer()
-                ButtonHelper(disabled: authVM.passcode != authVM.passwordConfirm,
+                ButtonHelper(disabled: authVM.passcode != authVM.passcodeConfirm,
                              label: NSLocalizedString("confirm", comment: "")) {
                     authVM.storePin()
                 }

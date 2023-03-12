@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct AuthenticateWithPin: View {
+    @EnvironmentObject var authVM: AuthViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Loading(isShowing: $authVM.loading) {
+            VStack( alignment: .leading, spacing: 12) {
+                
+                TextHelper(text: NSLocalizedString("enterYourPasscode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+
+                OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .enterPasscode) { otp in
+                    
+                }.padding(.top, 80)
+
+                Spacer()
+                ButtonHelper(disabled: authVM.passcodeToBeMatched != authVM.passcodeConfirm ||
+                             authVM.passcodeToBeMatched.isEmpty,
+                             label: NSLocalizedString("confirm", comment: "")) {
+                    authVM.authState = .authenticated
+                }
+            }.ignoresSafeArea(.keyboard, edges: .bottom)
+                .padding(24)
+        }.navigationBarTitle("", displayMode: .inline)
+            .frame(
+                minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                maxHeight: .infinity,
+                alignment: .topLeading
+            )
     }
 }
 

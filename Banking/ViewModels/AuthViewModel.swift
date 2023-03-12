@@ -8,10 +8,12 @@
 import Foundation
 import SwiftUI
 import FirebaseAuth
+import LocalAuthentication
 
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @AppStorage("userID") var userID: String = ""
+    @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @Published var country: String = "AM"
     @Published var code: String = "374"
     @Published var phoneNumber: String = ""
@@ -24,10 +26,12 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @Published var introductionPages = [IntroductionModel]()
     
-    @Published var needNewPasscode: Bool = false
+    @Published var authState: AuthenticationState = .notDetermind
     @Published var passcode: String = ""
-    @Published var passwordConfirm: String = ""
-
+    @Published var passcodeConfirm: String = ""
+    
+    @Published var passcodeToBeMatched: String = ""
+    
     
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -117,14 +121,18 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func checkPinExistence() {
         loading = true
+        print("checking pin existence")
         Task {
             let result = await userManager.checkPinExistence(userID: userID)
-            print(result)
             switch result {
             case .failure(_):
-                self.needNewPasscode = true
+                self.authState = .setPasscode
             case .success(let pass):
-                self.needNewPasscode = false
+                self.authState = .enterPasscode
+                self.passcodeToBeMatched = pass
+                if self.biometricEnabled {
+                    self.biometricAuthentication()
+                }
             }
             
             if !Task.isCancelled {
@@ -137,12 +145,15 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             
-            let result = await userManager.storePin(userID: userID, pin: passwordConfirm)
-            print(result)
+            let result = await userManager.storePin(userID: userID, pin: passcodeConfirm)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success(()):
+                self.passcodeToBeMatched = self.passcode
+                self.authState = .enterPasscode
+                self.passcode = ""
+                self.passcodeConfirm = ""
                 self.path.append(ViewPaths.enableBiometric.rawValue)
             }
             
@@ -150,6 +161,41 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                 loading = false
             }
         }
+    }
+    
+    func biometricAuthentication() {
+        let context = LAContext()
+        var error: NSError?
+        
+        // check whether biometric authentication is possible
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            // it's possible, so go ahead and use it
+            let reason = "Confirm your fingerprint"
+            
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                // authentication has now completed
+                if success {
+                    DispatchQueue.main.async {
+                        self.biometricEnabled = true
+                        self.authState = .authenticated
+                        self.path = []
+                    }
+                } else {
+                    print(authenticationError)
+                    DispatchQueue.main.async {
+                        self.authState = .enterPasscode
+                        self.path = []
+                    }
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.biometricEnabled = false
+                self.authState = .enterPasscode
+                self.path = []
+            }
+        }
+        
     }
     
     

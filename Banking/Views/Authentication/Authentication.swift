@@ -10,35 +10,36 @@ import SwiftUI
 struct Authentication: View {
     
     @StateObject private var authVM = AuthViewModel()
-    @State private var paths = ["confirm", "biometric"]
 
     var body: some View {
         
         NavigationStack(path: $authVM.path) {
             ZStack {
                 
-                if authVM.loading {
+                if authVM.authState == .notDetermind {
                     ProgressView()
-                } else if authVM.needNewPasscode {
+                } else if authVM.authState == .setPasscode {
                     CreatePin()
                         .environmentObject(authVM)
-                } else {
+                } else if authVM.authState == .enterPasscode {
                     AuthenticateWithPin()
-    //                    .environmentObject(authVM)
+                        .environmentObject(authVM)
+                } else if authVM.authState == .authenticated {
+                    Text( "authenticated" )
                 }
                 
-            }.task {
-                authVM.checkPinExistence()
             }.navigationDestination(for: String.self) { value in
-                if value == "confirm" {
+                if value == ViewPaths.confirmPasscode.rawValue {
                     ConfirmPin()
                         .environmentObject(authVM)
-                } else if value == "biometric" {
+                } else if value == ViewPaths.enableBiometric.rawValue {
                     EnableBiometricAuthentication()
                         .environmentObject(authVM)
                 }
             }
-        }        
+        }      .task {
+            authVM.checkPinExistence()
+        }
     }
 }
 

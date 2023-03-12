@@ -216,11 +216,11 @@
 				FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */,
 				FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */,
 				FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */,
+				FF80569329BDF7230081AD76 /* Authentication.swift */,
 				FFC2BD0829BBC7E100E774FD /* CreatePin.swift */,
 				FF80569529BDFA510081AD76 /* ConfirmPin.swift */,
 				FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */,
 				FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */,
-				FF80569329BDF7230081AD76 /* Authentication.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
