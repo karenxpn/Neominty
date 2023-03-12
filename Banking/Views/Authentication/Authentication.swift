@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Authentication: View {
-    
+    @AppStorage("phoneNumber") var localPhone: String = ""
     @StateObject private var authVM = AuthViewModel()
 
     var body: some View {
@@ -28,12 +28,19 @@ struct Authentication: View {
                     Text( "authenticated" )
                 }
                 
-            }.navigationDestination(for: String.self) { value in
-                if value == ViewPaths.confirmPasscode.rawValue {
+            }.navigationDestination(for: ViewPaths.self) { value in
+                switch value {
+                case .confirmPasscode:
                     ConfirmPin()
                         .environmentObject(authVM)
-                } else if value == ViewPaths.enableBiometric.rawValue {
+                case .enableBiometric:
                     EnableBiometricAuthentication()
+                        .environmentObject(authVM)
+                case .verifyPhoneNumber:
+                    VerifyPhoneNumber(phone: localPhone, auth: false)
+                        .environmentObject(authVM)
+                case .setPasscode:
+                    CreatePin()
                         .environmentObject(authVM)
                 }
             }

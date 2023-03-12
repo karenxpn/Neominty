@@ -10,6 +10,8 @@ import SwiftUI
 struct VerifyPhoneNumber: View {
     @EnvironmentObject var authVM: AuthViewModel
     let phone: String
+    var auth: Bool = true
+    
     
     var body: some View {
         Loading(isShowing: $authVM.loading) {
@@ -37,7 +39,7 @@ struct VerifyPhoneNumber: View {
                 Spacer()
                 ButtonHelper(disabled: authVM.OTP.count != 6,
                              label: NSLocalizedString("confirm", comment: "")) {
-                    authVM.checkVerificationCode()
+                    authVM.checkVerificationCode(auth: auth)
                 }
             }.ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(24)

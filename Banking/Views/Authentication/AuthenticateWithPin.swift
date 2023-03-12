@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct AuthenticateWithPin: View {
+    @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @EnvironmentObject var authVM: AuthViewModel
+    
     var body: some View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
@@ -18,6 +20,14 @@ struct AuthenticateWithPin: View {
                 OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .enterPasscode) { otp in
                     
                 }.padding(.top, 80)
+                
+                Button {
+                    authVM.sendVerificationCode()
+                    biometricEnabled = false
+                } label: {
+                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), color: AppColors.green, fontName: Roboto.bold.rawValue, fontSize: 16)
+                }.padding(.top, 12)
+
 
                 Spacer()
                 ButtonHelper(disabled: authVM.passcodeToBeMatched != authVM.passcodeConfirm ||
@@ -34,7 +44,11 @@ struct AuthenticateWithPin: View {
                 minHeight: 0,
                 maxHeight: .infinity,
                 alignment: .topLeading
-            )
+            ).alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(authVM.alertMessage)
+            })
     }
 }
 

@@ -13,6 +13,7 @@ import LocalAuthentication
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @AppStorage("userID") var userID: String = ""
+    @AppStorage("phoneNumber") var localPhone: String = ""
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @Published var country: String = "AM"
     @Published var code: String = "374"
@@ -36,7 +37,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
-    @Published var path: [String] = []
+    @Published var path: [ViewPaths] = []
     
     var manager: AuthServiceProtocol
     var userManager: UserServiceProtocol
@@ -59,19 +60,21 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                 return
             }
             self.user = user
+            self.localPhone = user?.phoneNumber ?? ""
         }
     }
     
     @MainActor func sendVerificationCode(send: Bool = true) {
         loading = true
         Task {
-            let result = await manager.sendVerificationCode(phone: "+\(code)\(phoneNumber)")
+            let result = await manager.sendVerificationCode(phone: "\(localPhone.isEmpty ? "+\(code)\(phoneNumber)" : localPhone)")
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success(()):
                 if send {
                     self.navigate = true
+                    self.path.append(ViewPaths.verifyPhoneNumber)
                 } else {
                     break
                 }
@@ -83,7 +86,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func checkVerificationCode() {
+    @MainActor func checkVerificationCode(auth: Bool = true) {
         loading = true
         Task {
             
@@ -92,7 +95,11 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success(let uid):
-                self.userID = uid
+                if auth {
+                    self.userID = uid
+                } else {
+                    self.path.append(ViewPaths.setPasscode)
+                }
             }
             
             if !Task.isCancelled {
@@ -154,7 +161,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                 self.authState = .enterPasscode
                 self.passcode = ""
                 self.passcodeConfirm = ""
-                self.path.append(ViewPaths.enableBiometric.rawValue)
+                self.path.append(ViewPaths.enableBiometric)
             }
             
             if !Task.isCancelled {

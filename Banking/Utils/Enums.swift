@@ -73,31 +73,39 @@ enum Roboto : RawRepresentable, CaseIterable, Codable {
 }
 
 
-enum ViewPaths : RawRepresentable, CaseIterable, Codable {
+enum ViewPaths: Codable {
     
-    typealias RawValue = String
+//    typealias RawValue = String
     
+    case setPasscode
     case confirmPasscode
     case enableBiometric
-    case unknown(RawValue)
-    
-    static let allCases: AllCases = [
-        .confirmPasscode,
-        .enableBiometric
-    ]
-    
-    init(rawValue: RawValue) {
-        self = Self.allCases.first{ $0.rawValue == rawValue }
-        ?? .unknown(rawValue)
-    }
-    
-    var rawValue: RawValue {
-        switch self {
-        case .confirmPasscode                   : return "confirmPasscode"
-        case .enableBiometric                   : return "enableBiometric"
-        case let .unknown(value)                : return value
-        }
-    }
+    case verifyPhoneNumber
+//    case unknown(RawValue)
+//
+//    static let allCases: AllCases = [
+//        .setPasscode,
+//        .confirmPasscode,
+//        .enableBiometric,
+//        .forgorPasscode,
+//        .verifyPhoneNumber
+//    ]
+//
+//    init(rawValue: RawValue) {
+//        self = Self.allCases.first{ $0.rawValue == rawValue }
+//        ?? .unknown(rawValue)
+//    }
+//
+//    var rawValue: RawValue {
+//        switch self {
+//        case .setPasscode                       : return "setPasscode"
+//        case .confirmPasscode                   : return "confirmPasscode"
+//        case .enableBiometric                   : return "enableBiometric"
+//        case .forgorPasscode                    : return "forgotPasscode"
+//        case .verifyPhoneNumber                 : return "verifyPhoneNumber"
+//        case let .unknown(value)                : return value
+//        }
+//    }
 }
 
 

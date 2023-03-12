@@ -22,7 +22,7 @@ struct CreatePin: View {
             Spacer()
             ButtonHelper(disabled: authVM.passcode.count != 5,
                          label: NSLocalizedString("next", comment: "")) {
-                authVM.path.append(ViewPaths.confirmPasscode.rawValue)
+                authVM.path.append(ViewPaths.confirmPasscode)
             }
         }.ignoresSafeArea(.keyboard, edges: .bottom)
             .padding(24)
