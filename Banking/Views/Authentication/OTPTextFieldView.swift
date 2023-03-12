@@ -12,6 +12,8 @@ struct OTPTextFieldView: View {
     var maxDigits: Int = 6
     @Binding var pin: String
     @FocusState var focus: Int?
+    var boxWidth: CGFloat = 45
+    var boxHeight: CGFloat = 45
 
     var handler: (String) -> Void
     
@@ -34,7 +36,7 @@ struct OTPTextFieldView: View {
                     RoundedRectangle(cornerRadius: 12)
                         .strokeBorder(focus == index ? .black : .clear, lineWidth: 1)
                         .background(RoundedRectangle(cornerRadius: 12).fill(AppColors.superLightGray))
-                        .frame(width: 45, height: 45)
+                        .frame(width: boxWidth, height: boxHeight)
                     
                     TextHelper(text: self.getDigits(at: index), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                 }

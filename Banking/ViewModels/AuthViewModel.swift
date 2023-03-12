@@ -11,6 +11,7 @@ import FirebaseAuth
 
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
+    @AppStorage("userID") var userID: String = ""
     @Published var country: String = "AM"
     @Published var code: String = "374"
     @Published var phoneNumber: String = ""
@@ -22,15 +23,24 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     @Published var navigate: Bool = false
     
     @Published var introductionPages = [IntroductionModel]()
+    
+    @Published var needNewPasscode: Bool = false
+    @Published var passcode: String = ""
+    @Published var passwordConfirm: String = ""
 
     
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
-    var manager: AuthServiceProtocol
+    @Published var path: [String] = []
     
-    init(manager: AuthServiceProtocol = AuthService.shared) {
+    var manager: AuthServiceProtocol
+    var userManager: UserServiceProtocol
+    
+    init(manager: AuthServiceProtocol = AuthService.shared,
+         userManager: UserServiceProtocol = UserSerive.shared) {
         self.manager = manager
+        self.userManager = userManager
     }
     
     var user: User? {
@@ -77,8 +87,8 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
-            case .success( _):
-                break
+            case .success(let uid):
+                self.userID = uid
             }
             
             if !Task.isCancelled {
@@ -104,6 +114,44 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             }
         }
     }
+    
+    @MainActor func checkPinExistence() {
+        loading = true
+        Task {
+            let result = await userManager.checkPinExistence(userID: userID)
+            print(result)
+            switch result {
+            case .failure(_):
+                self.needNewPasscode = true
+            case .success(let pass):
+                self.needNewPasscode = false
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func storePin() {
+        loading = true
+        Task {
+            
+            let result = await userManager.storePin(userID: userID, pin: passwordConfirm)
+            print(result)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
+            case .success(()):
+                self.path.append(ViewPaths.enableBiometric.rawValue)
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
     
     func signOut() {
         do {

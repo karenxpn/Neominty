@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct EnableBiometricAuthentication: View {
+    @EnvironmentObject var authVM: AuthViewModel
+    
     var body: some View {
         ZStack {
             
@@ -36,7 +38,7 @@ struct EnableBiometricAuthentication: View {
                     }
                     
                     Button {
-                        
+                        authVM.path = []
                     } label: {
                         TextHelper(text: NSLocalizedString("doItLater", comment: ""), color: AppColors.green, fontName: Roboto.bold.rawValue, fontSize: 16)
                     }

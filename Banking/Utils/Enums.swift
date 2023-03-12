@@ -12,10 +12,12 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     typealias RawValue = String
     
     case introduction
+    case pins
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .introduction,
+        .pins
     ]
     
     init(rawValue: RawValue) {
@@ -26,6 +28,7 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     var rawValue: RawValue {
         switch self {
         case .introduction                      : return "introduction"
+        case .pins                              : return "pins"
         case let .unknown(value)                : return value
         }
     }
@@ -64,6 +67,34 @@ enum Roboto : RawRepresentable, CaseIterable, Codable {
         case .regular                   : return "Roboto-Regular"
         case .light                     : return "Roboto-Light"
         case .medium                    : return "Roboto-Medium"
+        case let .unknown(value)                : return value
+        }
+    }
+}
+
+
+enum ViewPaths : RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case confirmPasscode
+    case enableBiometric
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .confirmPasscode,
+        .enableBiometric
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .confirmPasscode                   : return "confirmPasscode"
+        case .enableBiometric                   : return "enableBiometric"
         case let .unknown(value)                : return value
         }
     }

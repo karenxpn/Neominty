@@ -19,7 +19,7 @@
 		FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */; };
 		FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25B29BB25AF004EF3A3 /* AuthService.swift */; };
 		FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C25D29BB2677004EF3A3 /* APIHelper.swift */; };
-		FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26029BB29DA004EF3A3 /* Authentication.swift */; };
+		FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26029BB29DA004EF3A3 /* PhoneAuthentication.swift */; };
 		FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26229BB2D0B004EF3A3 /* Enums.swift */; };
 		FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */; };
 		FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */; };
@@ -36,6 +36,11 @@
 		FF628E1929BA2CD200FE35EE /* BankingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1829BA2CD200FE35EE /* BankingUITests.swift */; };
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
+		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
+		FF80569029BDF5A80081AD76 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568F29BDF5A80081AD76 /* PinModel.swift */; };
+		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
+		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
+		FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569529BDFA510081AD76 /* ConfirmPin.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -79,7 +84,7 @@
 		FF18C25B29BB25AF004EF3A3 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FF18C25D29BB2677004EF3A3 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		FF18C25F29BB28F3004EF3A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		FF18C26029BB29DA004EF3A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		FF18C26029BB29DA004EF3A3 /* PhoneAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthentication.swift; sourceTree = "<group>"; };
 		FF18C26229BB2D0B004EF3A3 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionModel.swift; sourceTree = "<group>"; };
 		FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPage.swift; sourceTree = "<group>"; };
@@ -98,6 +103,11 @@
 		FF628E1829BA2CD200FE35EE /* BankingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITests.swift; sourceTree = "<group>"; };
 		FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
+		FF80568F29BDF5A80081AD76 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
+		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		FF80569529BDFA510081AD76 /* ConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPin.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -183,6 +193,7 @@
 			children = (
 				FF18C25D29BB2677004EF3A3 /* APIHelper.swift */,
 				FF18C25B29BB25AF004EF3A3 /* AuthService.swift */,
+				FF80569129BDF6730081AD76 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
+				FF80568F29BDF5A80081AD76 /* PinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,12 +212,15 @@
 			children = (
 				FF18C25529BA8E70004EF3A3 /* Introduction.swift */,
 				FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */,
-				FF18C26029BB29DA004EF3A3 /* Authentication.swift */,
+				FF18C26029BB29DA004EF3A3 /* PhoneAuthentication.swift */,
 				FFC2BCFE29BB6E7100E774FD /* CountryCodeSelection.swift */,
 				FFC2BD0429BB751600E774FD /* VerifyPhoneNumber.swift */,
 				FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */,
 				FFC2BD0829BBC7E100E774FD /* CreatePin.swift */,
+				FF80569529BDFA510081AD76 /* ConfirmPin.swift */,
+				FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */,
 				FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */,
+				FF80569329BDF7230081AD76 /* Authentication.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -450,11 +465,14 @@
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
+				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
+				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
@@ -463,7 +481,9 @@
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
-				FF18C26129BB29DA004EF3A3 /* Authentication.swift in Sources */,
+				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
+				FF80569029BDF5A80081AD76 /* PinModel.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

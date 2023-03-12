@@ -23,3 +23,6 @@
 "enableBiometric" = "Enable biometric Access";
 "biometricAccessMessage" = "Login quickly and securely with the fingerprint stored on this device";
 "doItLater" = "I’ll do this later";
+"setNewPasscode" = "Set new passcode";
+"confirmYourNewPasscode" = "Confirm your new passcode";
+"enterYourPasscode" = "Enter your passcode";

@@ -14,7 +14,7 @@ struct ContentView: View {
         Group {
             
             if authVM.user != nil {
-                Text("User here")
+                Authentication()
             } else {
                 Introduction()
                     .environmentObject(authVM)
@@ -22,7 +22,7 @@ struct ContentView: View {
             
         }.onAppear {
             authVM.listenToAuthState()
-            authVM.signOut()
+//            authVM.signOut()
         }
     }
 }

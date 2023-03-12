@@ -59,7 +59,7 @@ struct IntroductionPage: View {
                         }
                     }.padding(.top, 18)
                         .navigationDestination(isPresented: $authenticate) {
-                            Authentication()
+                            PhoneAuthentication()
                         }
                     
                     
@@ -76,7 +76,7 @@ struct IntroductionPage: View {
                         } label: {
                             TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
                         }.navigationDestination(isPresented: $authenticate) {
-                            Authentication()
+                            PhoneAuthentication()
                         }
                         
                     }
