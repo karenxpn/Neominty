@@ -13,6 +13,7 @@ protocol AuthServiceProtocol {
     func sendVerificationCode(phone: String) async -> Result<Void, Error>
     func checkVerificationCode(code: String) async -> Result<String, Error>
     func fetchIntroduction() async -> Result<[IntroductionModel], Error>
+    func signOut() async -> Result<Void, Error>
 }
 
 class AuthService {
@@ -23,6 +24,13 @@ class AuthService {
 
 
 extension AuthService: AuthServiceProtocol {
+    
+    func signOut() async -> Result<Void, Error> {
+        return await APIHelper.shared.voidRequest {
+            try Auth.auth().signOut()
+        }
+    }
+    
     func sendVerificationCode(phone: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
             let verificationID = try await PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil)

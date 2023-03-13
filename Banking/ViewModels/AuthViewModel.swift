@@ -128,7 +128,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func checkPinExistence() {
         loading = true
-        print("checking pin existence")
         Task {
             let result = await userManager.checkPinExistence(userID: userID)
             switch result {
@@ -188,7 +187,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                         self.path = []
                     }
                 } else {
-                    print(authenticationError)
                     DispatchQueue.main.async {
                         self.authState = .enterPasscode
                         self.path = []
@@ -207,10 +205,17 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     
     func signOut() {
-        do {
-            try Auth.auth().signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
+        loading = true
+        Task {
+            let result = await manager.signOut()
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
+            case .success(()):
+                userID = ""
+                localPhone = ""
+                biometricEnabled = false
+            }
         }
     }
 }
