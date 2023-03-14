@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 import LocalAuthentication
+import KeychainSwift
 
 final class AuthViewModel: AlertViewModel, ObservableObject {
     
@@ -30,9 +31,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     @Published var authState: AuthenticationState = .notDetermind
     @Published var passcode: String = ""
     @Published var passcodeConfirm: String = ""
-    
-    @Published var passcodeToBeMatched: String = ""
-    
+        
     
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -40,12 +39,12 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     @Published var path: [ViewPaths] = []
     
     var manager: AuthServiceProtocol
-    var userManager: UserServiceProtocol
+    var keychainManager: KeychainSwift
     
     init(manager: AuthServiceProtocol = AuthService.shared,
-         userManager: UserServiceProtocol = UserSerive.shared) {
+         keychainManager: KeychainSwift = KeychainManager.shared) {
         self.manager = manager
-        self.userManager = userManager
+        self.keychainManager = keychainManager
     }
     
     var user: User? {
@@ -126,46 +125,33 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func checkPinExistence() {
-        loading = true
-        Task {
-            let result = await userManager.checkPinExistence(userID: userID)
-            switch result {
-            case .failure(_):
-                self.authState = .setPasscode
-            case .success(let pass):
-                self.authState = .enterPasscode
-                self.passcodeToBeMatched = pass
-                if self.biometricEnabled {
-                    self.biometricAuthentication()
-                }
+    func checkPinExistence() {
+        let pin = keychainManager.get("pin")
+        if let pin {
+            self.authState = .enterPasscode
+            if self.biometricEnabled {
+                self.biometricAuthentication()
             }
-            
-            if !Task.isCancelled {
-                loading = false
-            }
+        } else {
+            self.authState = .setPasscode
         }
     }
     
-    @MainActor func storePin() {
-        loading = true
-        Task {
-            
-            let result = await userManager.storePin(userID: userID, pin: passcodeConfirm)
-            switch result {
-            case .failure(let error):
-                self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
-            case .success(()):
-                self.passcodeToBeMatched = self.passcode
-                self.authState = .enterPasscode
-                self.passcode = ""
-                self.passcodeConfirm = ""
-                self.path.append(ViewPaths.enableBiometric)
-            }
-            
-            if !Task.isCancelled {
-                loading = false
-            }
+    func storePin() {
+        
+        keychainManager.set(passcode, forKey: "pin")
+        self.authState = .enterPasscode
+        self.passcode = ""
+        self.passcodeConfirm = ""
+        self.path.append(ViewPaths.enableBiometric)
+    }
+    
+    func checkPin() {
+        if passcodeConfirm == keychainManager.get("pin") {
+            self.authState = .authenticated
+        } else {
+            self.alertMessage = "Your pin is incorrect"
+            self.showAlert.toggle()
         }
     }
     
