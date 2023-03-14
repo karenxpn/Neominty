@@ -30,6 +30,7 @@
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
+		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
+				FF45204929C09705003C6415 /* CustomTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
+				FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
