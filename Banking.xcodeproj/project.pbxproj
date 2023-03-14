@@ -28,6 +28,8 @@
 		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
+		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
+		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -92,6 +94,7 @@
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
 				FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */,
+				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
 				FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */,
 				FF18C24929BA8010004EF3A3 /* FirebaseStorage in Frameworks */,
 				FF18C24729BA8010004EF3A3 /* FirebaseFirestoreSwift in Frameworks */,
@@ -194,6 +198,7 @@
 				FF18C25D29BB2677004EF3A3 /* APIHelper.swift */,
 				FF18C25B29BB25AF004EF3A3 /* AuthService.swift */,
 				FF80569129BDF6730081AD76 /* UserService.swift */,
+				FF45204429C079C3003C6415 /* KeychainManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				FF18C24629BA8010004EF3A3 /* FirebaseFirestoreSwift */,
 				FF18C24829BA8010004EF3A3 /* FirebaseStorage */,
 				FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */,
+				FF45204729C07B1E003C6415 /* KeychainSwift */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -404,6 +410,7 @@
 			packageReferences = (
 				FF18C23F29BA8010004EF3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -477,6 +484,7 @@
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
+				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
@@ -831,6 +839,14 @@
 				kind = branch;
 			};
 		};
+		FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -863,6 +879,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		FF45204729C07B1E003C6415 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -30,10 +30,9 @@ struct AuthenticateWithPin: View {
 
 
                 Spacer()
-                ButtonHelper(disabled: authVM.passcodeToBeMatched != authVM.passcodeConfirm ||
-                             authVM.passcodeToBeMatched.isEmpty,
+                ButtonHelper(disabled: authVM.passcodeConfirm.count != 5,
                              label: NSLocalizedString("confirm", comment: "")) {
-                    authVM.authState = .authenticated
+                    authVM.checkPin()
                 }
             }.ignoresSafeArea(.keyboard, edges: .bottom)
                 .padding(24)
