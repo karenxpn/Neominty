@@ -42,8 +42,7 @@ struct MainView: View {
             CustomTabView()
                 .environmentObject(viewRouter)
             
-        }.edgesIgnoringSafeArea(.bottom)
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 // send request for offline
             }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 // send request for online

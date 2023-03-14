@@ -21,7 +21,7 @@ struct CustomTabView: View {
     var body: some View {
         Group {
             if tab {
-                ZStack(alignment: .top) {
+                ZStack {
                     
                     Rectangle()
                         .fill(.white)
@@ -62,7 +62,7 @@ struct CustomTabView: View {
                         
                     }.frame(minWidth: 0, maxWidth: .infinity)
                         .padding(10)
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 98)
+                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 64)
             } else {
                 EmptyView()
             }
