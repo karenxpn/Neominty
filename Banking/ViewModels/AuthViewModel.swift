@@ -200,6 +200,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             case .success(()):
                 userID = ""
                 localPhone = ""
+                self.keychainManager.delete("pin")
                 biometricEnabled = false
             }
         }
