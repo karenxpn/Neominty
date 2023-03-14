@@ -12,12 +12,10 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     typealias RawValue = String
     
     case introduction
-    case pins
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .introduction,
-        .pins
     ]
     
     init(rawValue: RawValue) {
@@ -28,7 +26,6 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     var rawValue: RawValue {
         switch self {
         case .introduction                      : return "introduction"
-        case .pins                              : return "pins"
         case let .unknown(value)                : return value
         }
     }
