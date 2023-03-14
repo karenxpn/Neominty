@@ -150,7 +150,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         if passcodeConfirm == keychainManager.get("pin") {
             self.authState = .authenticated
         } else {
-            self.alertMessage = "Your pin is incorrect"
+            self.alertMessage = NSLocalizedString("incorrectPin", comment: "")
             self.showAlert.toggle()
         }
     }
