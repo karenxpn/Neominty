@@ -28,3 +28,7 @@
 "enterYourPasscode" = "Enter your passcode";
 "forgotPasscode" = "Forgot Passcode?";
 "incorrectPin" = "Your pin is incorrect, if you forgot it you can restore.";
+"home" = "Home";
+"myCard" = "My Card";
+"activity" = "Activity";
+"profile" = "Profile";

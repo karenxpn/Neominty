@@ -14,4 +14,5 @@ struct AppColors {
     static let gray = Color(uiColor: UIColor(red: 107/255, green: 114/255, blue: 128/255, alpha: 1))
     static let superLightGray = Color(uiColor: UIColor(red: 249/255, green: 250/255, blue: 251/255, alpha: 1))
     static let green = Color(uiColor: UIColor(red: 29/255, green: 171/255, blue: 135/255, alpha: 1))
+    static let shadow = Color(uiColor: UIColor(red: 156/255, green: 163/255, blue: 175/255, alpha: 0.04))
 }
