@@ -39,7 +39,6 @@
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
-		FF80569029BDF5A80081AD76 /* PinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568F29BDF5A80081AD76 /* PinModel.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
 		FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569529BDFA510081AD76 /* ConfirmPin.swift */; };
@@ -107,7 +106,6 @@
 		FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
-		FF80568F29BDF5A80081AD76 /* PinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinModel.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FF80569529BDFA510081AD76 /* ConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPin.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
-				FF80568F29BDF5A80081AD76 /* PinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -491,7 +488,6 @@
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
-				FF80569029BDF5A80081AD76 /* PinModel.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,6 +654,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -688,6 +685,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
