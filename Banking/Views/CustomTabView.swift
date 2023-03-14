@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct CustomTabView: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     let icons = ["home_icon", "card_icon", "scan_icon", "activity_icon", "profile_icon"]
+    let icon_lables = [NSLocalizedString("home", comment: ""),
+                       NSLocalizedString("myCard", comment: ""),
+                       NSLocalizedString("", comment: ""),
+                       NSLocalizedString("activity", comment: ""),
+                       NSLocalizedString("profile", comment: "")]
     @State private var tab: Bool = true
-
+    
     
     var body: some View {
         Group {
             if tab {
-                ZStack {
+                ZStack(alignment: .top) {
                     
                     Rectangle()
                         .fill(.white)
-                        .cornerRadius(35, corners: [.topLeft, .topRight])
-                        .shadow(radius: 2)
+                        .shadow(color: AppColors.shadow, radius: 16, y: -12)
                     
                     HStack {
                         
@@ -29,24 +34,27 @@ struct CustomTabView: View {
                             Spacer()
                             Button {
                                 withAnimation {
-                                    
+                                    viewRouter.tab = id
                                 }
                             } label: {
-                                ZStack {
-                                    
-                                    if id == 2 {
-                                        Circle()
-                                            .fill(AppColors.green)
-                                            .frame(width: 48, height: 48)
-                                    }
+                                VStack(spacing: 4) {
                                     
                                     Image(icons[id])
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(id == 2 ? .white : AppColors.gray)
+                                        .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? AppColors.darkBlue : AppColors.gray)
                                         .frame(width: 28, height: 28)
+                                        .background(id == 2 ?
+                                                    AnyView(Circle()
+                                                        .fill(AppColors.green)
+                                                        .frame(width: 48, height: 48)) :
+                                                        AnyView(EmptyView()))
                                     
-                                }.padding(10)
+                                    
+                                    if id != 2 {
+                                        TextHelper(text: icon_lables[id], color: viewRouter.tab == id ? AppColors.darkBlue : AppColors.gray)
+                                    }
+                                }
                             }
                             
                             Spacer()
@@ -54,7 +62,7 @@ struct CustomTabView: View {
                         
                     }.frame(minWidth: 0, maxWidth: .infinity)
                         .padding(10)
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: UIScreen.main.bounds.size.height * 0.1)
+                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 98)
             } else {
                 EmptyView()
             }
@@ -71,5 +79,6 @@ struct CustomTabView: View {
 struct CustomTabView_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabView()
+            .environmentObject(ViewRouter())
     }
 }
