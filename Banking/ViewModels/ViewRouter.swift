@@ -9,12 +9,21 @@ import Foundation
 import SwiftUI
 
 class ViewRouter: ObservableObject {
+    @AppStorage("firstInstall") var firstInstall: Bool = true
+    
     @Published var tab: Int = 0
     @Published var homePath = NavigationPath()
     @Published var cardPath = NavigationPath()
     @Published var scanPath = NavigationPath()
     @Published var analyticsPath = NavigationPath()
     @Published var profilePath = NavigationPath()
+    
+    init() {
+        if self.firstInstall {
+            tab = 1
+            self.firstInstall = false
+        }
+    }
     
     // add new view
     func pushHomePath(_ page: HomeViewPaths) {
