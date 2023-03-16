@@ -34,6 +34,19 @@ struct CustomTabView: View {
                             Spacer()
                             Button {
                                 withAnimation {
+                                    if viewRouter.tab == id {
+                                        if id == 0 {
+                                            viewRouter.popToHomeRoot()
+                                        } else if id == 1 {
+                                            viewRouter.popToCardRoot()
+                                        } else if id == 2 {
+                                            viewRouter.popToScanRoot()
+                                        } else if id == 3 {
+                                            viewRouter.popToAnalyticsRoot()
+                                        } else if id == 4 {
+                                            viewRouter.popToProfileRoot()
+                                        }
+                                    }
                                     viewRouter.tab = id
                                 }
                             } label: {
@@ -62,7 +75,7 @@ struct CustomTabView: View {
                         
                     }.frame(minWidth: 0, maxWidth: .infinity)
                         .padding(10)
-                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 64)
+                }.frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: 98)
             } else {
                 EmptyView()
             }

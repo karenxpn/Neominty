@@ -33,6 +33,9 @@
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
 		FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204B29C0FB3D003C6415 /* MainView.swift */; };
 		FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204D29C0FB95003C6415 /* ViewRouter.swift */; };
+		FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204F29C33B01003C6415 /* ViewPaths.swift */; };
+		FF45205329C33D9B003C6415 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205229C33D9B003C6415 /* HomeView.swift */; };
+		FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205429C33DD7003C6415 /* AllTransactions.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -100,6 +103,9 @@
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FF45204D29C0FB95003C6415 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		FF45204F29C33B01003C6415 /* ViewPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPaths.swift; sourceTree = "<group>"; };
+		FF45205229C33D9B003C6415 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FF45205429C33DD7003C6415 /* AllTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactions.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		FF18C24E29BA8E1B004EF3A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FF45204F29C33B01003C6415 /* ViewPaths.swift */,
 				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
 				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
 				FF18C26C29BB3226004EF3A3 /* AppColors.swift */,
@@ -182,6 +189,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF45205129C33D89003C6415 /* Home */,
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
 				FF45204929C09705003C6415 /* CustomTabView.swift */,
 				FF45204B29C0FB3D003C6415 /* MainView.swift */,
@@ -234,6 +242,15 @@
 				FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FF45205129C33D89003C6415 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FF45205229C33D9B003C6415 /* HomeView.swift */,
+				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		FF628DF129BA2CD000FE35EE = {
@@ -476,7 +493,9 @@
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
+				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
+				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
@@ -501,6 +520,7 @@
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
+				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

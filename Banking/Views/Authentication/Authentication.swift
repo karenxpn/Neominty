@@ -45,6 +45,8 @@ struct Authentication: View {
                         case .setPasscode:
                             CreatePin()
                                 .environmentObject(authVM)
+                        default:
+                            EmptyView()
                         }
                     }
                 }

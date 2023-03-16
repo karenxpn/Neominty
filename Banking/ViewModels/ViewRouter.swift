@@ -6,6 +6,77 @@
 //
 
 import Foundation
+import SwiftUI
+
 class ViewRouter: ObservableObject {
     @Published var tab: Int = 0
+    @Published var homePath = NavigationPath()
+    @Published var cardPath = NavigationPath()
+    @Published var scanPath = NavigationPath()
+    @Published var analyticsPath = NavigationPath()
+    @Published var profilePath = NavigationPath()
+    
+    // add new view
+    func pushHomePath(_ page: HomeViewPaths) {
+        homePath.append(page)
+    }
+    
+    func pushCardPath(_ page: MyCardViewPaths) {
+        cardPath.append(page)
+    }
+    
+    func pushScanPath(_ page: ScanViewPaths) {
+        scanPath.append(page)
+    }
+    
+    func pushAnalyicsPath(_ page: AnalyticsViewPaths) {
+        analyticsPath.append(page)
+    }
+    
+    func pushProfilePath(_ page: ProfileViewPaths) {
+        profilePath.append(page)
+    }
+    
+    // pop one view
+    func popHomaPath() {
+        homePath.removeLast()
+    }
+    
+    func popCardPath() {
+        cardPath.removeLast()
+    }
+    
+    func popScanPath() {
+        scanPath.removeLast()
+    }
+    
+    func popAnalyticsPath() {
+        analyticsPath.removeLast()
+    }
+    
+    func popProfilePath() {
+        profilePath.removeLast()
+    }
+    
+    // pop root view
+    
+    func popToHomeRoot() {
+        homePath.removeLast(homePath.count)
+    }
+    
+    func popToCardRoot() {
+        cardPath.removeLast(cardPath.count)
+    }
+    
+    func popToScanRoot() {
+        scanPath.removeLast(scanPath.count)
+    }
+    
+    func popToAnalyticsRoot() {
+        analyticsPath.removeLast(analyticsPath.count)
+    }
+    
+    func popToProfileRoot() {
+        profilePath.removeLast(profilePath.count)
+    }
 }

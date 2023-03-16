@@ -16,7 +16,7 @@ struct MainView: View {
             VStack {
                 
                 if viewRouter.tab == 0 {
-                    Text("Home")
+                    HomeView()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 1 {
@@ -40,13 +40,13 @@ struct MainView: View {
             }
             
             CustomTabView()
-                .environmentObject(viewRouter)
             
-        }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
+        }.edgesIgnoringSafeArea(.bottom)
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 // send request for offline
             }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 // send request for online
-            }
+            }.environmentObject(viewRouter)
     }
 }
 
