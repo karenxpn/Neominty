@@ -12,11 +12,17 @@ struct HomeView: View {
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
-            Button {
-                viewRouter.pushHomePath(.allTransactions)
-            } label: {
-                Text( "navigate to all transactions")
-                    .padding(.all, 20)
+            
+            ScrollView(showsIndicators: false) {
+                HomeMenu()
+                    .environmentObject(viewRouter)
+                
+                Button {
+                    viewRouter.pushHomePath(.allTransactions)
+                } label: {
+                    Text( "navigate to all transactions")
+                        .padding(.all, 20)
+                }
             }.navigationTitle(Text(""))
             .navigationDestination(for: HomeViewPaths.self) { page in
                 switch page {
@@ -24,6 +30,14 @@ struct HomeView: View {
                     AllTransactions()
                 case .home:
                     HomeView()
+                case .send:
+                    MoneyTransfer()
+                case .exchange:
+                    Exchange()
+                case .receive:
+                    RequestTransfer()
+                case .more:
+                    MoreTransfers()
                 }
             }
         }

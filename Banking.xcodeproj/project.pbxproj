@@ -37,6 +37,12 @@
 		FF45205329C33D9B003C6415 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205229C33D9B003C6415 /* HomeView.swift */; };
 		FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205429C33DD7003C6415 /* AllTransactions.swift */; };
 		FF45205729C66453003C6415 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205629C66453003C6415 /* CardModel.swift */; };
+		FF45205929C66712003C6415 /* HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205829C66712003C6415 /* HomeMenu.swift */; };
+		FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205A29C66794003C6415 /* HomeMenuItem.swift */; };
+		FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205C29C66A88003C6415 /* MoneyTransfer.swift */; };
+		FF45205F29C66A96003C6415 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205E29C66A96003C6415 /* Exchange.swift */; };
+		FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206029C66AA2003C6415 /* RequestTransfer.swift */; };
+		FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206229C66AB5003C6415 /* MoreTransfers.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -108,6 +114,12 @@
 		FF45205229C33D9B003C6415 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FF45205429C33DD7003C6415 /* AllTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactions.swift; sourceTree = "<group>"; };
 		FF45205629C66453003C6415 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		FF45205829C66712003C6415 /* HomeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenu.swift; sourceTree = "<group>"; };
+		FF45205A29C66794003C6415 /* HomeMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuItem.swift; sourceTree = "<group>"; };
+		FF45205C29C66A88003C6415 /* MoneyTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransfer.swift; sourceTree = "<group>"; };
+		FF45205E29C66A96003C6415 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		FF45206029C66AA2003C6415 /* RequestTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransfer.swift; sourceTree = "<group>"; };
+		FF45206229C66AB5003C6415 /* MoreTransfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTransfers.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -252,6 +264,12 @@
 			children = (
 				FF45205229C33D9B003C6415 /* HomeView.swift */,
 				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
+				FF45205829C66712003C6415 /* HomeMenu.swift */,
+				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
+				FF45205C29C66A88003C6415 /* MoneyTransfer.swift */,
+				FF45205E29C66A96003C6415 /* Exchange.swift */,
+				FF45206029C66AA2003C6415 /* RequestTransfer.swift */,
+				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -488,7 +506,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */,
 				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
+				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
@@ -501,6 +521,7 @@
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
+				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
@@ -511,11 +532,14 @@
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
+				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
+				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
+				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
