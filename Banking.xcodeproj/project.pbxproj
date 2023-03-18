@@ -36,6 +36,7 @@
 		FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204F29C33B01003C6415 /* ViewPaths.swift */; };
 		FF45205329C33D9B003C6415 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205229C33D9B003C6415 /* HomeView.swift */; };
 		FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205429C33DD7003C6415 /* AllTransactions.swift */; };
+		FF45205729C66453003C6415 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205629C66453003C6415 /* CardModel.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -106,6 +107,7 @@
 		FF45204F29C33B01003C6415 /* ViewPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPaths.swift; sourceTree = "<group>"; };
 		FF45205229C33D9B003C6415 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FF45205429C33DD7003C6415 /* AllTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactions.swift; sourceTree = "<group>"; };
+		FF45205629C66453003C6415 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
+				FF45205629C66453003C6415 /* CardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -505,6 +508,7 @@
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
+				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
