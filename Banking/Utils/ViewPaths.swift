@@ -26,6 +26,7 @@ enum HomeViewPaths: String, Identifiable {
     case exchange
     case receive
     case more
+    case notifications
     case allTransactions
     
     var id: String {

@@ -23,7 +23,27 @@ struct HomeView: View {
                     Text( "navigate to all transactions")
                         .padding(.all, 20)
                 }
-            }.navigationTitle(Text(""))
+            }.padding(.top, 1)
+            .navigationTitle(Text(""))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                            
+                            TextHelper(text: "Tonny Monthana", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                        }
+                        
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            viewRouter.pushHomePath(.notifications)
+                        } label: {
+                            Image("notification")
+                        }
+
+                    }
+                }
             .navigationDestination(for: HomeViewPaths.self) { page in
                 switch page {
                 case .allTransactions:
@@ -38,6 +58,8 @@ struct HomeView: View {
                     RequestTransfer()
                 case .more:
                     MoreTransfers()
+                case .notifications:
+                    Notifications()
                 }
             }
         }

@@ -43,6 +43,7 @@
 		FF45205F29C66A96003C6415 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205E29C66A96003C6415 /* Exchange.swift */; };
 		FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206029C66AA2003C6415 /* RequestTransfer.swift */; };
 		FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206229C66AB5003C6415 /* MoreTransfers.swift */; };
+		FF45206529C66DAD003C6415 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206429C66DAD003C6415 /* Notifications.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -120,6 +121,7 @@
 		FF45205E29C66A96003C6415 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		FF45206029C66AA2003C6415 /* RequestTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransfer.swift; sourceTree = "<group>"; };
 		FF45206229C66AB5003C6415 /* MoreTransfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTransfers.swift; sourceTree = "<group>"; };
+		FF45206429C66DAD003C6415 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				FF45205E29C66A96003C6415 /* Exchange.swift */,
 				FF45206029C66AA2003C6415 /* RequestTransfer.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
+				FF45206429C66DAD003C6415 /* Notifications.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
+				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
