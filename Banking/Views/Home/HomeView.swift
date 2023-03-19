@@ -14,8 +14,15 @@ struct HomeView: View {
         NavigationStack(path: $viewRouter.homePath) {
             
             ScrollView(showsIndicators: false) {
-                HomeMenu()
-                    .environmentObject(viewRouter)
+                
+                ZStack(alignment: .bottom) {
+                    
+                    Image("layer-blur")
+                        .opacity(0.9)
+
+                    HomeMenu()
+                        .environmentObject(viewRouter)
+                }
                 
                 Button {
                     viewRouter.pushHomePath(.allTransactions)
@@ -48,8 +55,6 @@ struct HomeView: View {
                 switch page {
                 case .allTransactions:
                     AllTransactions()
-                case .home:
-                    HomeView()
                 case .send:
                     MoneyTransfer()
                 case .exchange:

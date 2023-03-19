@@ -27,7 +27,8 @@ struct HomeMenu: View {
                     viewRouter.pushHomePath(paths[id])
                 }.environmentObject(viewRouter)
             }
-        }
+        }.padding(.vertical, 15)
+        .background(AppColors.whiteOpacity)
     }
 }
 
