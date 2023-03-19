@@ -21,7 +21,11 @@ enum ViewPaths: String, Identifiable {
 }
 
 enum HomeViewPaths: String, Identifiable {
-    case home
+    case send
+    case exchange
+    case receive
+    case more
+    case notifications
     case allTransactions
     
     var id: String {
