@@ -44,6 +44,9 @@
 		FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206029C66AA2003C6415 /* RequestTransfer.swift */; };
 		FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206229C66AB5003C6415 /* MoreTransfers.swift */; };
 		FF45206529C66DAD003C6415 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206429C66DAD003C6415 /* Notifications.swift */; };
+		FF45206729C72D40003C6415 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206629C72D40003C6415 /* UserCard.swift */; };
+		FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206829C7336C003C6415 /* CardHexDesign.swift */; };
+		FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206C29C733B7003C6415 /* HomeViewModel.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -122,6 +125,9 @@
 		FF45206029C66AA2003C6415 /* RequestTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransfer.swift; sourceTree = "<group>"; };
 		FF45206229C66AB5003C6415 /* MoreTransfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTransfers.swift; sourceTree = "<group>"; };
 		FF45206429C66DAD003C6415 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		FF45206629C72D40003C6415 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		FF45206829C7336C003C6415 /* CardHexDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHexDesign.swift; sourceTree = "<group>"; };
+		FF45206C29C733B7003C6415 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 				FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */,
 				FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */,
 				FF45204D29C0FB95003C6415 /* ViewRouter.swift */,
+				FF45206C29C733B7003C6415 /* HomeViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -273,6 +280,8 @@
 				FF45206029C66AA2003C6415 /* RequestTransfer.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
 				FF45206429C66DAD003C6415 /* Notifications.swift */,
+				FF45206629C72D40003C6415 /* UserCard.swift */,
+				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -522,6 +531,7 @@
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
+				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
@@ -549,6 +559,8 @@
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
+				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
+				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,

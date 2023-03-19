@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
+    @StateObject private var homeVM = HomeViewModel()
+    
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
@@ -19,19 +21,25 @@ struct HomeView: View {
                     
                     Image("layer-blur")
                         .opacity(0.9)
-
-                    HomeMenu()
-                        .environmentObject(viewRouter)
-                }
-                
-                Button {
-                    viewRouter.pushHomePath(.allTransactions)
-                } label: {
-                    Text( "navigate to all transactions")
-                        .padding(.all, 20)
+                    
+                    VStack(spacing: 34) {
+                        
+                        ScrollView( .horizontal, showsIndicators: false ) {
+                            LazyHStack(spacing: 16) {
+                                ForEach( homeVM.cards, id: \.id ) { card in
+                                    UserCard(card: card)
+                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                                }
+                            }.padding(.horizontal, 20)
+                        }
+                        
+                        
+                        HomeMenu()
+                            .environmentObject(viewRouter)
+                    }.padding(.top)
                 }
             }.padding(.top, 1)
-            .navigationTitle(Text(""))
+                .navigationTitle(Text(""))
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -48,25 +56,25 @@ struct HomeView: View {
                         } label: {
                             Image("notification")
                         }
-
+                        
                     }
                 }
-            .navigationDestination(for: HomeViewPaths.self) { page in
-                switch page {
-                case .allTransactions:
-                    AllTransactions()
-                case .send:
-                    MoneyTransfer()
-                case .exchange:
-                    Exchange()
-                case .receive:
-                    RequestTransfer()
-                case .more:
-                    MoreTransfers()
-                case .notifications:
-                    Notifications()
+                .navigationDestination(for: HomeViewPaths.self) { page in
+                    switch page {
+                    case .allTransactions:
+                        AllTransactions()
+                    case .send:
+                        MoneyTransfer()
+                    case .exchange:
+                        Exchange()
+                    case .receive:
+                        RequestTransfer()
+                    case .more:
+                        MoreTransfers()
+                    case .notifications:
+                        Notifications()
+                    }
                 }
-            }
         }
     }
 }

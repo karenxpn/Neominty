@@ -11,6 +11,7 @@ struct CardModel: Identifiable, Codable {
     var number: String
     var cardHolder: String
     var expirationDate: String
+    var defaultCard: Bool
     var design: CardDesign
     var cardType: CardType
 }
