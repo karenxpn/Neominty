@@ -27,7 +27,7 @@ struct HomeView: View {
                         ScrollView( .horizontal, showsIndicators: false ) {
                             LazyHStack(spacing: 16) {
                                 ForEach( homeVM.cards, id: \.id ) { card in
-                                    UserCard(card: card)
+                                    UserCard(card: card, selected: card.defaultCard)
                                         .frame(width: UIScreen.main.bounds.width * 0.8)
                                 }
                             }.padding(.horizontal, 20)
@@ -69,7 +69,7 @@ struct HomeView: View {
                     case .allTransactions:
                         AllTransactions()
                     case .send:
-                        MoneyTransfer()
+                        MoneyTransfer(cards: homeVM.cards)
                     case .exchange:
                         Exchange()
                     case .receive:

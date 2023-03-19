@@ -9,6 +9,7 @@ import SwiftUI
 
 struct UserCard: View {
     let card: CardModel
+    let selected: Bool
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct UserCard: View {
                 
                 Spacer()
                 
-                if card.defaultCard {
+                if selected {
                     Image("check")
                 }
             }.padding([.horizontal, .top], 20)
@@ -87,6 +88,6 @@ struct UserCard: View {
 
 struct UserCard_Previews: PreviewProvider {
     static var previews: some View {
-        UserCard(card: PreviewModels.masterCard)
+        UserCard(card: PreviewModels.masterCard, selected: true)
     }
 }

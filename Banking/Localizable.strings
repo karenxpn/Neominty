@@ -39,4 +39,8 @@
 "allTransactions" = "All Transactions";
 "welcomeBack" = "Welcome back!";
 "recentTransactions" = "Recent Transactions";
-
+"transfer" = "Transfer";
+"chooseCard" = "Choose Card";
+"enterReceiverDetails" = "Enter Receiver Card Details";
+"noRecentTransactions" = "No Recent Transactions";
+"continue" = "Continue";

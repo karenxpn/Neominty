@@ -49,6 +49,7 @@
 		FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206C29C733B7003C6415 /* HomeViewModel.swift */; };
 		FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206E29C73A1D003C6415 /* RecentTransactions.swift */; };
 		FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207029C73AE7003C6415 /* TransactionPreview.swift */; };
+		FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207229C7A565003C6415 /* TransferViewModel.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		FF45206C29C733B7003C6415 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FF45206E29C73A1D003C6415 /* RecentTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactions.swift; sourceTree = "<group>"; };
 		FF45207029C73AE7003C6415 /* TransactionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPreview.swift; sourceTree = "<group>"; };
+		FF45207229C7A565003C6415 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */,
 				FF45204D29C0FB95003C6415 /* ViewRouter.swift */,
 				FF45206C29C733B7003C6415 /* HomeViewModel.swift */,
+				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -277,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				FF45205229C33D9B003C6415 /* HomeView.swift */,
-				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
 				FF45205C29C66A88003C6415 /* MoneyTransfer.swift */,
@@ -288,6 +290,7 @@
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
+				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
+				FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
