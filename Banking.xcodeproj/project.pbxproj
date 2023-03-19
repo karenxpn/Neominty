@@ -47,6 +47,8 @@
 		FF45206729C72D40003C6415 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206629C72D40003C6415 /* UserCard.swift */; };
 		FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206829C7336C003C6415 /* CardHexDesign.swift */; };
 		FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206C29C733B7003C6415 /* HomeViewModel.swift */; };
+		FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206E29C73A1D003C6415 /* RecentTransactions.swift */; };
+		FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207029C73AE7003C6415 /* TransactionPreview.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -128,6 +130,8 @@
 		FF45206629C72D40003C6415 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		FF45206829C7336C003C6415 /* CardHexDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHexDesign.swift; sourceTree = "<group>"; };
 		FF45206C29C733B7003C6415 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		FF45206E29C73A1D003C6415 /* RecentTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactions.swift; sourceTree = "<group>"; };
+		FF45207029C73AE7003C6415 /* TransactionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPreview.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 			children = (
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
 				FF45205629C66453003C6415 /* CardModel.swift */,
+				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				FF45206429C66DAD003C6415 /* Notifications.swift */,
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
+				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -531,6 +537,7 @@
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
+				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
@@ -541,6 +548,7 @@
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
+				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,

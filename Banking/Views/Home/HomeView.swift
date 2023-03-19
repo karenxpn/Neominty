@@ -36,8 +36,13 @@ struct HomeView: View {
                         
                         HomeMenu()
                             .environmentObject(viewRouter)
+                        
                     }.padding(.top)
                 }
+                
+                
+                RecentTransactions(transactions: homeVM.transactions)
+                    .environmentObject(viewRouter)
             }.padding(.top, 1)
                 .navigationTitle(Text(""))
                 .toolbar {
