@@ -50,6 +50,9 @@
 		FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206E29C73A1D003C6415 /* RecentTransactions.swift */; };
 		FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207029C73AE7003C6415 /* TransactionPreview.swift */; };
 		FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207229C7A565003C6415 /* TransferViewModel.swift */; };
+		FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207D29C7B57A003C6415 /* CardTextField.swift */; };
+		FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207F29C7B890003C6415 /* CardValidationTF.swift */; };
+		FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208129C7B8CF003C6415 /* CardBankType.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -134,6 +137,9 @@
 		FF45206E29C73A1D003C6415 /* RecentTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactions.swift; sourceTree = "<group>"; };
 		FF45207029C73AE7003C6415 /* TransactionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPreview.swift; sourceTree = "<group>"; };
 		FF45207229C7A565003C6415 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		FF45207D29C7B57A003C6415 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
+		FF45207F29C7B890003C6415 /* CardValidationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValidationTF.swift; sourceTree = "<group>"; };
+		FF45208129C7B8CF003C6415 /* CardBankType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBankType.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF45208329C7BA35003C6415 /* Card */,
 				FF45205129C33D89003C6415 /* Home */,
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
 				FF45204929C09705003C6415 /* CustomTabView.swift */,
@@ -293,6 +300,16 @@
 				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FF45208329C7BA35003C6415 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				FF45207D29C7B57A003C6415 /* CardTextField.swift */,
+				FF45207F29C7B890003C6415 /* CardValidationTF.swift */,
+				FF45208129C7B8CF003C6415 /* CardBankType.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 		FF628DF129BA2CD000FE35EE = {
@@ -543,6 +560,7 @@
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
+				FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
@@ -557,11 +575,13 @@
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
+				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
+				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,

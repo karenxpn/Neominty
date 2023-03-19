@@ -12,6 +12,9 @@ struct MoneyTransfer: View {
     let cards: [CardModel]
     @State private var selectedCard: CardModel?
     
+    @State private var cardType = CardBankType.nonIdentified
+    @State private var isCardValid: Bool = false
+    
     init(cards: [CardModel]) {
         self.cards = cards
         _selectedCard = State(initialValue: cards.first(where: { $0.defaultCard }))
@@ -47,11 +50,12 @@ struct MoneyTransfer: View {
                     HStack {
                         Image("card-placeholder")
                         
-                        TextField("**** **** **** ****", text: $transferVM.cardNumber)
-                            .keyboardType(.phonePad)
-                            .font(.custom(Roboto.regular.rawValue, size: 16))
-                            .padding(.leading, 5)
-                            .frame(height: 24)
+                        CardValidationTF(text: $transferVM.cardNumber,
+                                         isValid: $isCardValid,
+                                         bankCardType: $cardType,
+                                         tfType: .cardNumber,
+                                         tfFont: .custom(Roboto.regular.rawValue, size: 16),
+                                         subtitle: "**** **** **** ****")
                         
                     }.padding(19)
                         .background {
@@ -69,7 +73,7 @@ struct MoneyTransfer: View {
                             .padding(.vertical, UIScreen.main.bounds.height * 0.1)
                     }
                     
-                    ButtonHelper(disabled: selectedCard == nil || transferVM.cardNumber.count != 16, label: NSLocalizedString("continue", comment: "")) {
+                    ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
                         transferVM.selectedCard = selectedCard
                     }
                 }.padding(.horizontal, 20)
