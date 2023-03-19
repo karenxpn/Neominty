@@ -19,7 +19,7 @@ struct MoneyTransfer: View {
     
     var body: some View {
         
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             
             VStack(alignment: .leading, spacing: 16) {
                 
@@ -74,10 +74,11 @@ struct MoneyTransfer: View {
                     }
                 }.padding(.horizontal, 20)
                 
-                
-            }
+            }.padding(.bottom, UIScreen.main.bounds.height * 0.2)
             
-        }.navigationTitle(Text(NSLocalizedString("transfer", comment: "")))
+        }.padding(.top, 1)
+            .scrollDismissesKeyboard(.immediately)
+        .navigationTitle(Text(NSLocalizedString("transfer", comment: "")))
             .navigationBarTitleDisplayMode(.inline)
     }
 }
