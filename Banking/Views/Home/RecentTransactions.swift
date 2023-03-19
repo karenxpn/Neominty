@@ -54,6 +54,7 @@ struct RecentTransactions: View {
             }
             
         }.padding(20)
+            .padding(.bottom, UIScreen.main.bounds.height * 0.15)
     }
 }
 

@@ -8,6 +8,7 @@
 import Foundation
 
 class HomeViewModel: AlertViewModel, ObservableObject {
-    @Published var cards: [CardModel] = [PreviewModels.masterCard, PreviewModels.visaCard]
+    @Published var cards: [CardModel] = [PreviewModels.masterCard, PreviewModels.visaCard,
+                                         PreviewModels.mirCard, PreviewModels.arcaCard]
     @Published var transactions = PreviewModels.transactionList
 }
