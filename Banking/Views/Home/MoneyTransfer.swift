@@ -65,18 +65,30 @@ struct MoneyTransfer: View {
                     
                 }.padding(.horizontal, 20)
                 
-                VStack(alignment: .leading, spacing: 10) {
-                    if transferVM.transactionUsers.isEmpty {
-                        TextHelper(text: NSLocalizedString("noRecentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-                            .frame(minWidth: 0,
-                                   maxWidth: .infinity)
-                            .padding(.vertical, UIScreen.main.bounds.height * 0.1)
-                    }
-                    
-                    ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
-                        transferVM.selectedCard = selectedCard
-                    }
-                }.padding(.horizontal, 20)
+                
+                if transferVM.loading {
+                    ProgressView()
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity)
+                        .padding(.vertical, UIScreen.main.bounds.height * 0.1)
+                } else {
+                    VStack(alignment: .leading, spacing: 10) {
+                        if transferVM.transactionUsers.isEmpty {
+                            TextHelper(text: NSLocalizedString("noRecentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                                .frame(minWidth: 0,
+                                       maxWidth: .infinity)
+                                .padding(.vertical, UIScreen.main.bounds.height * 0.1)
+                        } else {
+                            TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            
+                            RecentTransferUsersList(selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
+                        }
+                        
+                        ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
+                            transferVM.selectedCard = selectedCard
+                        }.padding(.top, 20)
+                    }.padding(.horizontal, 20)
+                }
                 
             }.padding(.bottom, UIScreen.main.bounds.height * 0.2)
             
@@ -84,6 +96,13 @@ struct MoneyTransfer: View {
             .scrollDismissesKeyboard(.immediately)
         .navigationTitle(Text(NSLocalizedString("transfer", comment: "")))
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                transferVM.getRecentTransfers()
+            }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(transferVM.alertMessage)
+            })
     }
 }
 

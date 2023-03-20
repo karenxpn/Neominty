@@ -8,6 +8,35 @@
 import Foundation
 class TransferViewModel: AlertViewModel, ObservableObject {
     @Published var selectedCard: CardModel?
+    @Published var selectedTransfer: RecentTransfer?
+
     @Published var cardNumber: String = ""
-    @Published var transactionUsers = []
+    @Published var transactionUsers = [RecentTransfer]()
+    
+    @Published var loading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
+    
+    var manager: TransferServiceProtocol
+    
+    init(manager: TransferServiceProtocol = TransferService.shared) {
+        self.manager = manager
+    }
+    
+    @MainActor func getRecentTransfers() {
+        loading = true
+        
+        Task {
+            let result = await manager.fetchRecentTransfers()
+            switch result {
+            case .failure(let error):
+                return self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(let transfers):
+                self.transactionUsers = transfers
+            }
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
 }
