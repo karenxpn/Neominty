@@ -95,7 +95,7 @@ public struct CardValidationTF: View {
             .foregroundColor(tfColor)
             .valueChanged(value: text) { name in
                 withAnimation(.linear) {
-                    self.isValid = name != "" ? true : false
+                    self.isValid = CardValidationTF.isCardHolderNameValid(text)
                 }
             }
     }
