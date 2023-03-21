@@ -12,6 +12,7 @@ struct TransferDetailView: View {
     @State private var isNameValid: Bool = false
     @State private var cardHolder: String = ""
     @State private var cardType = CardBankType.nonIdentified
+    @State private var navigateToConfirmation: Bool = false
 
     
     var body: some View {
@@ -127,8 +128,39 @@ struct TransferDetailView: View {
                 
                 // add amount validation
                 ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil), label: NSLocalizedString("sendMoney", comment: "")) {
+                    navigateToConfirmation.toggle()
                     
                 }.padding(.top, 12)
+                    .fullScreenCover(isPresented: $navigateToConfirmation) {
+                        CustomAlert {
+                            
+                            VStack(spacing: 31) {
+                                TextHelper(text: "Transfer Confirmation", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                                
+                                
+                                TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
+                                                         bank: "Bank name",
+                                                         name: transferVM.selectedCard!.cardHolder,
+                                                         card: transferVM.selectedCard!.number)
+                                
+                                TransferConfirmationCell(direction: NSLocalizedString("to", comment: ""),
+                                                         bank: "User's bank here",
+                                                         name: transferVM.selectedTransfer == nil ? cardHolder : transferVM.selectedTransfer!.name,
+                                                         card: transferVM.cardNumber)
+                                
+                                HStack {
+                                    TextHelper(text: "Total", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                                    Spacer()
+                                    TextHelper(text: "$\(transferVM.transferAmount)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                                }
+                                
+                            }
+                            
+                        } action: {
+                            // start transaction
+                        }
+
+                    }
                 
             }.padding(.horizontal, 24)
                 .padding(.top, 40)

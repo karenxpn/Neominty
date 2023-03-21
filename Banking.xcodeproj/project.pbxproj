@@ -57,6 +57,8 @@
 		FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208629C8F0EB003C6415 /* TransferSerive.swift */; };
 		FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208829C92315003C6415 /* RecentTransferUsersList.swift */; };
 		FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208B29CA1C32003C6415 /* TransferDetailView.swift */; };
+		FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208D29CA53E9003C6415 /* CustomAlert.swift */; };
+		FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -148,6 +150,8 @@
 		FF45208629C8F0EB003C6415 /* TransferSerive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSerive.swift; sourceTree = "<group>"; };
 		FF45208829C92315003C6415 /* RecentTransferUsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferUsersList.swift; sourceTree = "<group>"; };
 		FF45208B29CA1C32003C6415 /* TransferDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDetailView.swift; sourceTree = "<group>"; };
+		FF45208D29CA53E9003C6415 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferConfirmationCell.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
 				FF45204929C09705003C6415 /* CustomTabView.swift */,
 				FF45204B29C0FB3D003C6415 /* MainView.swift */,
+				FF45208D29CA53E9003C6415 /* CustomAlert.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				FF45205C29C66A88003C6415 /* MoneyTransfer.swift */,
 				FF45208829C92315003C6415 /* RecentTransferUsersList.swift */,
 				FF45208B29CA1C32003C6415 /* TransferDetailView.swift */,
+				FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */,
 			);
 			path = MoneyTransfer;
 			sourceTree = "<group>";
@@ -607,10 +613,12 @@
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
+				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
+				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,

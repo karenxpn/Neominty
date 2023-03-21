@@ -48,3 +48,6 @@
 "sendMoney" = "Send Money";
 "enterAmount" = "Enter amount:";
 "enterFullName" = "Enter Full Name";
+"okSendNow" = "Ok, Send Now!";
+"from" = "From";
+"to" = "To";
