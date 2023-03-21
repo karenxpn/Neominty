@@ -143,13 +143,13 @@ struct AlertShape: Shape {
             path.addLine(to: CGPoint(x: 0, y: rect.height))
             
             let center = rect.width / 2
-            path.move(to: CGPoint(x: center-90, y: 0))
+            path.move(to: CGPoint(x: center-65, y: 0))
             
             let to1 = CGPoint(x: center, y: 45)
             let control1 = CGPoint(x: center - 45, y: 0)
             let control2 = CGPoint(x: center - 45, y: 45)
             
-            let to2 = CGPoint(x: center + 90, y: 0)
+            let to2 = CGPoint(x: center + 65, y: 0)
             let control3 = CGPoint(x: center + 45, y: 45)
             let control4 = CGPoint(x: center + 45, y: 0)
             
