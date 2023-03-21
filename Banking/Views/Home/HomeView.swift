@@ -10,7 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
-    
+    @StateObject private var transferVM = TransferViewModel()
+
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
@@ -70,6 +71,10 @@ struct HomeView: View {
                         AllTransactions()
                     case .send:
                         MoneyTransfer(cards: homeVM.cards)
+                            .environmentObject(transferVM)
+                    case .transferDetails:
+                        TransferDetailView()
+                            .environmentObject(transferVM)
                     case .exchange:
                         Exchange()
                     case .receive:

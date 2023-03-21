@@ -21,7 +21,10 @@ enum ViewPaths: String, Identifiable {
 }
 
 enum HomeViewPaths: String, Identifiable {
+    // transfer
     case send
+    case transferDetails
+    
     case exchange
     case receive
     case more

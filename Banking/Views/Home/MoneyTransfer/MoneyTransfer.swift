@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MoneyTransfer: View {
-    @StateObject private var transferVM = TransferViewModel()
+    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var transferVM: TransferViewModel
     let cards: [CardModel]
     @State private var selectedCard: CardModel?
     
@@ -95,9 +96,11 @@ struct MoneyTransfer: View {
                             
                             RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
-                        
+                                                
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
                             transferVM.selectedCard = selectedCard
+                            viewRouter.pushHomePath(.transferDetails)
+                            
                         }.padding(.top, 20)
                     }.padding(.horizontal, 20)
                 }
@@ -106,9 +109,15 @@ struct MoneyTransfer: View {
             
         }.padding(.top, 1)
             .scrollDismissesKeyboard(.immediately)
-        .navigationTitle(Text(NSLocalizedString("transfer", comment: "")))
-            .navigationBarTitleDisplayMode(.inline)
-            .task {
+        .navigationTitle(Text(""))
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack(alignment: .leading, spacing: 4) {
+                    TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: Roboto.bold.rawValue, fontSize: 20)
+                }
+                
+            }
+        }.task {
                 transferVM.getRecentTransfers()
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
@@ -121,5 +130,7 @@ struct MoneyTransfer: View {
 struct MoneyTransfer_Previews: PreviewProvider {
     static var previews: some View {
         MoneyTransfer(cards: [PreviewModels.masterCard, PreviewModels.visaCard])
+            .environmentObject(ViewRouter())
+            .environmentObject(TransferViewModel())
     }
 }

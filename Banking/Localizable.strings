@@ -45,3 +45,6 @@
 "noRecentTransactions" = "No Recent Transactions";
 "continue" = "Continue";
 "cardNotValid" = "Card number is not valid";
+"sendMoney" = "Send Money";
+"enterAmount" = "Enter amount:";
+"enterFullName" = "Enter Full Name";

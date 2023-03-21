@@ -9,6 +9,8 @@ import Foundation
 class TransferViewModel: AlertViewModel, ObservableObject {
     @Published var selectedCard: CardModel?
     @Published var selectedTransfer: RecentTransfer?
+    @Published var transferAmount: String = ""
+    @Published var newTransferImage: Data?
 
     @Published var cardNumber: String = ""
     @Published var transactionUsers = [RecentTransfer]()
