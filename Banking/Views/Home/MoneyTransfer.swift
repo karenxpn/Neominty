@@ -81,7 +81,7 @@ struct MoneyTransfer: View {
                         } else {
                             TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                             
-                            RecentTransferUsersList(selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
+                            RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
                         
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RecentTransferUsersList: View {
+    @Binding var card: String
     @Binding var selected: RecentTransfer?
     let transfers: [RecentTransfer]
     
@@ -20,8 +21,10 @@ struct RecentTransferUsersList: View {
                     Button {
                         if selected?.id == transfer.id {
                             selected = nil
+                            card = ""
                         } else {
                             selected = transfer
+                            card = transfer.card
                         }
                     } label: {
                         ZStack( alignment: .topTrailing) {
@@ -72,6 +75,6 @@ struct RecentTransferUsersList: View {
 
 struct RecentTransferUsersList_Previews: PreviewProvider {
     static var previews: some View {
-        RecentTransferUsersList(selected: .constant(nil),  transfers: PreviewModels.recentTransferList)
+        RecentTransferUsersList(card: .constant(""), selected: .constant(nil),  transfers: PreviewModels.recentTransferList)
     }
 }
