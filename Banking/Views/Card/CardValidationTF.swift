@@ -57,10 +57,8 @@ public struct CardValidationTF: View {
             .foregroundColor(tfColor)
             .valueChanged(value: text) { number in
                 self.text = number.formattedCreditCard
-                withAnimation(.linear) {
-                    self.isValid = CardValidationTF.isCardNumberValid(text)
-                    self.bankCardType = CardValidationTF.cardType(from: text)
-                }
+                self.isValid = CardValidationTF.isCardNumberValid(text)
+                self.bankCardType = CardValidationTF.cardType(from: text)
             }
     }
     

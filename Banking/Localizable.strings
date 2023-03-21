@@ -44,3 +44,4 @@
 "enterReceiverDetails" = "Enter Receiver Card Details";
 "noRecentTransactions" = "No Recent Transactions";
 "continue" = "Continue";
+"cardNotValid" = "Card number is not valid";

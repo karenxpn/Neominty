@@ -47,21 +47,33 @@ struct MoneyTransfer: View {
                     TextHelper(text: NSLocalizedString("enterReceiverDetails", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                         .padding(.top, 13)
                     
-                    HStack {
-                        Image("card-placeholder")
+                    VStack(alignment: .leading, spacing: 8) {
+                        HStack {
+                            Image("card-placeholder")
+                            
+                            CardValidationTF(text: $transferVM.cardNumber,
+                                             isValid: $isCardValid,
+                                             bankCardType: $cardType,
+                                             tfType: .cardNumber,
+                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
+                                             subtitle: "**** **** **** ****")
+                            
+                        }.padding(19)
+                            .background {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
+                                    .background {
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .fill(AppColors.superLightGray)
+                                    }
+                                
+                            }
                         
-                        CardValidationTF(text: $transferVM.cardNumber,
-                                         isValid: $isCardValid,
-                                         bankCardType: $cardType,
-                                         tfType: .cardNumber,
-                                         tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                         subtitle: "**** **** **** ****")
-                        
-                    }.padding(19)
-                        .background {
-                            RoundedRectangle(cornerRadius: 16)
-                                .fill(AppColors.superLightGray)
+                        if transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid {
+                            TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
+                                       color: .red, fontName: Roboto.regular.rawValue, fontSize: 10)
                         }
+                    }
                     
                 }.padding(.horizontal, 20)
                 
