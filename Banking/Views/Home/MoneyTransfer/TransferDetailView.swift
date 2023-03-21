@@ -135,6 +135,15 @@ struct TransferDetailView: View {
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.padding(.top, 1)
+            .scrollDismissesKeyboard(.immediately)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        TextHelper(text: NSLocalizedString("sendMoney", comment: ""), color: .black, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    }
+                    
+                }
+            }
     }
 }
 
