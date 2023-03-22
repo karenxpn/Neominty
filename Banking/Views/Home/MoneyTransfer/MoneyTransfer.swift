@@ -9,13 +9,17 @@ import SwiftUI
 
 struct MoneyTransfer: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @EnvironmentObject var transferVM: TransferViewModel
+    @StateObject private var transferVM = TransferViewModel()
     let cards: [CardModel]
+    @State private var selectedCard: CardModel?
     
     @State private var cardType = CardBankType.nonIdentified
+    @State private var isCardValid: Bool = false
+    @State private var navigateToTransferDetails: Bool = false
     
     init(cards: [CardModel]) {
         self.cards = cards
+        _selectedCard = State(initialValue: cards.first(where: { $0.defaultCard }))
     }
     
     var body: some View {
@@ -31,9 +35,9 @@ struct MoneyTransfer: View {
                     LazyHStack(spacing: 16) {
                         ForEach( cards, id: \.id ) { card in
                             Button {
-                                transferVM.selectedCard = card
+                                selectedCard = card
                             } label: {
-                                UserCard(card: card, selected: card.id == transferVM.selectedCard?.id)
+                                UserCard(card: card, selected: card.id == selectedCard?.id)
                                     .frame(width: UIScreen.main.bounds.width * 0.8)
                             }
                         }
@@ -50,24 +54,28 @@ struct MoneyTransfer: View {
                             Image("card-placeholder")
                             
                             CardValidationTF(text: $transferVM.cardNumber,
-                                             isValid: $transferVM.isCardValid,
+                                             isValid: $isCardValid,
                                              bankCardType: $cardType,
                                              tfType: .cardNumber,
                                              tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                              subtitle: "**** **** **** ****")
+                            .onChange(of: transferVM.cardNumber) { value in
+                                if value != transferVM.selectedTransfer?.card {
+                                    transferVM.selectedTransfer = nil
+                                }
+                            }
                             
                         }.padding(19)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !transferVM.isCardValid ? Color.red : Color.clear, lineWidth: 1)
+                                    .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
                                     .background {
                                         RoundedRectangle(cornerRadius: 16)
                                             .fill(AppColors.superLightGray)
                                     }
-                                
                             }
                         
-                        if transferVM.cardNumber.onlyNumbers().count == 16 && !transferVM.isCardValid {
+                        if transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid {
                             TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
                                        color: .red, fontName: Roboto.regular.rawValue, fontSize: 10)
                         }
@@ -94,10 +102,14 @@ struct MoneyTransfer: View {
                             RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
                                                 
-                        ButtonHelper(disabled: transferVM.selectedCard == nil || !transferVM.isCardValid, label: NSLocalizedString("continue", comment: "")) {
-                            viewRouter.pushHomePath(.transferDetails)
-                            
+                        ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
+                            transferVM.selectedCard = selectedCard
+                            navigateToTransferDetails.toggle()
                         }.padding(.top, 20)
+                            .navigationDestination(isPresented: $navigateToTransferDetails) {
+                                TransferDetailView()
+                                    .environmentObject(transferVM)
+                            }
                     }.padding(.horizontal, 20)
                 }
                 
@@ -105,7 +117,7 @@ struct MoneyTransfer: View {
             
         }.padding(.top, 1)
             .scrollDismissesKeyboard(.immediately)
-            .navigationBarTitle(Text(""), displayMode: .inline)
+        .navigationTitle(Text(""))
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack(alignment: .leading, spacing: 4) {
@@ -115,7 +127,6 @@ struct MoneyTransfer: View {
             }
         }.task {
                 transferVM.getRecentTransfers()
-                transferVM.selectedCard = cards.first(where: { $0.defaultCard })
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {

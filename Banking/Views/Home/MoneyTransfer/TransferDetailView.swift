@@ -14,6 +14,7 @@ struct TransferDetailView: View {
     @State private var cardHolder: String = ""
     @State private var cardType = CardBankType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
+    @State private var navigateToSuccess: Bool = false
 
     
     var body: some View {
@@ -161,7 +162,8 @@ struct TransferDetailView: View {
                             // start transaction
                             transferVM.startTransaction()
                         }
-
+                    }.navigationDestination(isPresented: $navigateToSuccess) {
+                        TransferSuccess(amount: transferVM.transferAmount)
                     }
                 
             }.padding(.horizontal, 24)
@@ -179,7 +181,7 @@ struct TransferDetailView: View {
                     
                 }
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
-                viewRouter.pushHomePath(.transferSuccess)
+                navigateToSuccess.toggle()
             }
     }
 }

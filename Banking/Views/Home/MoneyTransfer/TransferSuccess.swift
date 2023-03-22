@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TransferSuccess: View {
-    @EnvironmentObject var transferVM: TransferViewModel
     @EnvironmentObject var viewRouter: ViewRouter
+    let amount: String
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -28,7 +28,7 @@ struct TransferSuccess: View {
                     .multilineTextAlignment(.center)
                 }
                 
-                TextHelper(text: "$ \(transferVM.transferAmount)", color: AppColors.darkBlue,
+                TextHelper(text: "$ \(amount)", color: AppColors.darkBlue,
                            fontName: Roboto.bold.rawValue, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
@@ -49,8 +49,7 @@ struct TransferSuccess: View {
 
 struct TransferSuccess_Previews: PreviewProvider {
     static var previews: some View {
-        TransferSuccess()
-            .environmentObject(TransferViewModel())
+        TransferSuccess(amount: "123,3")
             .environmentObject(ViewRouter())
     }
 }
