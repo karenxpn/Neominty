@@ -29,7 +29,7 @@ struct MainView: View {
 
                     
                 } else if viewRouter.tab == 3{
-                    Text("activity")
+                    Activity()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 4 {
