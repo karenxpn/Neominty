@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import AVKit
 import FirebaseFirestore
+import Combine
 
 
 extension UIApplication {
@@ -43,6 +44,17 @@ extension View {
         guard let root = screen.windows.first?.rootViewController else { return .init() }
         
         return root
+    }
+    
+    @ViewBuilder
+    func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
+        if #available(iOS 14.0, tvOS 14.0, macOS 11.0, watchOS 7.0, *) {
+            self.onChange(of: value, perform: onChange)
+        } else {
+            self.onReceive(Just(value)) { value in
+                onChange(value)
+            }
+        }
     }
 }
 
@@ -93,6 +105,40 @@ extension String {
     var emojis: [Character] { filter { $0.isEmoji } }
     
     var emojiScalars: [UnicodeScalar] { filter { $0.isEmoji }.flatMap { $0.unicodeScalars } }
+    
+    func onlyNumbers() -> String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted)
+            .joined()
+    }
+    
+    var formattedCreditCard: String {
+        return format(with: CardTextField.cardNumber, phone: self)
+    }
+    
+    var formattedExpiredDate: String {
+        return format(with: CardTextField.dateExpiration, phone: self)
+    }
+    
+    var formattedCvv: String {
+        return format(with: CardTextField.cvv, phone: self)
+    }
+    
+    func format(with maskType: CardTextField, phone: String) -> String {
+        let mask = maskType.mask
+        let numbers = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index = numbers.startIndex
+        for ch in mask where index < numbers.endIndex {
+            if ch == "X" {
+                result.append(numbers[index])
+                index = numbers.index(after: index)
+                
+            } else {
+                result.append(ch)
+            }
+        }
+        return result
+    }
 }
 
 extension Character {
@@ -205,11 +251,11 @@ extension Date {
     }
     
     func getAgeFromBirthDate() -> String {
-
+        
         let calender = Calendar.current
-
+        
         let age = calender.dateComponents([.year], from: self, to: Date())
-
+        
         return String(age.year!)
     }
     
@@ -221,7 +267,7 @@ extension Date {
         formatter.locale = Locale(identifier: "en_US")
         formatter.unitsStyle = .short
         let string = formatter.localizedString(for: self, relativeTo: currentDate)
-
+        
         return currentDate.millisecondsSince1970 - self.millisecondsSince1970 < 3000 ? NSLocalizedString("justNow", comment: "") : string
     }
     
@@ -300,9 +346,164 @@ extension FirebaseFirestore.DocumentReference {
 }
 
 extension Date {
-   func getFormattedDate(format: String) -> String {
+    func getFormattedDate(format: String) -> String {
         let dateformat = DateFormatter()
         dateformat.dateFormat = format
         return dateformat.string(from: self)
+    }
+}
+
+
+extension CardValidationTF {
+    
+    public static func cardType(from cardNumber: String) -> CardBankType {
+        let cleanCardNumber = self.cleanCreditCardNo(cardNumber)
+        
+        guard cleanCardNumber.count > 0 else {
+            return .nonIdentified
+        }
+        
+        let first = String(cleanCardNumber.first!)
+        
+        guard first != "4" else {
+            
+            return .visa
+        }
+        
+        guard first != "6" else {
+            return .maestro
+        }
+        
+        guard cleanCardNumber.count >= 2 else {
+            return .nonIdentified
+        }
+        
+        let indexTwo = cleanCardNumber.index(cleanCardNumber.startIndex, offsetBy: 2)
+        let firstTwo = String(cleanCardNumber[..<indexTwo])
+        let firstTwoNum = Int(firstTwo) ?? 0
+        
+        if firstTwoNum == 35 {
+            return .nonIdentified
+        } else if firstTwoNum == 34 || firstTwoNum == 37 {
+            return .nonIdentified
+        } else if firstTwoNum == 50 || (firstTwoNum >= 56 && firstTwoNum <= 69) {
+            return .maestro
+        } else if (firstTwoNum >= 51 && firstTwoNum <= 55) {
+            return .mastercard
+        }
+        
+        guard cleanCardNumber.count >= 4 else {
+            return .nonIdentified
+        }
+        
+        let indexFour = cleanCardNumber.index(cleanCardNumber.startIndex, offsetBy: 4)
+        let firstFour = String(cleanCardNumber[..<indexFour])
+        let firstFourNum = Int(firstFour) ?? 0
+        
+        if firstFourNum >= 2200 && firstFourNum <= 2204 {
+            return .mir
+        }
+        
+        if firstFourNum >= 2221 && firstFourNum <= 2720 {
+            return .mastercard
+        }
+        
+        guard cleanCardNumber.count >= 6 else {
+            return .nonIdentified
+        }
+        
+        let indexSix = cleanCardNumber.index(cleanCardNumber.startIndex, offsetBy: 6)
+        let firstSix = String(cleanCardNumber[..<indexSix])
+        let firstSixNum = Int(firstSix) ?? 0
+        
+        if firstSixNum >= 979200 && firstSixNum <= 979289 {
+            return .nonIdentified
+        }
+        
+        return .nonIdentified
+    }
+    
+    public static func cleanCreditCardNo(_ creditCardNo: String) -> String {
+        return creditCardNo.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
+    }
+    
+    public static func isCardNumberValid(_ cardNumber: String?) -> Bool {
+        guard let cardNumber = cardNumber else {
+            return false
+        }
+        let number = cardNumber.onlyNumbers()
+        guard number.count >= 14 && number.count <= 19 else {
+            return false
+        }
+        
+        var digits = number.map { Int(String($0))! }
+        stride(from: digits.count - 2, through: 0, by: -2).forEach { i in
+            var value = digits[i] * 2
+            if value > 9 {
+                value = value % 10 + 1
+            }
+            digits[i] = value
+        }
+        
+        let sum = digits.reduce(0, +)
+        return sum % 10 == 0
+    }
+    
+    public static func isExpDateValid(_ expDate: String?) -> Bool {
+        guard let expDate = expDate else {
+            return false
+        }
+        guard expDate.count == 5 else {
+            return false
+        }
+        
+        
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/yy"
+        
+        guard let date = dateFormatter.date(from: expDate) else {
+            return false
+        }
+        
+        var calendar = Calendar.init(identifier: .gregorian)
+        calendar.timeZone = TimeZone.current
+        
+        let dayRange = calendar.range(of: .day, in: .month, for: date)
+        var comps = calendar.dateComponents([.year, .month, .day], from: date)
+        comps.day = dayRange?.count ?? 1
+        comps.hour = 24
+        comps.minute = 0
+        comps.second = 0
+        
+        guard let aNewDate = calendar.date(from: comps) else {
+            return false
+        }
+        
+        let dateNow = dateFormatter.date(from: "11/22")!
+        
+        guard aNewDate.compare(dateNow) == .orderedDescending else {
+            return false
+        }
+        
+        return true
+    }
+    
+    public static func isCvvValid(_ cvv: String?) -> Bool {
+        guard let cvv = cvv else {
+            return false
+        }
+        
+        if (cvv.count == 3) {
+            return true
+        }
+        
+        return false
+    }
+    
+    public static func isCardHolderNameValid(_ name: String) -> Bool {
+        let range = NSRange(location: 0, length: name.utf16.count)
+        let regex = try! NSRegularExpression(pattern: "(?<! )[-a-zA-Z' ]{2,26}")
+        return regex.firstMatch(in: name, options: [], range: range) != nil
     }
 }

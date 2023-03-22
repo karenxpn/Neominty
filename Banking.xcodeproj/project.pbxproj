@@ -49,6 +49,17 @@
 		FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206C29C733B7003C6415 /* HomeViewModel.swift */; };
 		FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206E29C73A1D003C6415 /* RecentTransactions.swift */; };
 		FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207029C73AE7003C6415 /* TransactionPreview.swift */; };
+		FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207229C7A565003C6415 /* TransferViewModel.swift */; };
+		FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207D29C7B57A003C6415 /* CardTextField.swift */; };
+		FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207F29C7B890003C6415 /* CardValidationTF.swift */; };
+		FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208129C7B8CF003C6415 /* CardBankType.swift */; };
+		FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208429C8F087003C6415 /* RecentTransfer.swift */; };
+		FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208629C8F0EB003C6415 /* TransferSerive.swift */; };
+		FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208829C92315003C6415 /* RecentTransferUsersList.swift */; };
+		FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208B29CA1C32003C6415 /* TransferDetailView.swift */; };
+		FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208D29CA53E9003C6415 /* CustomAlert.swift */; };
+		FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */; };
+		FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45209129CB247B003C6415 /* TransferSuccess.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -132,6 +143,17 @@
 		FF45206C29C733B7003C6415 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		FF45206E29C73A1D003C6415 /* RecentTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactions.swift; sourceTree = "<group>"; };
 		FF45207029C73AE7003C6415 /* TransactionPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPreview.swift; sourceTree = "<group>"; };
+		FF45207229C7A565003C6415 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		FF45207D29C7B57A003C6415 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
+		FF45207F29C7B890003C6415 /* CardValidationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValidationTF.swift; sourceTree = "<group>"; };
+		FF45208129C7B8CF003C6415 /* CardBankType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBankType.swift; sourceTree = "<group>"; };
+		FF45208429C8F087003C6415 /* RecentTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransfer.swift; sourceTree = "<group>"; };
+		FF45208629C8F0EB003C6415 /* TransferSerive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSerive.swift; sourceTree = "<group>"; };
+		FF45208829C92315003C6415 /* RecentTransferUsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferUsersList.swift; sourceTree = "<group>"; };
+		FF45208B29CA1C32003C6415 /* TransferDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDetailView.swift; sourceTree = "<group>"; };
+		FF45208D29CA53E9003C6415 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferConfirmationCell.swift; sourceTree = "<group>"; };
+		FF45209129CB247B003C6415 /* TransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccess.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -215,10 +237,12 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF45208329C7BA35003C6415 /* Card */,
 				FF45205129C33D89003C6415 /* Home */,
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
 				FF45204929C09705003C6415 /* CustomTabView.swift */,
 				FF45204B29C0FB3D003C6415 /* MainView.swift */,
+				FF45208D29CA53E9003C6415 /* CustomAlert.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -230,6 +254,7 @@
 				FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */,
 				FF45204D29C0FB95003C6415 /* ViewRouter.swift */,
 				FF45206C29C733B7003C6415 /* HomeViewModel.swift */,
+				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -241,6 +266,7 @@
 				FF18C25B29BB25AF004EF3A3 /* AuthService.swift */,
 				FF80569129BDF6730081AD76 /* UserService.swift */,
 				FF45204429C079C3003C6415 /* KeychainManager.swift */,
+				FF45208629C8F0EB003C6415 /* TransferSerive.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -251,6 +277,7 @@
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
 				FF45205629C66453003C6415 /* CardModel.swift */,
 				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
+				FF45208429C8F087003C6415 /* RecentTransfer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,11 +303,10 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FF45208A29CA1955003C6415 /* MoneyTransfer */,
 				FF45205229C33D9B003C6415 /* HomeView.swift */,
-				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
-				FF45205C29C66A88003C6415 /* MoneyTransfer.swift */,
 				FF45205E29C66A96003C6415 /* Exchange.swift */,
 				FF45206029C66AA2003C6415 /* RequestTransfer.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
@@ -288,8 +314,31 @@
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
+				FF45205429C33DD7003C6415 /* AllTransactions.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		FF45208329C7BA35003C6415 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				FF45207D29C7B57A003C6415 /* CardTextField.swift */,
+				FF45207F29C7B890003C6415 /* CardValidationTF.swift */,
+				FF45208129C7B8CF003C6415 /* CardBankType.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		FF45208A29CA1955003C6415 /* MoneyTransfer */ = {
+			isa = PBXGroup;
+			children = (
+				FF45205C29C66A88003C6415 /* MoneyTransfer.swift */,
+				FF45208829C92315003C6415 /* RecentTransferUsersList.swift */,
+				FF45208B29CA1C32003C6415 /* TransferDetailView.swift */,
+				FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */,
+				FF45209129CB247B003C6415 /* TransferSuccess.swift */,
+			);
+			path = MoneyTransfer;
 			sourceTree = "<group>";
 		};
 		FF628DF129BA2CD000FE35EE = {
@@ -540,7 +589,9 @@
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
+				FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
+				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
@@ -548,22 +599,30 @@
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
+				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
+				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
+				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
+				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
+				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
+				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
+				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
+				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
@@ -573,6 +632,7 @@
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
+				FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

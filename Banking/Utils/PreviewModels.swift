@@ -23,5 +23,9 @@ struct PreviewModels {
     static let transactionList = [TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "gym", name: "Gym", type: "Payment", amount: -15.99)),
                                   TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "deposite", name: "Bank of America", type: "Deposit", amount: +2045.00)),
                                   TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "sent", name: "To Brody Armando", type: "Sent", amount: -699.00))]
+    
+    static let recentTransferList = [RecentTransfer(id: UUID().uuidString, name: "Karen Mirakyan", card: Credentials.validCard),
+                                     RecentTransfer(id: UUID().uuidString, name: "Martin Mirakyan", card: "2242 4242 4242 4242"),
+                                     RecentTransfer(id: UUID().uuidString, name: "Samvel Oganisyan", card: "5242 4242 4242 4242")]
 
 }

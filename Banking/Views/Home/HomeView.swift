@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
-    
+    @StateObject var transferVM = TransferViewModel()
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
@@ -27,7 +27,7 @@ struct HomeView: View {
                         ScrollView( .horizontal, showsIndicators: false ) {
                             LazyHStack(spacing: 16) {
                                 ForEach( homeVM.cards, id: \.id ) { card in
-                                    UserCard(card: card)
+                                    UserCard(card: card, selected: card.defaultCard)
                                         .frame(width: UIScreen.main.bounds.width * 0.8)
                                 }
                             }.padding(.horizontal, 20)
@@ -44,7 +44,7 @@ struct HomeView: View {
                 RecentTransactions(transactions: homeVM.transactions)
                     .environmentObject(viewRouter)
             }.padding(.top, 1)
-                .navigationTitle(Text(""))
+                .navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -69,7 +69,7 @@ struct HomeView: View {
                     case .allTransactions:
                         AllTransactions()
                     case .send:
-                        MoneyTransfer()
+                        MoneyTransfer(cards: homeVM.cards)
                     case .exchange:
                         Exchange()
                     case .receive:

@@ -39,4 +39,18 @@
 "allTransactions" = "All Transactions";
 "welcomeBack" = "Welcome back!";
 "recentTransactions" = "Recent Transactions";
-
+"transfer" = "Transfer";
+"chooseCard" = "Choose Card";
+"enterReceiverDetails" = "Enter Receiver Card Details";
+"noRecentTransactions" = "No Recent Transactions";
+"continue" = "Continue";
+"cardNotValid" = "Card number is not valid";
+"sendMoney" = "Send Money";
+"enterAmount" = "Enter amount:";
+"enterFullName" = "Enter Full Name";
+"okSendNow" = "Ok, Send Now!";
+"from" = "From";
+"to" = "To";
+"successfulTransfer" = "Successful Transfer";
+"transfersAreReviewed" = "Transfers are reviewed which may result in delays or funds being frozen";
+"backToHome" = "Back to Home";
