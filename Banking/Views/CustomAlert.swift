@@ -58,6 +58,8 @@ struct CustomAlert<Content: View>: View {
             
         }.onTapGesture {
             presentationMode.wrappedValue.dismiss()
+        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

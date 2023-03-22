@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransferDetailView: View {
     @EnvironmentObject var transferVM: TransferViewModel
+    @EnvironmentObject var viewRouter: ViewRouter
     @State private var isNameValid: Bool = false
     @State private var cardHolder: String = ""
     @State private var cardType = CardBankType.nonIdentified
@@ -158,6 +159,7 @@ struct TransferDetailView: View {
                             
                         } action: {
                             // start transaction
+                            transferVM.startTransaction()
                         }
 
                     }
@@ -168,6 +170,7 @@ struct TransferDetailView: View {
             
         }.padding(.top, 1)
             .scrollDismissesKeyboard(.immediately)
+            .navigationBarTitle(Text(""), displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack(alignment: .leading, spacing: 4) {
@@ -175,6 +178,8 @@ struct TransferDetailView: View {
                     }
                     
                 }
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
+                viewRouter.pushHomePath(.transferSuccess)
             }
     }
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
-    @StateObject private var homeVM = HomeViewModel()
-    @StateObject private var transferVM = TransferViewModel()
+    @EnvironmentObject private var homeVM: HomeViewModel
+    @EnvironmentObject private var transferVM: TransferViewModel
 
     
     var body: some View {
@@ -45,7 +45,7 @@ struct HomeView: View {
                 RecentTransactions(transactions: homeVM.transactions)
                     .environmentObject(viewRouter)
             }.padding(.top, 1)
-                .navigationTitle(Text(""))
+                .navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -75,6 +75,10 @@ struct HomeView: View {
                     case .transferDetails:
                         TransferDetailView()
                             .environmentObject(transferVM)
+                    case .transferSuccess:
+                        TransferSuccess()
+                            .environmentObject(transferVM)
+                            .environmentObject(viewRouter)
                     case .exchange:
                         Exchange()
                     case .receive:

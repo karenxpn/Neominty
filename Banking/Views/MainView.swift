@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewRouter = ViewRouter()
+    @StateObject private var homeVM = HomeViewModel()
+    @StateObject private var transferVM = TransferViewModel()
     
     var body: some View {
         ZStack( alignment: .bottom) {
@@ -17,6 +19,8 @@ struct MainView: View {
                 
                 if viewRouter.tab == 0 {
                     HomeView()
+                        .environmentObject(homeVM)
+                        .environmentObject(transferVM)
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 1 {

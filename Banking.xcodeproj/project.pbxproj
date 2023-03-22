@@ -59,6 +59,7 @@
 		FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208B29CA1C32003C6415 /* TransferDetailView.swift */; };
 		FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208D29CA53E9003C6415 /* CustomAlert.swift */; };
 		FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */; };
+		FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45209129CB247B003C6415 /* TransferSuccess.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -152,6 +153,7 @@
 		FF45208B29CA1C32003C6415 /* TransferDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDetailView.swift; sourceTree = "<group>"; };
 		FF45208D29CA53E9003C6415 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferConfirmationCell.swift; sourceTree = "<group>"; };
+		FF45209129CB247B003C6415 /* TransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccess.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				FF45208829C92315003C6415 /* RecentTransferUsersList.swift */,
 				FF45208B29CA1C32003C6415 /* TransferDetailView.swift */,
 				FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */,
+				FF45209129CB247B003C6415 /* TransferSuccess.swift */,
 			);
 			path = MoneyTransfer;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
+				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,

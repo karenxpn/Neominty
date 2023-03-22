@@ -8,6 +8,7 @@
 import Foundation
 class TransferViewModel: AlertViewModel, ObservableObject {
     @Published var selectedCard: CardModel?
+    @Published var isCardValid: Bool = false
     @Published var selectedTransfer: RecentTransfer?
     @Published var transferAmount: String = ""
     @Published var newTransferImage: Data?
@@ -36,6 +37,25 @@ class TransferViewModel: AlertViewModel, ObservableObject {
             case .success(let transfers):
                 self.transactionUsers = transfers
             }
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func startTransaction() {
+        loading = true
+        
+        Task {
+            
+            print(selectedCard)
+            print(selectedTransfer)
+            print(transferAmount)
+            print(cardNumber)
+            
+            NotificationCenter.default.post(name: Notification.Name("transferSuccess"), object: nil)
+
+            
             if !Task.isCancelled {
                 loading = false
             }

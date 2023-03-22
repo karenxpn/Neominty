@@ -24,6 +24,7 @@ enum HomeViewPaths: String, Identifiable {
     // transfer
     case send
     case transferDetails
+    case transferSuccess
     
     case exchange
     case receive
