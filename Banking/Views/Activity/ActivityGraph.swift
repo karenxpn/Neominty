@@ -8,14 +8,11 @@
 import SwiftUI
 import Charts
 
-struct ExpensePoint {
-    let id: String = UUID().uuidString
-    var day: String
-    var amount: Double
-}
 
 struct ActivityGraph: View {
-    @EnvironmentObject var activityVM: ActivityViewModel
+    let points: [ExpensePoint]
+    @State private var location: CGPoint = .zero
+    @State private var amount: Double = 0
     var body: some View {
         
         let curGradient = LinearGradient(
@@ -31,9 +28,9 @@ struct ActivityGraph: View {
         
         Chart {
             
-            ForEach(activityVM.plot, id: \.id) {
+            ForEach(points, id: \.id) {
                 LineMark(
-                    x: .value("Week Day", $0.day),
+                    x: .value("Week Day", $0.unit),
                     y: .value("Step Count", $0.amount)
                 )
                 .interpolationMethod(.catmullRom)
@@ -42,30 +39,74 @@ struct ActivityGraph: View {
                 .accessibilityHidden(false)
                 
                 AreaMark(
-                    x: .value("Week Day", $0.day),
+                    x: .value("Week Day", $0.unit),
                     y: .value("Step Count", $0.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(curGradient)
-
+                
             }
         }.chartYAxis(.hidden)
-        .chartLegend(position: .overlay, alignment: .top)
-        .chartPlotStyle { plotArea in
-            plotArea
-                .background(.white)
-        }
-        .chartXAxis() {
-            AxisMarks(position: .bottom)
-        }
-        .frame(height:150)
-        
+            .chartPlotStyle { plotArea in
+                plotArea
+                    .background(.white)
+            }
+            .chartXAxis() {
+                AxisMarks(position: .bottom)
+            }
+            .frame(height:150)
+            .chartOverlay { proxy in
+                GeometryReader { geometry in
+                    Rectangle().fill(.clear).contentShape(Rectangle())
+                        .onTapGesture(perform: { value in
+                            let origin = geometry[proxy.plotAreaFrame].origin
+                            
+                            location = CGPoint(
+                                x: value.x - origin.x,
+                                y: value.y - origin.y
+                            )
+                            // Get the x (date) and y (price) value from the location.
+                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self)!
+                            self.amount = points.first(where: { $0.unit == unit})?.amount ?? 0
+                            print("Location: \(unit), \(amount)")
+                        }).overlay {
+                            if location != .zero {
+                                VStack(spacing: 0) {
+                                    TextHelper(text: "$ \(self.amount)", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 5)
+                                        .background {
+                                            RoundedRectangle(cornerRadius: 6)
+                                                .fill(.black)
+                                        }
+                                    
+                                    Rectangle()
+                                        .fill(Color.black)
+                                        .frame(width: 0.5, height: 48)
+                                    
+                                    
+                                    ZStack {
+                                        
+                                        Circle()
+                                            .fill(Color.white)
+                                            .frame(width: 4, height: 4)
+                                        
+                                        Circle()
+                                            .strokeBorder(Color.black, lineWidth: 2)
+                                            .frame(width: 8, height: 8)
+                                        
+                                    }
+                                }.position(location)
+                                
+                            }
+                        }
+                }
+            }
     }
 }
 
 struct ActivityGraph_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityGraph()
-            .environmentObject(ActivityViewModel())
+        ActivityGraph(points: PreviewModels.expensesPoints)
     }
 }

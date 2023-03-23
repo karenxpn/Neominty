@@ -75,3 +75,36 @@ enum AuthenticationState {
     case enterPasscode
     case authenticated
 }
+
+enum ActivityUnit : RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case day
+    case week
+    case month
+    case year
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .day,
+        .week,
+        .month,
+        .year,
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .day                       : return "day"
+        case .week                      : return "week"
+        case .month                     : return "month"
+        case .year                      : return "year"
+        case let .unknown(value)        : return value
+        }
+    }
+}

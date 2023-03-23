@@ -31,6 +31,8 @@
 		FF38E9F029CB75A100610F5C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9EF29CB75A100610F5C /* Activity.swift */; };
 		FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F129CB75D500610F5C /* ActivityGraph.swift */; };
 		FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */; };
+		FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F529CCC17400610F5C /* ExpensePoint.swift */; };
+		FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F729CCC48500610F5C /* ActivityModel.swift */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -129,6 +131,8 @@
 		FF38E9EF29CB75A100610F5C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FF38E9F129CB75D500610F5C /* ActivityGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGraph.swift; sourceTree = "<group>"; };
 		FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		FF38E9F529CCC17400610F5C /* ExpensePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePoint.swift; sourceTree = "<group>"; };
+		FF38E9F729CCC48500610F5C /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 				FF45205629C66453003C6415 /* CardModel.swift */,
 				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
 				FF45208429C8F087003C6415 /* RecentTransfer.swift */,
+				FF38E9F529CCC17400610F5C /* ExpensePoint.swift */,
+				FF38E9F729CCC48500610F5C /* ActivityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -605,6 +611,7 @@
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
+				FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
@@ -639,6 +646,7 @@
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
+				FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,

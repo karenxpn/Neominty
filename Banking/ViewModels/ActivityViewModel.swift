@@ -7,12 +7,14 @@
 
 import Foundation
 class ActivityViewModel: AlertViewModel, ObservableObject {
-    @Published var plot: [ExpensePoint] = [
-        .init(day: "Mon", amount: 989),
-        .init(day: "Tue", amount: 1200),
-        .init(day: "Wed", amount: 750),
-        .init(day: "Thu", amount: 650),
-        .init(day: "Fri", amount: 950),
-        .init(day: "Sat", amount: 650),
-        .init(day: "Sun", amount: 1200)]
+    @Published var activity = ActivityModelViewModel(model:
+                                                        ActivityModel(income: "$5,300.00", expenses: "$2,265.80",
+                                                                      expensesPoints: PreviewModels.expensesPoints, transactiions: PreviewModels.transactionListWithoutViewModel))
+    
+    
+    @Published var activityUnit = [ActivityUnit.day.rawValue,
+                                   ActivityUnit.week.rawValue,
+                                   ActivityUnit.month.rawValue,
+                                   ActivityUnit.year.rawValue]
+    @Published var selectedUnit = ActivityUnit.week.rawValue
 }
