@@ -41,8 +41,10 @@ struct HomeView: View {
                 }
                 
                 
-                RecentTransactions(transactions: homeVM.transactions)
-                    .environmentObject(viewRouter)
+                RecentTransactions(transactions: homeVM.transactions) {
+                    viewRouter.pushHomePath(.allTransactions)
+
+                }
             }.padding(.top, 1)
                 .navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {

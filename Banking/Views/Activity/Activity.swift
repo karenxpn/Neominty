@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
+    @EnvironmentObject var viewRouter: ViewRouter
+    
     var body: some View {
         
         NavigationStack {
@@ -37,7 +39,6 @@ struct Activity: View {
                                 TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                 
                                 TextHelper(text: activityVM.activity.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-
                             }
                         }
                         
@@ -72,6 +73,11 @@ struct Activity: View {
                             .strokeBorder(AppColors.lightGray, lineWidth: 1)
                     }
                     .padding(24)
+                
+                
+                RecentTransactions(transactions: activityVM.activity.transactions) {
+                    
+                }
             }.padding(.top, 1)
                 .navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
