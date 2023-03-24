@@ -54,3 +54,9 @@
 "successfulTransfer" = "Successful Transfer";
 "transfersAreReviewed" = "Transfers are reviewed which may result in delays or funds being frozen";
 "backToHome" = "Back to Home";
+"day" = "Day";
+"week" = "Week";
+"month" = "Month";
+"year" = "Year";
+"income" = "Income";
+"expenses" = "Expenses";

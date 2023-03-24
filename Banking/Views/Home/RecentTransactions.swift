@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RecentTransactions: View {
     
-    @EnvironmentObject var viewRouter: ViewRouter
     let transactions: [TransactionPreviewViewModel]
+    let action: () -> ()
     
     var body: some View {
         LazyVStack(spacing: 16) {
@@ -19,7 +19,7 @@ struct RecentTransactions: View {
                 Spacer()
                 
                 Button {
-                    viewRouter.pushHomePath(.allTransactions)
+                    action()
                 } label: {
                     HStack(spacing: 0) {
                         TextHelper(text: NSLocalizedString("allTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
@@ -60,7 +60,8 @@ struct RecentTransactions: View {
 
 struct RecentTransactions_Previews: PreviewProvider {
     static var previews: some View {
-        RecentTransactions(transactions: PreviewModels.transactionList)
-            .environmentObject(ViewRouter())
+        RecentTransactions(transactions: PreviewModels.transactionList) {
+            
+        }
     }
 }

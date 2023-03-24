@@ -28,6 +28,13 @@
 		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
+		FF38E9F029CB75A100610F5C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9EF29CB75A100610F5C /* Activity.swift */; };
+		FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F129CB75D500610F5C /* ActivityGraph.swift */; };
+		FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */; };
+		FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F529CCC17400610F5C /* ExpensePoint.swift */; };
+		FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F729CCC48500610F5C /* ActivityModel.swift */; };
+		FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F929CDDA8000610F5C /* ActivityCard.swift */; };
+		FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -123,6 +130,13 @@
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		FF38E9EF29CB75A100610F5C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		FF38E9F129CB75D500610F5C /* ActivityGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGraph.swift; sourceTree = "<group>"; };
+		FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		FF38E9F529CCC17400610F5C /* ExpensePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensePoint.swift; sourceTree = "<group>"; };
+		FF38E9F729CCC48500610F5C /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		FF38E9F929CDDA8000610F5C /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityService.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -237,6 +251,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF38E9EE29CB759200610F5C /* Activity */,
 				FF45208329C7BA35003C6415 /* Card */,
 				FF45205129C33D89003C6415 /* Home */,
 				FF18C25429BA8E5E004EF3A3 /* Authentication */,
@@ -255,6 +270,7 @@
 				FF45204D29C0FB95003C6415 /* ViewRouter.swift */,
 				FF45206C29C733B7003C6415 /* HomeViewModel.swift */,
 				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
+				FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -267,6 +283,7 @@
 				FF80569129BDF6730081AD76 /* UserService.swift */,
 				FF45204429C079C3003C6415 /* KeychainManager.swift */,
 				FF45208629C8F0EB003C6415 /* TransferSerive.swift */,
+				FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -278,6 +295,8 @@
 				FF45205629C66453003C6415 /* CardModel.swift */,
 				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
 				FF45208429C8F087003C6415 /* RecentTransfer.swift */,
+				FF38E9F529CCC17400610F5C /* ExpensePoint.swift */,
+				FF38E9F729CCC48500610F5C /* ActivityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,6 +317,16 @@
 				FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FF38E9EE29CB759200610F5C /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				FF38E9EF29CB75A100610F5C /* Activity.swift */,
+				FF38E9F129CB75D500610F5C /* ActivityGraph.swift */,
+				FF38E9F929CDDA8000610F5C /* ActivityCard.swift */,
+			);
+			path = Activity;
 			sourceTree = "<group>";
 		};
 		FF45205129C33D89003C6415 /* Home */ = {
@@ -588,17 +617,21 @@
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
+				FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
+				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
+				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
@@ -616,10 +649,12 @@
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
+				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
+				FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,
@@ -632,6 +667,7 @@
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
+				FF38E9F029CB75A100610F5C /* Activity.swift in Sources */,
 				FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

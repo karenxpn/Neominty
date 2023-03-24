@@ -41,8 +41,10 @@ struct HomeView: View {
                 }
                 
                 
-                RecentTransactions(transactions: homeVM.transactions)
-                    .environmentObject(viewRouter)
+                RecentTransactions(transactions: homeVM.transactions) {
+                    viewRouter.pushHomePath(.allTransactions)
+
+                }
             }.padding(.top, 1)
                 .navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
@@ -67,7 +69,7 @@ struct HomeView: View {
                 .navigationDestination(for: HomeViewPaths.self) { page in
                     switch page {
                     case .allTransactions:
-                        AllTransactions()
+                        AllTransactions(transactions: homeVM.transactions)
                     case .send:
                         MoneyTransfer(cards: homeVM.cards)
                     case .exchange:

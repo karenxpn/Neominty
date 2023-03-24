@@ -52,7 +52,7 @@ enum ScanViewPaths: String, Identifiable {
 }
 
 enum AnalyticsViewPaths: String, Identifiable {
-    case analytics
+    case allTransactions
     
     var id: String {
         self.rawValue
