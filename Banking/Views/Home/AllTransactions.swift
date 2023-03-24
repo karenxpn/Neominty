@@ -9,32 +9,45 @@ import SwiftUI
 
 struct AllTransactions: View {
     @EnvironmentObject private var viewRouter: ViewRouter
-    let transactions: [TransactionPreviewViewModel]
+    @StateObject private var allTransferVM = AllTransferViewModel()
     
-    // add all transactions view model and get them here with pagination
     var body: some View {
+        
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 16) {
-                ForEach(transactions, id: \.id) { transaction in
+                ForEach(allTransferVM.transfers, id: \.id) { transfer in
                     HStack(spacing: 16) {
                         
-                        Image(transaction.icon)
+                        Image(transfer.icon)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 48, height: 48)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                            TextHelper(text: transaction.type, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: transfer.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                            TextHelper(text: transfer.type, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                         }
                         
                         Spacer()
                         
-                        TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                        TextHelper(text: transfer.amount, color: transfer.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                    }.onAppear {
+                        if transfer.id == allTransferVM.transfers.last?.id && !allTransferVM.loading {
+                            allTransferVM.getTransactionList()
+                        }
                     }
                     
                     Divider()
                         .overlay(AppColors.superLightGray)
+                }
+                
+                
+                if allTransferVM.loading {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
                 }
                 
             }.padding(20)
@@ -42,11 +55,18 @@ struct AllTransactions: View {
         }.padding(.top, 1)
             .navigationTitle(Text(NSLocalizedString("allTransactions", comment: "")))
             .navigationBarTitleDisplayMode(.inline)
+            .alert(NSLocalizedString("error", comment: ""), isPresented: $allTransferVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(allTransferVM.alertMessage)
+            }).task {
+                allTransferVM.getTransactionList()
+            }
     }
 }
 
 struct AllTransactions_Previews: PreviewProvider {
     static var previews: some View {
-        AllTransactions(transactions: PreviewModels.transactionList)
+        AllTransactions()
     }
 }

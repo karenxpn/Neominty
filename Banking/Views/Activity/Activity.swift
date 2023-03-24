@@ -122,7 +122,7 @@ struct Activity: View {
                 }.navigationDestination(for: AnalyticsViewPaths.self) { value in
                     switch value {
                     case .allTransactions:
-                        AllTransactions(transactions: activityVM.activity?.transactions ?? [])
+                        AllTransactions()
                     }
                 }
         }
