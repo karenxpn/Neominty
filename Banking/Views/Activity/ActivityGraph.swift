@@ -66,7 +66,7 @@ struct ActivityGraph: View {
                                 y: value.y - origin.y
                             )
                             // Get the x (date) and y (price) value from the location.
-                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self)!
+                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self) ?? ("", 0)
                             self.amount = points.first(where: { $0.unit == unit})?.amount ?? 0
                             print("Location: \(unit), \(amount)")
                         }).overlay {

@@ -15,7 +15,7 @@ struct PreviewModels {
     static let masterCard = CardModel(id: UUID().uuidString, number: "5242 4242 4242 4242", cardHolder: "Tonny Monthana", expirationDate: "13/24", defaultCard: true, design: .blueGreen, cardType: .masterCard)
     static let visaCard = CardModel(id: UUID().uuidString, number: "4242 4242 4242 4242", cardHolder: "Tonny Monthana", expirationDate: "13/24", defaultCard: false, design: .blue, cardType: .visa)
     
-    static let mirCard = CardModel(id: UUID().uuidString, number: "2242 4242 4242 4242", cardHolder: "Tonny Monthana", expirationDate: "13/24", defaultCard: false, design: .green, cardType: .mir)
+    static let mirCard = CardModel(id: UUID().uuidString, number: "2242 4242 4242 4289", cardHolder: "Tonny Monthana", expirationDate: "13/24", defaultCard: false, design: .green, cardType: .mir)
     
     static let arcaCard = CardModel(id: UUID().uuidString, number: "2242 4242 4242 4242", cardHolder: "Tonny Monthana", expirationDate: "13/24", defaultCard: false, design: .greenBlue, cardType: .arca)
     

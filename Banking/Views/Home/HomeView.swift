@@ -69,7 +69,7 @@ struct HomeView: View {
                 .navigationDestination(for: HomeViewPaths.self) { page in
                     switch page {
                     case .allTransactions:
-                        AllTransactions()
+                        AllTransactions(transactions: homeVM.transactions)
                     case .send:
                         MoneyTransfer(cards: homeVM.cards)
                     case .exchange:
