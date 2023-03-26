@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
 		FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24229BA8010004EF3A3 /* FirebaseAuth */; };
 		FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24429BA8010004EF3A3 /* FirebaseFirestore */; };
@@ -115,6 +116,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF18C25529BA8E70004EF3A3 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 				FF18C26829BB3199004EF3A3 /* Credentials.swift */,
 				FFC2BCEF29BB5B7200E774FD /* Localizable.strings */,
 				FFC2BCF129BB60E300E774FD /* font */,
+				FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */,
 			);
 			path = Banking;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
+				FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */,
 				FFC2BCF929BB612100E774FD /* Roboto-Bold.ttf in Resources */,
 				FFC2BCF729BB612100E774FD /* Roboto-Light.ttf in Resources */,
 				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
@@ -826,7 +830,7 @@
 		FF628E1F29BA2CD200FE35EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -838,6 +842,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -857,7 +862,7 @@
 		FF628E2029BA2CD200FE35EE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -869,6 +874,7 @@
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
