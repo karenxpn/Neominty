@@ -90,6 +90,7 @@
 		FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */; };
 		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
 		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
+		FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -205,6 +206,7 @@
 		FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailTextFieldDecorator.swift; sourceTree = "<group>"; };
 		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
 		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
+		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 				FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */,
 				FFAC1DF529D23FAD00947CBC /* CardStyling.swift */,
 				FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */,
+				FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */,
 			);
 			path = MyCards;
 			sourceTree = "<group>";
@@ -685,6 +688,7 @@
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
+				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,

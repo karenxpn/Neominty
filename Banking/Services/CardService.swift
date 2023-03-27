@@ -8,6 +8,7 @@
 import Foundation
 protocol CardServiceProtocol {
     func fetchCards() async -> Result<[CardModel], Error>
+    func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error>
 }
 
 class CardService {
@@ -23,6 +24,12 @@ extension CardService: CardServiceProtocol {
             return .success([])
         } catch {
             return .failure(error)
+        }
+    }
+    
+    func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error> {
+        return await APIHelper.shared.voidRequest {
+            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
         }
     }
 }

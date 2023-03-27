@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CongratulationAlert<Content: View>: View {
+    @EnvironmentObject var viewRouter: ViewRouter
     @Environment(\.presentationMode) var presentationMode
     private var content: Content
 
@@ -46,9 +47,8 @@ struct CongratulationAlert<Content: View>: View {
                     
                     
                     ButtonHelper(disabled: false, label: NSLocalizedString("okIamReady", comment: "")) {
-                        presentationMode.wrappedValue.dismiss()
+                        viewRouter.popToCardRoot()
                     }
-                    
                     
                 }.padding(24)
                     .background {
@@ -57,9 +57,6 @@ struct CongratulationAlert<Content: View>: View {
                             .cornerRadius(24)
                     }
             }.padding(24)
-            
-        }.onTapGesture {
-            presentationMode.wrappedValue.dismiss()
         }
     }
 }

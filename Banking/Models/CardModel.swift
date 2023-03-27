@@ -61,7 +61,7 @@ enum CardType : RawRepresentable, CaseIterable, Codable {
 }
 
 
-enum CardDesign : RawRepresentable, CaseIterable, Codable {
+enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable {
     
     typealias RawValue = String
     
@@ -81,6 +81,10 @@ enum CardDesign : RawRepresentable, CaseIterable, Codable {
     init(rawValue: RawValue) {
         self = Self.allCases.first{ $0.rawValue == rawValue }
         ?? .unknown(rawValue)
+    }
+    
+    var id: String {
+        self.rawValue
     }
     
     var rawValue: RawValue {
