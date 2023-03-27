@@ -65,3 +65,8 @@
 "cardIsReadyMessage" = "Now you can shop, transmit and transfer conveniently";
 "myCards" = "My Cards";
 "addNewCard" = "Add new card";
+"cardDetails" = "Card Details";
+"cardNumber" = "Card Number";
+"expireDate" = "Expire Date(MM/YY)";
+"cardHolder" = "Card Holder";
+"newCard" = "New Card";

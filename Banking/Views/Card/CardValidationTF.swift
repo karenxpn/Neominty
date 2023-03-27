@@ -65,6 +65,7 @@ public struct CardValidationTF: View {
     @ViewBuilder
     private func cvvView() -> some View {
         TextField(subtitle, text: $text)
+            .keyboardType(.numberPad)
             .font(tfFont)
             .foregroundColor(tfColor)
             .valueChanged(value: text) { cvv in
@@ -78,6 +79,7 @@ public struct CardValidationTF: View {
     @ViewBuilder
     private func dateExpirationView() -> some View {
         TextField(subtitle, text: $text)
+            .keyboardType(.numberPad)
             .font(tfFont)
             .foregroundColor(tfColor)
             .valueChanged(value: text) { date in
