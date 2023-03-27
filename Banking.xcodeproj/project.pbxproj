@@ -88,6 +88,8 @@
 		FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */; };
 		FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF129D1DB5D00947CBC /* CardService.swift */; };
 		FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */; };
+		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
+		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -201,6 +203,8 @@
 		FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
 		FFAC1DF129D1DB5D00947CBC /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailTextFieldDecorator.swift; sourceTree = "<group>"; };
+		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
+		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -469,6 +473,8 @@
 				FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */,
 				FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */,
 				FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */,
+				FFAC1DF529D23FAD00947CBC /* CardStyling.swift */,
+				FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */,
 			);
 			path = MyCards;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */,
 				FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */,
 				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
 				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
@@ -663,6 +670,7 @@
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,

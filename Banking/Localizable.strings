@@ -70,3 +70,8 @@
 "expireDate" = "Expire Date(MM/YY)";
 "cardHolder" = "Card Holder";
 "newCard" = "New Card";
+"yourName" = "Your Name";
+"save" = "Save";
+"createYourNeomintyCard" = "Create your Neominty Card";
+"createYourCardMessage" = "The customizable, no hidden fee, instant discount debit or credit card";
+"attachCard" = "Attach Card";

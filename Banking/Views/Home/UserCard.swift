@@ -44,6 +44,11 @@ struct UserCard: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 45, height: 26)
+                } else if card.cardType == .mir {
+                    Image("mir")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 45, height: 26)
                 }
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)

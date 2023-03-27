@@ -20,6 +20,7 @@ struct AddNewCard: View {
     @State private var expireDateValid: Bool = false
     
     @State private var cardType = CardBankType.nonIdentified
+    @State private var design: CardDesign = .blue
     
     
     var body: some View {
@@ -27,6 +28,16 @@ struct AddNewCard: View {
         ScrollView(showsIndicators: false) {
             
             VStack( alignment: .leading, spacing: 16) {
+                
+                ZStack( alignment: .trailing) {
+                    CardStyling(cardNumber: $cardNumber,
+                                cardType: $cardType,
+                                cardHolder: $cardHolder,
+                                expireDate: $expirationDate,
+                                cardDesign: $design)
+                }
+                
+                
                 TextHelper(text: NSLocalizedString("cardDetails", comment: ""),
                            color: AppColors.darkBlue,
                            fontName: Roboto.bold.rawValue,
@@ -77,8 +88,16 @@ struct AddNewCard: View {
                                      tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                      subtitle: NSLocalizedString("cardHolder", comment: ""))
                 }, isValid: $cardHolderValid)
+                
+                
+                Spacer()
+                
+                ButtonHelper(disabled: !cardHolderValid || !cardNumberValid || !cvvValid || !expireDateValid, label: NSLocalizedString("save", comment: "")) {
+                    
+                }
 
             }.padding(24)
+                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)

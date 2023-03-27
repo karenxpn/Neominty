@@ -19,7 +19,7 @@ struct CardsList: View {
             }
             
             Button {
-                
+                viewRouter.pushCardPath(.attachCard)
             } label: {
                 
                 HStack(spacing: 12) {

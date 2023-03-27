@@ -17,7 +17,7 @@ struct Cards: View {
                 if cardsVM.loading {
                     ProgressView()
                 } else if cardsVM.cards.isEmpty && !cardsVM.loading {
-                    AddNewCard()
+                    RequestToAddNewCard()
                 } else {
                     CardsList(cards: cardsVM.cards)
                 }
@@ -29,6 +29,11 @@ struct Cards: View {
                     }
                 }.task {
                     cardsVM.getCards()
+                }.navigationDestination(for: MyCardViewPaths.self) { value in
+                    switch value {
+                    case .attachCard:
+                        AddNewCard()
+                    }
                 }
         }
     }
