@@ -82,6 +82,8 @@
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
 		FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569529BDFA510081AD76 /* ConfirmPin.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
+		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
+		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -189,6 +191,8 @@
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FF80569529BDFA510081AD76 /* ConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPin.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
+		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFAC1DE829D1C78700947CBC /* MyCards */,
 				FF38E9EE29CB759200610F5C /* Activity */,
 				FF45208329C7BA35003C6415 /* Card */,
 				FF45205129C33D89003C6415 /* Home */,
@@ -279,6 +284,7 @@
 				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
 				FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */,
 				FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */,
+				FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -445,6 +451,14 @@
 				FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */,
 			);
 			path = BankingUITests;
+			sourceTree = "<group>";
+		};
+		FFAC1DE829D1C78700947CBC /* MyCards */ = {
+			isa = PBXGroup;
+			children = (
+				FFAC1DE929D1C79500947CBC /* Cards.swift */,
+			);
+			path = MyCards;
 			sourceTree = "<group>";
 		};
 		FFC2BCF129BB60E300E774FD /* font */ = {
@@ -638,6 +652,7 @@
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
+				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
@@ -657,6 +672,7 @@
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
+				FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
