@@ -118,7 +118,8 @@ struct AddNewCard: View {
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             }
             
-        }.navigationTitle(Text(""))
+        }.padding(.top, 1)
+        .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {

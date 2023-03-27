@@ -483,7 +483,6 @@ extension CardValidationTF {
         let curMonth = Calendar.current.component(.month, from: Date())
         let curYear = Calendar.current.component(.year, from: Date())
         
-        print(curMonth, String(curYear).suffix(2))
         let dateNow = dateFormatter.date(from: "\(curMonth < 10 ? "0\(curMonth)" : "\(curMonth)")/\(String(curYear).suffix(2))")!
         
         guard aNewDate.compare(dateNow) == .orderedDescending else {
