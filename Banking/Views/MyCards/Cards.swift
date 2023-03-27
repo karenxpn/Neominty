@@ -12,12 +12,24 @@ struct Cards: View {
     @StateObject var cardsVM = CardsViewModel()
     
     var body: some View {
-        if cardsVM.loading {
-            ProgressView()
-        } else if cardsVM.cards.isEmpty && !cardsVM.loading {
-            Text("add card")
-        } else {
-            Text("cards list")
+        NavigationStack(path: $viewRouter.cardPath) {
+            ZStack {
+                if cardsVM.loading {
+                    ProgressView()
+                } else if cardsVM.cards.isEmpty && !cardsVM.loading {
+                    AddNewCard()
+                } else {
+                    CardsList(cards: cardsVM.cards)
+                }
+            }.navigationTitle(Text(""))
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        TextHelper(text: NSLocalizedString("myCards", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    }
+                }.task {
+                    cardsVM.getCards()
+                }
         }
     }
 }

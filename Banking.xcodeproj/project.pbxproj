@@ -84,6 +84,9 @@
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
 		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
+		FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */; };
+		FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */; };
+		FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF129D1DB5D00947CBC /* CardService.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -193,6 +196,9 @@
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCard.swift; sourceTree = "<group>"; };
+		FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
+		FFAC1DF129D1DB5D00947CBC /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -298,6 +304,7 @@
 				FF45204429C079C3003C6415 /* KeychainManager.swift */,
 				FF45208629C8F0EB003C6415 /* TransferSerive.swift */,
 				FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */,
+				FFAC1DF129D1DB5D00947CBC /* CardService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -457,6 +464,8 @@
 			isa = PBXGroup;
 			children = (
 				FFAC1DE929D1C79500947CBC /* Cards.swift */,
+				FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */,
+				FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */,
 			);
 			path = MyCards;
 			sourceTree = "<group>";
@@ -653,6 +662,7 @@
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
+				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
@@ -690,8 +700,10 @@
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
+				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
