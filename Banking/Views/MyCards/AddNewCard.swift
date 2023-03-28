@@ -119,6 +119,7 @@ struct AddNewCard: View {
             }
             
         }.padding(.top, 1)
+            .scrollDismissesKeyboard(.immediately)
         .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
