@@ -36,7 +36,7 @@ enum HomeViewPaths: String, Identifiable {
 }
 
 enum MyCardViewPaths: String, Identifiable {
-    case myCard
+    case attachCard
     
     var id: String {
         self.rawValue

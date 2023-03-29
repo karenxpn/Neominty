@@ -7,7 +7,6 @@
 
 import Foundation
 protocol ActivityServiceProtocol {
-    func fetchCards() async -> Result<[CardModel], Error>
     func fetchActivity(cardNumber: String, unit: String) async -> Result<ActivityModel, Error>
 }
 
@@ -29,15 +28,5 @@ extension ActivityService: ActivityServiceProtocol {
             return .failure(error)
         }
 
-    }
-    
-    func fetchCards() async -> Result<[CardModel], Error> {
-        do {
-            let cards = [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.mirCard, PreviewModels.arcaCard]
-            try await Task.sleep(nanoseconds: UInt64(5 * Double(NSEC_PER_SEC)))
-            return .success(cards)
-        } catch {
-            return .failure(error)
-        }
     }
 }

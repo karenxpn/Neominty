@@ -17,15 +17,15 @@ public enum CardBankType {
     public var textFieldIcon: String {
         switch self {
         case .visa:
-            return "visa.icon.colorized"
+            return "visa"
         case .mastercard:
-            return "mastercard.icon.colorized"
+            return "mc_symbol"
         case .maestro:
-            return "mastercard.icon.colorized"
+            return "maestro"
         case .mir:
-            return "mir.icon.colorized"
+            return "mir"
         case .nonIdentified:
-            return "globe.icon"
+            return "card-placeholder"
         }
     }
     

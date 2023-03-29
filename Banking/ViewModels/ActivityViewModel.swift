@@ -26,8 +26,12 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     
     
     var manager: ActivityServiceProtocol
-    init(manager: ActivityServiceProtocol = ActivityService.shared) {
+    var cardManager: CardServiceProtocol
+    
+    init(manager: ActivityServiceProtocol = ActivityService.shared,
+         cardManager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
+        self.cardManager = cardManager
     }
     
     @MainActor func getCards() {
@@ -35,7 +39,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
         
         Task {
             
-            let result = await manager.fetchCards()
+            let result = await cardManager.fetchCards()
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

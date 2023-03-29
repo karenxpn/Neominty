@@ -20,7 +20,7 @@ struct MainView: View {
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 1 {
-                    Text("my cart")
+                    Cards()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 2{

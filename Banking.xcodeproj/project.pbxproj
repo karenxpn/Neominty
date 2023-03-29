@@ -81,6 +81,16 @@
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
 		FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569529BDFA510081AD76 /* ConfirmPin.swift */; };
+		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
+		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
+		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
+		FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */; };
+		FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */; };
+		FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF129D1DB5D00947CBC /* CardService.swift */; };
+		FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */; };
+		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
+		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
+		FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -187,6 +197,16 @@
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		FF80569529BDFA510081AD76 /* ConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPin.swift; sourceTree = "<group>"; };
+		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
+		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
+		FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCard.swift; sourceTree = "<group>"; };
+		FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsList.swift; sourceTree = "<group>"; };
+		FFAC1DF129D1DB5D00947CBC /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
+		FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailTextFieldDecorator.swift; sourceTree = "<group>"; };
+		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
+		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
+		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -255,6 +275,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFAC1DE829D1C78700947CBC /* MyCards */,
 				FF38E9EE29CB759200610F5C /* Activity */,
 				FF45208329C7BA35003C6415 /* Card */,
 				FF45205129C33D89003C6415 /* Home */,
@@ -262,6 +283,7 @@
 				FF45204929C09705003C6415 /* CustomTabView.swift */,
 				FF45204B29C0FB3D003C6415 /* MainView.swift */,
 				FF45208D29CA53E9003C6415 /* CustomAlert.swift */,
+				FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +298,7 @@
 				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
 				FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */,
 				FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */,
+				FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -289,6 +312,7 @@
 				FF45204429C079C3003C6415 /* KeychainManager.swift */,
 				FF45208629C8F0EB003C6415 /* TransferSerive.swift */,
 				FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */,
+				FFAC1DF129D1DB5D00947CBC /* CardService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -442,6 +466,20 @@
 				FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */,
 			);
 			path = BankingUITests;
+			sourceTree = "<group>";
+		};
+		FFAC1DE829D1C78700947CBC /* MyCards */ = {
+			isa = PBXGroup;
+			children = (
+				FFAC1DE929D1C79500947CBC /* Cards.swift */,
+				FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */,
+				FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */,
+				FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */,
+				FFAC1DF529D23FAD00947CBC /* CardStyling.swift */,
+				FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */,
+				FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */,
+			);
+			path = MyCards;
 			sourceTree = "<group>";
 		};
 		FFC2BCF129BB60E300E774FD /* font */ = {
@@ -609,11 +647,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */,
 				FF45206129C66AA2003C6415 /* RequestTransfer.swift in Sources */,
 				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
 				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
+				FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
 				FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
@@ -631,9 +671,13 @@
 				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
+				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
+				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
+				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
@@ -644,6 +688,7 @@
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
+				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
@@ -653,6 +698,7 @@
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
+				FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
@@ -670,8 +716,10 @@
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
+				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
@@ -839,6 +887,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -871,6 +921,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
