@@ -17,7 +17,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     @Published var cvv: String = ""
     @Published var expirationDate: String = ""
     
-    @Published var cardType = CardBankType.nonIdentified
+    @Published var cardType = CreditCardType.nonIdentified
     @Published var design: CardDesign = .blue
     
     

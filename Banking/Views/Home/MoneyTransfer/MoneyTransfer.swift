@@ -13,7 +13,7 @@ struct MoneyTransfer: View {
     let cards: [CardModel]
     @State private var selectedCard: CardModel?
     
-    @State private var cardType = CardBankType.nonIdentified
+    @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
     @State private var navigateToTransferDetails: Bool = false
     

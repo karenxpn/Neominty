@@ -12,7 +12,7 @@ public struct CardValidationTF: View {
     
     @Binding private var text: String
     @Binding private var isValid: Bool
-    @Binding private var bankCardType: CardBankType
+    @Binding private var bankCardType: CreditCardType
     private let tfType: CardTextField
     private let tfFont: Font
     private let tfColor: Color
@@ -21,7 +21,7 @@ public struct CardValidationTF: View {
     public init(
         text: Binding<String>,
         isValid: Binding<Bool>,
-        bankCardType: Binding<CardBankType>,
+        bankCardType: Binding<CreditCardType>,
         tfType: CardTextField,
         tfFont: Font = Font.title,
         tfColor: Color = .black.opacity(0.9),
@@ -57,8 +57,8 @@ public struct CardValidationTF: View {
             .foregroundColor(tfColor)
             .valueChanged(value: text) { number in
                 self.text = number.formattedCreditCard
-                self.isValid = CardValidationTF.isCardNumberValid(text)
-                self.bankCardType = CardValidationTF.cardType(from: text)
+                self.isValid = CardValidationTF.isCardNumberValid(number)
+                self.bankCardType = CreditCardValidator(number).type ?? CreditCardType.nonIdentified
             }
     }
     

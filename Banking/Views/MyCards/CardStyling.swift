@@ -10,7 +10,7 @@ import SwiftUI
 struct CardStyling: View {
     
     @Binding var cardNumber: String
-    @Binding var cardType: CardBankType
+    @Binding var cardType: CreditCardType
     @Binding var cardHolder: String
     @Binding var expireDate: String
     @Binding var cardDesign: CardDesign

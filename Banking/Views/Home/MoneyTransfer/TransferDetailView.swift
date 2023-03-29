@@ -12,7 +12,7 @@ struct TransferDetailView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var isNameValid: Bool = false
     @State private var cardHolder: String = ""
-    @State private var cardType = CardBankType.nonIdentified
+    @State private var cardType = CreditCardType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
     @State private var navigateToSuccess: Bool = false
 
