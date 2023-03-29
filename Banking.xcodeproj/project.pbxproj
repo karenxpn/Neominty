@@ -61,7 +61,7 @@
 		FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207229C7A565003C6415 /* TransferViewModel.swift */; };
 		FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207D29C7B57A003C6415 /* CardTextField.swift */; };
 		FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45207F29C7B890003C6415 /* CardValidationTF.swift */; };
-		FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208129C7B8CF003C6415 /* CardBankType.swift */; };
+		FF45208229C7B8CF003C6415 /* CreditCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208129C7B8CF003C6415 /* CreditCardType.swift */; };
 		FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208429C8F087003C6415 /* RecentTransfer.swift */; };
 		FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208629C8F0EB003C6415 /* TransferSerive.swift */; };
 		FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208829C92315003C6415 /* RecentTransferUsersList.swift */; };
@@ -174,7 +174,7 @@
 		FF45207229C7A565003C6415 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
 		FF45207D29C7B57A003C6415 /* CardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextField.swift; sourceTree = "<group>"; };
 		FF45207F29C7B890003C6415 /* CardValidationTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardValidationTF.swift; sourceTree = "<group>"; };
-		FF45208129C7B8CF003C6415 /* CardBankType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBankType.swift; sourceTree = "<group>"; };
+		FF45208129C7B8CF003C6415 /* CreditCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardType.swift; sourceTree = "<group>"; };
 		FF45208429C8F087003C6415 /* RecentTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransfer.swift; sourceTree = "<group>"; };
 		FF45208629C8F0EB003C6415 /* TransferSerive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSerive.swift; sourceTree = "<group>"; };
 		FF45208829C92315003C6415 /* RecentTransferUsersList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransferUsersList.swift; sourceTree = "<group>"; };
@@ -382,7 +382,7 @@
 			children = (
 				FF45207D29C7B57A003C6415 /* CardTextField.swift */,
 				FF45207F29C7B890003C6415 /* CardValidationTF.swift */,
-				FF45208129C7B8CF003C6415 /* CardBankType.swift */,
+				FF45208129C7B8CF003C6415 /* CreditCardType.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -666,7 +666,7 @@
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
-				FF45208229C7B8CF003C6415 /* CardBankType.swift in Sources */,
+				FF45208229C7B8CF003C6415 /* CreditCardType.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,

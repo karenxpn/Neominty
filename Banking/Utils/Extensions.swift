@@ -360,28 +360,6 @@ extension CardValidationTF {
         return creditCardNo.components(separatedBy: CharacterSet.decimalDigits.inverted).joined(separator: "")
     }
     
-    public static func isCardNumberValid(_ cardNumber: String?) -> Bool {
-        guard let cardNumber = cardNumber else {
-            return false
-        }
-        let number = cardNumber.onlyNumbers()
-        guard number.count >= 14 && number.count <= 19 else {
-            return false
-        }
-        
-        var digits = number.map { Int(String($0))! }
-        stride(from: digits.count - 2, through: 0, by: -2).forEach { i in
-            var value = digits[i] * 2
-            if value > 9 {
-                value = value % 10 + 1
-            }
-            digits[i] = value
-        }
-        
-        let sum = digits.reduce(0, +)
-        return sum % 10 == 0
-    }
-    
     public static func isExpDateValid(_ expDate: String?) -> Bool {
         guard let expDate = expDate else {
             return false
