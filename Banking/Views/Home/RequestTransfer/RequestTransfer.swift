@@ -33,7 +33,7 @@ struct RequestTransfer: View {
                         
                         HStack(spacing: 10) {
                             
-                            TextHelper(text: "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                            TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD", color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
                             
                             TextField( NSLocalizedString("1000", comment: "") ,text: $requestVM.amount)
                                 .keyboardType(.decimalPad)

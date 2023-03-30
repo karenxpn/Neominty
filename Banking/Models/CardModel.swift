@@ -11,9 +11,45 @@ struct CardModel: Identifiable, Codable {
     var number: String
     var cardHolder: String
     var expirationDate: String
+    var currency: CardCurrency
+    var bankName: String
     var defaultCard: Bool
     var design: CardDesign
     var cardType: CardType
+}
+
+enum CardCurrency: RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case usd
+    case amd
+    case rub
+    case eur
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .usd,
+        .amd,
+        .rub,
+        .eur
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .usd   : return "USD"
+        case .amd   : return "AMD"
+        case .rub   : return "RUB"
+        case .eur   : return "EUR"
+            
+        case let .unknown(value)    : return value
+        }
+    }
 }
 
 enum CardType : RawRepresentable, CaseIterable, Codable {
