@@ -75,3 +75,4 @@
 "createYourNeomintyCard" = "Create your Neominty Card";
 "createYourCardMessage" = "The customizable, no hidden fee, instant discount debit or credit card";
 "attachCard" = "Attach Card";
+"attachCardToRequestTransfer" = "Attach a card to request transfer from users";

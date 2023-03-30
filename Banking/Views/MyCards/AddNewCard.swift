@@ -126,7 +126,12 @@ struct AddNewCard: View {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: NSLocalizedString("newCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
-            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "cardAttached"))) { _ in
+            }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(cardsVM.alertMessage)
+            })
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "cardAttached"))) { _ in
                 showAlert.toggle()
             }
     }

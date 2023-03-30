@@ -108,3 +108,7 @@ enum ActivityUnit : RawRepresentable, CaseIterable, Codable {
         }
     }
 }
+
+enum RequestType {
+    case phone, email, link
+}
