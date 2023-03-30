@@ -109,6 +109,21 @@ enum ActivityUnit : RawRepresentable, CaseIterable, Codable {
     }
 }
 
-enum RequestType {
+enum RequestType: String, Identifiable {
     case phone, email, link
+    
+    var id: String {
+        self.rawValue
+    }
+    
+    var image: String {
+        switch self {
+        case .phone:
+            return "phone"
+        case .link:
+            return "link"
+        case .email:
+            return "envelope"
+        }
+    }
 }

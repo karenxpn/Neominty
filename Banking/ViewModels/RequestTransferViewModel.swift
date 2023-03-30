@@ -13,6 +13,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @Published var cards = [CardModel]()
     
     @Published var selectedCard: CardModel?
+    @Published var requestType: RequestType = .link
     
     var cardManager: CardServiceProtocol
     init(cardManager: CardServiceProtocol = CardService.shared) {

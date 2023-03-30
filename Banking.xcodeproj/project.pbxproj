@@ -84,6 +84,7 @@
 		FF821BCE29D5C10500F3BA0C /* RequestTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */; };
 		FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */; };
 		FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */; };
+		FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
 		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
@@ -203,6 +204,7 @@
 		FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransferViewModel.swift; sourceTree = "<group>"; };
 		FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardButton.swift; sourceTree = "<group>"; };
 		FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardList.swift; sourceTree = "<group>"; };
+		FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypeList.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				FF821BCB29D5C0CB00F3BA0C /* RequestTransfer.swift */,
 				FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */,
 				FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */,
+				FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */,
 			);
 			path = RequestTransfer;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
+				FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,

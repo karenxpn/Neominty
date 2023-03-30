@@ -22,11 +22,19 @@ struct RequestTransfer: View {
                            fontName: Roboto.medium.rawValue)
             } else {
                 ScrollView(showsIndicators: false) {
-                    VStack {
+                    VStack(spacing: 42) {
                         if requestVM.selectedCard != nil {
                             SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
                                 selectCard.toggle()
                             }
+                        }
+                        
+                        RequestTypeList(selected: $requestVM.requestType)
+                        
+                        if requestVM.requestType == .email {
+                            // email field
+                        } else if requestVM.requestType == .phone {
+                            // phone field
                         }
                         
                     }.padding(24)
