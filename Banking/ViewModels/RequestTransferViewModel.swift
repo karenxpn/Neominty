@@ -12,6 +12,8 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @Published var alertMessage: String = ""
     @Published var cards = [CardModel]()
     
+    @Published var amount: String = ""
+    
     @Published var selectedCard: CardModel?
     @Published var requestType: RequestType = .link
     

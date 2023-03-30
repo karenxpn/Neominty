@@ -17,10 +17,13 @@ struct RequestTypeList: View {
                 Button {
                     selected = type
                 } label: {
-                    Image(type.image)
-                        .padding(.vertical, 9)
-                        .padding(.horizontal, 40)
-                        .background {
+                    
+                    HStack {
+                        Spacer()
+                        Image(type.image)
+                            .padding(.vertical, 9)
+                        Spacer()
+                    }.background {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(type.id == selected.id ? AppColors.green : AppColors.lightGray)
                         }

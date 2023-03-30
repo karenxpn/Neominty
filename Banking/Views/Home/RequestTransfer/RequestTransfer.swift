@@ -31,6 +31,18 @@ struct RequestTransfer: View {
                             }
                         }
                         
+                        HStack(spacing: 10) {
+                            
+                            TextHelper(text: "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                            
+                            TextField( NSLocalizedString("1000", comment: "") ,text: $requestVM.amount)
+                                .keyboardType(.decimalPad)
+                                .foregroundColor(AppColors.darkBlue)
+                                .font(.custom(Roboto.bold.rawValue, size: 40))
+                                .frame(width: UIScreen.main.bounds.width * 0.3)
+                        }
+
+                        
                         VStack(spacing: 9) {
                             RequestTypeList(selected: $requestVM.requestType)
                             
@@ -74,6 +86,10 @@ struct RequestTransfer: View {
                                         .cornerRadius(16, corners: [.topRight, .bottomRight])
                                 }
                             }
+                        }
+                        
+                        ButtonHelper(disabled: false, label: NSLocalizedString("next", comment: "")) {
+                            
                         }
                         
                     }.padding(24)
