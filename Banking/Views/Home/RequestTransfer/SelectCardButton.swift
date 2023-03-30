@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+enum CardSelectionType {
+    case popup, button
+}
+
 struct SelectCardButton: View {
-    @Binding var selectCard: Bool
     let card: CardModel
-    
+    let buttonType: CardSelectionType
+    let action: () -> ()
+
     var body: some View {
         
         Button {
-            selectCard.toggle()
+            action()
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
@@ -26,10 +31,12 @@ struct SelectCardButton: View {
                 
                 Spacer()
                 
-                Image("drop_arrow")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 10, height: 5)
+                if buttonType == .popup {
+                    Image("drop_arrow")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 10, height: 5)
+                }
             }.padding(.vertical, 17)
                 .padding(.horizontal, 20)
                 .background {
@@ -42,6 +49,8 @@ struct SelectCardButton: View {
 
 struct SelectCardButton_Previews: PreviewProvider {
     static var previews: some View {
-        SelectCardButton(selectCard: .constant(false), card: PreviewModels.masterCard)
+        SelectCardButton(card: PreviewModels.masterCard, buttonType: .popup) {
+            
+        }
     }
 }

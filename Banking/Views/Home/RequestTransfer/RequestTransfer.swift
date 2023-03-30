@@ -23,7 +23,11 @@ struct RequestTransfer: View {
             } else {
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        SelectCardButton(selectCard: $selectCard, card: requestVM.cards.first(where: { $0.defaultCard })!)
+                        if requestVM.selectedCard != nil {
+                            SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
+                                selectCard.toggle()
+                            }
+                        }
                         
                     }.padding(24)
                         .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -42,8 +46,12 @@ struct RequestTransfer: View {
             }, message: {
                 Text(requestVM.alertMessage)
             }).sheet(isPresented: $selectCard) {
-                Text("Select Card")
+                if requestVM.selectedCard != nil {
+                    SelectCardList(cards: requestVM.cards,
+                                   selectedCard: $requestVM.selectedCard,
+                                   show: $selectCard)
                     .presentationDetents([.medium, .large])
+                }
             }
     }
 }

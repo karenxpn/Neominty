@@ -12,6 +12,8 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @Published var alertMessage: String = ""
     @Published var cards = [CardModel]()
     
+    @Published var selectedCard: CardModel?
+    
     var cardManager: CardServiceProtocol
     init(cardManager: CardServiceProtocol = CardService.shared) {
         self.cardManager = cardManager
@@ -27,6 +29,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let cards):
                 self.cards = cards
+                self.selectedCard = cards.first(where: { $0.defaultCard })
             }
             
             if !Task.isCancelled {
