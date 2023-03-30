@@ -15,6 +15,16 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @Published var selectedCard: CardModel?
     @Published var requestType: RequestType = .link
     
+    // phone request
+    @Published var country: String = "AM"
+    @Published var code: String = "374"
+    @Published var phoneNumber: String = ""
+    @Published var flag: String = "🇦🇲"
+    
+    // email request
+    @Published var email: String = ""
+    @Published var isEmailValid: Bool = false
+    
     var cardManager: CardServiceProtocol
     init(cardManager: CardServiceProtocol = CardService.shared) {
         self.cardManager = cardManager

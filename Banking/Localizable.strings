@@ -77,3 +77,5 @@
 "attachCard" = "Attach Card";
 "attachCardToRequestTransfer" = "Attach a card to request transfer from users";
 "selectYourCard" = "Select your card";
+"enterSenderPhone" = "Enter sender phone number";
+"enterSenderEmail" = "Enter sender email";

@@ -11,6 +11,8 @@ struct RequestTransfer: View {
     
     @StateObject private var requestVM = RequestTransferViewModel()
     @State private var selectCard: Bool = false
+    @State private var countryPicker: Bool = false
+    
     
     var body: some View {
         
@@ -29,17 +31,55 @@ struct RequestTransfer: View {
                             }
                         }
                         
-                        RequestTypeList(selected: $requestVM.requestType)
-                        
-                        if requestVM.requestType == .email {
-                            // email field
-                        } else if requestVM.requestType == .phone {
-                            // phone field
+                        VStack(spacing: 9) {
+                            RequestTypeList(selected: $requestVM.requestType)
+                            
+                            if requestVM.requestType == .email {
+                                
+                                CardDetailTextFieldDecorator(content: {
+                                    TextField(NSLocalizedString("enterSenderEmail", comment: ""), text: $requestVM.email)
+                                        .keyboardType(.emailAddress)
+                                        .font(.custom(Roboto.regular.rawValue, size: 16))
+                                        .onChange(of: requestVM.email) { newValue in
+                                            requestVM.isEmailValid = newValue.isEmail
+                                        }
+                                }, isValid: $requestVM.isEmailValid)
+                                // email field
+                            } else if requestVM.requestType == .phone {
+                                // phone field
+
+                                HStack(spacing: 0) {
+                                    
+                                    Button {
+                                        countryPicker.toggle()
+                                    } label: {
+                                        HStack {
+                                            TextHelper(text: "\(requestVM.flag)",
+                                                       fontName: Roboto.bold.rawValue, fontSize: 18)
+                                            
+                                            Image("drop_arrow")
+                                            
+                                        }.frame(height: 56)
+                                            .padding(.horizontal, 10)
+                                            .background(AppColors.superLightGray)
+                                            .cornerRadius(16, corners: [.topLeft, .bottomLeft])
+                                    }
+                                    
+                                    TextField(NSLocalizedString("enterSenderPhone", comment: ""), text: $requestVM.phoneNumber)
+                                        .keyboardType(.phonePad)
+                                        .font(.custom(Roboto.regular.rawValue, size: 16))
+                                        .padding(.leading, 5)
+                                        .frame(height: 56)
+                                        .background(AppColors.superLightGray)
+                                        .cornerRadius(16, corners: [.topRight, .bottomRight])
+                                }
+                            }
                         }
                         
                     }.padding(24)
                         .padding(.bottom, UIScreen.main.bounds.height * 0.15)
                 }.padding(.top, 1)
+                    .scrollDismissesKeyboard(.immediately)
             }
         }.navigationBarTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
@@ -60,6 +100,8 @@ struct RequestTransfer: View {
                                    show: $selectCard)
                     .presentationDetents([.medium, .large])
                 }
+            }.sheet(isPresented: $countryPicker) {
+                CountryCodeSelection(isPresented: $countryPicker, country: $requestVM.country, code: $requestVM.code, flag: $requestVM.flag)
             }
     }
 }
