@@ -84,3 +84,5 @@
 "requestIsSent" = "Request is sent";
 "yourRequestForReceivingMoneyIsSentTo" = "Your request for receiving money is sent to the";
 "clickToCopy" = "Click to copy!";
+"sorryForInconvenience" = "Sorry for Inconvenience";
+"thisPageIsInDevelopmentMode" = "This page is in development mode and you will be able to access this page soon.";

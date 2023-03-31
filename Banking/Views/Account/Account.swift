@@ -1,20 +1,20 @@
 //
-//  Exchange.swift
+//  Account.swift
 //  Banking
 //
-//  Created by Karen Mirakyan on 19.03.23.
+//  Created by Karen Mirakyan on 31.03.23.
 //
 
 import SwiftUI
 
-struct Exchange: View {
+struct Account: View {
     var body: some View {
         ViewInDevelopmentMode()
     }
 }
 
-struct Exchange_Previews: PreviewProvider {
+struct Account_Previews: PreviewProvider {
     static var previews: some View {
-        Exchange()
+        Account()
     }
 }

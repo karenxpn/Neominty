@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MoreTransfers: View {
     var body: some View {
-        Text("More transfers")
+        ViewInDevelopmentMode()
+
     }
 }
 
