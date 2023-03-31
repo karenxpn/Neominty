@@ -80,6 +80,7 @@
 		FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */; };
 		FF7A11D129D752A000286366 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D029D752A000286366 /* Account.swift */; };
 		FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D229D752C500286366 /* ViewInDevelopmentMode.swift */; };
+		FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D429D777EB00286366 /* AccountListButton.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -204,6 +205,7 @@
 		FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransferSuccess.swift; sourceTree = "<group>"; };
 		FF7A11D029D752A000286366 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		FF7A11D229D752C500286366 /* ViewInDevelopmentMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInDevelopmentMode.swift; sourceTree = "<group>"; };
+		FF7A11D429D777EB00286366 /* AccountListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListButton.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				FF7A11D029D752A000286366 /* Account.swift */,
+				FF7A11D429D777EB00286366 /* AccountListButton.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -726,6 +729,7 @@
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
+				FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */,
 				FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,

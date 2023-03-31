@@ -16,7 +16,7 @@ class ViewRouter: ObservableObject {
     @Published var cardPath = NavigationPath()
     @Published var scanPath = NavigationPath()
     @Published var analyticsPath = NavigationPath()
-    @Published var profilePath = NavigationPath()
+    @Published var accountPath = NavigationPath()
     
     init() {
         if self.firstInstall {
@@ -42,8 +42,8 @@ class ViewRouter: ObservableObject {
         analyticsPath.append(page)
     }
     
-    func pushProfilePath(_ page: ProfileViewPaths) {
-        profilePath.append(page)
+    func pushProfilePath(_ page: AccountViewPaths) {
+        accountPath.append(page)
     }
     
     // pop one view
@@ -64,7 +64,7 @@ class ViewRouter: ObservableObject {
     }
     
     func popProfilePath() {
-        profilePath.removeLast()
+        accountPath.removeLast()
     }
     
     // pop root view
@@ -86,6 +86,6 @@ class ViewRouter: ObservableObject {
     }
     
     func popToProfileRoot() {
-        profilePath.removeLast(profilePath.count)
+        accountPath.removeLast(accountPath.count)
     }
 }

@@ -59,8 +59,11 @@ enum AnalyticsViewPaths: String, Identifiable {
     }
 }
 
-enum ProfileViewPaths: String, Identifiable {
-    case profile
+enum AccountViewPaths: String, Identifiable {
+    
+    case info
+    case settings
+    case changePin
     
     var id: String {
         self.rawValue
