@@ -19,7 +19,7 @@ class CardService {
 extension CardService: CardServiceProtocol {
     func fetchCards() async -> Result<[CardModel], Error> {
         do {
-            let cards = [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.mirCard, PreviewModels.arcaCard]
+            let cards = [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.mirCard, PreviewModels.amexCard]
             try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
             return .success(cards)
         } catch {

@@ -75,3 +75,12 @@
 "createYourNeomintyCard" = "Create your Neominty Card";
 "createYourCardMessage" = "The customizable, no hidden fee, instant discount debit or credit card";
 "attachCard" = "Attach Card";
+"attachCardToRequestTransfer" = "Attach a card to request transfer from users";
+"selectYourCard" = "Select your card";
+"enterSenderPhone" = "Enter sender phone number";
+"enterSenderEmail" = "Enter sender email";
+"pleaseWait" = "Please wait...";
+"yourLinkIsReady" = "Your link is ready!";
+"requestIsSent" = "Request is sent";
+"yourRequestForReceivingMoneyIsSentTo" = "Your request for receiving money is sent to the";
+"clickToCopy" = "Click to copy!";

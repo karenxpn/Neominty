@@ -29,7 +29,12 @@ struct Cards: View {
                     }
                 }.task {
                     cardsVM.getCards()
-                }.navigationDestination(for: MyCardViewPaths.self) { value in
+                }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
+                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }, message: {
+                    Text(cardsVM.alertMessage)
+                })
+                .navigationDestination(for: MyCardViewPaths.self) { value in
                     switch value {
                     case .attachCard:
                         AddNewCard()
