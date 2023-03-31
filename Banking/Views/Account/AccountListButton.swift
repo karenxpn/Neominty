@@ -12,13 +12,18 @@ struct AccountListButton: View {
     let label: String
     let action: () -> ()
     var body: some View {
-        HStack(spacing: 16) {
-            Image(icon)
-            TextHelper(text: label, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
-            
-            Spacer()
-            
-            Image("chevron-right")
+        
+        Button {
+            action()
+        } label: {
+            HStack(spacing: 16) {
+                Image(icon)
+                TextHelper(text: label, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
+                
+                Spacer()
+                
+                Image("chevron-right")
+            }
         }
     }
 }

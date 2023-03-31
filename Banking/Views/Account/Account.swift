@@ -40,6 +40,13 @@ struct Account: View {
                     
                 }.padding(24)
             }.padding(.top, 1)
+                .navigationTitle(Text(""))
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            TextHelper(text: NSLocalizedString("account", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        }
+                    }
         }
     }
 }
