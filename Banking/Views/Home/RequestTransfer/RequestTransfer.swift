@@ -12,6 +12,7 @@ struct RequestTransfer: View {
     @StateObject private var requestVM = RequestTransferViewModel()
     @State private var selectCard: Bool = false
     @State private var countryPicker: Bool = false
+    @State private var requestSuccess: Bool = false
     
     
     var body: some View {
@@ -88,8 +89,13 @@ struct RequestTransfer: View {
                             }
                         }
                         
-                        ButtonHelper(disabled: false, label: NSLocalizedString("next", comment: "")) {
-                            
+                        ButtonHelper(disabled:
+                                        (requestVM.requestType == .email && !requestVM.isEmailValid)
+                                     || (requestVM.requestType == .phone && requestVM.phoneNumber.isEmpty)
+                                     || (requestVM.amount.isEmpty)
+                                     || (requestVM.selectedCard == nil)
+                                     || (requestVM.loadingRequest), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
+                            requestVM.requestPayment()
                         }
                         
                     }.padding(24)
@@ -111,13 +117,38 @@ struct RequestTransfer: View {
                 Text(requestVM.alertMessage)
             }).sheet(isPresented: $selectCard) {
                 if requestVM.selectedCard != nil {
-                    SelectCardList(cards: requestVM.cards,
-                                   selectedCard: $requestVM.selectedCard,
-                                   show: $selectCard)
-                    .presentationDetents([.medium, .large])
+                    
+                    if #available(iOS 16.4, *) {
+                        SelectCardList(cards: requestVM.cards,
+                                       selectedCard: $requestVM.selectedCard,
+                                       show: $selectCard)
+                        .presentationDetents([.medium, .large])
+                        .presentationCornerRadius(40)
+                    } else {
+                        SelectCardList(cards: requestVM.cards,
+                                       selectedCard: $requestVM.selectedCard,
+                                       show: $selectCard)
+                        .presentationDetents([.medium, .large])
+                    }
+
                 }
             }.sheet(isPresented: $countryPicker) {
                 CountryCodeSelection(isPresented: $countryPicker, country: $requestVM.country, code: $requestVM.code, flag: $requestVM.flag)
+            }.sheet(isPresented: $requestSuccess, content: {
+                
+                if #available(iOS 16.4, *) {
+                    RequestTransferSuccess()
+                        .environmentObject(requestVM)
+                        .presentationDetents([.fraction(0.7)])
+                        .presentationCornerRadius(40)
+                } else {
+                    RequestTransferSuccess()
+                        .environmentObject(requestVM)
+                        .presentationDetents([.fraction(0.7)])
+                }
+            })
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "requestPaymentSent"))) { _ in
+                requestSuccess.toggle()
             }
     }
 }

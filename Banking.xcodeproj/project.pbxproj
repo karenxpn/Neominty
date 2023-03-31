@@ -76,6 +76,8 @@
 		FF628E1929BA2CD200FE35EE /* BankingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1829BA2CD200FE35EE /* BankingUITests.swift */; };
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
+		FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11CB29D709F900286366 /* GlobalResponse.swift */; };
+		FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -196,6 +198,8 @@
 		FF628E1829BA2CD200FE35EE /* BankingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITests.swift; sourceTree = "<group>"; };
 		FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FF628E2829BA2D7600FE35EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		FF7A11CB29D709F900286366 /* GlobalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalResponse.swift; sourceTree = "<group>"; };
+		FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransferSuccess.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 				FF45208429C8F087003C6415 /* RecentTransfer.swift */,
 				FF38E9F529CCC17400610F5C /* ExpensePoint.swift */,
 				FF38E9F729CCC48500610F5C /* ActivityModel.swift */,
+				FF7A11CB29D709F900286366 /* GlobalResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */,
 				FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */,
 				FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */,
+				FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */,
 			);
 			path = RequestTransfer;
 			sourceTree = "<group>";
@@ -700,6 +706,7 @@
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
+				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
@@ -728,6 +735,7 @@
 				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
+				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,

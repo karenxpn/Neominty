@@ -464,7 +464,7 @@ class Currency {
 
     private func findSymbolBy(_ localeId: String, _ currencyCode: String) -> String? {
         let locale = Locale(identifier: localeId)
-        return currencyCode.caseInsensitiveCompare(locale.currencyCode ?? "") == .orderedSame
+        return currencyCode.caseInsensitiveCompare(locale.currency?.identifier ?? "") == .orderedSame
             ? locale.currencySymbol : nil
     }
 }

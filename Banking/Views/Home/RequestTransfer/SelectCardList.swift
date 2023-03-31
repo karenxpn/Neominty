@@ -14,35 +14,30 @@ struct SelectCardList: View {
     
     var body: some View {
         
-        NavigationView {
-            ScrollView(showsIndicators: false) {
-                LazyVStack(spacing: 24) {
-                    ForEach(cards) { card in
-                        ZStack( alignment: .trailing) {
-                            SelectCardButton(card: card, buttonType: .button) {
-                                selectedCard = card
-                            }
-                            
-                            if selectedCard?.number == card.number {
-                                Image("check")
-                                    .offset(x: -10)
-                            }
+        ScrollView(showsIndicators: false) {
+            LazyVStack(alignment: .leading, spacing: 24) {
+                
+                TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    .padding(.top)
+                
+                ForEach(cards) { card in
+                    ZStack( alignment: .trailing) {
+                        SelectCardButton(card: card, buttonType: .button) {
+                            selectedCard = card
+                        }
+                        
+                        if selectedCard?.number == card.number {
+                            Image("check")
+                                .offset(x: -10)
                         }
                     }
-                    
-                    ButtonHelper(disabled: false, label: NSLocalizedString("confirm", comment: "")) {
-                        show.toggle()
-                    }.padding(.top, 80)
-                }.padding(24)
-            }.padding(.top, 1)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
-                        TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-                            .padding(.leading)
-                    }
                 }
-        }
-
+                
+                ButtonHelper(disabled: false, label: NSLocalizedString("confirm", comment: "")) {
+                    show.toggle()
+                }.padding(.top, 80)
+            }.padding(24)
+        }.padding(.top, 1)
         
     }
 }
