@@ -9,39 +9,42 @@ import SwiftUI
 
 struct AccountViewPersonalInfo: View {
     
+    @State private var showGallery: Bool = false
+    @State private var selectedImage: Data?
     let info: UserInfo
     
     var body: some View {
         
         VStack(spacing: 16) {
-            if info.image == nil {
-                Button {
+            
+            Button {
+                showGallery.toggle()
+            } label: {
+                ZStack {
                     
-                } label: {
-                    ZStack {
-                        
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width: 100, height: 100)
-                            .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
-                        
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 100, height: 100)
+                        .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
+                    
+                    if info.image == nil && selectedImage == nil {
                         Image("plus-sign")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 80, height: 80)
                             .clipShape(Circle())
-
+                    } else if selectedImage != nil {
+                        Image(uiImage: UIImage(data: selectedImage!) ?? UIImage())
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .clipShape(Circle())
+                    }else {
+                        ImageHelper(image: info.image!, contentMode: .fill)
+                            .frame(width: 80, height: 80)
+                            .clipShape(Circle())
                     }
-                }
-            } else {
-                ZStack {
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 100, height: 100)
-                    
-                    ImageHelper(image: info.image!, contentMode: .fill)
-                        .frame(width: 80, height: 80)
-                        .clipShape(Circle())
+
                 }
             }
             
@@ -52,7 +55,10 @@ struct AccountViewPersonalInfo: View {
 
                 }
             }
-            
+        }.sheet(isPresented: $showGallery) {
+            Gallery { image in
+                selectedImage = image
+            }
         }
     }
 }
