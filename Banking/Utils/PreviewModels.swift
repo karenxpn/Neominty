@@ -38,4 +38,6 @@ struct PreviewModels {
         .init(unit: "Fri", amount: 950),
         .init(unit: "Sat", amount: 650),
         .init(unit: "Sun", amount: 1200)]
+    
+    static let userInfo = UserInfo(image: nil, name: "Karen Mirakyan", email: nil)
 }

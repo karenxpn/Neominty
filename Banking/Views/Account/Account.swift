@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Account: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @StateObject private var accountVM = AccountViewModel()
+    
     var body: some View {
         
         NavigationStack(path: $viewRouter.accountPath) {
@@ -16,16 +18,28 @@ struct Account: View {
             ScrollView(showsIndicators: false) {
                 
                 VStack(spacing: 24) {
-                    AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
+                    
+                    VStack {
                         
+                        if accountVM.loading {
+                            ProgressView()
+                        } else if accountVM.info != nil {
+                            AccountViewPersonalInfo(info: accountVM.info!)
+                        }
+                        
+                    }.frame(height: 170)
+                    
+                    AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
+                        viewRouter.pushAccountPath(.info)
                     }
                     
                     AccountListButton(icon: "settings", label: NSLocalizedString("generalSettings", comment: "")) {
-                        
+                        viewRouter.pushAccountPath(.settings)
+
                     }
                     
                     AccountListButton(icon: "change-pin", label: NSLocalizedString("changePin", comment: "")) {
-                        
+                        viewRouter.pushAccountPath(.changePin)
                     }
                     
                     Divider()
@@ -39,6 +53,7 @@ struct Account: View {
                     }
                     
                 }.padding(24)
+                    .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             }.padding(.top, 1)
                 .navigationTitle(Text(""))
                     .navigationBarTitleDisplayMode(.inline)
@@ -46,6 +61,10 @@ struct Account: View {
                         ToolbarItem(placement: .principal) {
                             TextHelper(text: NSLocalizedString("account", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                         }
+                    }.task {
+                        accountVM.getAccountInfo()
+                    }.navigationDestination(for: AccountViewPaths.self) { value in
+                        ViewInDevelopmentMode()
                     }
         }
     }

@@ -44,7 +44,7 @@ struct CustomTabView: View {
                                         } else if id == 3 {
                                             viewRouter.popToAnalyticsRoot()
                                         } else if id == 4 {
-                                            viewRouter.popToProfileRoot()
+                                            viewRouter.popToAccountRoot()
                                         }
                                     }
                                     viewRouter.tab = id

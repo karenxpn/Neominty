@@ -42,7 +42,7 @@ class ViewRouter: ObservableObject {
         analyticsPath.append(page)
     }
     
-    func pushProfilePath(_ page: AccountViewPaths) {
+    func pushAccountPath(_ page: AccountViewPaths) {
         accountPath.append(page)
     }
     
@@ -63,7 +63,7 @@ class ViewRouter: ObservableObject {
         analyticsPath.removeLast()
     }
     
-    func popProfilePath() {
+    func popAccountPath() {
         accountPath.removeLast()
     }
     
@@ -85,7 +85,7 @@ class ViewRouter: ObservableObject {
         analyticsPath.removeLast(analyticsPath.count)
     }
     
-    func popToProfileRoot() {
+    func popToAccountRoot() {
         accountPath.removeLast(accountPath.count)
     }
 }

@@ -81,6 +81,9 @@
 		FF7A11D129D752A000286366 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D029D752A000286366 /* Account.swift */; };
 		FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D229D752C500286366 /* ViewInDevelopmentMode.swift */; };
 		FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D429D777EB00286366 /* AccountListButton.swift */; };
+		FF7A11D729D77F4C00286366 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D629D77F4C00286366 /* UserInfo.swift */; };
+		FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */; };
+		FF7A11DD29D77FFF00286366 /* AccountViewPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -206,6 +209,9 @@
 		FF7A11D029D752A000286366 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		FF7A11D229D752C500286366 /* ViewInDevelopmentMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewInDevelopmentMode.swift; sourceTree = "<group>"; };
 		FF7A11D429D777EB00286366 /* AccountListButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountListButton.swift; sourceTree = "<group>"; };
+		FF7A11D629D77F4C00286366 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewPersonalInfo.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -320,6 +326,7 @@
 				FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */,
 				FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */,
 				FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */,
+				FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 				FF38E9F529CCC17400610F5C /* ExpensePoint.swift */,
 				FF38E9F729CCC48500610F5C /* ActivityModel.swift */,
 				FF7A11CB29D709F900286366 /* GlobalResponse.swift */,
+				FF7A11D629D77F4C00286366 /* UserInfo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,6 +503,7 @@
 			children = (
 				FF7A11D029D752A000286366 /* Account.swift */,
 				FF7A11D429D777EB00286366 /* AccountListButton.swift */,
+				FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -710,6 +719,7 @@
 				FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
 				FF45208229C7B8CF003C6415 /* CreditCardType.swift in Sources */,
+				FF7A11D729D77F4C00286366 /* UserInfo.swift in Sources */,
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
@@ -729,6 +739,7 @@
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
+				FF7A11DD29D77FFF00286366 /* AccountViewPersonalInfo.swift in Sources */,
 				FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */,
 				FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
@@ -770,6 +781,7 @@
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,

@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 protocol UserServiceProtocol {
-
+    func fetchAccountInfo() async -> Result<UserInfo, Error>
 }
 
 class UserSerive {
@@ -19,5 +19,15 @@ class UserSerive {
 }
 
 extension UserSerive: UserServiceProtocol {
+    
+    func fetchAccountInfo() async -> Result<UserInfo, Error> {
+        do {
+            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            let user = UserInfo(name: "Karen Mirakyan")
+            return .success(user)
+        } catch {
+            return .failure(error)
+        }
+    }
 
 }
