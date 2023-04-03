@@ -92,3 +92,10 @@
 "faq" = "FAQs";
 "rateUs" = "Rate Us";
 "account" = "Account";
+"pushNotifications" = "Push Notifications";
+"pushNotificationsMessage" = "You want to receive bill\nreminders before a bill is due.";
+"faceId" = "Face ID";
+"faceIdMessage" = "Your want to unlock with Face ID\nand confirm trasactions";
+"email" = "Email";
+"emailMessage" = "You want to receive email\npromotions, news and offers";
+"logout" = "Log Out";

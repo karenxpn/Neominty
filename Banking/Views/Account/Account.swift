@@ -64,7 +64,11 @@ struct Account: View {
                     }.task {
                         accountVM.getAccountInfo()
                     }.navigationDestination(for: AccountViewPaths.self) { value in
-                        ViewInDevelopmentMode()
+                        if value == .settings {
+                            GeneralSettings()
+                        } else {
+                            ViewInDevelopmentMode()
+                        }
                     }
         }
     }

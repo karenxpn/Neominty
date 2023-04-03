@@ -85,6 +85,8 @@
 		FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */; };
 		FF7A11DD29D77FFF00286366 /* AccountViewPersonalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */; };
 		FF7A11DF29D7876600286366 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DE29D7876600286366 /* Gallery.swift */; };
+		FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E029DAF64200286366 /* GeneralSettings.swift */; };
+		FF7A11E329DAF69400286366 /* GeneralSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -214,6 +216,8 @@
 		FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewPersonalInfo.swift; sourceTree = "<group>"; };
 		FF7A11DE29D7876600286366 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
+		FF7A11E029DAF64200286366 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
+		FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsCell.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -507,6 +511,8 @@
 				FF7A11D029D752A000286366 /* Account.swift */,
 				FF7A11D429D777EB00286366 /* AccountListButton.swift */,
 				FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */,
+				FF7A11E029DAF64200286366 /* GeneralSettings.swift */,
+				FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -737,6 +743,7 @@
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
+				FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */,
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
@@ -780,6 +787,7 @@
 				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
+				FF7A11E329DAF69400286366 /* GeneralSettingsCell.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,

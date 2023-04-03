@@ -13,6 +13,7 @@ struct ButtonHelper: View {
     var disabled: Bool
     var height: CGFloat = 56
     let label: String
+    var color: Color = AppColors.darkBlue
     let action: (() -> Void)
 
     var body: some View {
@@ -26,7 +27,7 @@ struct ButtonHelper: View {
                 
                 Spacer()
             }.frame(height: height)
-            .background(AppColors.darkBlue)
+            .background(color)
                 .opacity(disabled ? 0.5 : 1)
                 .cornerRadius(16)
         }.disabled(disabled)
