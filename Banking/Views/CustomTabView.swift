@@ -25,7 +25,7 @@ struct CustomTabView: View {
                     
                     Rectangle()
                         .fill(.white)
-                        .shadow(color: AppColors.shadow, radius: 16, y: -12)
+                        .shadow(color: AppColors.tabviewShadow, radius: 16, y: -12)
                     
                     HStack {
                         
