@@ -87,6 +87,9 @@
 		FF7A11DF29D7876600286366 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11DE29D7876600286366 /* Gallery.swift */; };
 		FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E029DAF64200286366 /* GeneralSettings.swift */; };
 		FF7A11E329DAF69400286366 /* GeneralSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */; };
+		FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E429DB001B00286366 /* CheckPin.swift */; };
+		FF7A11E729DB04ED00286366 /* AccountCreatePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E629DB04ED00286366 /* AccountCreatePin.swift */; };
+		FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -218,6 +221,9 @@
 		FF7A11DE29D7876600286366 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		FF7A11E029DAF64200286366 /* GeneralSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettings.swift; sourceTree = "<group>"; };
 		FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsCell.swift; sourceTree = "<group>"; };
+		FF7A11E429DB001B00286366 /* CheckPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPin.swift; sourceTree = "<group>"; };
+		FF7A11E629DB04ED00286366 /* AccountCreatePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreatePin.swift; sourceTree = "<group>"; };
+		FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConfirmPin.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -513,6 +519,9 @@
 				FF7A11DC29D77FFF00286366 /* AccountViewPersonalInfo.swift */,
 				FF7A11E029DAF64200286366 /* GeneralSettings.swift */,
 				FF7A11E229DAF69400286366 /* GeneralSettingsCell.swift */,
+				FF7A11E429DB001B00286366 /* CheckPin.swift */,
+				FF7A11E629DB04ED00286366 /* AccountCreatePin.swift */,
+				FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -715,6 +724,7 @@
 				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
+				FF7A11E729DB04ED00286366 /* AccountCreatePin.swift in Sources */,
 				FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
 				FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */,
@@ -791,7 +801,9 @@
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
+				FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
+				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,

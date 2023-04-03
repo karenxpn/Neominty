@@ -66,6 +66,8 @@ struct Account: View {
                     }.navigationDestination(for: AccountViewPaths.self) { value in
                         if value == .settings {
                             GeneralSettings()
+                        } else if value == .changePin {
+                            CheckPin()
                         } else {
                             ViewInDevelopmentMode()
                         }

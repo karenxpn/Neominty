@@ -155,6 +155,22 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
+    func checkPinToPass() -> Bool {
+        if passcodeConfirm == keychainManager.get("pin") {
+            return true
+        }
+            
+        self.alertMessage = NSLocalizedString("incorrectPin", comment: "")
+        self.showAlert.toggle()
+        return false
+    }
+    
+    func storeChangedPin() {
+        keychainManager.set(passcode, forKey: "pin")
+        self.passcode = ""
+        self.passcodeConfirm = ""
+    }
+    
     func biometricAuthentication() {
         let context = LAContext()
         var error: NSError?

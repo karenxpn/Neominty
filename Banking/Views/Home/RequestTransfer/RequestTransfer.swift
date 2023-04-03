@@ -147,7 +147,8 @@ struct RequestTransfer: View {
                         .presentationDetents([.fraction(0.7)])
                 }
             })
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "requestPaymentSent"))) { _ in
+            .onReceive(NotificationCenter.default.publisher(for:
+                                                                Notification.Name(rawValue: NotificationName.requestPaymentSent.rawValue))) { _ in
                 requestSuccess.toggle()
             }
     }

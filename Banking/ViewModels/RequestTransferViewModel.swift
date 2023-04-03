@@ -71,7 +71,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let response):
                 self.generatedLink = response.message
-                NotificationCenter.default.post(name: Notification.Name("requestPaymentSent"), object: nil)
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.requestPaymentSent.rawValue), object: nil)
                 print(response)
             }
             

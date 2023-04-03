@@ -127,3 +127,35 @@ enum RequestType: String, Identifiable {
         }
     }
 }
+
+enum PinAuthenticationType {
+    case authenticate
+    case pass
+}
+
+enum NotificationName: RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case pinPassed
+    case requestPaymentSent
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .pinPassed,
+        .requestPaymentSent
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .pinPassed                         : return "pinPassed"
+        case .requestPaymentSent                : return "requestPaymentSent"
+        case let .unknown(value)                : return value
+        }
+    }
+}
