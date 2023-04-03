@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject private var viewRouter = ViewRouter()
+    @StateObject private var notificationVM = PushNotificationViewModel()
     
     var body: some View {
         ZStack( alignment: .bottom) {
@@ -42,6 +43,9 @@ struct MainView: View {
             CustomTabView()
             
         }.edgesIgnoringSafeArea(.bottom)
+            .onAppear {
+                notificationVM.requestPermission()
+            }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
                 // send request for offline
             }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in

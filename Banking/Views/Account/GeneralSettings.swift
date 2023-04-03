@@ -13,6 +13,7 @@ struct GeneralSettings: View {
     @State private var emails: Bool = false
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @StateObject private var authVM = AuthViewModel()
+    @StateObject private var notificationVM = PushNotificationViewModel()
     
     var body: some View {
         
@@ -22,7 +23,20 @@ struct GeneralSettings: View {
                     
                         GeneralSettingsCell(title: NSLocalizedString("pushNotifications", comment: ""),
                                             message: NSLocalizedString("pushNotificationsMessage", comment: ""), toggler: $notifications) { value in
-                            
+//                            print(value)
+//                            if value == true {
+//                                notificationVM.turnOnNotifications()
+//                            } else {
+//                                notificationVM.turnOffNotifications()
+//                            }
+//
+//                            notificationVM.checkPermissionStatus { status in
+//                                if status == .authorized {
+//                                    print("authorized")
+//                                } else  {
+//                                    print("not authorized")
+//                                }
+//                            }
                         }
                         
                         GeneralSettingsCell(title: NSLocalizedString("faceId", comment: ""),
@@ -48,6 +62,15 @@ struct GeneralSettings: View {
                 .padding(.top, 1)
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                notificationVM.checkPermissionStatus { status in
+                    if status == .authorized {
+                        self.notifications = true
+                    } else {
+                        self.notifications = false
+                    }
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: NSLocalizedString("generalSettings", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
