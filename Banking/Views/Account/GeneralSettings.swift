@@ -12,8 +12,7 @@ struct GeneralSettings: View {
     @State private var notifications: Bool = false
     @State private var emails: Bool = false
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
-
-    
+    @StateObject private var authVM = AuthViewModel()
     
     var body: some View {
         
@@ -39,7 +38,7 @@ struct GeneralSettings: View {
                     Spacer()
                     
                     ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: AppColors.green) {
-                        
+                        authVM.signOut()
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     
                 }

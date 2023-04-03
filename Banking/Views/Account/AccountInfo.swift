@@ -93,7 +93,8 @@ struct AccountInfo: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: (!emailValid && !email.isEmpty) || name.isEmpty || accountVM.loading, label: accountVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("save", comment: "")) {
+                    ButtonHelper(disabled: (!emailValid && !email.isEmpty) || name.isEmpty || accountVM.loading,
+                                 label: accountVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("save", comment: "")) {
                         accountVM.updateInfo(name: name, email: email)
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     

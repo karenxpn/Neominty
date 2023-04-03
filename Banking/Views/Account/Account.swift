@@ -31,7 +31,7 @@ struct Account: View {
                     
                     AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
                         viewRouter.pushAccountPath(.info)
-                    }
+                    }.disabled(accountVM.info == nil)
                     
                     AccountListButton(icon: "settings", label: NSLocalizedString("generalSettings", comment: "")) {
                         viewRouter.pushAccountPath(.settings)
