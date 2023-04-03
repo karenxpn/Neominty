@@ -102,6 +102,7 @@ struct AccountInfo: View {
                 .padding(24)
             }.frame(width: geometry.size.width)
                 .padding(.top, 1)
+                .scrollDismissesKeyboard(.immediately)
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
