@@ -64,8 +64,6 @@ enum AccountViewPaths: String, Identifiable {
     case info
     case settings
     case changePin
-    case setNewPin
-    case confirmPin
     case faq
     
     var id: String {

@@ -68,6 +68,11 @@ struct Account: View {
                             GeneralSettings()
                         } else if value == .changePin {
                             CheckPin()
+                        } else if value == .info {
+                            AccountInfo(name: accountVM.info?.name,
+                                        flag: accountVM.info?.flag,
+                                        phone: accountVM.info?.phone,
+                                        email: accountVM.info?.email)
                         } else {
                             ViewInDevelopmentMode()
                         }

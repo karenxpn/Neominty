@@ -99,3 +99,5 @@
 "email" = "Email";
 "emailMessage" = "You want to receive email\npromotions, news and offers";
 "logout" = "Log Out";
+"phoneNumber" = "Phone Number";
+"emailInfo" = "Your mail address will be used for receiving mail promotions.\nIn order to not receive mail promotions, please delete your mail address";

@@ -11,7 +11,7 @@ struct AccountViewPersonalInfo: View {
     
     @State private var showGallery: Bool = false
     @State private var selectedImage: Data?
-    let info: UserInfo
+    let info: UserInfoViewModel
     
     var body: some View {
         

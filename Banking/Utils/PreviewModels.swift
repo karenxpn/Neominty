@@ -39,5 +39,5 @@ struct PreviewModels {
         .init(unit: "Sat", amount: 650),
         .init(unit: "Sun", amount: 1200)]
     
-    static let userInfo = UserInfo(image: nil, name: "Karen Mirakyan", email: nil)
+    static let userInfo = UserInfoViewModel(model: UserInfo(image: nil, name: "Karen Mirakyan", email: nil, phoneNumber: PhoneModel(code: "AM", number: "93936313")))
 }
