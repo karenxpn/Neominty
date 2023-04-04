@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import StoreKit
 
 struct Account: View {
+    @Environment(\.requestReview) var requestReview
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var accountVM = AccountViewModel()
     
@@ -49,7 +51,7 @@ struct Account: View {
                     }
                     
                     AccountListButton(icon: "rate", label: NSLocalizedString("rateUs", comment: "")) {
-                        
+                        requestReview()
                     }
                     
                 }.padding(24)
