@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+
 class AccountViewModel: AlertViewModel, ObservableObject {
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
@@ -20,9 +22,20 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     
     @Published var info: UserInfoViewModel?
     
+    private var cancellableSet: Set<AnyCancellable> = []
     var manager: UserServiceProtocol
     init(manager: UserServiceProtocol = UserSerive.shared) {
         self.manager = manager
+        super.init()
+        
+        $search
+            .removeDuplicates()
+            .debounce(for: 0.3, scheduler: DispatchQueue.main)
+            .sink { (text) in
+                self.page = 0
+                self.faqs.removeAll(keepingCapacity: false)
+//                self.getFaqs(searchText: text)
+            }.store(in: &cancellableSet)
     }
     
     @MainActor func getAccountInfo() {
@@ -92,11 +105,11 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func getFaqs() {
+    @MainActor func getFaqs(searchText: String = "") {
         loading = true
         Task {
             
-            let result = await manager.fetchFaqs(page: page)
+            let result = await manager.fetchFaqs(page: page, search: searchText)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

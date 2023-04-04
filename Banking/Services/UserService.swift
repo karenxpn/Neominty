@@ -14,7 +14,7 @@ protocol UserServiceProtocol {
     func updateEmailPreferences(receive: Bool) async -> Result<Void, Error>
     func updateNotificationsPreferences(receive: Bool) async -> Result<Void, Error>
     func fetchUserPreferences() async -> Result<UserPreferences, Error>
-    func fetchFaqs(page: Int) async -> Result<[FAQModel], Error>
+    func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error>
 }
 
 class UserSerive {
@@ -25,7 +25,7 @@ class UserSerive {
 
 extension UserSerive: UserServiceProtocol {
     
-    func fetchFaqs(page: Int) async -> Result<[FAQModel], Error> {
+    func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error> {
         do {
             try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
             var faqs = [FAQModel]()
