@@ -125,6 +125,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         }
     }
     
+    // pin authentication
     func checkPinExistence() {
         let pin = keychainManager.get("pin")
         if let pin {
@@ -154,6 +155,23 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             self.showAlert.toggle()
         }
     }
+    
+    func checkPinToPass() -> Bool {
+        if passcodeConfirm == keychainManager.get("pin") {
+            return true
+        }
+            
+        self.alertMessage = NSLocalizedString("incorrectPin", comment: "")
+        self.showAlert.toggle()
+        return false
+    }
+    
+    func storeChangedPin() {
+        keychainManager.set(passcode, forKey: "pin")
+        self.passcode = ""
+        self.passcodeConfirm = ""
+    }
+    // end of pin authentication functions
     
     func biometricAuthentication() {
         let context = LAContext()
@@ -198,10 +216,12 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
             case .success(()):
-                userID = ""
-                localPhone = ""
-                self.keychainManager.delete("pin")
-                biometricEnabled = false
+                DispatchQueue.main.async {
+                    self.userID = ""
+                    self.localPhone = ""
+                    self.keychainManager.delete("pin")
+                    self.biometricEnabled = false
+                }
             }
         }
     }

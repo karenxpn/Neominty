@@ -38,4 +38,10 @@ struct PreviewModels {
         .init(unit: "Fri", amount: 950),
         .init(unit: "Sat", amount: 650),
         .init(unit: "Sun", amount: 1200)]
+    
+    static let userInfo = UserInfoViewModel(model: UserInfo(image: nil, name: "Karen Mirakyan", email: nil, phoneNumber: PhoneModel(code: "AM", number: "93936313")))
+    
+    static let faqList = [FAQModel(id: UUID().uuidString, question: "How do I create a Neominty account?", answer: "You can create a neominty account by: download and open the neominty application first then select ..."),
+                          FAQModel(id: UUID().uuidString, question: "How to create a card for Neominty?", answer: "You can select the create card menu then select 'Add New Card' select the continue button then you ..."),
+                          FAQModel(id: UUID().uuidString, question: "How to Top Up on Neominty?", answer: "Click the Top Up menu then select the amount of money and the method then click the 'top up now' button...")]
 }

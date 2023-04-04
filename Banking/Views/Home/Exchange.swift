@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Exchange: View {
     var body: some View {
-        Text("Exchange")
+        ViewInDevelopmentMode()
     }
 }
 
