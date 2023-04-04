@@ -11,6 +11,9 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
+    @Published var receiveNotifications: Bool = false
+    @Published var receiveEmails: Bool = false
+    
     @Published var info: UserInfoViewModel?
     
     var manager: UserServiceProtocol
@@ -51,6 +54,37 @@ class AccountViewModel: AlertViewModel, ObservableObject {
             if !Task.isCancelled {
                 loading = true
             }
+        }
+    }
+    
+    @MainActor func getPreferences() {
+        loading = true
+        Task {
+            
+            let result = await manager.fetchUserPreferences()
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(let preferences):
+                self.receiveEmails = preferences.receiveEmails
+                self.receiveNotifications = preferences.receiveNotifications
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func updateNotificationPreference(receive: Bool) {
+        Task {
+            let _ = await manager.updateNotificationsPreferences(receive: receive)
+        }
+    }
+    
+    @MainActor func updateEmailPreference(receive: Bool) {
+        Task {
+            let _ = await manager.updateEmailPreferences(receive: receive)
         }
     }
 }

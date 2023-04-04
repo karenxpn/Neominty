@@ -92,6 +92,7 @@
 		FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */; };
 		FF7A11EB29DB3B9800286366 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EA29DB3B9800286366 /* AccountInfo.swift */; };
 		FF7A11ED29DB90C400286366 /* PushNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */; };
+		FF7A11EF29DC490F00286366 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EE29DC490F00286366 /* UserPreferences.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -228,6 +229,7 @@
 		FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountConfirmPin.swift; sourceTree = "<group>"; };
 		FF7A11EA29DB3B9800286366 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationViewModel.swift; sourceTree = "<group>"; };
+		FF7A11EE29DC490F00286366 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				FF38E9F729CCC48500610F5C /* ActivityModel.swift */,
 				FF7A11CB29D709F900286366 /* GlobalResponse.swift */,
 				FF7A11D629D77F4C00286366 /* UserInfo.swift */,
+				FF7A11EE29DC490F00286366 /* UserPreferences.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -799,6 +802,7 @@
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */,
+				FF7A11EF29DC490F00286366 /* UserPreferences.swift in Sources */,
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,

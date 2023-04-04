@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct GeneralSettings: View {
-    // notifications view model
-    @State private var notifications: Bool = false
-    @State private var emails: Bool = false
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @StateObject private var authVM = AuthViewModel()
-    @StateObject private var notificationVM = PushNotificationViewModel()
+    @StateObject private var accountVM = AccountViewModel()
     
     var body: some View {
         
@@ -22,31 +19,28 @@ struct GeneralSettings: View {
                 VStack(spacing: 27) {
                     
                         GeneralSettingsCell(title: NSLocalizedString("pushNotifications", comment: ""),
-                                            message: NSLocalizedString("pushNotificationsMessage", comment: ""), toggler: $notifications) { value in
-//                            print(value)
-//                            if value == true {
-//                                notificationVM.turnOnNotifications()
-//                            } else {
-//                                notificationVM.turnOffNotifications()
-//                            }
-//
-//                            notificationVM.checkPermissionStatus { status in
-//                                if status == .authorized {
-//                                    print("authorized")
-//                                } else  {
-//                                    print("not authorized")
-//                                }
-//                            }
+                                            message: NSLocalizedString("pushNotificationsMessage", comment: ""), toggler: $accountVM.receiveNotifications) { value in
+                            accountVM.updateNotificationPreference(receive: value)
+                        }.disabled(accountVM.loading)
+                        .overlay {
+                            if accountVM.loading {
+                                ProgressView()
+                            }
                         }
                         
                         GeneralSettingsCell(title: NSLocalizedString("faceId", comment: ""),
                                             message: NSLocalizedString("faceIdMessage", comment: ""), toggler: $biometricEnabled) { value in
-                            
+                            biometricEnabled = value
                         }
                         
                         GeneralSettingsCell(title: NSLocalizedString("email", comment: ""),
-                                            message: NSLocalizedString("emailMessage", comment: ""), toggler: $emails) { value in
-                            
+                                            message: NSLocalizedString("emailMessage", comment: ""), toggler: $accountVM.receiveEmails) { value in
+                            accountVM.updateEmailPreference(receive: value)
+                        }.disabled(accountVM.loading)
+                        .overlay {
+                            if accountVM.loading {
+                                ProgressView()
+                            }
                         }
                     
                     Spacer()
@@ -62,14 +56,8 @@ struct GeneralSettings: View {
                 .padding(.top, 1)
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
-            .onAppear {
-                notificationVM.checkPermissionStatus { status in
-                    if status == .authorized {
-                        self.notifications = true
-                    } else {
-                        self.notifications = false
-                    }
-                }
+            .task {
+                accountVM.getPreferences()
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
