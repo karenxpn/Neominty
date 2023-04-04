@@ -10,6 +10,7 @@ import SwiftUI
 struct FAQ: View {
     
     @StateObject private var accountVM = AccountViewModel()
+    @State private var navigate: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
@@ -37,11 +38,13 @@ struct FAQ: View {
                 Spacer()
                 
                 Button {
-                    
+                    navigate.toggle()
                 } label: {
                     TextHelper(text: NSLocalizedString("viewAll", comment: ""),
                                fontName: Roboto.bold.rawValue,
                                fontSize: 16)
+                }.navigationDestination(isPresented: $navigate) {
+                    AllFAQs()
                 }
             }.padding(.top, 10)
             

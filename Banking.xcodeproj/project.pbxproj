@@ -96,6 +96,8 @@
 		FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F029DC6BC200286366 /* FAQ.swift */; };
 		FF7A11F329DC6EF300286366 /* FAQList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F229DC6EF300286366 /* FAQList.swift */; };
 		FF7A11F529DC6F3F00286366 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F429DC6F3F00286366 /* FAQModel.swift */; };
+		FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F629DCA34700286366 /* AllFAQs.swift */; };
+		FF7A11F929DCA43A00286366 /* FAQDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F829DCA43A00286366 /* FAQDetail.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -236,6 +238,8 @@
 		FF7A11F029DC6BC200286366 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		FF7A11F229DC6EF300286366 /* FAQList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQList.swift; sourceTree = "<group>"; };
 		FF7A11F429DC6F3F00286366 /* FAQModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQModel.swift; sourceTree = "<group>"; };
+		FF7A11F629DCA34700286366 /* AllFAQs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFAQs.swift; sourceTree = "<group>"; };
+		FF7A11F829DCA43A00286366 /* FAQDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQDetail.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -540,6 +544,8 @@
 				FF7A11EA29DB3B9800286366 /* AccountInfo.swift */,
 				FF7A11F029DC6BC200286366 /* FAQ.swift */,
 				FF7A11F229DC6EF300286366 /* FAQList.swift */,
+				FF7A11F629DCA34700286366 /* AllFAQs.swift */,
+				FF7A11F829DCA43A00286366 /* FAQDetail.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -788,6 +794,7 @@
 				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF7A11D129D752A000286366 /* Account.swift in Sources */,
+				FF7A11F929DCA43A00286366 /* FAQDetail.swift in Sources */,
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
@@ -811,6 +818,7 @@
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
+				FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */,
 				FF7A11EF29DC490F00286366 /* UserPreferences.swift in Sources */,
