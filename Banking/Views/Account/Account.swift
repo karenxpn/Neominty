@@ -47,7 +47,7 @@ struct Account: View {
                     Divider()
                     
                     AccountListButton(icon: "faq", label: NSLocalizedString("faq", comment: "")) {
-                        
+                        viewRouter.pushAccountPath(.faq)
                     }
                     
                     AccountListButton(icon: "rate", label: NSLocalizedString("rateUs", comment: "")) {
@@ -66,17 +66,18 @@ struct Account: View {
                     }.task {
                         accountVM.getAccountInfo()
                     }.navigationDestination(for: AccountViewPaths.self) { value in
-                        if value == .settings {
+                        switch value {
+                        case .settings:
                             GeneralSettings()
-                        } else if value == .changePin {
+                        case .changePin:
                             CheckPin()
-                        } else if value == .info {
+                        case .info:
                             AccountInfo(name: accountVM.info?.name,
                                         flag: accountVM.info?.flag,
                                         phone: accountVM.info?.phone,
                                         email: accountVM.info?.email)
-                        } else {
-                            ViewInDevelopmentMode()
+                        case .faq:
+                            FAQ()
                         }
                     }
         }

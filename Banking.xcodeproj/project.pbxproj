@@ -93,6 +93,9 @@
 		FF7A11EB29DB3B9800286366 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EA29DB3B9800286366 /* AccountInfo.swift */; };
 		FF7A11ED29DB90C400286366 /* PushNotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */; };
 		FF7A11EF29DC490F00286366 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11EE29DC490F00286366 /* UserPreferences.swift */; };
+		FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F029DC6BC200286366 /* FAQ.swift */; };
+		FF7A11F329DC6EF300286366 /* FAQList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F229DC6EF300286366 /* FAQList.swift */; };
+		FF7A11F529DC6F3F00286366 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F429DC6F3F00286366 /* FAQModel.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -230,6 +233,9 @@
 		FF7A11EA29DB3B9800286366 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
 		FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationViewModel.swift; sourceTree = "<group>"; };
 		FF7A11EE29DC490F00286366 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		FF7A11F029DC6BC200286366 /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
+		FF7A11F229DC6EF300286366 /* FAQList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQList.swift; sourceTree = "<group>"; };
+		FF7A11F429DC6F3F00286366 /* FAQModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQModel.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -377,6 +383,7 @@
 				FF7A11CB29D709F900286366 /* GlobalResponse.swift */,
 				FF7A11D629D77F4C00286366 /* UserInfo.swift */,
 				FF7A11EE29DC490F00286366 /* UserPreferences.swift */,
+				FF7A11F429DC6F3F00286366 /* FAQModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -531,6 +538,8 @@
 				FF7A11E629DB04ED00286366 /* AccountCreatePin.swift */,
 				FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */,
 				FF7A11EA29DB3B9800286366 /* AccountInfo.swift */,
+				FF7A11F029DC6BC200286366 /* FAQ.swift */,
+				FF7A11F229DC6EF300286366 /* FAQList.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -726,6 +735,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7A11F329DC6EF300286366 /* FAQList.swift in Sources */,
 				FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */,
 				FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */,
 				FF7A11DF29D7876600286366 /* Gallery.swift in Sources */,
@@ -794,6 +804,7 @@
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */,
+				FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */,
 				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
@@ -806,6 +817,7 @@
 				FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */,
 				FF18C25629BA8E70004EF3A3 /* Introduction.swift in Sources */,
 				FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */,
+				FF7A11F529DC6F3F00286366 /* FAQModel.swift in Sources */,
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF7A11E329DAF69400286366 /* GeneralSettingsCell.swift in Sources */,

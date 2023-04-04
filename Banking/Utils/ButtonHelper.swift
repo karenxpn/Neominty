@@ -14,6 +14,7 @@ struct ButtonHelper: View {
     var height: CGFloat = 56
     let label: String
     var color: Color = AppColors.darkBlue
+    var labelColor: Color = .white
     let action: (() -> Void)
 
     var body: some View {
@@ -23,7 +24,7 @@ struct ButtonHelper: View {
                 
                 Text( label )
                     .font(.custom("Roboto-Bold", size: 16))
-                    .foregroundColor(.white)
+                    .foregroundColor(labelColor)
                 
                 Spacer()
             }.frame(height: height)

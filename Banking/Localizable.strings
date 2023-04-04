@@ -101,3 +101,8 @@
 "logout" = "Log Out";
 "phoneNumber" = "Phone Number";
 "emailInfo" = "Your mail address will be used for receiving mail promotions.\nIn order to not receive mail promotions, please delete your mail address";
+"youHaveQuestion" = "You have any question ?";
+"frequentlyAsked" = "Frequently Asked";
+"viewAll" = "View All";
+"search" = "Search";
+"loadMore" = "Load more";

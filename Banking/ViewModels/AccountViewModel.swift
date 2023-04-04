@@ -14,6 +14,10 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     @Published var receiveNotifications: Bool = false
     @Published var receiveEmails: Bool = false
     
+    @Published var search: String = ""
+    @Published var faqs = [FAQModel]()
+    @Published var page = 0
+    
     @Published var info: UserInfoViewModel?
     
     var manager: UserServiceProtocol
@@ -85,6 +89,25 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     @MainActor func updateEmailPreference(receive: Bool) {
         Task {
             let _ = await manager.updateEmailPreferences(receive: receive)
+        }
+    }
+    
+    @MainActor func getFaqs() {
+        loading = true
+        Task {
+            
+            let result = await manager.fetchFaqs(page: page)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(let faqs):
+                self.faqs.append(contentsOf: faqs)
+                self.page += 1
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
         }
     }
 }
