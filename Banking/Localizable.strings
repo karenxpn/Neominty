@@ -106,3 +106,7 @@
 "viewAll" = "View All";
 "search" = "Search";
 "loadMore" = "Load more";
+"areYourSureToDeleteTheCard" = "Are you sure you want to delete the card?";
+"deleteCardMessage" = "After you delete the card, the information will be removed and you will not be able to use this card";
+"delete" = "Delete";
+"cancel" = "Cancel";

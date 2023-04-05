@@ -20,6 +20,7 @@ struct Cards: View {
                     RequestToAddNewCard()
                 } else {
                     CardsList(cards: cardsVM.cards)
+                        .environmentObject(cardsVM)
                 }
             }.navigationTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)
