@@ -16,6 +16,17 @@ struct CardsList: View {
             ForEach(cards, id: \.id) { card in
                 UserCard(card: card, selected: false)
                     .listRowSeparator(.hidden)
+                    .swipeActions {
+                        Button {
+                            print("pressed")
+                        } label: {
+                            Image("delete-card")
+                                .padding(.vertical, 29)
+                                .padding(.horizontal, 18)
+                                .background(AppColors.green)
+                                .cornerRadius(16)
+                        }.tint(.clear)
+                    }
             }
             
             Button {
