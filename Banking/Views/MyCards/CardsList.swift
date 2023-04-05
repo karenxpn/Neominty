@@ -9,13 +9,31 @@ import SwiftUI
 
 struct CardsList: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var cardsVM: CardsViewModel
     let cards: [CardModel]
+    @State private var selectedToDelete: CardModel?
+    @State private var showConfirmationDialog: Bool = false
+    
     var body: some View {
         
         List {
             ForEach(cards, id: \.id) { card in
                 UserCard(card: card, selected: false)
                     .listRowSeparator(.hidden)
+                    .swipeActions {
+                        if !card.defaultCard {
+                            Button {
+                                selectedToDelete = card
+                                showConfirmationDialog.toggle()
+                            } label: {
+                                Image("delete-card")
+                                    .padding(.vertical, 29)
+                                    .padding(.horizontal, 18)
+                                    .background(AppColors.green)
+                                    .cornerRadius(16)
+                            }.tint(.clear)
+                        }
+                    }
             }
             
             Button {
@@ -44,6 +62,24 @@ struct CardsList: View {
             
         }.listStyle(.plain)
             .padding(.top, 1)
+            .alert(NSLocalizedString("areYourSureToDeleteTheCard", comment: ""), isPresented: $showConfirmationDialog) {
+                Button(NSLocalizedString("delete", comment: "")) {
+                    // delete
+                    if let selectedToDelete {
+                        cardsVM.deleteCard(id: selectedToDelete.id)
+                    }
+                }
+                
+                Button(role: .cancel) {
+                    selectedToDelete = nil
+                } label: {
+                    Text(NSLocalizedString("cancel", comment: ""))
+                }
+
+            } message: {
+                Text(NSLocalizedString("deleteCardMessage", comment: ""))
+            }
+
     }
 }
 

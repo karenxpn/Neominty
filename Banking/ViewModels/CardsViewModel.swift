@@ -59,4 +59,16 @@ class CardsViewModel: AlertViewModel, ObservableObject {
             }
         }
     }
+    
+    @MainActor func deleteCard(id: String) {
+        Task {
+            let result = await manager.removeCard(id: id)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(()):
+                self.cards.removeAll(where: { $0.id == id })
+            }
+        }
+    }
 }

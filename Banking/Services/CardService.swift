@@ -9,6 +9,7 @@ import Foundation
 protocol CardServiceProtocol {
     func fetchCards() async -> Result<[CardModel], Error>
     func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error>
+    func removeCard(id: String) async -> Result<Void, Error>
 }
 
 class CardService {
@@ -17,6 +18,13 @@ class CardService {
 }
 
 extension CardService: CardServiceProtocol {
+    
+    func removeCard(id: String) async -> Result<Void, Error> {
+        return await APIHelper.shared.voidRequest {
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+        }
+    }
+    
     func fetchCards() async -> Result<[CardModel], Error> {
         do {
             let cards = [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.mirCard, PreviewModels.amexCard]
