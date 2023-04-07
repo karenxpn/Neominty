@@ -9,10 +9,11 @@ import SwiftUI
 
 struct PayCategoryCell: View {
     let category: PayCategoryViewModel
+    @State private var showSheet: Bool = false
     
     var body: some View {
         Button {
-            
+            showSheet.toggle()
         } label: {
             LazyVStack(alignment: .leading, spacing: 8) {
                 Image(category.image)
@@ -29,6 +30,16 @@ struct PayCategoryCell: View {
 //                            }
                         }
                 }.cornerRadius(16)
+        }.sheet(isPresented: $showSheet) {
+            if #available(iOS 16.4, *) {
+                SelectSubCategory(category: category)
+                    .presentationDetents([.fraction(0.8)])
+                    .presentationCornerRadius(40)
+            } else {
+                SelectSubCategory(category: category)
+                    .presentationDetents([.fraction(0.8)])
+            }
+            
         }
     }
 }

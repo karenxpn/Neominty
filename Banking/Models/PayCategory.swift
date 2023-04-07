@@ -29,4 +29,5 @@ struct PayCategoryViewModel: Identifiable {
     var id: String      { self.model.id }
     var title: String   { self.model.title }
     var image: String   { self.model.title.lowercased() + "-icon" }
+    var subCategories: [SubCategory]    { self.model.subCategory }
 }

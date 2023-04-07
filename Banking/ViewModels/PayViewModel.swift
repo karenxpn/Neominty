@@ -13,6 +13,7 @@ class PayViewModel: AlertViewModel, ObservableObject {
 
     @Published var search: String = ""
     @Published var categories = [PayCategoryViewModel]()
+    @Published var accountNumber: String = ""
     
     var manager: PayServiceProtocol
     init(manager: PayServiceProtocol = PayService.shared) {
