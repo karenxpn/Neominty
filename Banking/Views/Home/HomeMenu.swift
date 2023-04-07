@@ -12,11 +12,11 @@ struct HomeMenu: View {
     
     let icons = ["money-send", "money-exchange", "money-receive", "more"]
     let labels = [NSLocalizedString("send", comment: ""),
-    NSLocalizedString("exchange", comment: ""),
+    NSLocalizedString("pay", comment: ""),
     NSLocalizedString("request", comment: ""),
     NSLocalizedString("more", comment: "")]
     let paths = [HomeViewPaths.send,
-                 HomeViewPaths.exchange,
+                 HomeViewPaths.pay,
                  HomeViewPaths.receive,
                  HomeViewPaths.more]
     

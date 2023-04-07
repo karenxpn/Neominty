@@ -72,8 +72,8 @@ struct HomeView: View {
                         AllTransactions()
                     case .send:
                         MoneyTransfer(cards: homeVM.cards)
-                    case .exchange:
-                        Exchange()
+                    case .pay:
+                        PayView()
                     case .receive:
                         RequestTransfer()
                     case .more:
