@@ -30,6 +30,13 @@ struct PayView: View {
             if payVM.loading {
                 ProgressView()
             } else {
+                let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(payVM.categories, id: \.id) { category in
+                        PayCategoryCell(category: category)
+                    }
+                }.padding(24)
+                    .padding(.bottom, UIScreen.main.bounds.height * 0.15)
                 // show categories
             }
             
@@ -40,6 +47,8 @@ struct PayView: View {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: NSLocalizedString("pay", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
+            }.task {
+                payVM.getCategories()
             }
     }
 }
