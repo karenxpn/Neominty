@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PayView: View {
     @StateObject private var payVM = PayViewModel()
+    @State private var navigate: Bool = false
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
@@ -33,7 +35,7 @@ struct PayView: View {
                 let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(payVM.categories, id: \.id) { category in
-                        PayCategoryCell(category: category)
+                        PayCategoryCell(category: category, navigateToDetails: $navigate)
                     }
                 }.padding(24)
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -41,6 +43,10 @@ struct PayView: View {
             }
             
         }.padding(.top, 1)
+            .navigationDestination(isPresented: $navigate) {
+                PaymentDetails()
+                    .environmentObject(payVM)
+            }
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -49,7 +55,7 @@ struct PayView: View {
                 }
             }.task {
                 payVM.getCategories()
-            }
+            }.environmentObject(payVM)
     }
 }
 

@@ -15,9 +15,19 @@ class PayViewModel: AlertViewModel, ObservableObject {
     @Published var categories = [PayCategoryViewModel]()
     @Published var accountNumber: String = ""
     
+    @Published var cards = [CardModel]()
+    @Published var selectedCard: CardModel?
+    @Published var amount: String = ""
+    @Published var selectedPaymentCategory: SubCategory?
+
+    
     var manager: PayServiceProtocol
-    init(manager: PayServiceProtocol = PayService.shared) {
+    var cardManager: CardServiceProtocol
+    
+    init(manager: PayServiceProtocol = PayService.shared,
+         cardManager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
+        self.cardManager = cardManager
     }
     
     @MainActor func getCategories() {
@@ -29,6 +39,24 @@ class PayViewModel: AlertViewModel, ObservableObject {
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let categories):
                 self.categories = categories.map(PayCategoryViewModel.init)
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func getCards() {
+        loading = true
+        Task {
+            let result = await cardManager.fetchCards()
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(let cards):
+                self.cards = cards
+                self.selectedCard = cards.first(where: { $0.defaultCard })
             }
             
             if !Task.isCancelled {

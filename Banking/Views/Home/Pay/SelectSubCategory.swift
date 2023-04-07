@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct SelectSubCategory: View {
-    @StateObject private var payVM = PayViewModel()
+    @EnvironmentObject private var payVM: PayViewModel
     let category: PayCategoryViewModel
+    @Binding var navigateToDetails: Bool
     @State private var selectedCategory: String = ""
     
-    init(category: PayCategoryViewModel) {
+    init(category: PayCategoryViewModel, navigateToDetails: Binding<Bool>) {
         self.category = category
         _selectedCategory = State(initialValue: category.subCategories[0].id)
+        _navigateToDetails = navigateToDetails
         
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(AppColors.lightGray)
@@ -37,9 +39,6 @@ struct SelectSubCategory: View {
                 }.frame(height: UIScreen.main.bounds.height * 0.25)
                     .tabViewStyle(.page)
                     .tabViewStyle(.page(indexDisplayMode: .always))
-//                    .onChange(of: activityVM.selectedCard) { newValue in
-//                        activityVM.getActivity()
-//                    }
                 
                 
                 if let subCategory = category.subCategories.first(where: { $0.id == selectedCategory }) {
@@ -58,18 +57,21 @@ struct SelectSubCategory: View {
                         .padding(.top, 16)
                     
                     ButtonHelper(disabled: payVM.accountNumber.isEmpty, label: NSLocalizedString("continue", comment: "")) {
-                        
+                        payVM.selectedPaymentCategory = category.subCategories.first(where: {$0.id == selectedCategory})
+                        navigateToDetails.toggle()
+                        // navigation
                     }.padding(.top, 100)
                 }
                 
             }.padding(24)
-        }
+        }.scrollDismissesKeyboard(.immediately)
 
     }
 }
 
 struct SelectSubCategory_Previews: PreviewProvider {
     static var previews: some View {
-        SelectSubCategory(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]))
+        SelectSubCategory(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]), navigateToDetails: .constant(false))
+            .environmentObject(PayViewModel())
     }
 }

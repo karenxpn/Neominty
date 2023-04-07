@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PayCategoryCell: View {
     let category: PayCategoryViewModel
+    @Binding var navigateToDetails: Bool
     @State private var showSheet: Bool = false
     
     var body: some View {
@@ -32,11 +33,11 @@ struct PayCategoryCell: View {
                 }.cornerRadius(16)
         }.sheet(isPresented: $showSheet) {
             if #available(iOS 16.4, *) {
-                SelectSubCategory(category: category)
+                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails)
                     .presentationDetents([.fraction(0.8)])
                     .presentationCornerRadius(40)
             } else {
-                SelectSubCategory(category: category)
+                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails)
                     .presentationDetents([.fraction(0.8)])
             }
             
@@ -46,6 +47,6 @@ struct PayCategoryCell: View {
 
 struct PayCategoryCell_Previews: PreviewProvider {
     static var previews: some View {
-        PayCategoryCell(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]))
+        PayCategoryCell(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]), navigateToDetails: .constant(false))
     }
 }
