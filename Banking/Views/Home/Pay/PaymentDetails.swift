@@ -52,7 +52,9 @@ struct PaymentDetails: View {
                 
             }.padding(24)
             
-        }.task {
+        }.padding(.top, 1)
+            .scrollDismissesKeyboard(.immediately)
+        .task {
             payVM.getCards()
         }
         .sheet(isPresented: $selectCard) {
