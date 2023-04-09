@@ -47,7 +47,7 @@ public enum CreditCardType: String {
         case .mir:
             return "mir"
         default:
-            return "card-placeholder"
+            return ""
         }
     }
 }
