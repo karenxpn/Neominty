@@ -33,7 +33,11 @@ struct PayView: View {
                 
                 LazyVGrid(columns: columns, spacing: 20, pinnedViews: [.sectionHeaders]) {
                     Section {
-                        ForEach(payVM.categories, id: \.id) { category in
+                        ForEach(payVM.categories.filter{
+                            payVM.search.isEmpty
+                            ? true
+                            : ($0.title.localizedCaseInsensitiveContains(self.payVM.search)
+                            || $0.subCategories.contains(where: { $0.name.localizedCaseInsensitiveContains(self.payVM.search)}))}, id: \.id) { category in
                             PayCategoryCell(category: category, navigateToDetails: $navigate)
                         }
                     } header: {
@@ -53,6 +57,7 @@ struct PayView: View {
             }
             
         }.padding(.top, 1)
+            .scrollDismissesKeyboard(.immediately)
             .navigationDestination(isPresented: $navigate) {
                 PaymentDetails()
                     .environmentObject(payVM)
