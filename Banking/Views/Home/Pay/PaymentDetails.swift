@@ -93,7 +93,8 @@ struct PaymentDetails: View {
             Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
         }, message: {
             Text(payVM.alertMessage)
-        })
+        }).navigationTitle(Text(""))
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 
