@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TransferSuccess: View {
     let amount: String
+    let currency: CardCurrency
     let action: () -> ()
     
     var body: some View {
@@ -28,7 +29,7 @@ struct TransferSuccess: View {
                     .multilineTextAlignment(.center)
                 }
                 
-                TextHelper(text: "$ \(amount)", color: AppColors.darkBlue,
+                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", color: AppColors.darkBlue,
                            fontName: Roboto.bold.rawValue, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
@@ -49,7 +50,7 @@ struct TransferSuccess: View {
 
 struct TransferSuccess_Previews: PreviewProvider {
     static var previews: some View {
-        TransferSuccess(amount: "123,3") {
+        TransferSuccess(amount: "123,3", currency: .amd) {
             
         }
             .environmentObject(ViewRouter())

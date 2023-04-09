@@ -163,7 +163,8 @@ struct TransferDetailView: View {
                             transferVM.startTransaction()
                         }
                     }.navigationDestination(isPresented: $navigateToSuccess) {
-                        TransferSuccess(amount: transferVM.transferAmount) {
+                        TransferSuccess(amount: transferVM.transferAmount,
+                                        currency: transferVM.selectedCard?.currency ?? CardCurrency.usd) {
                             viewRouter.popToHomeRoot()
                         }
                     }

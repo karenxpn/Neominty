@@ -55,7 +55,7 @@ struct PaymentDetails: View {
                     
                     payVM.performPayment()
                 }.navigationDestination(isPresented: $completed) {
-                    TransferSuccess(amount: payVM.amount) {
+                    TransferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd) {
                         viewRouter.popToHomeRoot()
                     }
                 }
