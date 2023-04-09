@@ -24,7 +24,7 @@ enum HomeViewPaths: String, Identifiable {
     // transfer
     case send
     
-    case exchange
+    case pay
     case receive
     case more
     case notifications

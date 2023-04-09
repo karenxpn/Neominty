@@ -13,7 +13,7 @@ struct Activity: View {
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor(AppColors.superLightGray)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(AppColors.lightGray)
     }
     
     var body: some View {

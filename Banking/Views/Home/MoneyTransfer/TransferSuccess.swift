@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TransferSuccess: View {
-    @EnvironmentObject var viewRouter: ViewRouter
     let amount: String
+    let currency: CardCurrency
+    let action: () -> ()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -28,7 +29,7 @@ struct TransferSuccess: View {
                     .multilineTextAlignment(.center)
                 }
                 
-                TextHelper(text: "$ \(amount)", color: AppColors.darkBlue,
+                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", color: AppColors.darkBlue,
                            fontName: Roboto.bold.rawValue, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
@@ -38,7 +39,7 @@ struct TransferSuccess: View {
                 }
                 
                 ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {
-                    viewRouter.popToHomeRoot()
+                    action()
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -49,7 +50,9 @@ struct TransferSuccess: View {
 
 struct TransferSuccess_Previews: PreviewProvider {
     static var previews: some View {
-        TransferSuccess(amount: "123,3")
+        TransferSuccess(amount: "123,3", currency: .amd) {
+            
+        }
             .environmentObject(ViewRouter())
     }
 }

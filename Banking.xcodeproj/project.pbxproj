@@ -49,7 +49,6 @@
 		FF45205929C66712003C6415 /* HomeMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205829C66712003C6415 /* HomeMenu.swift */; };
 		FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205A29C66794003C6415 /* HomeMenuItem.swift */; };
 		FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205C29C66A88003C6415 /* MoneyTransfer.swift */; };
-		FF45205F29C66A96003C6415 /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205E29C66A96003C6415 /* Exchange.swift */; };
 		FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206229C66AB5003C6415 /* MoreTransfers.swift */; };
 		FF45206529C66DAD003C6415 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206429C66DAD003C6415 /* Notifications.swift */; };
 		FF45206729C72D40003C6415 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45206629C72D40003C6415 /* UserCard.swift */; };
@@ -98,6 +97,13 @@
 		FF7A11F529DC6F3F00286366 /* FAQModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F429DC6F3F00286366 /* FAQModel.swift */; };
 		FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F629DCA34700286366 /* AllFAQs.swift */; };
 		FF7A11F929DCA43A00286366 /* FAQDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11F829DCA43A00286366 /* FAQDetail.swift */; };
+		FF7A11FC29E047FE00286366 /* PayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11FB29E047FE00286366 /* PayView.swift */; };
+		FF7A11FE29E0484100286366 /* PayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11FD29E0484100286366 /* PayViewModel.swift */; };
+		FF7A120029E051FD00286366 /* PayCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11FF29E051FD00286366 /* PayCategory.swift */; };
+		FF7A120229E0538B00286366 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120129E0538B00286366 /* PayCategoryCell.swift */; };
+		FF7A120429E057E800286366 /* PayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120329E057E800286366 /* PayService.swift */; };
+		FF7A120629E0AAED00286366 /* SelectSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120529E0AAED00286366 /* SelectSubCategory.swift */; };
+		FF7A120829E0D6A800286366 /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120729E0D6A800286366 /* PaymentDetails.swift */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -188,7 +194,6 @@
 		FF45205829C66712003C6415 /* HomeMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenu.swift; sourceTree = "<group>"; };
 		FF45205A29C66794003C6415 /* HomeMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuItem.swift; sourceTree = "<group>"; };
 		FF45205C29C66A88003C6415 /* MoneyTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransfer.swift; sourceTree = "<group>"; };
-		FF45205E29C66A96003C6415 /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 		FF45206229C66AB5003C6415 /* MoreTransfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTransfers.swift; sourceTree = "<group>"; };
 		FF45206429C66DAD003C6415 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		FF45206629C72D40003C6415 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
@@ -240,6 +245,13 @@
 		FF7A11F429DC6F3F00286366 /* FAQModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQModel.swift; sourceTree = "<group>"; };
 		FF7A11F629DCA34700286366 /* AllFAQs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllFAQs.swift; sourceTree = "<group>"; };
 		FF7A11F829DCA43A00286366 /* FAQDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQDetail.swift; sourceTree = "<group>"; };
+		FF7A11FB29E047FE00286366 /* PayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayView.swift; sourceTree = "<group>"; };
+		FF7A11FD29E0484100286366 /* PayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewModel.swift; sourceTree = "<group>"; };
+		FF7A11FF29E051FD00286366 /* PayCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategory.swift; sourceTree = "<group>"; };
+		FF7A120129E0538B00286366 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
+		FF7A120329E057E800286366 /* PayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayService.swift; sourceTree = "<group>"; };
+		FF7A120529E0AAED00286366 /* SelectSubCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSubCategory.swift; sourceTree = "<group>"; };
+		FF7A120729E0D6A800286366 /* PaymentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetails.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -357,6 +369,7 @@
 				FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */,
 				FF7A11DA29D77FCF00286366 /* AccountViewModel.swift */,
 				FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */,
+				FF7A11FD29E0484100286366 /* PayViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -371,6 +384,7 @@
 				FF45208629C8F0EB003C6415 /* TransferSerive.swift */,
 				FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */,
 				FFAC1DF129D1DB5D00947CBC /* CardService.swift */,
+				FF7A120329E057E800286366 /* PayService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -388,6 +402,7 @@
 				FF7A11D629D77F4C00286366 /* UserInfo.swift */,
 				FF7A11EE29DC490F00286366 /* UserPreferences.swift */,
 				FF7A11F429DC6F3F00286366 /* FAQModel.swift */,
+				FF7A11FF29E051FD00286366 /* PayCategory.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,12 +438,12 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FF7A11FA29E047EC00286366 /* Pay */,
 				FF821BCA29D5C0B800F3BA0C /* RequestTransfer */,
 				FF45208A29CA1955003C6415 /* MoneyTransfer */,
 				FF45205229C33D9B003C6415 /* HomeView.swift */,
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
-				FF45205E29C66A96003C6415 /* Exchange.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
 				FF45206429C66DAD003C6415 /* Notifications.swift */,
 				FF45206629C72D40003C6415 /* UserCard.swift */,
@@ -548,6 +563,17 @@
 				FF7A11F829DCA43A00286366 /* FAQDetail.swift */,
 			);
 			path = Account;
+			sourceTree = "<group>";
+		};
+		FF7A11FA29E047EC00286366 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				FF7A11FB29E047FE00286366 /* PayView.swift */,
+				FF7A120129E0538B00286366 /* PayCategoryCell.swift */,
+				FF7A120529E0AAED00286366 /* SelectSubCategory.swift */,
+				FF7A120729E0D6A800286366 /* PaymentDetails.swift */,
+			);
+			path = Pay;
 			sourceTree = "<group>";
 		};
 		FF821BCA29D5C0B800F3BA0C /* RequestTransfer */ = {
@@ -748,6 +774,7 @@
 				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
 				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
+				FF7A120829E0D6A800286366 /* PaymentDetails.swift in Sources */,
 				FF18C25829BB259D004EF3A3 /* AuthViewModel.swift in Sources */,
 				FF7A11E729DB04ED00286366 /* AccountCreatePin.swift in Sources */,
 				FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */,
@@ -768,7 +795,6 @@
 				FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */,
 				FF45208729C8F0EB003C6415 /* TransferSerive.swift in Sources */,
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
-				FF45205F29C66A96003C6415 /* Exchange.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
 				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
@@ -779,6 +805,7 @@
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */,
+				FF7A11FE29E0484100286366 /* PayViewModel.swift in Sources */,
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
@@ -804,6 +831,7 @@
 				FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF7A11EB29DB3B9800286366 /* AccountInfo.swift in Sources */,
+				FF7A11FC29E047FE00286366 /* PayView.swift in Sources */,
 				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
 				FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */,
@@ -832,19 +860,23 @@
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF7A11ED29DB90C400286366 /* PushNotificationViewModel.swift in Sources */,
 				FF45206929C7336C003C6415 /* CardHexDesign.swift in Sources */,
+				FF7A120229E0538B00286366 /* PayCategoryCell.swift in Sources */,
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FF7A120429E057E800286366 /* PayService.swift in Sources */,
 				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
 				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
+				FF7A120029E051FD00286366 /* PayCategory.swift in Sources */,
 				FF821BCE29D5C10500F3BA0C /* RequestTransferViewModel.swift in Sources */,
 				FF38E9F029CB75A100610F5C /* Activity.swift in Sources */,
 				FF45207329C7A565003C6415 /* TransferViewModel.swift in Sources */,
+				FF7A120629E0AAED00286366 /* SelectSubCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

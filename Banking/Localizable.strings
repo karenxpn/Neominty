@@ -33,7 +33,7 @@
 "activity" = "Activity";
 "profile" = "Profile";
 "send" = "Send";
-"exchange" = "Exchange";
+"pay" = "Pay";
 "request" = "Request";
 "more" = "More";
 "allTransactions" = "All Transactions";
@@ -110,3 +110,6 @@
 "deleteCardMessage" = "After you delete the card, the information will be removed and you will not be able to use this card";
 "delete" = "Delete";
 "cancel" = "Cancel";
+"everythingYouNeed" = "Everything you need";
+"everythingYouNeedMessage" = "We need to know this for regulatory reasons. And also we’re curious!";
+"accountNumber" = "Account Number";

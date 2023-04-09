@@ -44,4 +44,9 @@ struct PreviewModels {
     static let faqList = [FAQModel(id: UUID().uuidString, question: "How do I create a Neominty account?", answer: "You can create a neominty account by: download and open the neominty application first then select ..."),
                           FAQModel(id: UUID().uuidString, question: "How to create a card for Neominty?", answer: "You can select the create card menu then select 'Add New Card' select the continue button then you ..."),
                           FAQModel(id: UUID().uuidString, question: "How to Top Up on Neominty?", answer: "Click the Top Up menu then select the amount of money and the method then click the 'top up now' button...")]
+    
+    static let payCategories = [PayCategory(id: UUID().uuidString, title: "Phone", subCategory: [SubCategory(id: UUID().uuidString, image: "ucom", name: "Ucom", address: "Ucom address"),
+                                                                                                 SubCategory(id: UUID().uuidString, image: "vivacell", name: "Vivacell MTS", address: "Vivacell MTS address"),
+                                                                                                 SubCategory(id: UUID().uuidString, image: "team", name: "Team", address: "Team telecom address")]),
+                                PayCategory(id: UUID().uuidString, title: "Gambling", subCategory: [SubCategory(id: UUID().uuidString, image: "toto", name: "Toto Gaming", address: "Toto Gaming Address")])]
 }
