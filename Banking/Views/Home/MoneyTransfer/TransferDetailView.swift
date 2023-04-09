@@ -107,7 +107,7 @@ struct TransferDetailView: View {
                     }.padding(16)
                     
                     HStack {
-                        TextHelper(text: "USD", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 8)
                             .background {
@@ -153,7 +153,7 @@ struct TransferDetailView: View {
                                 HStack {
                                     TextHelper(text: "Total", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
                                     Spacer()
-                                    TextHelper(text: "$\(transferVM.transferAmount)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                                    TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue.currencySymbol ?? CardCurrency.usd.rawValue.currencySymbol)\(transferVM.transferAmount)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
                                 }
                                 
                             }
