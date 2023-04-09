@@ -9,7 +9,9 @@ import SwiftUI
 
 struct PaymentDetails: View {
     @EnvironmentObject var payVM: PayViewModel
+    @EnvironmentObject var viewRouter: ViewRouter
     @State private var selectCard: Bool = false
+    @State private var completed: Bool = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -45,8 +47,17 @@ struct PaymentDetails: View {
                 }
                 
                 ButtonHelper(disabled: payVM.amount.isEmpty
-                             || payVM.selectedCard == nil, label: NSLocalizedString("next", comment: "")) {
+                             || payVM.selectedCard == nil
+                             || payVM.loadingPayment,
+                             label: payVM.loadingPayment
+                             ? NSLocalizedString("pleaseWait", comment: "")
+                             : NSLocalizedString("next", comment: "")) {
                     
+                    payVM.performPayment()
+                }.navigationDestination(isPresented: $completed) {
+                    TransferSuccess(amount: payVM.amount) {
+                        viewRouter.popToHomeRoot()
+                    }
                 }
                 
                 
@@ -74,7 +85,15 @@ struct PaymentDetails: View {
                 }
 
             }
-        }
+        }.onReceive(NotificationCenter
+            .default
+            .publisher(for:Notification.Name(rawValue: NotificationName.paymentCompleted.rawValue))) { _ in
+                completed.toggle()
+        }.alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
+            Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+        }, message: {
+            Text(payVM.alertMessage)
+        })
     }
 }
 

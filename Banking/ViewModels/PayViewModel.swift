@@ -8,6 +8,7 @@
 import Foundation
 class PayViewModel: AlertViewModel, ObservableObject {
     @Published var loading: Bool = false
+    @Published var loadingPayment: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
 
@@ -61,6 +62,23 @@ class PayViewModel: AlertViewModel, ObservableObject {
             
             if !Task.isCancelled {
                 loading = false
+            }
+        }
+    }
+    
+    @MainActor func performPayment() {
+        loadingPayment = true
+        Task {
+            let result = await manager.performPayment(accountNumber: accountNumber, amount: amount)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(()):
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.paymentCompleted.rawValue), object: nil)
+            }
+            
+            if !Task.isCancelled {
+                loadingPayment = false
             }
         }
     }

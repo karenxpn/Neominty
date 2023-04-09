@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TransferSuccess: View {
-    @EnvironmentObject var viewRouter: ViewRouter
     let amount: String
+    let action: () -> ()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -38,7 +38,7 @@ struct TransferSuccess: View {
                 }
                 
                 ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {
-                    viewRouter.popToHomeRoot()
+                    action()
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -49,7 +49,9 @@ struct TransferSuccess: View {
 
 struct TransferSuccess_Previews: PreviewProvider {
     static var previews: some View {
-        TransferSuccess(amount: "123,3")
+        TransferSuccess(amount: "123,3") {
+            
+        }
             .environmentObject(ViewRouter())
     }
 }

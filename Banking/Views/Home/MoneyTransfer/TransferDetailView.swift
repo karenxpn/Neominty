@@ -163,7 +163,9 @@ struct TransferDetailView: View {
                             transferVM.startTransaction()
                         }
                     }.navigationDestination(isPresented: $navigateToSuccess) {
-                        TransferSuccess(amount: transferVM.transferAmount)
+                        TransferSuccess(amount: transferVM.transferAmount) {
+                            viewRouter.popToHomeRoot()
+                        }
                     }
                 
             }.padding(.horizontal, 24)
