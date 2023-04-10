@@ -22,7 +22,7 @@ class TransferService {
 extension TransferService: TransferServiceProtocol {
     func requestTransfer(type: RequestType, amount: String, currency: String, phone: String, email: String) async -> Result<GlobalResponse, Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
             var message = ""
             if type == .link {
                 message = "www.neominty.com/request8720money/cardnumber/id8645153"

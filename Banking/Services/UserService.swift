@@ -27,7 +27,7 @@ extension UserSerive: UserServiceProtocol {
     
     func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
             var faqs = [FAQModel]()
             if page <= 2 {
                 faqs = [PreviewModels.faqList[page]]
@@ -40,7 +40,7 @@ extension UserSerive: UserServiceProtocol {
     
     func fetchUserPreferences() async -> Result<UserPreferences, Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
             let preferences = UserPreferences(receiveNotifications: false, receiveEmails: true)
             return .success(preferences)
         } catch {
@@ -62,13 +62,13 @@ extension UserSerive: UserServiceProtocol {
     
     func updateAccountInfo(name: String, email: String?) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
         }
     }
     
     func fetchAccountInfo() async -> Result<UserInfo, Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
             let user = UserInfo(name: "Karen Mirakyan", phoneNumber: PhoneModel(code: "AM", number: "93936313"))
             return .success(user)
         } catch {

@@ -60,7 +60,11 @@ struct QRView: View {
                         ToolbarItem(placement: .principal) {
                             TextHelper(text: NSLocalizedString("showQrCode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                         }
-                    }.task {
+                    }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
+                        Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                    }, message: {
+                        Text(qrVM.alertMessage)
+                    }).task {
                         qrVM.getCards()
                     }.sheet(isPresented: $selectCard) {
                         if qrVM.selectedCard != nil {
