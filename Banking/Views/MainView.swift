@@ -25,7 +25,7 @@ struct MainView: View {
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                 } else if viewRouter.tab == 2{
-                    ViewInDevelopmentMode()
+                    QRView()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
 
                     
