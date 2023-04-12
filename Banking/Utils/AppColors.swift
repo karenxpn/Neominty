@@ -19,4 +19,5 @@ struct AppColors {
     static let darkBlueLowAlpha = Color(uiColor: UIColor(red: 29/255, green: 58/255, blue: 112/255, alpha: 0.45))
     static let whiteOpacity = Color(uiColor: UIColor(red: 249/255, green: 250/255, blue: 251/255, alpha: 0.5))
     static let border = Color(uiColor: UIColor(red: 243/255, green: 244/255, blue: 246/255, alpha: 1))
+    static let darkGray = Color(uiColor: UIColor(red: 17/255, green: 24/255, blue: 39/255, alpha: 0.45))
 }
