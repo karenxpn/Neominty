@@ -14,6 +14,7 @@ struct QRView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var qrVM = QrViewModel()
     @State private var selectCard: Bool = false
+    @State private var scanQR: Bool = false
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -46,8 +47,10 @@ struct QRView: View {
                         }
                         
                         ButtonHelper(disabled: qrVM.selectedCard == nil, label: NSLocalizedString("scanQR", comment: "")) {
-                            
-                        }
+                            scanQR.toggle()
+                        }.fullScreenCover(isPresented: $scanQR, content: {
+                            ScanQR(presented: $scanQR)
+                        })
                     }
                     
                     

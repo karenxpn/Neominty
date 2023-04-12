@@ -106,6 +106,8 @@
 		FF7A120829E0D6A800286366 /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120729E0D6A800286366 /* PaymentDetails.swift */; };
 		FF7A120B29E43B0C00286366 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120A29E43B0C00286366 /* QRView.swift */; };
 		FF7A120D29E43BF900286366 /* QrViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120C29E43BF900286366 /* QrViewModel.swift */; };
+		FF7A120F29E6CC6200286366 /* ScanQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A120E29E6CC6200286366 /* ScanQR.swift */; };
+		FF7A121229E6CE6000286366 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = FF7A121129E6CE6000286366 /* CodeScanner */; };
 		FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */; };
 		FF80569229BDF6730081AD76 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569129BDF6730081AD76 /* UserService.swift */; };
 		FF80569429BDF7230081AD76 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF80569329BDF7230081AD76 /* Authentication.swift */; };
@@ -256,6 +258,7 @@
 		FF7A120729E0D6A800286366 /* PaymentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetails.swift; sourceTree = "<group>"; };
 		FF7A120A29E43B0C00286366 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		FF7A120C29E43BF900286366 /* QrViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrViewModel.swift; sourceTree = "<group>"; };
+		FF7A120E29E6CC6200286366 /* ScanQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQR.swift; sourceTree = "<group>"; };
 		FF80568D29BDF4CE0081AD76 /* AuthenticateWithPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateWithPin.swift; sourceTree = "<group>"; };
 		FF80569129BDF6730081AD76 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FF80569329BDF7230081AD76 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7A121229E6CE6000286366 /* CodeScanner in Frameworks */,
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
 				FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */,
@@ -586,6 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				FF7A120A29E43B0C00286366 /* QRView.swift */,
+				FF7A120E29E6CC6200286366 /* ScanQR.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -652,6 +657,7 @@
 				FF18C24829BA8010004EF3A3 /* FirebaseStorage */,
 				FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */,
 				FF45204729C07B1E003C6415 /* KeychainSwift */,
+				FF7A121129E6CE6000286366 /* CodeScanner */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -729,6 +735,7 @@
 				FF18C23F29BA8010004EF3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				FF7A121029E6CE6000286366 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -818,6 +825,7 @@
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
+				FF7A120F29E6CC6200286366 /* ScanQR.swift in Sources */,
 				FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */,
 				FF7A11FE29E0484100286366 /* PayViewModel.swift in Sources */,
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
@@ -1255,6 +1263,14 @@
 				kind = branch;
 			};
 		};
+		FF7A121029E6CE6000286366 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1292,6 +1308,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		FF7A121129E6CE6000286366 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF7A121029E6CE6000286366 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
