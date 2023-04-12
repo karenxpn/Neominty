@@ -19,7 +19,7 @@ extension ActivityService: ActivityServiceProtocol {
     func fetchActivity(cardNumber: String, unit: String) async -> Result<ActivityModel, Error> {
         do {
             
-            try await Task.sleep(nanoseconds: UInt64(2 * Double(NSEC_PER_SEC)))
+            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
             return .success(ActivityModel(income: "$ 5300",
                                           expenses: "$ 2265.80",
                                           expensesPoints: PreviewModels.expensesPoints,

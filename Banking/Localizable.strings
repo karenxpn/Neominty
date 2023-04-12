@@ -113,3 +113,5 @@
 "everythingYouNeed" = "Everything you need";
 "everythingYouNeedMessage" = "We need to know this for regulatory reasons. And also we’re curious!";
 "accountNumber" = "Account Number";
+"showQrCode" = "Show QR Code";
+"scanQR" = "Scan QR Code";
