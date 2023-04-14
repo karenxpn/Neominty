@@ -52,7 +52,7 @@ struct CustomTabView: View {
                             } label: {
                                 VStack(spacing: 4) {
                                     
-                                    Image(icons[id])
+                                    Image(id == 2 ? icons[id] : viewRouter.tab == id ? "\(icons[id]).fill" : icons[id])
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? AppColors.darkBlue : AppColors.gray)
