@@ -127,6 +127,10 @@
 		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
 		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
 		FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */; };
+		FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97929EB2B060063DD24 /* NotificationModel.swift */; };
+		FFB1C97C29EB2E490063DD24 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */; };
+		FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */; };
+		FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -278,6 +282,10 @@
 		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
 		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
 		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
+		FFB1C97929EB2B060063DD24 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
+		FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -380,6 +388,7 @@
 				FF7A11EC29DB90C400286366 /* PushNotificationViewModel.swift */,
 				FF7A11FD29E0484100286366 /* PayViewModel.swift */,
 				FF7A120C29E43BF900286366 /* QrViewModel.swift */,
+				FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 				FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */,
 				FFAC1DF129D1DB5D00947CBC /* CardService.swift */,
 				FF7A120329E057E800286366 /* PayService.swift */,
+				FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -413,6 +423,7 @@
 				FF7A11EE29DC490F00286366 /* UserPreferences.swift */,
 				FF7A11F429DC6F3F00286366 /* FAQModel.swift */,
 				FF7A11FF29E051FD00286366 /* PayCategory.swift */,
+				FFB1C97929EB2B060063DD24 /* NotificationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -448,6 +459,7 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FFB1C97F29EB36A90063DD24 /* Notifications */,
 				FF7A11FA29E047EC00286366 /* Pay */,
 				FF821BCA29D5C0B800F3BA0C /* RequestTransfer */,
 				FF45208A29CA1955003C6415 /* MoneyTransfer */,
@@ -455,7 +467,6 @@
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
-				FF45206429C66DAD003C6415 /* Notifications.swift */,
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
@@ -619,6 +630,15 @@
 				FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */,
 			);
 			path = MyCards;
+			sourceTree = "<group>";
+		};
+		FFB1C97F29EB36A90063DD24 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FF45206429C66DAD003C6415 /* Notifications.swift */,
+				FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		FFC2BCF129BB60E300E774FD /* font */ = {
@@ -800,12 +820,14 @@
 				FF7A11E729DB04ED00286366 /* AccountCreatePin.swift in Sources */,
 				FFAC1DF429D2205500947CBC /* CardDetailTextFieldDecorator.swift in Sources */,
 				FFC2BCFD29BB6E2800E774FD /* Loading.swift in Sources */,
+				FFB1C97C29EB2E490063DD24 /* NotificationsService.swift in Sources */,
 				FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
+				FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */,
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
@@ -823,6 +845,7 @@
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
+				FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF7A120F29E6CC6200286366 /* ScanQR.swift in Sources */,
@@ -867,6 +890,7 @@
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
+				FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,

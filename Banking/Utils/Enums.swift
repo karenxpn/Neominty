@@ -165,3 +165,39 @@ enum NotificationName: RawRepresentable, CaseIterable, Codable {
         }
     }
 }
+
+enum NotificationType: RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case reward
+    case request
+    case transfer
+    case payment
+    case cashback
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .reward,
+        .request,
+        .transfer,
+        .payment,
+        .cashback
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .reward                       : return "Reward"
+        case .request                      : return "Request"
+        case .transfer                     : return "Transfer"
+        case .payment                      : return "Payment"
+        case .cashback                     : return "Cashback"
+        case let .unknown(value)        : return value
+        }
+    }
+}
