@@ -13,9 +13,11 @@ struct Notifications: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             
-            ForEach(notificationsVM.notifications, id: \.id) { notification in
-                Text(notification.title)
-            }
+            LazyVStack(spacing: 16) {
+                ForEach(notificationsVM.notifications, id: \.id) { notification in
+                    NotificationCell(notification: notification)
+                }
+            }.padding(24)
             
             if notificationsVM.loading {
                 ProgressView()

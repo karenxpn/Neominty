@@ -130,6 +130,7 @@
 		FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97929EB2B060063DD24 /* NotificationModel.swift */; };
 		FFB1C97C29EB2E490063DD24 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */; };
 		FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */; };
+		FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -284,6 +285,7 @@
 		FFB1C97929EB2B060063DD24 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FFB1C97F29EB36A90063DD24 /* Notifications */,
 				FF7A11FA29E047EC00286366 /* Pay */,
 				FF821BCA29D5C0B800F3BA0C /* RequestTransfer */,
 				FF45208A29CA1955003C6415 /* MoneyTransfer */,
@@ -464,7 +467,6 @@
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
-				FF45206429C66DAD003C6415 /* Notifications.swift */,
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
@@ -628,6 +630,15 @@
 				FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */,
 			);
 			path = MyCards;
+			sourceTree = "<group>";
+		};
+		FFB1C97F29EB36A90063DD24 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FF45206429C66DAD003C6415 /* Notifications.swift */,
+				FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		FFC2BCF129BB60E300E774FD /* font */ = {
@@ -879,6 +890,7 @@
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
+				FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
