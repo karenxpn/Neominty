@@ -127,6 +127,7 @@
 		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
 		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
 		FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */; };
+		FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97929EB2B060063DD24 /* NotificationModel.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
 		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
@@ -278,6 +279,7 @@
 		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
 		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
 		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
+		FFB1C97929EB2B060063DD24 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
 		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				FF7A11EE29DC490F00286366 /* UserPreferences.swift */,
 				FF7A11F429DC6F3F00286366 /* FAQModel.swift */,
 				FF7A11FF29E051FD00286366 /* PayCategory.swift */,
+				FFB1C97929EB2B060063DD24 /* NotificationModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
+				FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */,
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
