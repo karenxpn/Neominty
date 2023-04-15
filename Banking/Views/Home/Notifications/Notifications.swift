@@ -18,6 +18,7 @@ struct Notifications: View {
                     NotificationCell(notification: notification)
                 }
             }.padding(24)
+                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
             if notificationsVM.loading {
                 ProgressView()
