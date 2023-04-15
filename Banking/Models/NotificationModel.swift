@@ -10,6 +10,8 @@ struct NotificationModel: Codable, Identifiable {
     var id: String
     var title: String
     var body: String
+    var read: Bool
+    var createdAt: Date
     var type: NotificationType
 }
 
@@ -20,9 +22,11 @@ struct NotificationModelViewModel: Identifiable {
         self.model = model
     }
     
-    var id: String      { self.model.id }
-    var title: String   { self.model.title }
-    var body: String    { self.model.body }
+    var id: String          { self.model.id }
+    var title: String       { self.model.title }
+    var body: String        { self.model.body }
+    var read: Bool          { self.model.read }
+    var createdAt: String   { self.model.createdAt.countTimeBetweenDates()}
     
     var image: String {
         switch self.model.type {
