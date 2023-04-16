@@ -117,6 +117,7 @@
 		FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */; };
 		FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */; };
 		FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */; };
+		FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864DFA29EB796900EC883E /* AmountTextField.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
 		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
@@ -272,6 +273,7 @@
 		FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardButton.swift; sourceTree = "<group>"; };
 		FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardList.swift; sourceTree = "<group>"; };
 		FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypeList.swift; sourceTree = "<group>"; };
+		FF864DFA29EB796900EC883E /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				FFC2BCFC29BB6E2800E774FD /* Loading.swift */,
 				FFC2BD0029BB6F0600E774FD /* Extensions.swift */,
 				FF7A11DE29D7876600286366 /* Gallery.swift */,
+				FF864DFA29EB796900EC883E /* AmountTextField.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
+				FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */,
 				FF7A120429E057E800286366 /* PayService.swift in Sources */,
 				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
