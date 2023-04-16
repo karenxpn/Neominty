@@ -30,7 +30,7 @@ struct PaymentDetails: View {
                     TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD", color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
                     
                     AmountTextField(text: $payVM.amount, fontSize: 40)
-                        .frame(width: UIScreen.main.bounds.width * 0.3)
+                        .frame(width: UIScreen.main.bounds.width * 0.4)
                 }
                 
                 if let category = payVM.selectedPaymentCategory {

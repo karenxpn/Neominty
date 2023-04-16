@@ -27,6 +27,7 @@ struct AmountTextField: View {
         TextField("1,000.00", text: $text)
             .keyboardType(.decimalPad)
             .font(.custom(Roboto.bold.rawValue, size: fontSize))
+            .minimumScaleFactor(0.4)
             .foregroundColor(focused ? AppColors.darkBlue : Color.clear)
             .padding(.leading, 5)
             .onChange(of: text, perform: { newValue in
@@ -38,6 +39,7 @@ struct AmountTextField: View {
                         focused = true
                     }, label: {
                         TextHelper(text: formatText(text: text), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: fontSize)
+                            .minimumScaleFactor(0.4)
                             .lineLimit(1)
                     })
                 }
