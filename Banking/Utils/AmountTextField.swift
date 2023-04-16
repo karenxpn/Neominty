@@ -37,7 +37,8 @@ struct AmountTextField: View {
                     Button(action: {
                         focused = true
                     }, label: {
-                        TextHelper(text: formatText(text: text), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                        TextHelper(text: formatText(text: text), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: fontSize)
+                            .lineLimit(1)
                     })
                 }
             })
@@ -55,5 +56,14 @@ struct AmountTextField: View {
 struct AmountTextField_Previews: PreviewProvider {
     static var previews: some View {
         AmountTextField(text: .constant("123.23"), fontSize: 24)
+    }
+}
+
+
+extension String {
+   func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
     }
 }

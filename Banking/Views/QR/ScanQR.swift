@@ -67,12 +67,7 @@ struct ScanQR: View {
                                             .fill(AppColors.lightGray)
                                     }
                                 
-                                TextField("10", text: $amount)
-                                    .keyboardType(.phonePad)
-                                    .font(.custom(Roboto.bold.rawValue, size: 24))
-                                    .foregroundColor(AppColors.darkBlue)
-                                    .padding(.leading, 5)
-                                    .frame(height: 31)
+                                AmountTextField(text: $amount, fontSize: 24)
                                 
                             }.padding([.horizontal, .bottom], 16)
                         }.background {
