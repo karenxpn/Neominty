@@ -37,7 +37,7 @@ struct RequestTransfer: View {
                             TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD", color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
                             
                             AmountTextField(text: $requestVM.amount, fontSize: 40)
-                                .frame(width: UIScreen.main.bounds.width * 0.3)
+                                .frame(width: UIScreen.main.bounds.width * 0.4)
                         }
 
                         
