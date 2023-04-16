@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct ExpensePoint: Identifiable, Codable {
     let id: String = UUID().uuidString
     var unit: String

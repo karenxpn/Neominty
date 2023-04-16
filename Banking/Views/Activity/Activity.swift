@@ -94,6 +94,7 @@ struct Activity: View {
                                     }
                                     
                                     ActivityGraph(points: activity.expensesPoints)
+                                        .padding(.horizontal, -24)
                                     
                                 }.padding(24)
                                     .background {
@@ -132,5 +133,6 @@ struct Activity: View {
 struct Activity_Previews: PreviewProvider {
     static var previews: some View {
         Activity()
+            .environmentObject(ViewRouter())
     }
 }
