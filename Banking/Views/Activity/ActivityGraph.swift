@@ -58,7 +58,7 @@ struct ActivityGraph: View {
                         x: .value("Week Day", point.unit),
                         y: .value("Amount", point.amount)
                         )
-                    .annotation(spacing: 0) {
+                    .annotation(alignment: .bottom, spacing: 0) {
                         
                         VStack(spacing: 0) {
                             TextHelper(text: "\(String(format: "%.2f", point.amount))", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
@@ -71,10 +71,12 @@ struct ActivityGraph: View {
 
                             Rectangle()
                                 .fill(Color.black)
-                                .frame(width: 0.5, height: 48)
+                                .frame(width: 0.5, height: 40)
                         }
                         
                     }.foregroundStyle(.black)
+                        .interpolationMethod(.catmullRom)
+
                 }
                 
                 LineMark(
@@ -98,7 +100,7 @@ struct ActivityGraph: View {
             .chartPlotStyle { plotArea in
                 plotArea
                     .background(.white)
-            }
+            }.chartYScale(domain: 0...Int((points.map{Int($0.amount)}.max() ?? 75) ))
             .chartXAxis() {
                 AxisMarks(position: .bottom)
             }
@@ -124,28 +126,6 @@ struct ActivityGraph: View {
                         })
                 }
             }
-//            .chartOverlay { proxy in
-//                GeometryReader { geometry in
-//                    Rectangle().fill(.clear).contentShape(Rectangle())
-//                        .onTapGesture(perform: { value in
-//                            let origin = geometry[proxy.plotAreaFrame].origin
-//
-//                            location = CGPoint(
-//                                x: value.x - origin.x,
-//                                y: value.y - origin.y
-//                            )
-//                            // Get the x (date) and y (price) value from the location.
-//                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self) ?? ("", 0)
-//                            self.amount = points.first(where: { $0.unit == unit})?.amount ?? 0
-//                            print("Location: \(unit), \(amount)")
-//                        }).overlay {
-//                            if location != .zero {
-
-//
-//                            }
-//                        }
-//                }
-//            }
     }
 }
 
