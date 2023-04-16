@@ -13,6 +13,9 @@ struct ActivityGraph: View {
     let points: [ExpensePoint]
     @State private var location: CGPoint = .zero
     @State private var amount: Double = 0
+    @State private var selectedPoint: String? = nil
+
+    
     var body: some View {
         
         let curGradient = LinearGradient(
@@ -26,12 +29,57 @@ struct ActivityGraph: View {
             endPoint: .bottom
         )
         
+        let rectangleMarkGradient = LinearGradient(
+            gradient: Gradient (
+                colors: [
+                    Color(uiColor: UIColor(red: 159/255, green: 214/255, blue: 200/255, alpha: 1)),
+                    Color(uiColor: UIColor(red: 47/255, green: 162/255, blue: 185/255, alpha: 0))
+                ]
+            ),
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        
         Chart {
             
-            ForEach(points, id: \.id) {
+            ForEach(points, id: \.id) { point in
+                
+                if let selectedPoint, selectedPoint == point.unit {
+                    RectangleMark(
+                        x: .value("Week Day", point.unit),
+                        yStart: .value("Amount", 0),
+                        yEnd: .value("Amount", point.amount + 1),
+                        width: 24
+                    ).foregroundStyle(rectangleMarkGradient)
+                        .cornerRadius(8)
+                        .opacity(0.8)
+                    
+                    PointMark(
+                        x: .value("Week Day", point.unit),
+                        y: .value("Amount", point.amount)
+                        )
+                    .annotation(spacing: 0) {
+                        
+                        VStack(spacing: 0) {
+                            TextHelper(text: "\(String(format: "%.2f", point.amount))", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 5)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 6)
+                                        .fill(.black)
+                                }
+
+                            Rectangle()
+                                .fill(Color.black)
+                                .frame(width: 0.5, height: 48)
+                        }
+                        
+                    }.foregroundStyle(.black)
+                }
+                
                 LineMark(
-                    x: .value("Week Day", $0.unit),
-                    y: .value("Step Count", $0.amount)
+                    x: .value("Week Day", point.unit),
+                    y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(AppColors.green)
@@ -39,8 +87,8 @@ struct ActivityGraph: View {
                 .accessibilityHidden(false)
                 
                 AreaMark(
-                    x: .value("Week Day", $0.unit),
-                    y: .value("Step Count", $0.amount)
+                    x: .value("Week Day", point.unit),
+                    y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(curGradient)
@@ -55,53 +103,49 @@ struct ActivityGraph: View {
                 AxisMarks(position: .bottom)
             }
             .frame(height:150)
-            .chartOverlay { proxy in
+        
+            .chartOverlay { chart in
                 GeometryReader { geometry in
-                    Rectangle().fill(.clear).contentShape(Rectangle())
+                    Rectangle()
+                        .fill(Color.clear)
+                        .contentShape(Rectangle())
                         .onTapGesture(perform: { value in
-                            let origin = geometry[proxy.plotAreaFrame].origin
                             
-                            location = CGPoint(
-                                x: value.x - origin.x,
-                                y: value.y - origin.y
-                            )
-                            // Get the x (date) and y (price) value from the location.
-                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self) ?? ("", 0)
-                            self.amount = points.first(where: { $0.unit == unit})?.amount ?? 0
-                            print("Location: \(unit), \(amount)")
-                        }).overlay {
-                            if location != .zero {
-                                VStack(spacing: 0) {
-                                    TextHelper(text: "$ \(self.amount)", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 5)
-                                        .background {
-                                            RoundedRectangle(cornerRadius: 6)
-                                                .fill(.black)
-                                        }
-                                    
-                                    Rectangle()
-                                        .fill(Color.black)
-                                        .frame(width: 0.5, height: 48)
-                                    
-                                    
-                                    ZStack {
-                                        
-                                        Circle()
-                                            .fill(Color.white)
-                                            .frame(width: 4, height: 4)
-                                        
-                                        Circle()
-                                            .strokeBorder(Color.black, lineWidth: 2)
-                                            .frame(width: 8, height: 8)
-                                        
-                                    }
-                                }.position(location)
-                                
+                            let currentX = value.x - geometry[chart.plotAreaFrame].origin.x
+                            guard currentX >= 0, currentX < chart.plotAreaSize.width else {
+                                return
                             }
-                        }
+                            
+                            guard let index = chart.value(atX: currentX, as: String.self) else {
+                                return
+                            }
+                            
+                            selectedPoint = index
+                        })
                 }
             }
+//            .chartOverlay { proxy in
+//                GeometryReader { geometry in
+//                    Rectangle().fill(.clear).contentShape(Rectangle())
+//                        .onTapGesture(perform: { value in
+//                            let origin = geometry[proxy.plotAreaFrame].origin
+//
+//                            location = CGPoint(
+//                                x: value.x - origin.x,
+//                                y: value.y - origin.y
+//                            )
+//                            // Get the x (date) and y (price) value from the location.
+//                            let (unit, amount) = proxy.value(at: location, as: (String, Double).self) ?? ("", 0)
+//                            self.amount = points.first(where: { $0.unit == unit})?.amount ?? 0
+//                            print("Location: \(unit), \(amount)")
+//                        }).overlay {
+//                            if location != .zero {
+
+//
+//                            }
+//                        }
+//                }
+//            }
     }
 }
 

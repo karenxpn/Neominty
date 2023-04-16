@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Introspect
 
 struct TransferDetailView: View {
     @EnvironmentObject var transferVM: TransferViewModel
