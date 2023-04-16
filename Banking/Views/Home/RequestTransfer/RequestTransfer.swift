@@ -36,11 +36,8 @@ struct RequestTransfer: View {
                             
                             TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD", color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
                             
-                            TextField( NSLocalizedString("1000", comment: "") ,text: $requestVM.amount)
-                                .keyboardType(.decimalPad)
-                                .foregroundColor(AppColors.darkBlue)
-                                .font(.custom(Roboto.bold.rawValue, size: 40))
-                                .frame(width: UIScreen.main.bounds.width * 0.3)
+                            AmountTextField(text: $requestVM.amount, fontSize: 40)
+                                .frame(width: UIScreen.main.bounds.width * 0.4)
                         }
 
                         
