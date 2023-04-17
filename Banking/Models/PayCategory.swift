@@ -17,6 +17,7 @@ struct SubCategory: Identifiable, Codable {
     var image: String
     var name: String
     var address: String
+    var fields: [SubcategoryField]
 }
 
 
@@ -30,4 +31,12 @@ struct PayCategoryViewModel: Identifiable {
     var title: String   { self.model.title }
     var image: String   { self.model.title.lowercased() + "-icon" }
     var subCategories: [SubCategory]    { self.model.subCategory }
+}
+
+struct SubcategoryField: Identifiable, Codable {
+    var id: String
+    var placeholder: String
+    var regex: String
+    var name: String
+    var keyboardType: FieldKeyboardType
 }

@@ -45,10 +45,25 @@ struct PreviewModels {
                           FAQModel(id: UUID().uuidString, question: "How to create a card for Neominty?", answer: "You can select the create card menu then select 'Add New Card' select the continue button then you ..."),
                           FAQModel(id: UUID().uuidString, question: "How to Top Up on Neominty?", answer: "Click the Top Up menu then select the amount of money and the method then click the 'top up now' button...")]
     
-    static let payCategories = [PayCategory(id: UUID().uuidString, title: "Phone", subCategory: [SubCategory(id: UUID().uuidString, image: "ucom", name: "Ucom", address: "Ucom address"),
-                                                                                                 SubCategory(id: UUID().uuidString, image: "vivacell", name: "Vivacell MTS", address: "Vivacell MTS address"),
-                                                                                                 SubCategory(id: UUID().uuidString, image: "team", name: "Team", address: "Team telecom address")]),
-                                PayCategory(id: UUID().uuidString, title: "Gambling", subCategory: [SubCategory(id: UUID().uuidString, image: "toto", name: "Toto Gaming", address: "Toto Gaming Address")])]
+    static let payCategories = [PayCategory(id: UUID().uuidString, title: "Phone",
+                                            subCategory: [
+                                                SubCategory(id: UUID().uuidString, image: "ucom", name: "Ucom", address: "Ucom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .numbers)]),
+                                                SubCategory(id: UUID().uuidString, image: "vivacell", name: "Vivacell MTS", address: "Vivacell MTS address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .numbers)]),
+                                                SubCategory(id: UUID().uuidString, image: "team", name: "Team", address: "Team telecom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .numbers)])]),
+                                PayCategory(id: UUID().uuidString, title: "Gambling",
+                                            subCategory: [
+                                                SubCategory(id: UUID().uuidString, image: "toto", name: "Toto Gaming", address: "Toto Gaming Address",
+                                                            fields: [SubcategoryField(id: UUID().uuidString,
+                                                                                      placeholder: "Account Number",
+                                                                                      regex: "^(?=.*[a-z])(?=.*\\d)[a-z\\d]{6,}$",
+                                                                                      name: "accountNumber",
+                                                                                      keyboardType: .keyboard)])]),
+                                PayCategory(id: UUID().uuidString, title: "ԱՊՊԱ", subCategory: [SubCategory(id: UUID().uuidString, image: "liga-insurance", name: "Liga Insurance", address: "Northern avenue 1, Yerevan",
+                                                                                                            fields: [
+                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Պետհամարանիշ", regex: "^\\d{2}[a-zA-Z]{2}\\d{3}$|^\\d{3}[a-zA-Z]{2}\\d{2}$", name: "pethamaranish", keyboardType: .keyboard),
+                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Անձնագիր", regex: "^[A-Z]{2}\\d{7}$", name: "passport", keyboardType: .keyboard),
+                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Հեռախոսահամար", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .numbers),
+                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Էլ. փոստ", regex: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", name: "email", keyboardType: .keyboard)])])]
     
     static let notifications = [NotificationModel(id: UUID().uuidString,
                                                   title: "Rewards",

@@ -201,3 +201,31 @@ enum NotificationType: RawRepresentable, CaseIterable, Codable {
         }
     }
 }
+
+
+enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable {
+    
+    typealias RawValue = String
+    
+    case numbers
+    case keyboard
+    case unknown(RawValue)
+    
+    static let allCases: AllCases = [
+        .numbers,
+        .keyboard
+    ]
+    
+    init(rawValue: RawValue) {
+        self = Self.allCases.first{ $0.rawValue == rawValue }
+        ?? .unknown(rawValue)
+    }
+    
+    var rawValue: RawValue {
+        switch self {
+        case .numbers                       : return "Numbers"
+        case .keyboard                      : return "Keyboard"
+        case let .unknown(value)        : return value
+        }
+    }
+}
