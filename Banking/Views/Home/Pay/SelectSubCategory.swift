@@ -12,11 +12,15 @@ struct SelectSubCategory: View {
     let category: PayCategoryViewModel
     @Binding var navigateToDetails: Bool
     @State private var selectedCategory: String = ""
+    @State private var fields = [String: String]()
+    @State private var fieldsValidation = [String: Bool]()
+
     
     init(category: PayCategoryViewModel, navigateToDetails: Binding<Bool>) {
         self.category = category
         _selectedCategory = State(initialValue: category.subCategories[0].id)
         _navigateToDetails = navigateToDetails
+        
         
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(AppColors.lightGray)
@@ -34,7 +38,6 @@ struct SelectSubCategory: View {
                             .frame(width: UIScreen.main.bounds.width * 0.8,
                                    height: UIScreen.main.bounds.height * 0.25)
                             .clipped()
-//                            .cornerRadius(30)
                     }.padding(.top, -50)
                 }.frame(height: UIScreen.main.bounds.height * 0.25)
                     .tabViewStyle(.page)
@@ -44,20 +47,14 @@ struct SelectSubCategory: View {
                 if let subCategory = category.subCategories.first(where: { $0.id == selectedCategory }) {
                     TextHelper(text: subCategory.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                     TextHelper(text: subCategory.address, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-
-                    HStack(spacing: 10) {
-                        Image("search")
-                        
-                        TextField(NSLocalizedString("accountNumber", comment: ""), text: $payVM.accountNumber)
-                            .font(.custom(Roboto.regular.rawValue, size: 16))
-                            .padding(.vertical, 16)
-                    }.padding(.horizontal, 18)
-                        .background(AppColors.superLightGray)
-                        .cornerRadius(16)
-                        .padding(.top, 16)
                     
-                    ButtonHelper(disabled: payVM.accountNumber.isEmpty, label: NSLocalizedString("continue", comment: "")) {
+                    ForEach(subCategory.fields, id: \.id) { field in
+                        SubCategoryTextField(field: field, fields: $fields, validation: $fieldsValidation)
+                    }
+                    
+                    ButtonHelper(disabled: fieldsValidation.values.contains(false) || fieldsValidation.isEmpty, label: NSLocalizedString("continue", comment: "")) {
                         payVM.selectedPaymentCategory = category.subCategories.first(where: {$0.id == selectedCategory})
+                        print(fields)
                         navigateToDetails.toggle()
                         // navigation
                     }.padding(.top, 100)
@@ -65,7 +62,7 @@ struct SelectSubCategory: View {
                 
             }.padding(24)
         }.scrollDismissesKeyboard(.immediately)
-
+        
     }
 }
 
