@@ -208,11 +208,13 @@ enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable {
     typealias RawValue = String
     
     case numbers
+    case phone
     case keyboard
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .numbers,
+        .phone,
         .keyboard
     ]
     
@@ -225,6 +227,7 @@ enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable {
         switch self {
         case .numbers                       : return "Numbers"
         case .keyboard                      : return "Keyboard"
+        case .phone                         : return "Phone"
         case let .unknown(value)        : return value
         }
     }
