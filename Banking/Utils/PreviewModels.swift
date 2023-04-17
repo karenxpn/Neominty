@@ -47,9 +47,9 @@ struct PreviewModels {
     
     static let payCategories = [PayCategory(id: UUID().uuidString, title: "Phone",
                                             subCategory: [
-                                                SubCategory(id: UUID().uuidString, image: "ucom", name: "Ucom", address: "Ucom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .phone)]),
-                                                SubCategory(id: UUID().uuidString, image: "vivacell", name: "Vivacell MTS", address: "Vivacell MTS address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .phone)]),
-                                                SubCategory(id: UUID().uuidString, image: "team", name: "Team", address: "Team telecom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .phone)])]),
+                                                SubCategory(id: UUID().uuidString, image: "ucom", name: "Ucom", address: "Ucom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^(?:\\+?\\d{1,3})?[ -]?\\(?\\d{3}\\)?[ -]?\\d{3}[ -]?\\d{4}$", name: "phoneNumber", keyboardType: .phone)]),
+                                                SubCategory(id: UUID().uuidString, image: "vivacell", name: "Vivacell MTS", address: "Vivacell MTS address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^(?:\\+?\\d{1,3})?[ -]?\\(?\\d{3}\\)?[ -]?\\d{3}[ -]?\\d{4}$", name: "phoneNumber", keyboardType: .phone)]),
+                                                SubCategory(id: UUID().uuidString, image: "team", name: "Team", address: "Team telecom address", fields: [SubcategoryField(id: UUID().uuidString, placeholder: "Phone Number", regex: "^(?:\\+?\\d{1,3})?[ -]?\\(?\\d{3}\\)?[ -]?\\d{3}[ -]?\\d{4}$", name: "phoneNumber", keyboardType: .phone)])]),
                                 PayCategory(id: UUID().uuidString, title: "Gambling",
                                             subCategory: [
                                                 SubCategory(id: UUID().uuidString, image: "toto", name: "Toto Gaming", address: "Toto Gaming Address",
@@ -62,7 +62,7 @@ struct PreviewModels {
                                                                                                             fields: [
                                                                                                                 SubcategoryField(id: UUID().uuidString, placeholder: "Պետհամարանիշ", regex: "^\\d{2}[a-zA-Z]{2}\\d{3}$|^\\d{3}[a-zA-Z]{2}\\d{2}$", name: "pethamaranish", keyboardType: .keyboard),
                                                                                                                 SubcategoryField(id: UUID().uuidString, placeholder: "Անձնագիր", regex: "^[A-Z]{2}\\d{7}$", name: "passport", keyboardType: .keyboard),
-                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Հեռախոսահամար", regex: "^[0-9]{6,}$", name: "phoneNumber", keyboardType: .phone),
+                                                                                                                SubcategoryField(id: UUID().uuidString, placeholder: "Հեռախոսահամար", regex: "^(?:\\+?\\d{1,3})?[ -]?\\(?\\d{3}\\)?[ -]?\\d{3}[ -]?\\d{4}$", name: "phoneNumber", keyboardType: .phone),
                                                                                                                 SubcategoryField(id: UUID().uuidString, placeholder: "Էլ. փոստ", regex: "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", name: "email", keyboardType: .keyboard)])])]
     
     static let notifications = [NotificationModel(id: UUID().uuidString,

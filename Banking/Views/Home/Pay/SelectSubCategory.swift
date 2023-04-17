@@ -52,7 +52,8 @@ struct SelectSubCategory: View {
                         SubCategoryTextField(field: field, fields: $fields, validation: $fieldsValidation)
                     }
                     
-                    ButtonHelper(disabled: fieldsValidation.values.contains(false) || fieldsValidation.isEmpty, label: NSLocalizedString("continue", comment: "")) {
+                    ButtonHelper(disabled: fieldsValidation.values.contains(false)
+                                 || subCategory.fields.map({fieldsValidation[$0.name] == nil}).contains(true), label: NSLocalizedString("continue", comment: "")) {
                         payVM.selectedPaymentCategory = category.subCategories.first(where: {$0.id == selectedCategory})
                         print(fields)
                         navigateToDetails.toggle()
