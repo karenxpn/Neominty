@@ -427,8 +427,8 @@ extension CardValidationTF {
     }
     
     public static func isCardHolderNameValid(_ name: String) -> Bool {
-        let range = NSRange(location: 0, length: name.utf16.count)
-        let regex = try! NSRegularExpression(pattern: "(?<! )[-a-zA-Z' ]{2,26}")
+        let regex = try! NSRegularExpression(pattern: "^[A-Z][a-z]+ [A-Z][a-z\\-]+$")
+        let range = NSRange(name.startIndex..., in: name)
         return regex.firstMatch(in: name, options: [], range: range) != nil
     }
 }
