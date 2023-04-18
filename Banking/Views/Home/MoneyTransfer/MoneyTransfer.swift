@@ -69,7 +69,10 @@ struct MoneyTransfer: View {
                                              tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                              subtitle: "**** **** **** ****")
                             .onChange(of: transferVM.cardNumber) { value in
-                                transferVM.selectedTransfer = transferVM.transactionUsers.first(where: { $0.card == value })
+                                print(cardType)
+                                transferVM.selectedTransfer = transferVM
+                                    .transactionUsers
+                                    .first(where: { $0.card.filter { !$0.isWhitespace } == value.filter { !$0.isWhitespace } })
                             }
                             
                         }.padding(19)

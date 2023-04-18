@@ -46,6 +46,8 @@ public enum CreditCardType: String {
             return "maestro"
         case .mir:
             return "mir"
+        case .amex:
+            return "amex"
         default:
             return ""
         }
