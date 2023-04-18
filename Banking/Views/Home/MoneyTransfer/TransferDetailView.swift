@@ -15,6 +15,7 @@ struct TransferDetailView: View {
     @State private var cardType = CreditCardType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
     @State private var navigateToSuccess: Bool = false
+    @State private var showGallery: Bool = false
 
     
     var body: some View {
@@ -24,6 +25,7 @@ struct TransferDetailView: View {
             VStack(spacing: 24) {
                 
                 if let recentTransfer = transferVM.selectedTransfer {
+                    
                     ZStack {
                         if let image = recentTransfer.image {
                             ImageHelper(image: image, contentMode: .fill)
@@ -52,7 +54,7 @@ struct TransferDetailView: View {
                     ZStack {
                         
                         Button {
-                            
+                            showGallery.toggle()
                         } label: {
                             if transferVM.newTransferImage == nil {
                                 Image("plus-sign")
@@ -181,7 +183,11 @@ struct TransferDetailView: View {
                 }
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
                 navigateToSuccess.toggle()
-            }
+            }.sheet(isPresented: $showGallery, content: {
+                Gallery { image in
+                    // store image
+                }
+            })
     }
 
 }
