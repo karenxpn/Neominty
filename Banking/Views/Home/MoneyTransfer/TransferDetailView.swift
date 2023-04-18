@@ -15,6 +15,7 @@ struct TransferDetailView: View {
     @State private var cardType = CreditCardType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
     @State private var navigateToSuccess: Bool = false
+    @State private var showGallery: Bool = false
 
     
     var body: some View {
@@ -24,6 +25,7 @@ struct TransferDetailView: View {
             VStack(spacing: 24) {
                 
                 if let recentTransfer = transferVM.selectedTransfer {
+                    
                     ZStack {
                         if let image = recentTransfer.image {
                             ImageHelper(image: image, contentMode: .fill)
@@ -52,7 +54,7 @@ struct TransferDetailView: View {
                     ZStack {
                         
                         Button {
-                            
+                            showGallery.toggle()
                         } label: {
                             if transferVM.newTransferImage == nil {
                                 Image("plus-sign")
@@ -181,7 +183,11 @@ struct TransferDetailView: View {
                 }
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
                 navigateToSuccess.toggle()
-            }
+            }.sheet(isPresented: $showGallery, content: {
+                Gallery { image in
+                    // store image
+                }
+            })
     }
 
 }
@@ -190,48 +196,6 @@ struct TransferDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TransferDetailView()
             .environmentObject(TransferViewModel())
+            .environmentObject(ViewRouter())
     }
-}
-
-
-
-class TextFieldDelegate: NSObject, UITextFieldDelegate {
-    let formatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        formatter.maximum = NSNumber(value: Double.greatestFiniteMagnitude)
-        return formatter
-    }()
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Get the current text and cursor position
-        var text = textField.text ?? ""
-        let cursorPosition = textField.offset(from: textField.beginningOfDocument, to: textField.selectedTextRange?.start ?? textField.endOfDocument)
-        
-        // Insert the new string into the text
-        text = text.replacingCharacters(in: Range(range, in: text)!, with: string)
-        
-        // Remove any commas or periods from the text
-        let value = text.replacingOccurrences(of: ",", with: "").replacingOccurrences(of: ".", with: "")
-        
-        // Convert the text to a Double value
-        if let doubleValue = Double(value) {
-            let number = NSNumber(value: doubleValue / 100.0)
-            text = formatter.string(from: number) ?? ""
-        } else {
-            text = ""
-        }
-        
-        // Set the text and cursor position
-        textField.text = text
-        if let newPosition = textField.position(from: textField.beginningOfDocument, offset: cursorPosition + string.count) {
-            textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
-        }
-        
-        // Return false to prevent the textfield from updating the text
-        return false
-    }
-
 }
