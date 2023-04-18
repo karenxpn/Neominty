@@ -51,7 +51,16 @@ struct MoneyTransfer: View {
                     
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Image("card-placeholder")
+                            
+                            if cardType == .nonIdentified {
+                                Image("card-placeholder")
+                            } else {
+                                Image(cardType.textFieldIcon)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 22.5, height: 18)
+                                    .clipped()
+                            }
                             
                             CardValidationTF(text: $transferVM.cardNumber,
                                              isValid: $isCardValid,
