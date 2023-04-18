@@ -34,7 +34,8 @@ struct CardsList: View {
                             }.tint(.clear)
                         }
                     }
-            }
+            }.onMove(perform: move)
+
             
             Button {
                 viewRouter.pushCardPath(.attachCard)
@@ -79,7 +80,10 @@ struct CardsList: View {
             } message: {
                 Text(NSLocalizedString("deleteCardMessage", comment: ""))
             }
-
+    }
+    
+    func move(from source: IndexSet, to destination: Int) {
+        cardsVM.cards.move(fromOffsets: source, toOffset: destination)
     }
 }
 
