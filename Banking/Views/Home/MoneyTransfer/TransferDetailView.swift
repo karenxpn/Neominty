@@ -190,5 +190,6 @@ struct TransferDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TransferDetailView()
             .environmentObject(TransferViewModel())
+            .environmentObject(ViewRouter())
     }
 }
