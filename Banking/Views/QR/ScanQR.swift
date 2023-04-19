@@ -94,11 +94,15 @@ struct ScanQR: View {
                     
                     
                 } else {
-                    CodeScannerView(codeTypes: [.qr], showViewfinder: true, simulatedData: "Paul Hudson") { response in
+                    CodeScannerView(codeTypes: [.qr], scanMode: .con showViewfinder: true, simulatedData: "Paul Hudson") { response in
                         switch response {
                         case .success(let result):
-                            self.result = result.string
-                            print("Found code: \(result.string)")
+                            if CreditCardValidator(result.string).isValid {
+                                self.result = result.string
+                            } else {
+                                qrVM.showAlert.toggle()
+                                qrVM.alertMessage = NSLocalizedString("notValidQR", comment: "")
+                            }
                         case .failure(let error):
                             qrVM.showAlert.toggle()
                             qrVM.alertMessage = error.localizedDescription

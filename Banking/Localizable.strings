@@ -117,3 +117,4 @@
 "scanQR" = "Scan QR Code";
 "notifications" = "Notifications";
 "justNow" = "Just Now";
+"notValidQR" = "Scanned QR code is not in valid form";
