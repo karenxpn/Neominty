@@ -94,7 +94,7 @@ struct ScanQR: View {
                     
                     
                 } else {
-                    CodeScannerView(codeTypes: [.qr], scanMode: .con showViewfinder: true, simulatedData: "Paul Hudson") { response in
+                    CodeScannerView(codeTypes: [.qr], scanMode: .continuous, showViewfinder: true, simulatedData: "Paul Hudson") { response in
                         switch response {
                         case .success(let result):
                             if CreditCardValidator(result.string).isValid {
