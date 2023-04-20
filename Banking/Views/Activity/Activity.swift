@@ -43,11 +43,12 @@ struct Activity: View {
                                 }
                         }
                         
-                        if activityVM.loadingActivity {
-                            ProgressView()
-                        } else {
-                            if let activity = activityVM.activity {
-                                VStack(spacing: 24) {
+                        VStack(spacing: 24) {
+                            
+                            if activityVM.loadingActivity {
+                                ProgressView()
+                            } else {
+                                if let activity = activityVM.activity {
                                     HStack {
                                         
                                         HStack(spacing: 12) {
@@ -95,16 +96,21 @@ struct Activity: View {
                                     
                                     ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.number == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
-                                    
-                                }.padding(24)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 16)
-                                            .strokeBorder(AppColors.lightGray, lineWidth: 1)
-                                    }
-                                    .padding(24)
+                                }
                             }
+                            
                         }
-
+                        .frame(minWidth: 0,
+                               maxWidth: .infinity,
+                               minHeight: 300,
+                               maxHeight: 300)
+                        .padding(24)
+                        .background {
+                            RoundedRectangle(cornerRadius: 16)
+                                .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                        }
+                        .padding(24)
+                        
                         if let transactions = activityVM.activity?.transactions {
                             RecentTransactions(transactions: transactions) {
                                 viewRouter.pushAnalyicsPath(.allTransactions)
