@@ -27,7 +27,7 @@ struct PaymentDetails: View {
                 
                 HStack(spacing: 10) {
                     
-                    TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD", color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                    TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
                     
                     AmountTextField(text: $payVM.amount, fontSize: 40)
                         .frame(width: UIScreen.main.bounds.width * 0.4)

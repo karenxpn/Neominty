@@ -11,6 +11,7 @@ import Charts
 
 struct ActivityGraph: View {
     let points: [ExpensePoint]
+    let currencySymbol: String
     @State private var location: CGPoint = .zero
     @State private var amount: Double = 0
     @State private var selectedPoint: String? = nil
@@ -61,7 +62,7 @@ struct ActivityGraph: View {
                     .annotation(alignment: .bottom, spacing: 0) {
                         
                         VStack(spacing: 0) {
-                            TextHelper(text: "\(String(format: "%.2f", point.amount))", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
+                            TextHelper(text: "\(currencySymbol) \(String(format: "%.2f", point.amount))", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 5)
                                 .background {
@@ -131,6 +132,6 @@ struct ActivityGraph: View {
 
 struct ActivityGraph_Previews: PreviewProvider {
     static var previews: some View {
-        ActivityGraph(points: PreviewModels.expensesPoints)
+        ActivityGraph(points: PreviewModels.expensesPoints, currencySymbol: "USD".currencySymbol)
     }
 }

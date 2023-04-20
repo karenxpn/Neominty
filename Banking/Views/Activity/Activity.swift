@@ -93,7 +93,7 @@ struct Activity: View {
                                         activityVM.getActivity()
                                     }
                                     
-                                    ActivityGraph(points: activity.expensesPoints)
+                                    ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.number == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                     
                                 }.padding(24)
