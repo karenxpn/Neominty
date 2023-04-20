@@ -14,12 +14,13 @@ class PayViewModel: AlertViewModel, ObservableObject {
 
     @Published var search: String = ""
     @Published var categories = [PayCategoryViewModel]()
-    @Published var accountNumber: String = ""
     
     @Published var cards = [CardModel]()
     @Published var selectedCard: CardModel?
     @Published var amount: String = ""
     @Published var selectedPaymentCategory: SubCategory?
+    @Published var fields = [String: String]()
+
 
     
     var manager: PayServiceProtocol
@@ -69,7 +70,7 @@ class PayViewModel: AlertViewModel, ObservableObject {
     @MainActor func performPayment() {
         loadingPayment = true
         Task {
-            let result = await manager.performPayment(accountNumber: accountNumber, amount: amount)
+            let result = await manager.performPayment(amount: amount)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

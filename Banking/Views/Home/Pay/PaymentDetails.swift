@@ -37,7 +37,7 @@ struct PaymentDetails: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 9) {
                             TextHelper(text: category.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                            TextHelper(text: "Account Number: \(payVM.accountNumber)", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                            TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
                         }
                         Spacer()
                     }

@@ -45,7 +45,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
     @MainActor func performPayment(account: String, amount: String) {
         loading = true
         Task {
-            let result = await payManager.performPayment(accountNumber: account, amount: amount)
+            let result = await payManager.performPayment(amount: amount)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
