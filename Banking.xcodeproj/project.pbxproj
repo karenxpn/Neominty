@@ -37,6 +37,7 @@
 		FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F929CDDA8000610F5C /* ActivityCard.swift */; };
 		FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */; };
 		FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */; };
+		FF42813929F743D900E57567 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF42813829F743D900E57567 /* Alamofire */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -312,6 +313,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF42813929F743D900E57567 /* Alamofire in Frameworks */,
 				FF7A121529E6ED0A00286366 /* CodeScanner in Frameworks */,
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
@@ -684,6 +686,7 @@
 				FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */,
 				FF45204729C07B1E003C6415 /* KeychainSwift */,
 				FF7A121429E6ED0A00286366 /* CodeScanner */,
+				FF42813829F743D900E57567 /* Alamofire */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -762,6 +765,7 @@
 				FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				FF7A121329E6ED0900286366 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1287,6 +1291,14 @@
 				kind = branch;
 			};
 		};
+		FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
@@ -1335,6 +1347,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		FF42813829F743D900E57567 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 		FF45204729C07B1E003C6415 /* KeychainSwift */ = {
 			isa = XCSwiftPackageProductDependency;
