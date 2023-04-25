@@ -6,18 +6,50 @@
 //
 
 import Foundation
+import Combine
+import Alamofire
+import SwiftUI
+
 protocol CardServiceProtocol {
     func fetchCards() async -> Result<[CardModel], Error>
     func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error>
     func removeCard(id: String) async -> Result<Void, Error>
+    
+    func registerOrder(orderNumber: Int) -> AnyPublisher<RegisterOrderResponse, Error>
+    func requestOrderStatus(orderNumber: Int, orderId: String) -> AnyPublisher<OrderStatusResponse, Error>
 }
 
 class CardService {
     static let shared: CardServiceProtocol = CardService()
+    @AppStorage("userID") var userID: String = ""
+    
     private init() { }
 }
 
 extension CardService: CardServiceProtocol {
+    func requestOrderStatus(orderNumber: Int, orderId: String) -> AnyPublisher<OrderStatusResponse, Error> {
+        let url = URL(string: Credentials.base_url + "getOrderStatusExtended.do")!
+        let params = OrderStatusRequest(userName: Credentials.username,
+                                        password: Credentials.password,
+                                        orderId: orderId,
+                                        orderNumber: "G\(orderNumber)")
+        
+        return APIHelper.shared.get_deleteRequest(params: params, url: url, responseType: OrderStatusResponse.self)
+
+    }
+    
+    func registerOrder(orderNumber: Int) -> AnyPublisher<RegisterOrderResponse, Error> {
+        let url = URL(string: Credentials.base_url + "register.do" )!
+        let params = RegisterOrderRequest(userName: Credentials.username,
+                                          password: Credentials.password,
+                                          orderNumber: "G\(orderNumber)",
+                                          amount: 100,
+                                          returnUrl: "https://neominty.com/",
+//                                          pageView: "MOBILE",
+                                          clientId: userID)
+        return APIHelper.shared.get_deleteRequest(params: params, url: url, responseType: RegisterOrderResponse.self)
+    }
+    
     
     func removeCard(id: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {

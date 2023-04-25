@@ -141,13 +141,17 @@ enum NotificationName: RawRepresentable, CaseIterable, Codable {
     case requestPaymentSent
     case infoUpdated
     case paymentCompleted
+    case orderRegistered
+    case cardAttached
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .pinPassed,
         .requestPaymentSent,
         .infoUpdated,
-        .paymentCompleted
+        .paymentCompleted,
+        .orderRegistered,
+        .cardAttached
     ]
     
     init(rawValue: RawValue) {
@@ -161,6 +165,8 @@ enum NotificationName: RawRepresentable, CaseIterable, Codable {
         case .requestPaymentSent                : return "requestPaymentSent"
         case .infoUpdated                       : return "acountInfoUpdated"
         case .paymentCompleted                  : return "paymentCompleted"
+        case .orderRegistered                   : return "orderRegistered"
+        case .cardAttached                      : return "cardAttached"
         case let .unknown(value)                : return value
         }
     }

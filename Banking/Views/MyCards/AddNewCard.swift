@@ -11,10 +11,7 @@ struct AddNewCard: View {
     
     @StateObject private var cardsVM = CardsViewModel()
     
-    @State private var cardHolderValid: Bool = false
-    @State private var cardNumberValid: Bool = false
-    @State private var cvvValid: Bool = false
-    @State private var expireDateValid: Bool = false
+    @State private var navigate: Bool = false
     
     let designs: [CardDesign] = [.blue, .blueGreen, .green, .greenBlue]
     @State private var showAlert: Bool = false
@@ -46,70 +43,20 @@ struct AddNewCard: View {
                 
                 VStack( alignment: .leading, spacing: 16) {
                     
-                    
-                    TextHelper(text: NSLocalizedString("cardDetails", comment: ""),
-                               color: AppColors.darkBlue,
-                               fontName: Roboto.bold.rawValue,
-                               fontSize: 18)
-                    
-                    
-                    CardDetailTextFieldDecorator(content: {
-                        HStack {
-                            Image("card-placeholder")
-                            
-                            CardValidationTF(text: $cardsVM.cardNumber,
-                                             isValid: $cardNumberValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .cardNumber,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("cardNumber", comment: ""))
-                        }
-                    }, isValid: $cardNumberValid)
-                    
-                    
-                    
-                    HStack(spacing: 12) {
-                        CardDetailTextFieldDecorator(content: {
-                            CardValidationTF(text: $cardsVM.expirationDate,
-                                             isValid: $expireDateValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .dateExpiration,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("expireDate", comment: ""))
-                        }, isValid: $expireDateValid)
-                        
-                        
-                        CardDetailTextFieldDecorator(content: {
-                            CardValidationTF(text: $cardsVM.cvv,
-                                             isValid: $cvvValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .cvv,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("CVV", comment: ""))
-                        }, isValid: $cvvValid)
-                    }
-                    
-                    CardDetailTextFieldDecorator(content: {
-                        CardValidationTF(text: $cardsVM.cardHolder,
-                                         isValid: $cardHolderValid,
-                                         bankCardType: $cardsVM.cardType,
-                                         tfType: .cardHolder,
-                                         tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                         subtitle: NSLocalizedString("cardHolder", comment: ""))
-                    }, isValid: $cardHolderValid)
-                    
-                    
                     Spacer()
                     
-                    ButtonHelper(disabled: !cardHolderValid || !cardNumberValid || !cvvValid || !expireDateValid || cardsVM.loading, label: NSLocalizedString("save", comment: "")) {
-                        cardsVM.attachCard()
-                    }.fullScreenCover(isPresented: $showAlert) {
+                    ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("continue", comment: "")) {
+                        cardsVM.getOrderNumberAndRegister()
+                    }.sheet(isPresented: $navigate, content: {
+                        VPOS(active: $navigate)
+                            .environmentObject(cardsVM)
+                    }).fullScreenCover(isPresented: $showAlert) {
                         CongratulationAlert {
                             VStack(spacing: 12) {
                                 TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-                                
+
                                 TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
+
                             }
                         }
                     }
@@ -131,7 +78,9 @@ struct AddNewCard: View {
             }, message: {
                 Text(cardsVM.alertMessage)
             })
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "cardAttached"))) { _ in
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.orderRegistered.rawValue))) { _ in
+                navigate.toggle()
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
                 showAlert.toggle()
             }
     }
