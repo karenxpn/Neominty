@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Combine
+
 class CardsViewModel: AlertViewModel, ObservableObject {
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
@@ -22,9 +24,14 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     
     
     var manager: CardServiceProtocol
+    private var cancellableSet: Set<AnyCancellable> = []
+    
+    @Published var formURL = "https://www.google.com/"
+    
     init(manager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
     }
+    
     @MainActor func getCards() {
         loading = true
         Task {
@@ -70,5 +77,21 @@ class CardsViewModel: AlertViewModel, ObservableObject {
                 self.cards.removeAll(where: { $0.id == id })
             }
         }
+    }
+    
+    func registerOrder() {
+        manager.registerOrder().sink { completion in
+            print(completion)
+        } receiveValue: { response in
+            if response.error ?? false {
+                self.showAlert = response.error!
+                self.alertMessage = response.errorMessage!
+            } else {
+                // open form url
+                self.formURL = response.formUrl!
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
+            }
+            print(response)
+        }.store(in: &cancellableSet)
     }
 }

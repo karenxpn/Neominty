@@ -38,6 +38,10 @@
 		FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */; };
 		FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */; };
 		FF42813929F743D900E57567 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF42813829F743D900E57567 /* Alamofire */; };
+		FF42813C29F7C84500E57567 /* RegisterOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */; };
+		FF42813E29F7C8D100E57567 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */; };
+		FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */; };
+		FF42814229F7D2AC00E57567 /* VPOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814129F7D2AC00E57567 /* VPOS.swift */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -194,6 +198,10 @@
 		FF38E9F929CDDA8000610F5C /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityService.swift; sourceTree = "<group>"; };
 		FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransferViewModel.swift; sourceTree = "<group>"; };
+		FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderRequest.swift; sourceTree = "<group>"; };
+		FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderResponse.swift; sourceTree = "<group>"; };
+		FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
+		FF42814129F7D2AC00E57567 /* VPOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPOS.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -356,6 +364,7 @@
 				FFC2BD0029BB6F0600E774FD /* Extensions.swift */,
 				FF7A11DE29D7876600286366 /* Gallery.swift */,
 				FF864DFA29EB796900EC883E /* AmountTextField.swift */,
+				FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 		FF18C25329BA8E4E004EF3A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF42813A29F7C82B00E57567 /* PaymentGateway */,
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
 				FF45205629C66453003C6415 /* CardModel.swift */,
 				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
@@ -461,6 +471,15 @@
 				FF38E9F929CDDA8000610F5C /* ActivityCard.swift */,
 			);
 			path = Activity;
+			sourceTree = "<group>";
+		};
+		FF42813A29F7C82B00E57567 /* PaymentGateway */ = {
+			isa = PBXGroup;
+			children = (
+				FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */,
+				FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */,
+			);
+			path = PaymentGateway;
 			sourceTree = "<group>";
 		};
 		FF45205129C33D89003C6415 /* Home */ = {
@@ -636,6 +655,7 @@
 				FFAC1DF529D23FAD00947CBC /* CardStyling.swift */,
 				FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */,
 				FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */,
+				FF42814129F7D2AC00E57567 /* VPOS.swift */,
 			);
 			path = MyCards;
 			sourceTree = "<group>";
@@ -837,10 +857,12 @@
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FF864E3429ED824E00EC883E /* SubCategoryTextField.swift in Sources */,
+				FF42814229F7D2AC00E57567 /* VPOS.swift in Sources */,
 				FFC2BD0529BB751600E774FD /* VerifyPhoneNumber.swift in Sources */,
 				FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */,
 				FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */,
 				FF45206F29C73A1D003C6415 /* RecentTransactions.swift in Sources */,
+				FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */,
 				FF45206729C72D40003C6415 /* UserCard.swift in Sources */,
 				FF38E9F629CCC17400610F5C /* ExpensePoint.swift in Sources */,
 				FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */,
@@ -851,6 +873,7 @@
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF42813E29F7C8D100E57567 /* RegisterOrderResponse.swift in Sources */,
 				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
@@ -865,6 +888,7 @@
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
+				FF42813C29F7C84500E57567 /* RegisterOrderRequest.swift in Sources */,
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,

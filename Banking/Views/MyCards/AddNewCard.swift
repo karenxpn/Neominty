@@ -16,6 +16,8 @@ struct AddNewCard: View {
     @State private var cvvValid: Bool = false
     @State private var expireDateValid: Bool = false
     
+    @State private var navigate: Bool = false
+    
     let designs: [CardDesign] = [.blue, .blueGreen, .green, .greenBlue]
     @State private var showAlert: Bool = false
     
@@ -101,18 +103,24 @@ struct AddNewCard: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: !cardHolderValid || !cardNumberValid || !cvvValid || !expireDateValid || cardsVM.loading, label: NSLocalizedString("save", comment: "")) {
-                        cardsVM.attachCard()
-                    }.fullScreenCover(isPresented: $showAlert) {
-                        CongratulationAlert {
-                            VStack(spacing: 12) {
-                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-                                
-                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
-                            }
-                        }
+                    ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("save", comment: "")) {
+                        cardsVM.registerOrder()
+//                        cardsVM.attachCard()
+                    }.navigationDestination(isPresented: $navigate) {
+                        VPOS()
+                            .environmentObject(cardsVM)
                     }
+                    
+//                    .fullScreenCover(isPresented: $showAlert) {
+//                        CongratulationAlert {
+//                            VStack(spacing: 12) {
+//                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+//
+//                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+//
+//                            }
+//                        }
+//                    }
                     
                 }.padding(24)
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -131,8 +139,9 @@ struct AddNewCard: View {
             }, message: {
                 Text(cardsVM.alertMessage)
             })
-            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "cardAttached"))) { _ in
-                showAlert.toggle()
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.orderRegistered.rawValue))) { _ in
+                
+                navigate.toggle()
             }
     }
 }
