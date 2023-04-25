@@ -54,12 +54,15 @@ struct SwiftUIWebView: UIViewRepresentable {
         
         func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
             
-            print(webView.url?.absoluteString)
-            decisionHandler(.allow)
+            if webView.url?.absoluteString.hasPrefix("https://neominty.com/?orderId") == true {
+                decisionHandler(.cancel)
+                // do smth
+            } else {
+                decisionHandler(.allow)
+            }
         }
-        
+                
         func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-            print(webView.url?.absoluteString)
             completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
         }
     }

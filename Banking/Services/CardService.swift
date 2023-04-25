@@ -30,7 +30,7 @@ extension CardService: CardServiceProtocol {
         let url = URL(string: Credentials.base_url + "register.do" )!
         let params = RegisterOrderRequest(userName: Credentials.username,
                                           password: Credentials.password,
-                                          orderNumber: "G223",
+                                          orderNumber: "G226",
                                           amount: 100,
                                           returnUrl: "https://neominty.com/",
 //                                          pageView: "MOBILE",
