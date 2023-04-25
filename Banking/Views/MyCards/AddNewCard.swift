@@ -11,11 +11,6 @@ struct AddNewCard: View {
     
     @StateObject private var cardsVM = CardsViewModel()
     
-    @State private var cardHolderValid: Bool = false
-    @State private var cardNumberValid: Bool = false
-    @State private var cvvValid: Bool = false
-    @State private var expireDateValid: Bool = false
-    
     @State private var navigate: Bool = false
     
     let designs: [CardDesign] = [.blue, .blueGreen, .green, .greenBlue]
@@ -48,62 +43,9 @@ struct AddNewCard: View {
                 
                 VStack( alignment: .leading, spacing: 16) {
                     
-                    
-                    TextHelper(text: NSLocalizedString("cardDetails", comment: ""),
-                               color: AppColors.darkBlue,
-                               fontName: Roboto.bold.rawValue,
-                               fontSize: 18)
-                    
-                    
-                    CardDetailTextFieldDecorator(content: {
-                        HStack {
-                            Image("card-placeholder")
-                            
-                            CardValidationTF(text: $cardsVM.cardNumber,
-                                             isValid: $cardNumberValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .cardNumber,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("cardNumber", comment: ""))
-                        }
-                    }, isValid: $cardNumberValid)
-                    
-                    
-                    
-                    HStack(spacing: 12) {
-                        CardDetailTextFieldDecorator(content: {
-                            CardValidationTF(text: $cardsVM.expirationDate,
-                                             isValid: $expireDateValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .dateExpiration,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("expireDate", comment: ""))
-                        }, isValid: $expireDateValid)
-                        
-                        
-                        CardDetailTextFieldDecorator(content: {
-                            CardValidationTF(text: $cardsVM.cvv,
-                                             isValid: $cvvValid,
-                                             bankCardType: $cardsVM.cardType,
-                                             tfType: .cvv,
-                                             tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                             subtitle: NSLocalizedString("CVV", comment: ""))
-                        }, isValid: $cvvValid)
-                    }
-                    
-                    CardDetailTextFieldDecorator(content: {
-                        CardValidationTF(text: $cardsVM.cardHolder,
-                                         isValid: $cardHolderValid,
-                                         bankCardType: $cardsVM.cardType,
-                                         tfType: .cardHolder,
-                                         tfFont: .custom(Roboto.regular.rawValue, size: 16),
-                                         subtitle: NSLocalizedString("cardHolder", comment: ""))
-                    }, isValid: $cardHolderValid)
-                    
-                    
                     Spacer()
                     
-                    ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("save", comment: "")) {
+                    ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("continue", comment: "")) {
                         cardsVM.getOrderNumberAndRegister()
 //                        cardsVM.attachCard()
                     }.navigationDestination(isPresented: $navigate) {
