@@ -110,6 +110,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     func getOrderStatus(orderId: String) {
         manager.requestOrderStatus(orderNumber: orderNumber, orderId: orderId)
             .sink { completion in
+                print(completion)
                 switch completion {
                 case .failure(let error):
                     self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
@@ -122,9 +123,11 @@ class CardsViewModel: AlertViewModel, ObservableObject {
                 } else if response.errorCode != "0" {
                     self.alertMessage = response.errorMessage ?? NSLocalizedString("somethingWentWrong", comment: "")
                     self.showAlert.toggle()
+                } else {
+                    self.alertMessage = response.actionCodeDescription
+                    self.showAlert.toggle()
                 }
                 print(response)
             }.store(in: &cancellableSet)
-
     }
 }
