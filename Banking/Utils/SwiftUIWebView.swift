@@ -66,9 +66,5 @@ struct SwiftUIWebView: UIViewRepresentable {
                 decisionHandler(.allow)
             }
         }
-                
-        func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-            completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-        }
     }
 }

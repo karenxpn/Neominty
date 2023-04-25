@@ -47,13 +47,10 @@ struct AddNewCard: View {
                     
                     ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("continue", comment: "")) {
                         cardsVM.getOrderNumberAndRegister()
-//                        cardsVM.attachCard()
-                    }.navigationDestination(isPresented: $navigate) {
+                    }.sheet(isPresented: $navigate, content: {
                         VPOS(active: $navigate)
                             .environmentObject(cardsVM)
-                    }
-                    
-                    .fullScreenCover(isPresented: $showAlert) {
+                    }).fullScreenCover(isPresented: $showAlert) {
                         CongratulationAlert {
                             VStack(spacing: 12) {
                                 TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
