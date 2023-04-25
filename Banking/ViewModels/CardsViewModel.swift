@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 
 class CardsViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("orderNumber") private var orderNumber: Int = 1
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -79,9 +81,19 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    func registerOrder() {
-        manager.registerOrder().sink { completion in
-            print(completion)
+    func getOrderNumberAndRegister() {
+        orderNumber += 1
+        registerOrder(orderNumber: orderNumber)
+    }
+        
+    func registerOrder(orderNumber: Int) {
+        manager.registerOrder(orderNumber: orderNumber).sink { completion in
+            switch completion {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            default:
+                break
+            }
         } receiveValue: { response in
             if response.error ?? false {
                 self.showAlert = response.error!
@@ -93,5 +105,26 @@ class CardsViewModel: AlertViewModel, ObservableObject {
             }
             print(response)
         }.store(in: &cancellableSet)
+    }
+    
+    func getOrderStatus(orderId: String) {
+        manager.requestOrderStatus(orderNumber: orderNumber, orderId: orderId)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+                default:
+                    break
+                }
+            } receiveValue: { response in
+                if response.bindingInfo?.bindingId != nil {
+                    NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
+                } else if response.errorCode != "0" {
+                    self.alertMessage = response.errorMessage ?? NSLocalizedString("somethingWentWrong", comment: "")
+                    self.showAlert.toggle()
+                }
+                print(response)
+            }.store(in: &cancellableSet)
+
     }
 }

@@ -104,23 +104,23 @@ struct AddNewCard: View {
                     Spacer()
                     
                     ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("save", comment: "")) {
-                        cardsVM.registerOrder()
+                        cardsVM.getOrderNumberAndRegister()
 //                        cardsVM.attachCard()
                     }.navigationDestination(isPresented: $navigate) {
-                        VPOS()
+                        VPOS(active: $navigate)
                             .environmentObject(cardsVM)
                     }
                     
-//                    .fullScreenCover(isPresented: $showAlert) {
-//                        CongratulationAlert {
-//                            VStack(spacing: 12) {
-//                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-//
-//                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-//
-//                            }
-//                        }
-//                    }
+                    .fullScreenCover(isPresented: $showAlert) {
+                        CongratulationAlert {
+                            VStack(spacing: 12) {
+                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+
+                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+
+                            }
+                        }
+                    }
                     
                 }.padding(24)
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -140,8 +140,9 @@ struct AddNewCard: View {
                 Text(cardsVM.alertMessage)
             })
             .onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.orderRegistered.rawValue))) { _ in
-                
                 navigate.toggle()
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+                showAlert.toggle()
             }
     }
 }

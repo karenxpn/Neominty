@@ -42,6 +42,8 @@
 		FF42813E29F7C8D100E57567 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */; };
 		FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */; };
 		FF42814229F7D2AC00E57567 /* VPOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814129F7D2AC00E57567 /* VPOS.swift */; };
+		FF42814429F7FB9900E57567 /* OrderStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */; };
+		FF42814629F7FBF000E57567 /* OrderStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -202,6 +204,8 @@
 		FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderResponse.swift; sourceTree = "<group>"; };
 		FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 		FF42814129F7D2AC00E57567 /* VPOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPOS.swift; sourceTree = "<group>"; };
+		FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusRequest.swift; sourceTree = "<group>"; };
+		FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusResponse.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -478,6 +482,8 @@
 			children = (
 				FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */,
 				FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */,
+				FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */,
+				FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */,
 			);
 			path = PaymentGateway;
 			sourceTree = "<group>";
@@ -946,6 +952,8 @@
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
+				FF42814429F7FB9900E57567 /* OrderStatusRequest.swift in Sources */,
+				FF42814629F7FBF000E57567 /* OrderStatusResponse.swift in Sources */,
 				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */,

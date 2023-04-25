@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct VPOS: View {
+    @Binding var active: Bool
     @EnvironmentObject var cardsVM: CardsViewModel
     
     var body: some View {
-        SwiftUIWebView(url: cardsVM.formURL)
+        SwiftUIWebView(url: cardsVM.formURL, active: $active)
+            .environmentObject(cardsVM)
     }
 }
 
 struct VPOS_Previews: PreviewProvider {
     static var previews: some View {
-        VPOS()
+        VPOS(active: .constant(false))
             .environmentObject(CardsViewModel())
     }
 }

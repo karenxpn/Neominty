@@ -13,6 +13,8 @@ struct SwiftUIWebView: UIViewRepresentable {
     typealias UIViewType = WKWebView
     
     var url: String
+    @Binding var active: Bool
+    @EnvironmentObject var cardsVM: CardsViewModel
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -56,7 +58,10 @@ struct SwiftUIWebView: UIViewRepresentable {
             
             if webView.url?.absoluteString.hasPrefix("https://neominty.com/?orderId") == true {
                 decisionHandler(.cancel)
-                // do smth
+                if let url = webView.url, let orderId = url.valueOf("orderId") {
+                    self.webView.cardsVM.getOrderStatus(orderId: orderId)
+                }
+                self.webView.active = false
             } else {
                 decisionHandler(.allow)
             }
