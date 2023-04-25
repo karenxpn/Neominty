@@ -108,6 +108,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     }
     
     func getOrderStatus(orderId: String) {
+        
+        // do this on the server side and store card details, bank info, etc.
         manager.requestOrderStatus(orderNumber: orderNumber, orderId: orderId)
             .sink { completion in
                 print(completion)
