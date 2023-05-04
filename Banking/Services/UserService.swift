@@ -7,12 +7,14 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 protocol UserServiceProtocol {
     func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error>
     func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error>
     func updateEmailPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
+    func updateAvatar(userID: String, image: Data) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
     func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error>
 }
@@ -20,10 +22,31 @@ protocol UserServiceProtocol {
 class UserSerive {
     static let shared: UserServiceProtocol = UserSerive()
     let db = Firestore.firestore()
+    let storageRef = Storage.storage().reference()
+    
     private init() { }
 }
 
 extension UserSerive: UserServiceProtocol {
+    
+    func updateAvatar(userID: String, image: Data) async -> Result<Void, Error> {
+        do {
+            
+            var url: String
+
+            let dbRef = storageRef.child("avatars/\(UUID().uuidString).jpg")
+            let _ = try await dbRef.putDataAsync(image)
+            url = try await dbRef.downloadURL().absoluteString
+            
+            try await db.collection(Paths.users.rawValue).document(userID).updateData(["avatar" : url])
+
+            return .success(())
+            
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     
     func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error> {
         do {
@@ -62,7 +85,7 @@ extension UserSerive: UserServiceProtocol {
     func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
             try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name,
-                                                                          "email": email?.isEmpty ?? true ? nil : email])
+                                                                                       "email": email?.isEmpty ?? true ? nil : email])
         }
     }
     
@@ -74,5 +97,5 @@ extension UserSerive: UserServiceProtocol {
             return .failure(error)
         }
     }
-
+    
 }

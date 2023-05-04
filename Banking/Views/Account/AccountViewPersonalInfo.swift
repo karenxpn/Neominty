@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountViewPersonalInfo: View {
     
+    @EnvironmentObject var accountVM: AccountViewModel
     @State private var showGallery: Bool = false
     @State private var selectedImage: Data?
     let info: UserInfoViewModel
@@ -60,6 +61,7 @@ struct AccountViewPersonalInfo: View {
         }.sheet(isPresented: $showGallery) {
             Gallery { image in
                 selectedImage = image
+                accountVM.updateAvatar(image: image)
             }
         }
     }

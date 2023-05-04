@@ -126,4 +126,16 @@ class AccountViewModel: AlertViewModel, ObservableObject {
             }
         }
     }
+    
+    @MainActor func updateAvatar(image: Data) {
+        Task {
+            let result = await manager.updateAvatar(userID: userID, image: image)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(()):
+                break
+            }
+        }
+    }
 }
