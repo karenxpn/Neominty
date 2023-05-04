@@ -27,6 +27,7 @@ struct Account: View {
                             ProgressView()
                         } else if accountVM.info != nil {
                             AccountViewPersonalInfo(info: accountVM.info!)
+                                .environmentObject(accountVM)
                         }
                         
                     }.frame(height: 170)

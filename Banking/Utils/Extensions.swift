@@ -435,6 +435,8 @@ extension CardValidationTF {
 }
 
 
+
+
 class Currency {
     static let shared: Currency = Currency()
 
@@ -472,6 +474,13 @@ class Currency {
 
 extension String {
     var currencySymbol: String { return Currency.shared.findSymbol(currencyCode: self) }
+    
+    func isFullNameValid() -> Bool {
+        let regex = try! NSRegularExpression(pattern: "^[A-Z][a-z]+(?: [A-Z][a-z\\-]*)*(?: [A-Z][a-z]*(?:-[A-Z][a-z]*)?)$"
+)
+        let range = NSRange(self.startIndex..., in: self)
+        return regex.firstMatch(in: self, options: [], range: range) != nil
+    }
 }
 
 extension CIImage {
