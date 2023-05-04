@@ -43,4 +43,18 @@ class NotificationsViewModel: AlertViewModel, ObservableObject {
             }
         }
     }
+    
+    @MainActor func markAsRead() {
+        Task {
+            let result = await manager.markAllAsRead(userID: userID)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(()):
+                for i in 0..<notifications.count {
+                    self.notifications[i].read = true
+                }
+            }
+        }
+    }
 }
