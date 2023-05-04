@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
 struct PreviewModels {
     static let introduction = IntroductionModel(id: "someID",
                                                 image: Credentials.image,
@@ -69,40 +71,40 @@ struct PreviewModels {
                                                   title: "Rewards",
                                                   body: "Loyal user rewards!😘",
                                                   read: true,
-                                                  createdAt: Date(timeIntervalSinceNow: -1000), type: .reward),
+                                                  created_at: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()), type: .reward),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Money Transfer",
                                                   body: "You have successfully sent money to Maria of...",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -10000), type: .transfer),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -10000).toGlobalTime()), type: .transfer),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Payment Notification",
                                                   body: "Successfully paid!🤑",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -10023), type: .payment),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -10023).toGlobalTime()), type: .payment),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Money Request",
                                                   body: "Your top up is successfully!",
                                                   read: true,
-                                                  createdAt: Date(timeIntervalSinceNow: -100000), type: .request),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -100000).toGlobalTime()) , type: .request),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Money Transfer",
                                                   body: "You have successfully sent money to Maria of...",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -1000002), type: .transfer),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -1000002).toGlobalTime()) , type: .transfer),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Cashback 25%",
                                                   body: "You have successfully sent money to Maria of...",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -10000090), type: .cashback),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -10000090).toGlobalTime()), type: .cashback),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Payment Notification",
                                                   body: "Successfully paid!🤑",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -20000090), type: .payment),
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -20000090).toGlobalTime()) , type: .payment),
                                 NotificationModel(id: UUID().uuidString,
                                                   title: "Unknown",
                                                   body: "Unknown type of notification",
                                                   read: false,
-                                                  createdAt: Date(timeIntervalSinceNow: -30000023), type: .unknown("some unknown")),]
+                                                  created_at: Timestamp(date: Date(timeIntervalSinceNow: -30000023).toGlobalTime()), type: .unknown("some unknown")),]
 }

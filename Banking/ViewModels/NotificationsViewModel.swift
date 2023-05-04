@@ -6,14 +6,20 @@
 //
 
 import Foundation
+import SwiftUI
+import FirebaseFirestore
+
 class NotificationsViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
     @Published var notifications = [NotificationModelViewModel]()
     // add pagination
-    @Published var page: Int = 0
+    @Published var lastNotification: QueryDocumentSnapshot?
+
     
     var manager: NotificationsServiceProtocol
     init(manager: NotificationsServiceProtocol = NotificationsService.shared) {
@@ -23,12 +29,13 @@ class NotificationsViewModel: AlertViewModel, ObservableObject {
     @MainActor func getNotifications() {
         loading = true
         Task {
-            let result = await manager.fetchNotifications()
+            let result = await manager.fetchNotifications(userID: userID, lastDocSnapshot: lastNotification)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            case .success(let notifications):
-                self.notifications = notifications.map(NotificationModelViewModel.init)
+            case .success(let response):
+                self.notifications.append(contentsOf: response.0.map(NotificationModelViewModel.init))
+                self.lastNotification = response.1
             }
             
             if !Task.isCancelled {

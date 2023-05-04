@@ -16,6 +16,11 @@ struct Notifications: View {
             LazyVStack(spacing: 16) {
                 ForEach(notificationsVM.notifications, id: \.id) { notification in
                     NotificationCell(notification: notification)
+                        .onAppear {
+                            if notification.id == notificationsVM.notifications.last?.id && !notificationsVM.loading {
+                                notificationsVM.getNotifications()
+                            }
+                        }
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -41,7 +46,11 @@ struct Notifications: View {
 
                 }
                 
-            }.task {
+            }.alert(NSLocalizedString("error", comment: ""), isPresented: $notificationsVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(notificationsVM.alertMessage)
+            }).task {
                 notificationsVM.getNotifications()
             }
     }
