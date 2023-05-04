@@ -15,6 +15,7 @@ struct AccountInfo: View {
     @State private var phone: String
     @State private var email: String
     @State private var emailValid: Bool
+    @State private var nameValid: Bool
     
     init(name: String?, flag: String?, phone: String?, email: String?) {
         _name = State(initialValue: name ?? "")
@@ -22,6 +23,7 @@ struct AccountInfo: View {
         _phone = State(initialValue: phone ?? "")
         _email = State(initialValue: email ?? "")
         _emailValid = State(initialValue: email?.isEmail ?? false)
+        _nameValid = State(initialValue: name?.isFullNameValid() ?? false)
     }
     
     
@@ -33,12 +35,15 @@ struct AccountInfo: View {
                     VStack(alignment: .leading, spacing: 12) {
                         TextHelper(text: NSLocalizedString("yourName", comment: ""), color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 16)
                         
-                        TextField(NSLocalizedString("John Smith", comment: ""), text: $name)
-                            .font(.custom(Roboto.medium.rawValue, size: 16))
-                            .padding(.leading, 16)
-                            .frame(height: 56)
-                            .background(AppColors.superLightGray)
-                            .cornerRadius(16)
+                        
+                        CardDetailTextFieldDecorator(content: {
+                            TextField(NSLocalizedString("John Smith", comment: ""), text: $name)
+                                .font(.custom(Roboto.medium.rawValue, size: 16))
+                                .padding(.leading, 16)
+                                .onChange(of: name) { newValue in
+                                    nameValid = newValue.isFullNameValid()
+                                }
+                        }, isValid: $nameValid)
                     }
                     
                     VStack(alignment: .leading, spacing: 12) {
@@ -78,10 +83,13 @@ struct AccountInfo: View {
                         
                         CardDetailTextFieldDecorator(content: {
                             TextField(NSLocalizedString("example@domain.com", comment: ""), text: $email)
+                                .keyboardType(.emailAddress)
                                 .font(.custom(Roboto.medium.rawValue, size: 16))
                                 .padding(.leading, 16)
+                                .onChange(of: email) { newValue in
+                                    emailValid = newValue.isEmail
+                                }
                         }, isValid: $emailValid)
-                        
                     }
                     
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
@@ -93,7 +101,7 @@ struct AccountInfo: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: (!emailValid && !email.isEmpty) || name.isEmpty || accountVM.loading,
+                    ButtonHelper(disabled: !nameValid || (!emailValid && !email.isEmpty) || accountVM.loading,
                                  label: accountVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("save", comment: "")) {
                         accountVM.updateInfo(name: name, email: email)
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)

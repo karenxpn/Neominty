@@ -6,16 +6,13 @@
 //
 
 import Foundation
-struct UserInfo: Codable {
-    var image: String?
-    var name: String
-    var email: String?
-    var phoneNumber: PhoneModel
-}
+import PhoneNumberKit
 
-struct PhoneModel: Codable {
-    var code: String
-    var number: String
+struct UserInfo: Codable {
+    var avatar: String?
+    var name: String?
+    var email: String?
+    var phone_number: String?
 }
 
 struct UserInfoViewModel {
@@ -30,9 +27,34 @@ struct UserInfoViewModel {
                 { UnicodeScalar(127397 + $0.value) })))
     }
     
-    var image: String?      { self.model.image }
-    var name: String        { self.model.name }
+    let phoneNumberKit = PhoneNumberKit()
+    
+    func getCountryCode() -> String {
+        
+        do {
+            let phoneNumber = try phoneNumberKit.parse(self.model.phone_number ?? "")
+            return "\(phoneNumberKit.mainCountry(forCode: phoneNumber.countryCode)!)"
+        }
+        catch {
+            print("Generic parser error")
+            return ""
+        }
+    }
+    
+    func getNationalNumber() -> String {
+        do {
+            let phoneNumber = try phoneNumberKit.parse(self.model.phone_number ?? "")
+            return "\(phoneNumber.nationalNumber)"
+        }
+        catch {
+            print("Generic parser error")
+            return ""
+        }
+    }
+    
+    var avatar: String?     { self.model.avatar }
+    var name: String?       { self.model.name }
     var email: String?      { self.model.email }
-    var flag: String        { countryFlag(countryCode: self.model.phoneNumber.code )}
-    var phone: String       { self.model.phoneNumber.number }
+    var flag: String        { countryFlag(countryCode: getCountryCode())}
+    var phone: String?      { getNationalNumber() }
 }

@@ -45,7 +45,7 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             
-            let result = await manager.fetchAccountInfo()
+            let result = await manager.fetchAccountInfo(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
@@ -63,7 +63,7 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             
-            let result = await manager.updateAccountInfo(name: name, email: email)
+            let result = await manager.updateAccountInfo(userID: userID, name: name, email: email)
             
             switch result {
             case .failure(let error):

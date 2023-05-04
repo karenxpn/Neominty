@@ -9,8 +9,8 @@ import Foundation
 import FirebaseFirestore
 
 protocol UserServiceProtocol {
-    func fetchAccountInfo() async -> Result<UserInfo, Error>
-    func updateAccountInfo(name: String, email: String?) async -> Result<Void, Error>
+    func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error>
+    func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error>
     func updateEmailPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
@@ -59,16 +59,16 @@ extension UserSerive: UserServiceProtocol {
         }
     }
     
-    func updateAccountInfo(name: String, email: String?) async -> Result<Void, Error> {
+    func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+            try await db.collection("users").document(userID).updateData(["name": name,
+                                                                          "email": email?.isEmpty ?? true ? nil : email])
         }
     }
     
-    func fetchAccountInfo() async -> Result<UserInfo, Error> {
+    func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
-            let user = UserInfo(name: "Karen Mirakyan", phoneNumber: PhoneModel(code: "AM", number: "93936313"))
+            let user = try await db.collection("users").document(userID).getDocument().data(as: UserInfo.self)
             return .success(user)
         } catch {
             return .failure(error)
