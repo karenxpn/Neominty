@@ -39,6 +39,7 @@ struct Notifications: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
+                        notificationsVM.markAsRead()
                         // mark all notifications as read
                     } label: {
                         Image("mark-read")

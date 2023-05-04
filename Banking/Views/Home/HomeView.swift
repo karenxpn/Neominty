@@ -61,7 +61,7 @@ struct HomeView: View {
                         Button {
                             viewRouter.pushHomePath(.notifications)
                         } label: {
-                            Image("notification")
+                            Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
                         }
                         
                     }

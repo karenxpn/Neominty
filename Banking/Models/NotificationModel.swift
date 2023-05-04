@@ -28,7 +28,10 @@ struct NotificationModelViewModel: Identifiable {
     var id: String          { self.model.id ?? UUID().uuidString }
     var title: String       { self.model.title }
     var body: String        { self.model.body }
-    var read: Bool          { self.model.read }
+    var read: Bool {
+        get { self.model.read }
+        set { self.model.read = newValue }
+    }
     var createdAt: String   { self.model.created_at.dateValue().countTimeBetweenDates()}
     
     var image: String {
