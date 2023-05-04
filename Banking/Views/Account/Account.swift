@@ -9,6 +9,8 @@ import SwiftUI
 import StoreKit
 
 struct Account: View {
+    @AppStorage("userID") var userID: String = ""
+
     @Environment(\.requestReview) var requestReview
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var accountVM = AccountViewModel()
@@ -65,7 +67,9 @@ struct Account: View {
                             TextHelper(text: NSLocalizedString("account", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                         }
                     }.task {
-                        accountVM.getAccountInfo()
+                        if !userID.isEmpty {
+                            accountVM.getAccountInfo()
+                        }
                     }.navigationDestination(for: AccountViewPaths.self) { value in
                         switch value {
                         case .settings:
