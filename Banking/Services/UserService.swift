@@ -11,9 +11,9 @@ import FirebaseFirestore
 protocol UserServiceProtocol {
     func fetchAccountInfo() async -> Result<UserInfo, Error>
     func updateAccountInfo(name: String, email: String?) async -> Result<Void, Error>
-    func updateEmailPreferences(receive: Bool) async -> Result<Void, Error>
-    func updateNotificationsPreferences(receive: Bool) async -> Result<Void, Error>
-    func fetchUserPreferences() async -> Result<UserPreferences, Error>
+    func updateEmailPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
+    func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
+    func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
     func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error>
 }
 
@@ -38,25 +38,24 @@ extension UserSerive: UserServiceProtocol {
         }
     }
     
-    func fetchUserPreferences() async -> Result<UserPreferences, Error> {
+    func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error> {
         do {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
-            let preferences = UserPreferences(receiveNotifications: false, receiveEmails: true)
+            let preferences = try await db.collection("users").document(userID).getDocument().data(as: UserPreferences.self)
             return .success(preferences)
         } catch {
             return .failure(error)
         }
     }
     
-    func updateEmailPreferences(receive: Bool) async -> Result<Void, Error> {
+    func updateEmailPreferences(userID: String, receive: Bool) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+            try await db.collection("users").document(userID).updateData(["email_notifications" : receive])
         }
     }
     
-    func updateNotificationsPreferences(receive: Bool) async -> Result<Void, Error> {
+    func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+            try await db.collection("users").document(userID).updateData(["push_notifications" : receive])
         }
     }
     

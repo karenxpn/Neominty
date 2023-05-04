@@ -7,8 +7,11 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class AccountViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -78,13 +81,13 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             
-            let result = await manager.fetchUserPreferences()
+            let result = await manager.fetchUserPreferences(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let preferences):
-                self.receiveEmails = preferences.receiveEmails
-                self.receiveNotifications = preferences.receiveNotifications
+                self.receiveEmails = preferences.email_notifications
+                self.receiveNotifications = preferences.push_notifications
             }
             
             if !Task.isCancelled {
@@ -95,13 +98,13 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func updateNotificationPreference(receive: Bool) {
         Task {
-            let _ = await manager.updateNotificationsPreferences(receive: receive)
+            let _ = await manager.updateNotificationsPreferences(userID: userID, receive: receive)
         }
     }
     
     @MainActor func updateEmailPreference(receive: Bool) {
         Task {
-            let _ = await manager.updateEmailPreferences(receive: receive)
+            let _ = await manager.updateEmailPreferences(userID: userID, receive: receive)
         }
     }
     

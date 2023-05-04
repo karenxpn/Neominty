@@ -7,6 +7,6 @@
 
 import Foundation
 struct UserPreferences: Codable {
-    var receiveNotifications: Bool
-    var receiveEmails: Bool
+    var email_notifications: Bool
+    var push_notifications: Bool
 }
