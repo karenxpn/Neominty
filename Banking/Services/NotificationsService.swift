@@ -11,16 +11,46 @@ import FirebaseFirestore
 protocol NotificationsServiceProtocol {
     func fetchNotifications(userID: String, lastDocSnapshot: QueryDocumentSnapshot?) async -> Result<([NotificationModel], QueryDocumentSnapshot?), Error>
     func markAllAsRead(userID: String) async -> Result<Void, Error>
+    func checkForUnreadNotifications(userID: String, completion: @escaping(Bool) -> ())
 }
 
 class NotificationsService {
     static let shared: NotificationsServiceProtocol = NotificationsService()
     let db = Firestore.firestore()
-
+    
     private init() { }
 }
 
 extension NotificationsService: NotificationsServiceProtocol {
+    func checkForUnreadNotifications(userID: String, completion: @escaping (Bool) -> ()) {
+        db.collection(Paths.users.rawValue)
+            .document(userID)
+            .collection(Paths.notifications.rawValue)
+            .whereField("read", isEqualTo: false)
+            .limit(to: 1)
+            .addSnapshotListener { querySnapshot, error in
+                if error != nil {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
+                    return
+                }
+                
+                guard (querySnapshot?.documents) != nil else {
+                    DispatchQueue.main.async {
+                        completion(false)
+                    }
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    completion(!querySnapshot!.documents.isEmpty)
+                }
+            }
+    }
+    
+    
+    
     func markAllAsRead(userID: String) async -> Result<Void, Error> {
         do {
             let query: Query = db.collection(Paths.users.rawValue)
@@ -35,7 +65,7 @@ extension NotificationsService: NotificationsServiceProtocol {
             }
             
             return .success(())
-
+            
         }catch {
             return .failure(error)
         }
@@ -55,7 +85,7 @@ extension NotificationsService: NotificationsServiceProtocol {
             
             let docs = try await query.getDocuments().documents
             let notifications = try docs.map { try $0.data(as: NotificationModel.self ) }
-
+            
             return .success((notifications, docs.last))
         } catch {
             return .failure(error)
