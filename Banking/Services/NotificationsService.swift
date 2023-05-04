@@ -25,7 +25,7 @@ extension NotificationsService: NotificationsServiceProtocol {
         do {
             let query: Query = db.collection(Paths.users.rawValue)
                 .document(userID)
-                .collection("notifications")
+                .collection(Paths.notifications.rawValue)
                 .whereField("read", isEqualTo: false )
             
             let docs = try await query.getDocuments().documents
@@ -47,7 +47,7 @@ extension NotificationsService: NotificationsServiceProtocol {
         do {
             var query: Query = db.collection(Paths.users.rawValue)
                 .document(userID)
-                .collection("notifications")
+                .collection(Paths.notifications.rawValue)
                 .order(by: "created_at", descending: true)
             
             if lastDocSnapshot == nil   { query = query.limit(to: 2) }
