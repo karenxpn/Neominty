@@ -15,7 +15,7 @@ protocol CardServiceProtocol {
     func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error>
     func removeCard(id: String) async -> Result<Void, Error>
     
-    func registerOrder(orderNumber: Int) -> AnyPublisher<RegisterOrderResponse, Error>
+    func registerOrder() -> AnyPublisher<RegisterOrderResponse, Error>
     func requestOrderStatus(orderNumber: Int, orderId: String) -> AnyPublisher<OrderStatusResponse, Error>
 }
 
@@ -38,16 +38,16 @@ extension CardService: CardServiceProtocol {
 
     }
     
-    func registerOrder(orderNumber: Int) -> AnyPublisher<RegisterOrderResponse, Error> {
-        let url = URL(string: Credentials.base_url + "register.do" )!
-        let params = RegisterOrderRequest(userName: Credentials.username,
-                                          password: Credentials.password,
-                                          orderNumber: "G\(orderNumber)",
-                                          amount: 100,
-                                          returnUrl: "https://neominty.com/",
-//                                          pageView: "MOBILE",
-                                          clientId: userID)
-        return APIHelper.shared.get_deleteRequest(params: params, url: url, responseType: RegisterOrderResponse.self)
+    func registerOrder() -> AnyPublisher<RegisterOrderResponse, Error> {
+        let url = URL(string: "https://us-central1-banking-6e423.cloudfunctions.net/receiveGatewayForm")!
+        return AF.request(url,
+                          method: .get)
+            .validate()
+            .publishDecodable(type: RegisterOrderResponse.self)
+            .value()
+            .mapError({ $0 as Error })
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     

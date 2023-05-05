@@ -10,7 +10,6 @@ import SwiftUI
 import Combine
 
 class CardsViewModel: AlertViewModel, ObservableObject {
-    @AppStorage("orderNumber") private var orderNumber: Int = 1
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -29,6 +28,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     
     @Published var formURL = "https://www.google.com/"
+    @Published var orderNumber: String = ""
+    @Published var orderID: String = ""
     
     init(manager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
@@ -81,13 +82,11 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    func getOrderNumberAndRegister() {
-        orderNumber += 1
-        registerOrder(orderNumber: orderNumber)
-    }
-        
-    func registerOrder(orderNumber: Int) {
-        manager.registerOrder(orderNumber: orderNumber).sink { completion in
+    func registerOrder() {
+        loading = true
+        manager.registerOrder().sink { completion in
+            self.loading = false
+
             switch completion {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
@@ -101,16 +100,18 @@ class CardsViewModel: AlertViewModel, ObservableObject {
             } else {
                 // open form url
                 self.formURL = response.formUrl!
+                self.orderNumber = response.orderNumber
+                self.orderID = response.orderId!
+                print(response)
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
             }
-            print(response)
         }.store(in: &cancellableSet)
     }
     
     func getOrderStatus(orderId: String) {
         
         // do this on the server side and store card details, bank info, etc.
-        manager.requestOrderStatus(orderNumber: orderNumber, orderId: orderId)
+        manager.requestOrderStatus(orderNumber: 1, orderId: orderId)
             .sink { completion in
                 print(completion)
                 switch completion {

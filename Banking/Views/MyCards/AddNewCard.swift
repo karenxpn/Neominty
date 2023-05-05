@@ -45,8 +45,8 @@ struct AddNewCard: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: cardsVM.loading, label: NSLocalizedString("continue", comment: "")) {
-                        cardsVM.getOrderNumberAndRegister()
+                    ButtonHelper(disabled: cardsVM.loading, label: cardsVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("continue", comment: "")) {
+                        cardsVM.registerOrder()
                     }.sheet(isPresented: $navigate, content: {
                         VPOS(active: $navigate)
                             .environmentObject(cardsVM)
