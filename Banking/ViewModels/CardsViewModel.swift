@@ -52,24 +52,6 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func attachCard() {
-        loading = true
-        Task {
-            let result = await manager.attachCards(cardNumber: cardNumber, cardHolder: cardHolder, expireDate: expirationDate, cvv: cvv)
-            switch result {
-            case .success(()):
-                NotificationCenter.default.post(name: Notification.Name("cardAttached"), object: nil)
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-
-            }
-            
-            if !Task.isCancelled {
-                loading = false
-            }
-        }
-    }
-    
     @MainActor func deleteCard(id: String) {
         Task {
             let result = await manager.removeCard(id: id)
@@ -115,29 +97,29 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    func getOrderStatus(orderId: String) {
-        
-        // do this on the server side and store card details, bank info, etc.
-        manager.requestOrderStatus(orderNumber: 1, orderId: orderId)
-            .sink { completion in
-                print(completion)
-                switch completion {
-                case .failure(let error):
-                    self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-                default:
-                    break
-                }
-            } receiveValue: { response in
-                if response.bindingInfo?.bindingId != nil {
-                    NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
-                } else if response.errorCode != "0" {
-                    self.alertMessage = response.errorMessage ?? NSLocalizedString("somethingWentWrong", comment: "")
+    @MainActor func getAttachmentStatus() {
+        loading = true
+        Task {
+            
+            do {
+                let result = try await manager.attachCard(orderNumber: orderNumber, orderId: orderID, cardStyle: design)
+                print(result)
+                
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
+
+                
+            } catch let error as NetworkError {
+                if let backendError = error.backendError {
+                    self.alertMessage = backendError.message
                     self.showAlert.toggle()
                 } else {
-                    self.alertMessage = response.actionCodeDescription
-                    self.showAlert.toggle()
+                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
                 }
-                print(response)
-            }.store(in: &cancellableSet)
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
     }
 }
