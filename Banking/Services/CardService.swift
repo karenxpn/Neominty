@@ -9,13 +9,14 @@ import Foundation
 import Combine
 import Alamofire
 import SwiftUI
+import FirebaseAuth
 
 protocol CardServiceProtocol {
     func fetchCards() async -> Result<[CardModel], Error>
     func attachCards(cardNumber: String, cardHolder: String, expireDate: String, cvv: String) async -> Result<Void, Error>
     func removeCard(id: String) async -> Result<Void, Error>
     
-    func registerOrder() -> AnyPublisher<RegisterOrderResponse, Error>
+    func registerOrder() async throws -> RegisterOrderResponse
     func requestOrderStatus(orderNumber: Int, orderId: String) -> AnyPublisher<OrderStatusResponse, Error>
 }
 
@@ -35,24 +36,40 @@ extension CardService: CardServiceProtocol {
                                         orderNumber: "G\(orderNumber)")
         
         return APIHelper.shared.get_deleteRequest(params: params, url: url, responseType: OrderStatusResponse.self)
-
+        
     }
     
-    func registerOrder() -> AnyPublisher<RegisterOrderResponse, Error> {
-        let url = URL(string: "https://us-central1-banking-6e423.cloudfunctions.net/receiveGatewayForm")!
-        return AF.request(url,
-                          method: .get)
-            .validate()
-            .publishDecodable(type: RegisterOrderResponse.self)
-            .value()
-            .mapError({ $0 as Error })
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+    func registerOrder() async throws -> RegisterOrderResponse {
+        let url = URL(string: "\(Credentials.functions_base_url)receiveGatewayForm")!
+        do {
+            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true).token
+            print(token)
+            let headers: HTTPHeaders? = ["Authorization": "Bearer \(token ?? "")"]
+            
+            return try await withUnsafeThrowingContinuation({ continuation in
+                AF.request(url,
+                           method: .get,
+                           headers: headers)
+                .validate()
+                .responseDecodable(of: RegisterOrderResponse.self) { response in
+                    if let error = response.error {
+                        continuation.resume(throwing: error)
+                    }
+                    
+                    if let registered = response.value {
+                        continuation.resume(returning: registered)
+                    }
+                }
+            })
+        } catch {
+            throw error
+        }
     }
     
     
     func removeCard(id: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
+            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true)
             try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
         }
     }

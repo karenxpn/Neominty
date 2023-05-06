@@ -82,30 +82,32 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    func registerOrder() {
+    @MainActor func registerOrder() {
+        
         loading = true
-        manager.registerOrder().sink { completion in
-            self.loading = false
-
-            switch completion {
-            case .failure(let error):
+        Task {
+            do {
+                let result = try await manager.registerOrder()
+                
+                if result.error ?? false {
+                    self.showAlert = result.error!
+                    self.alertMessage = result.errorMessage!
+                } else {
+                    self.formURL = result.formUrl!
+                    self.orderNumber = result.orderNumber
+                    self.orderID = result.orderId!
+                    print(result)
+                    NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
+                }
+                
+            } catch {
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            default:
-                break
             }
-        } receiveValue: { response in
-            if response.error ?? false {
-                self.showAlert = response.error!
-                self.alertMessage = response.errorMessage!
-            } else {
-                // open form url
-                self.formURL = response.formUrl!
-                self.orderNumber = response.orderNumber
-                self.orderID = response.orderId!
-                print(response)
-                NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
+            
+            if !Task.isCancelled {
+                loading = false
             }
-        }.store(in: &cancellableSet)
+        }
     }
     
     func getOrderStatus(orderId: String) {
