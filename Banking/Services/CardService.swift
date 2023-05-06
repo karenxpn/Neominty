@@ -52,8 +52,12 @@ extension CardService: CardServiceProtocol {
                            headers: headers)
                 .validate()
                 .responseDecodable(of: RegisterOrderResponse.self) { response in
+
                     if let error = response.error {
-                        continuation.resume(throwing: error)
+                        response.error.map { err in
+                            let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
+                            continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
+                        }
                     }
                     
                     if let registered = response.value {
