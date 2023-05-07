@@ -10,7 +10,8 @@ import SwiftUI
 import Combine
 
 class CardsViewModel: AlertViewModel, ObservableObject {
-    @AppStorage("orderNumber") private var orderNumber: Int = 1
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -29,6 +30,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     
     @Published var formURL = "https://www.google.com/"
+    @Published var orderNumber: String = ""
+    @Published var orderID: String = ""
     
     init(manager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
@@ -37,30 +40,13 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     @MainActor func getCards() {
         loading = true
         Task {
-            let result = await manager.fetchCards()
+            let result = await manager.fetchCards(userID: userID)
+            print(result)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let cards):
                 self.cards = cards
-            }
-            
-            if !Task.isCancelled {
-                loading = false
-            }
-        }
-    }
-    
-    @MainActor func attachCard() {
-        loading = true
-        Task {
-            let result = await manager.attachCards(cardNumber: cardNumber, cardHolder: cardHolder, expireDate: expirationDate, cvv: cvv)
-            switch result {
-            case .success(()):
-                NotificationCenter.default.post(name: Notification.Name("cardAttached"), object: nil)
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-
             }
             
             if !Task.isCancelled {
@@ -81,55 +67,62 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    func getOrderNumberAndRegister() {
-        orderNumber += 1
-        registerOrder(orderNumber: orderNumber)
-    }
+    @MainActor func registerOrder() {
         
-    func registerOrder(orderNumber: Int) {
-        manager.registerOrder(orderNumber: orderNumber).sink { completion in
-            switch completion {
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            default:
-                break
-            }
-        } receiveValue: { response in
-            if response.error ?? false {
-                self.showAlert = response.error!
-                self.alertMessage = response.errorMessage!
-            } else {
-                // open form url
-                self.formURL = response.formUrl!
-                NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
-            }
-            print(response)
-        }.store(in: &cancellableSet)
-    }
-    
-    func getOrderStatus(orderId: String) {
-        
-        // do this on the server side and store card details, bank info, etc.
-        manager.requestOrderStatus(orderNumber: orderNumber, orderId: orderId)
-            .sink { completion in
-                print(completion)
-                switch completion {
-                case .failure(let error):
-                    self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-                default:
-                    break
+        loading = true
+        Task {
+            do {
+                let result = try await manager.registerOrder()
+                
+                if result.error ?? false {
+                    self.showAlert = result.error!
+                    self.alertMessage = result.errorMessage!
+                } else {
+                    self.formURL = result.formUrl!
+                    self.orderNumber = result.orderNumber
+                    self.orderID = result.orderId!
+                    print(result)
+                    NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
                 }
-            } receiveValue: { response in
-                if response.bindingInfo?.bindingId != nil {
-                    NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
-                } else if response.errorCode != "0" {
-                    self.alertMessage = response.errorMessage ?? NSLocalizedString("somethingWentWrong", comment: "")
+                
+            } catch let error as NetworkError {
+                if let backendError = error.backendError {
+                    self.alertMessage = backendError.message
                     self.showAlert.toggle()
                 } else {
-                    self.alertMessage = response.actionCodeDescription
-                    self.showAlert.toggle()
+                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
                 }
-                print(response)
-            }.store(in: &cancellableSet)
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func getAttachmentStatus() {
+        loading = true
+        Task {
+            
+            do {
+                let result = try await manager.attachCard(orderNumber: orderNumber, orderId: orderID, cardStyle: design)
+                print(result)
+                
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
+
+                
+            } catch let error as NetworkError {
+                if let backendError = error.backendError {
+                    self.alertMessage = backendError.message
+                    self.showAlert.toggle()
+                } else {
+                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
+                }
+            }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
     }
 }

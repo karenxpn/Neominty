@@ -25,7 +25,7 @@ struct SelectCardButton: View {
                 VStack(alignment: .leading, spacing: 4) {
                     
                     TextHelper(text: card.cardHolder, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
-                    TextHelper(text: card.number, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                    TextHelper(text: card.cardPan, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
 
                 }
                 

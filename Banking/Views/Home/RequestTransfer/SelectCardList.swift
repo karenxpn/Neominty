@@ -20,13 +20,13 @@ struct SelectCardList: View {
                 TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .padding(.top)
                 
-                ForEach(cards) { card in
+                ForEach(cards, id: \.id) { card in
                     ZStack( alignment: .trailing) {
                         SelectCardButton(card: card, buttonType: .button) {
                             selectedCard = card
                         }
                         
-                        if selectedCard?.number == card.number {
+                        if selectedCard?.cardPan == card.cardPan {
                             Image("check")
                                 .offset(x: -10)
                         }

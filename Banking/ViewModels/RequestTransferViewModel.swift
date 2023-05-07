@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
 class RequestTransferViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var loadingRequest: Bool = false
     @Published var showAlert: Bool = false
@@ -42,7 +46,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
         loading = true
         
         Task {
-            let result = await cardManager.fetchCards()
+            let result = await cardManager.fetchCards(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

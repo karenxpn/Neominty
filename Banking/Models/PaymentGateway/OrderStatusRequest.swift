@@ -12,3 +12,9 @@ struct OrderStatusRequest: Codable {
     var orderId: String
     var orderNumber: String
 }
+
+struct AttachCardRequest: Codable {
+    var orderId: String
+    var orderNumber: String
+    var cardStyle: String
+}

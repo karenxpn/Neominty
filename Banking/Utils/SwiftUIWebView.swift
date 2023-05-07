@@ -54,12 +54,12 @@ struct SwiftUIWebView: UIViewRepresentable {
         }
         
         
-        func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        @MainActor func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
             
             if webView.url?.absoluteString.hasPrefix("https://neominty.com/?orderId") == true {
                 decisionHandler(.cancel)
                 if let url = webView.url, let orderId = url.valueOf("orderId") {
-                    self.webView.cardsVM.getOrderStatus(orderId: orderId)
+                    self.webView.cardsVM.getAttachmentStatus()
                 }
                 self.webView.active = false
             } else {

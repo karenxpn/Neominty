@@ -7,6 +7,7 @@
 
 import Foundation
 struct RegisterOrderResponse: Codable {
+    var orderNumber: String
     var orderId: String?
     var formUrl: String?
     var errorCode: Int?

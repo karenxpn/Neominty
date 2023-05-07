@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+
 struct CardModel: Identifiable, Codable {
-    var id: String
-    var number: String
+    @DocumentID var id: String?
+    var cardPan: String
     var cardHolder: String
     var expirationDate: String
-    var currency: CardCurrency
+    var currency: CardCurrency = .usd
     var bankName: String
-    var defaultCard: Bool
-    var design: CardDesign
+    var defaultCard: Bool = true
+    var cardStyle: CardDesign
     var cardType: CardType
 }
 
@@ -82,13 +84,13 @@ enum CardType : RawRepresentable, CaseIterable, Codable {
     
     var rawValue: RawValue {
         switch self {
-        case .masterCard            : return "Master Card"
+        case .masterCard            : return "Mastercard"
         case .visa                  : return "Visa"
         case .arca                  : return "ARCA"
-        case .amex                  : return "Amex"
+        case .amex                  : return "American Express"
         case .maestro               : return "Maestro"
-        case .unionPay              : return "Union Pay"
-        case .mir                   : return "MIR"
+        case .unionPay              : return "UnionPay"
+        case .mir                   : return "Mir"
             
             
         case let .unknown(value)    : return value

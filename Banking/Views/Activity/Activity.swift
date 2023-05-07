@@ -32,7 +32,7 @@ struct Activity: View {
                                     ActivityCard(card: card)
                                         .frame(width: UIScreen.main.bounds.width * 0.9,
                                                height: 64)
-                                        .tag(card.number)
+                                        .tag(card.cardPan)
                                 }
                             }.frame(height: 150)
                                 .padding(.vertical, -20)
@@ -94,7 +94,7 @@ struct Activity: View {
                                         activityVM.getActivity()
                                     }
                                     
-                                    ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.number == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
+                                    ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.cardPan == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                 }
                             }

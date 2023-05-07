@@ -9,6 +9,8 @@ import Foundation
 import SwiftUI
 
 class QrViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -27,7 +29,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
     @MainActor func getCards() {
         loading = true
         Task {
-            let result = await cardManager.fetchCards()
+            let result = await cardManager.fetchCards(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

@@ -24,7 +24,7 @@ class APIHelper {
         }
     }
     
-    func get_deleteRequest<T, P>(params: P,
+    func get_deleteRequest<T, P>(params: P?,
                               url: URL,
                               method: HTTPMethod = .get,
                               responseType: T.Type)
