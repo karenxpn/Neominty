@@ -6,15 +6,17 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+
 struct CardModel: Identifiable, Codable {
-    var id: String
-    var number: String
+    @DocumentID var id: String?
+    var cardPan: String
     var cardHolder: String
     var expirationDate: String
-    var currency: CardCurrency
+    var currency: CardCurrency = .usd
     var bankName: String
-    var defaultCard: Bool
-    var design: CardDesign
+    var defaultCard: Bool = true
+    var cardStyle: CardDesign
     var cardType: CardType
 }
 

@@ -27,7 +27,7 @@ struct UserCard: View {
             }.padding([.horizontal, .top], 20)
             
             VStack(alignment: .leading, spacing: 6) {
-                TextHelper(text: card.number, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
+                TextHelper(text: card.cardPan, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
                 TextHelper(text: card.expirationDate, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
             }.padding(.horizontal, 20)
             
@@ -53,28 +53,28 @@ struct UserCard: View {
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
                 .background {
-                    if card.design == .blueGreen {
+                    if card.cardStyle == .blueGreen {
                         AppColors.green
-                    } else if card.design == .greenBlue {
+                    } else if card.cardStyle == .greenBlue {
                         AppColors.darkBlue
                     }
                 }
         }.background {
-            if card.design == .blue || card.design == .blueGreen {
+            if card.cardStyle == .blue || card.cardStyle == .blueGreen {
                 ZStack(alignment: .trailing) {
                     AppColors.darkBlue
-                    if card.design == .blue {
+                    if card.cardStyle == .blue {
                         CardHexDesign()
                     } else {
                         Image("card-sign")
                             .resizable()
                     }
                 }
-            } else if card.design == .green || card.design == .greenBlue {
+            } else if card.cardStyle == .green || card.cardStyle == .greenBlue {
                 
                 ZStack(alignment: .trailing) {
                     AppColors.green
-                    if card.design == .green {
+                    if card.cardStyle == .green {
                         CardHexDesign()
                     } else {
                         Image("card-sign")

@@ -6,7 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
 class PayViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var loadingPayment: Bool = false
     @Published var showAlert: Bool = false
@@ -52,7 +56,7 @@ class PayViewModel: AlertViewModel, ObservableObject {
     @MainActor func getCards() {
         loading = true
         Task {
-            let result = await cardManager.fetchCards()
+            let result = await cardManager.fetchCards(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

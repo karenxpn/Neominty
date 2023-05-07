@@ -6,8 +6,11 @@
 //
 
 import Foundation
+import SwiftUI
+
 class ActivityViewModel: AlertViewModel, ObservableObject {
-    
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var loadingActivity: Bool = false
     @Published var showAlert: Bool = false
@@ -39,14 +42,14 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
         
         Task {
             
-            let result = await cardManager.fetchCards()
+            let result = await cardManager.fetchCards(userID: userID)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let cards):
                 self.cards = cards
                 if !cards.isEmpty {
-                    self.selectedCard = cards[0].number
+                    self.selectedCard = cards[0].cardPan
                     self.getActivity()
                 }
             }

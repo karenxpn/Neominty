@@ -141,7 +141,7 @@ struct TransferDetailView: View {
                                 TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
                                                          bank: "Bank name",
                                                          name: transferVM.selectedCard!.cardHolder,
-                                                         card: transferVM.selectedCard!.number)
+                                                         card: transferVM.selectedCard!.cardPan)
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("to", comment: ""),
                                                          bank: "User's bank here",

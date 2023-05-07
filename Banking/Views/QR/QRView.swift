@@ -34,7 +34,7 @@ struct QRView: View {
                                 selectCard.toggle()
                             }
                             
-                            Image(uiImage: generateQRCode(from: "\(qrVM.selectedCard!.number)"))
+                            Image(uiImage: generateQRCode(from: "\(qrVM.selectedCard!.cardPan)"))
                                 .resizable()
                                 .interpolation(.none)
                                 .scaledToFit()

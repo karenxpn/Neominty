@@ -66,8 +66,8 @@ struct CardsList: View {
             .alert(NSLocalizedString("areYourSureToDeleteTheCard", comment: ""), isPresented: $showConfirmationDialog) {
                 Button(NSLocalizedString("delete", comment: "")) {
                     // delete
-                    if let selectedToDelete {
-                        cardsVM.deleteCard(id: selectedToDelete.id)
+                    if let selectedToDelete, let id = selectedToDelete.id{
+                        cardsVM.deleteCard(id: id)
                     }
                 }
                 

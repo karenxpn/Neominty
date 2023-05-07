@@ -10,9 +10,10 @@ import Combine
 import Alamofire
 import SwiftUI
 import FirebaseAuth
+import FirebaseFirestore
 
 protocol CardServiceProtocol {
-    func fetchCards() async -> Result<[CardModel], Error>
+    func fetchCards(userID: String) async -> Result<[CardModel], Error>
     func removeCard(id: String) async -> Result<Void, Error>
     
     func registerOrder() async throws -> RegisterOrderResponse
@@ -22,6 +23,8 @@ protocol CardServiceProtocol {
 class CardService {
     static let shared: CardServiceProtocol = CardService()
     @AppStorage("userID") var userID: String = ""
+    let db = Firestore.firestore()
+    
     
     private init() { }
 }
@@ -97,7 +100,6 @@ extension CardService: CardServiceProtocol {
         }
     }
     
-    
     func removeCard(id: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
             let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true)
@@ -105,10 +107,10 @@ extension CardService: CardServiceProtocol {
         }
     }
     
-    func fetchCards() async -> Result<[CardModel], Error> {
+    func fetchCards(userID: String) async -> Result<[CardModel], Error> {
         do {
-            let cards = [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.mirCard, PreviewModels.amexCard]
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+            let docs = try await db.collection("users").document(userID).collection("cards").getDocuments().documents
+            let cards = try docs.map { try $0.data(as: CardModel.self ) }
             return .success(cards)
         } catch {
             return .failure(error)

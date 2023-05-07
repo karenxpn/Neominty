@@ -10,6 +10,8 @@ import SwiftUI
 import Combine
 
 class CardsViewModel: AlertViewModel, ObservableObject {
+    @AppStorage("userID") var userID: String = ""
+
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
@@ -38,7 +40,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     @MainActor func getCards() {
         loading = true
         Task {
-            let result = await manager.fetchCards()
+            let result = await manager.fetchCards(userID: userID)
+            print(result)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

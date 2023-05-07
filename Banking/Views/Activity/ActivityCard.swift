@@ -14,7 +14,7 @@ struct ActivityCard: View {
         VStack(alignment: .leading, spacing: 36) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
-                    TextHelper(text: card.number, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
+                    TextHelper(text: card.cardPan, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
                     TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.medium.rawValue, fontSize: 20)
                 }
                 
@@ -33,13 +33,13 @@ struct ActivityCard: View {
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
         }.background {
-            if card.design == .blue || card.design == .blueGreen {
+            if card.cardStyle == .blue || card.cardStyle == .blueGreen {
                 ZStack(alignment: .trailing) {
                     AppColors.darkBlue
                     Image("card-sign")
                         .resizable()
                 }
-            } else if card.design == .green || card.design == .greenBlue {
+            } else if card.cardStyle == .green || card.cardStyle == .greenBlue {
                 
                 ZStack(alignment: .trailing) {
                     AppColors.green
