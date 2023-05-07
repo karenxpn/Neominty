@@ -28,7 +28,7 @@ class CardService {
 
 extension CardService: CardServiceProtocol {
     func attachCard(orderNumber: String, orderId: String, cardStyle: CardDesign) async throws -> GlobalResponse {
-        let url = URL(string: "\(Credentials.functions_base_url)checkOrderStatus")!
+        let url = URL(string: "\(Credentials.functions_base_url)attachCard")!
         let params: Parameters = [
             "orderId": orderId,
             "orderNumber": orderNumber,

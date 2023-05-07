@@ -82,13 +82,13 @@ enum CardType : RawRepresentable, CaseIterable, Codable {
     
     var rawValue: RawValue {
         switch self {
-        case .masterCard            : return "Master Card"
+        case .masterCard            : return "Mastercard"
         case .visa                  : return "Visa"
         case .arca                  : return "ARCA"
-        case .amex                  : return "Amex"
+        case .amex                  : return "American Express"
         case .maestro               : return "Maestro"
-        case .unionPay              : return "Union Pay"
-        case .mir                   : return "MIR"
+        case .unionPay              : return "UnionPay"
+        case .mir                   : return "Mir"
             
             
         case let .unknown(value)    : return value
