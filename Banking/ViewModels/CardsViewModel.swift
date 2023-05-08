@@ -41,7 +41,6 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             let result = await manager.fetchCards(userID: userID)
-            print(result)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
@@ -52,6 +51,12 @@ class CardsViewModel: AlertViewModel, ObservableObject {
             if !Task.isCancelled {
                 loading = false
             }
+        }
+    }
+    
+    @MainActor func reorderCards() {
+        Task {
+            let _ = await manager.reorderCards(userID: userID, cards: cards)
         }
     }
     

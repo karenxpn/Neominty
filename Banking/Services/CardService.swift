@@ -15,6 +15,7 @@ import FirebaseFirestore
 protocol CardServiceProtocol {
     func fetchCards(userID: String) async -> Result<[CardModel], Error>
     func removeCard(id: String) async -> Result<Void, Error>
+    func reorderCards(userID: String, cards: [CardModel]) async -> Result<Void, Error>
     
     func registerOrder() async throws -> RegisterOrderResponse
     func attachCard(orderNumber: String, orderId: String, cardStyle: CardDesign) async throws -> GlobalResponse
@@ -30,6 +31,37 @@ class CardService {
 }
 
 extension CardService: CardServiceProtocol {
+    func reorderCards(userID: String, cards: [CardModel]) async -> Result<Void, Error> {
+        return await APIHelper.shared.voidRequest {
+            if !cards[0].defaultCard {
+                
+                // if this is not the default card ->
+                // make this card default
+                
+                // find the card that is default card and make it not default
+                if let ind = cards.firstIndex(where: {$0.defaultCard}) {
+                    // make this card not default
+                    try await db.collection(Paths.users.rawValue)
+                        .document(userID)
+                        .collection(Paths.cards.rawValue)
+                        .document(cards[ind].id ?? "undefined")
+                        .updateData([Paths.defaultCard.rawValue : false])
+                }
+                
+                
+                try await db.collection(Paths.users.rawValue)
+                    .document(userID)
+                    .collection(Paths.cards.rawValue)
+                    .document(cards[0].id ?? "undefined")
+                    .updateData([Paths.defaultCard.rawValue : true])
+            }
+            
+            try await db.collection(Paths.users.rawValue)
+                .document(userID)
+                .updateData([Paths.orderRules.rawValue : cards.map{ $0.id }])
+        }
+    }
+    
     func attachCard(orderNumber: String, orderId: String, cardStyle: CardDesign) async throws -> GlobalResponse {
         let url = URL(string: "\(Credentials.functions_base_url)attachCard")!
         let params: Parameters = [
@@ -109,9 +141,36 @@ extension CardService: CardServiceProtocol {
     
     func fetchCards(userID: String) async -> Result<[CardModel], Error> {
         do {
-            let docs = try await db.collection("users").document(userID).collection("cards").getDocuments().documents
+            
+            // get order rules
+            
+            let docs = try await db.collection(Paths.users.rawValue)
+                .document(userID)
+                .collection(Paths.cards.rawValue)
+                .order(by: "createdAt", descending: true)
+                .getDocuments().documents
             let cards = try docs.map { try $0.data(as: CardModel.self ) }
-            return .success(cards)
+                
+            
+            let orderRules = try await db.collection(Paths.users.rawValue)
+                .document(userID)
+                .getDocument()
+                .get(Paths.orderRules.rawValue) as? [String]
+                        
+            var orderedCards = [CardModel]()
+            if let orderRules {
+                for rule in orderRules {
+                    if let card = cards.first(where: {$0.id == rule }) {
+                        orderedCards.append(card)
+                    }
+                }
+            } else {
+                orderedCards = cards
+            }
+
+            
+            return .success(orderedCards
+            )
         } catch {
             return .failure(error)
         }

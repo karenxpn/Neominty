@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import FirebaseFirestore
 
 struct CardModel: Identifiable, Codable {
     @DocumentID var id: String?
@@ -18,6 +19,7 @@ struct CardModel: Identifiable, Codable {
     var defaultCard: Bool = true
     var cardStyle: CardDesign
     var cardType: CardType
+    var createdAt: Timestamp
 }
 
 enum CardCurrency: RawRepresentable, CaseIterable, Codable {

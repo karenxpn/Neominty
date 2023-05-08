@@ -82,8 +82,9 @@ struct CardsList: View {
             }
     }
     
-    func move(from source: IndexSet, to destination: Int) {
+    func move(from source: IndexSet, to destination: Int) {        
         cardsVM.cards.move(fromOffsets: source, toOffset: destination)
+        cardsVM.reorderCards()
     }
 }
 
