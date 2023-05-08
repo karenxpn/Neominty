@@ -26,13 +26,17 @@ struct HomeView: View {
                         
                         ScrollView( .horizontal, showsIndicators: false ) {
                             LazyHStack(spacing: 16) {
-                                ForEach( homeVM.cards, id: \.id ) { card in
-                                    UserCard(card: card, selected: card.defaultCard)
-                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                                if homeVM.loading {
+                                    ProgressView()
+                                } else {
+                                    ForEach( homeVM.cards, id: \.id ) { card in
+                                        UserCard(card: card, selected: card.defaultCard)
+                                            .frame(width: UIScreen.main.bounds.width * 0.8)
+                                    }
                                 }
+                                
                             }.padding(.horizontal, 20)
                         }
-                        
                         
                         HomeMenu()
                             .environmentObject(viewRouter)
@@ -43,10 +47,18 @@ struct HomeView: View {
                 
                 RecentTransactions(transactions: homeVM.transactions) {
                     viewRouter.pushHomePath(.allTransactions)
-
+                    
                 }
             }.padding(.top, 1)
+                .task {
+                    homeVM.getCards()
+                }
                 .navigationBarTitle(Text(""), displayMode: .inline)
+                .alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
+                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }, message: {
+                    Text(homeVM.alertMessage)
+                })
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
