@@ -62,7 +62,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func deleteCard(id: String) {
         Task {
-            let result = await manager.removeCard(id: id)
+            let result = await manager.removeCard(userID: userID, cardID: id)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
