@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 protocol CardServiceProtocol {
     func fetchCards(userID: String) async -> Result<[CardModel], Error>
-    func removeCard(id: String) async -> Result<Void, Error>
+    func removeCard(userID: String, cardID: String) async -> Result<Void, Error>
     func reorderCards(userID: String, cards: [CardModel]) async -> Result<Void, Error>
     
     func registerOrder() async throws -> RegisterOrderResponse
@@ -132,10 +132,13 @@ extension CardService: CardServiceProtocol {
         }
     }
     
-    func removeCard(id: String) async -> Result<Void, Error> {
+    func removeCard(userID: String, cardID: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true)
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
+            try await db.collection(Paths.users.rawValue)
+                .document(userID)
+                .collection(Paths.cards.rawValue)
+                .document(cardID)
+                .delete()
         }
     }
     
