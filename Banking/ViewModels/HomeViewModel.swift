@@ -43,7 +43,6 @@ class HomeViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             let result = await cardManager.fetchCards(userID: userID)
-            print(result)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

@@ -14,12 +14,18 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     case introduction
     case users
     case notifications
+    case cards
+    case orderRules
+    case defaultCard
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .introduction,
         .users,
-        .notifications
+        .notifications,
+        .cards,
+        .orderRules,
+        .defaultCard
     ]
     
     init(rawValue: RawValue) {
@@ -32,6 +38,9 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
         case .introduction                      : return "introduction"
         case .users                             : return "users"
         case .notifications                     : return "notifications"
+        case .cards                             : return "cards"
+        case .defaultCard                       : return "defaultCard"
+        case .orderRules                        : return "orderRules"
         case let .unknown(value)                : return value
         }
     }
