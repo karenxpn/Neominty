@@ -24,6 +24,7 @@ struct TransactionPreview: Identifiable, Codable {
 struct TransactionParticipantInfo: Identifiable, Codable {
     var id: String?
     var name: String?
+    var bindingId: String?
     var paymentType: TransactionType
 }
 
