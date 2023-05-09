@@ -14,12 +14,12 @@ struct PreviewModels {
                                                 title: "Finance app the safest  and most trusted",
                                                 body: "Your finance work starts here. Our here to help you track and deal with speeding up your transactions.")
     
-    static let masterCard = CardModel(id: UUID().uuidString, cardPan: Credentials.masterCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .usd, bankName: "AMERIABANK", defaultCard: true, cardStyle: .blueGreen, cardType: .masterCard, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()))
-    static let visaCard = CardModel(id: UUID().uuidString, cardPan: Credentials.visaCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .amd, bankName: "INECOBANK", defaultCard: false, cardStyle: .blue, cardType: .visa, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()))
+    static let masterCard = CardModel(id: UUID().uuidString, cardPan: Credentials.masterCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .usd, bankName: "AMERIABANK", defaultCard: true, cardStyle: .blueGreen, cardType: .masterCard, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()), bindingId: "binding1")
+    static let visaCard = CardModel(id: UUID().uuidString, cardPan: Credentials.visaCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .amd, bankName: "INECOBANK", defaultCard: false, cardStyle: .blue, cardType: .visa, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()), bindingId: "binding2")
     
-    static let mirCard = CardModel(id: UUID().uuidString, cardPan: Credentials.mirCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .rub, bankName: "SBERBANK", defaultCard: false, cardStyle: .green, cardType: .mir, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()))
+    static let mirCard = CardModel(id: UUID().uuidString, cardPan: Credentials.mirCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .rub, bankName: "SBERBANK", defaultCard: false, cardStyle: .green, cardType: .mir, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()), bindingId: "binding3")
     
-    static let amexCard = CardModel(id: UUID().uuidString, cardPan: Credentials.amexCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .usd, bankName: "ACBA", defaultCard: false, cardStyle: .greenBlue, cardType: .amex, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()))
+    static let amexCard = CardModel(id: UUID().uuidString, cardPan: Credentials.amexCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .usd, bankName: "ACBA", defaultCard: false, cardStyle: .greenBlue, cardType: .amex, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()), bindingId: "binding4")
     
     static let transaction = TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
                                                                                    amount: 1200,

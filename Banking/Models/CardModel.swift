@@ -20,6 +20,7 @@ struct CardModel: Identifiable, Codable {
     var cardStyle: CardDesign
     var cardType: CardType
     var createdAt: Timestamp
+    var bindingId: String
 }
 
 enum CardCurrency: RawRepresentable, CaseIterable, Codable {

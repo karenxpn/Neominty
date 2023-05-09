@@ -49,7 +49,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
             case .success(let cards):
                 self.cards = cards
                 if !cards.isEmpty {
-                    self.selectedCard = cards[0].cardPan
+                    self.selectedCard = cards[0].bindingId
                     self.getActivity()
                 }
             }
@@ -63,7 +63,8 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     @MainActor func getActivity() {
         loadingActivity = true
         Task {
-            let result = await manager.fetchActivity(cardNumber: selectedCard, unit: selectedUnit)
+            print(selectedCard)
+            let result = await manager.fetchActivity(bindingId: selectedCard)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
