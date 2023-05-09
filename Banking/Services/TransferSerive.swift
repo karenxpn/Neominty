@@ -7,19 +7,41 @@
 
 import Foundation
 import Combine
+import FirebaseFirestore
 
 protocol TransferServiceProtocol {
     func fetchRecentTransfers() async -> Result<[RecentTransfer], Error>
-    func fetchTransferHistory(page: Int) async -> Result<[TransactionPreview], Error>
+    func fetchRecentTransferHistory(userID: String) async -> Result<[TransactionPreview], Error>
+    func fetchTransactionHistory(userID: String, lastDoc: QueryDocumentSnapshot?) async -> Result<([TransactionPreview], QueryDocumentSnapshot?), Error>
     func requestTransfer(type: RequestType, amount: String, currency: String, phone: String, email: String) async -> Result<GlobalResponse, Error>
 }
 
 class TransferService {
     static let shared: TransferServiceProtocol = TransferService()
+    let db = Firestore.firestore()
+
     private init() { }
 }
 
 extension TransferService: TransferServiceProtocol {
+    func fetchRecentTransferHistory(userID: String) async -> Result<[TransactionPreview], Error> {
+        do {
+            let docs = try await db
+                .collection(Paths.transactions.rawValue)
+                .whereField("users", arrayContains: userID)
+                .order(by: "createdAt", descending: true)
+                .limit(to: 10)
+                .getDocuments()
+                .documents
+            
+            let transactions = try docs.map({try $0.data(as: TransactionPreview.self)})
+            return .success(transactions)
+            
+        } catch {
+            return .failure(error)
+        }
+    }
+    
     func requestTransfer(type: RequestType, amount: String, currency: String, phone: String, email: String) async -> Result<GlobalResponse, Error> {
         do {
             try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
@@ -35,13 +57,21 @@ extension TransferService: TransferServiceProtocol {
         }
     }
     
-    func fetchTransferHistory(page: Int) async -> Result<[TransactionPreview], Error> {
-        if page == 0 {
-            return .success([PreviewModels.transactionListWithoutViewModel.first!])
-        } else if page == 1 {
-            return .success([PreviewModels.transactionListWithoutViewModel.last!])
-        } else {
-            return .success([])
+    func fetchTransactionHistory(userID: String, lastDoc: QueryDocumentSnapshot?) async -> Result<([TransactionPreview], QueryDocumentSnapshot?), Error> {
+        do {
+            var query: Query = db.collection(Paths.transactions.rawValue)
+                .whereField("users", arrayContains: userID)
+                .order(by: "createdAt", descending: true)
+            
+            if lastDoc == nil   { query = query.limit(to: 2) }
+            else                { query = query.start(afterDocument: lastDoc!).limit(to: 2) }
+            
+            let docs = try await query.getDocuments().documents
+            let transactions = try docs.map { try $0.data(as: TransactionPreview.self ) }
+            
+            return .success((transactions, docs.last))
+        } catch {
+            return .failure(error)
         }
     }
     

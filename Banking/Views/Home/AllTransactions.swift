@@ -25,7 +25,7 @@ struct AllTransactions: View {
                         
                         VStack(alignment: .leading, spacing: 4) {
                             TextHelper(text: transfer.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                            TextHelper(text: transfer.type, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+//                            TextHelper(text: transfer.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                         }
                         
                         Spacer()
@@ -68,5 +68,6 @@ struct AllTransactions: View {
 struct AllTransactions_Previews: PreviewProvider {
     static var previews: some View {
         AllTransactions()
+            .environmentObject(ViewRouter())
     }
 }

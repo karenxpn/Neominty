@@ -13,17 +13,22 @@ class HomeViewModel: AlertViewModel, ObservableObject {
     @AppStorage("userID") var userID: String = ""
     
     @Published var loading: Bool = false
+    @Published var loadingTransactions: Bool = false
+    
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
 
     @Published var cards = [CardModel]()
-    @Published var transactions = PreviewModels.transactionList
+    @Published var transactions = [TransactionPreviewViewModel]()
     @Published var hasUnreadNotification: Bool = false
     
+    var transferManager: TransferServiceProtocol
     var cardManager: CardServiceProtocol
     var notificationManager: NotificationsServiceProtocol
-    init(cardManager: CardServiceProtocol = CardService.shared,
+    init(transferManager: TransferServiceProtocol = TransferService.shared,
+        cardManager: CardServiceProtocol = CardService.shared,
          notificationManager: NotificationsServiceProtocol = NotificationsService.shared) {
+        self.transferManager = transferManager
         self.cardManager = cardManager
         self.notificationManager = notificationManager
         
@@ -38,6 +43,22 @@ class HomeViewModel: AlertViewModel, ObservableObject {
         })
     }
     
+    @MainActor func getRecentTransfers() {
+        loadingTransactions = true
+        Task {
+            let result = await transferManager.fetchRecentTransferHistory(userID: userID)
+            switch result {
+            case .success(let recent):
+                self.transactions = recent.map(TransactionPreviewViewModel.init)
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            }
+            
+            if !Task.isCancelled {
+                loadingTransactions = false
+            }
+        }
+    }
     
     @MainActor func getCards() {
         loading = true
