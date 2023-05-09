@@ -45,13 +45,13 @@ struct HomeView: View {
                 }
                 
                 
-                RecentTransactions(transactions: homeVM.transactions) {
+                RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
                     viewRouter.pushHomePath(.allTransactions)
-                    
                 }
             }.padding(.top, 1)
                 .task {
                     homeVM.getCards()
+                    homeVM.getRecentTransfers()
                 }
                 .navigationBarTitle(Text(""), displayMode: .inline)
                 .alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {

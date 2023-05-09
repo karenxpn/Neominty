@@ -112,7 +112,7 @@ struct Activity: View {
                         .padding(24)
                         
                         if let transactions = activityVM.activity?.transactions {
-                            RecentTransactions(transactions: transactions) {
+                            RecentTransactions(loading: .constant(false), transactions: transactions) {
                                 viewRouter.pushAnalyicsPath(.allTransactions)
                             }
                         }

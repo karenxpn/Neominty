@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecentTransactions: View {
     
+    @Binding var loading: Bool
     let transactions: [TransactionPreviewViewModel]
     let action: () -> ()
     
@@ -39,7 +40,7 @@ struct RecentTransactions: View {
                     
                     VStack(alignment: .leading, spacing: 4) {
                         TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                        TextHelper(text: transaction.type, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+//                        TextHelper(text: transaction.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                     }
                     
                     Spacer()
@@ -53,6 +54,10 @@ struct RecentTransactions: View {
 
             }
             
+            if loading {
+                ProgressView()
+            }
+            
         }.padding(20)
             .padding(.bottom, UIScreen.main.bounds.height * 0.15)
     }
@@ -60,7 +65,7 @@ struct RecentTransactions: View {
 
 struct RecentTransactions_Previews: PreviewProvider {
     static var previews: some View {
-        RecentTransactions(transactions: PreviewModels.transactionList) {
+        RecentTransactions(loading: .constant(false), transactions: PreviewModels.transactionList) {
             
         }
     }

@@ -21,16 +21,53 @@ struct PreviewModels {
     
     static let amexCard = CardModel(id: UUID().uuidString, cardPan: Credentials.amexCard, cardHolder: "Tonny Monthana", expirationDate: "13/24", currency: .usd, bankName: "ACBA", defaultCard: false, cardStyle: .greenBlue, cardType: .amex, createdAt: Timestamp(date:Date(timeIntervalSinceNow: -1000).toGlobalTime()))
     
-    static let transaction = TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "gym", name: "Gym", type: "Payment", amount: -15.99))
-    static let transactionList = [TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "gym", name: "Gym", type: "Payment", amount: -15.99)),
-                                  TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "deposite", name: "Bank of America", type: "Deposit", amount: +2045.00)),
-                                  TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString, icon: "sent", name: "To Brody Armando", type: "Sent", amount: -699.00))]
+    static let transaction = TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
+                                                                                   amount: 1200,
+                                                                                   currency: "AMD",
+                                                                                   name: "Monthly phone payment",
+                                                                                   recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                   senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date())))
+    
+    
+    static let transactionList = [TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
+                                                                                        amount: 1200,
+                                                                                        currency: "AMD",
+                                                                                        name: "Monthly phone payment",
+                                                                                        recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))),
+                                  TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
+                                                                                        amount: 1200,
+                                                                                        currency: "AMD",
+                                                                                        name: "Monthly phone payment",
+                                                                                        recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))),
+                                  TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
+                                                                                        amount: 1200,
+                                                                                        currency: "AMD",
+                                                                                        name: "Monthly phone payment",
+                                                                                        recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date())))]
     
     static let recentTransferList = [RecentTransfer(id: UUID().uuidString, name: "Karen Mirakyan", card: Credentials.masterCard),
                                      RecentTransfer(id: UUID().uuidString, name: "Martin Mirakyan", card: Credentials.visaCard),
                                      RecentTransfer(id: UUID().uuidString, name: "Samvel Oganisyan", card: Credentials.amexCard)]
     
-    static let transactionListWithoutViewModel = [TransactionPreview(id: UUID().uuidString, icon: "gym", name: "Gym", type: "Payment", amount: -15.99), TransactionPreview(id: UUID().uuidString, icon: "deposite", name: "Bank of America", type: "Deposit", amount: +2045.00), TransactionPreview(id: UUID().uuidString, icon: "sent", name: "To Brody Armando", type: "Sent", amount: -699.00)]
+    static let transactionListWithoutViewModel = [TransactionPreview(id: UUID().uuidString,
+                                                                     amount: 1200,
+                                                                     currency: "AMD",
+                                                                     name: "Monthly phone payment",
+                                                                     recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                     senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date())), TransactionPreview(id: UUID().uuidString,
+                                                                                                                                                                                                                                         amount: 1200,
+                                                                                                                                                                                                                                         currency: "AMD",
+                                                                                                                                                                                                                                         name: "Monthly phone payment",
+                                                                                                                                                                                                                                         recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                                                                                                                                                                         senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date())), TransactionPreview(id: UUID().uuidString,
+                                                                                                                                                                                                                                                                                                                                                                                                             amount: 1200,
+                                                                                                                                                                                                                                                                                                                                                                                                             currency: "AMD",
+                                                                                                                                                                                                                                                                                                                                                                                                             name: "Monthly phone payment",
+                                                                                                                                                                                                                                                                                                                                                                                                             recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
+                                                                                                                                                                                                                                                                                                                                                                                                             senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))]
     
     static let expensesPoints: [ExpensePoint] = [
         .init(unit: "Mon", amount: 989),
