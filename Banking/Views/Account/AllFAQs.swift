@@ -33,7 +33,7 @@ struct AllFAQs: View {
                                     .strokeBorder(AppColors.border, lineWidth: 1)
                             }.onAppear {
                                 if faq.id == accountVM.faqs.last?.id && !accountVM.loading {
-                                    accountVM.getFaqs()
+                                    accountVM.getFAQs()
                                 }
                             }
                     }.sheet(isPresented: $showDetail) {
@@ -48,9 +48,6 @@ struct AllFAQs: View {
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.padding(.top, 1)
-            .task {
-                accountVM.getFaqs()
-            }
             .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {

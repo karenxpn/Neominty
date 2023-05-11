@@ -8,6 +8,8 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseStorage
+import Alamofire
+import Combine
 
 protocol UserServiceProtocol {
     func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error>
@@ -16,7 +18,7 @@ protocol UserServiceProtocol {
     func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateAvatar(userID: String, image: Data) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
-    func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error>
+    func fetchFaqs(query: String, page: Int) async throws -> FAQListModel
 }
 
 class UserSerive {
@@ -28,6 +30,36 @@ class UserSerive {
 }
 
 extension UserSerive: UserServiceProtocol {
+    func fetchFaqs(query: String, page: Int) async throws -> FAQListModel {
+        let url = URL(string: "https://\(Credentials.algolia_app_id)-dsn.algolia.net/1/indexes/faqs/query")!
+        let headers: HTTPHeaders = ["X-Algolia-Application-Id": Credentials.algolia_app_id,
+                                    "X-Algolia-API-Key": Credentials.algolia_api_key]
+        
+        let params: Parameters = [ "params" : "query=\(query)&hitsPerPage=1&page=\(page)" ]
+        
+        return try await withUnsafeThrowingContinuation({ continuation in
+            AF.request(url,
+                       method: .post,
+                       parameters: params,
+                       encoding: JSONEncoding.default,
+                       headers: headers)
+            .validate()
+            .responseDecodable(of: FAQListModel.self) { response in
+
+                if response.error != nil {
+                    response.error.map { err in
+                        let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
+                        continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
+                    }
+                }
+                
+                if let faqs = response.value {
+                    continuation.resume(returning: faqs)
+                }
+            }
+        })
+    }
+    
     
     func updateAvatar(userID: String, image: Data) async -> Result<Void, Error> {
         do {
@@ -42,20 +74,6 @@ extension UserSerive: UserServiceProtocol {
 
             return .success(())
             
-        } catch {
-            return .failure(error)
-        }
-    }
-    
-    
-    func fetchFaqs(page: Int, search: String) async -> Result<[FAQModel], Error> {
-        do {
-            try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
-            var faqs = [FAQModel]()
-            if page <= 2 {
-                faqs = [PreviewModels.faqList[page]]
-            }
-            return .success(faqs)
         } catch {
             return .failure(error)
         }
