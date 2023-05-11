@@ -53,9 +53,6 @@ struct FAQ: View {
             
             
         }.padding(24)
-            .task {
-                accountVM.getFaqs()
-            }
             .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {

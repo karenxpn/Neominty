@@ -44,7 +44,7 @@ struct FAQList: View {
                 
                 ButtonHelper(disabled: accountVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: AppColors.superLightGray, labelColor: AppColors.darkBlue) {
                     
-                    accountVM.getFaqs()
+                    accountVM.getFAQs()
                 }.padding(.top, 35)
             }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
         }.scrollDismissesKeyboard(.immediately)

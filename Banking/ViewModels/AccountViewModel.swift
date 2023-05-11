@@ -37,9 +37,12 @@ class AccountViewModel: AlertViewModel, ObservableObject {
             .sink { (text) in
                 self.page = 0
                 self.faqs.removeAll(keepingCapacity: false)
-//                self.getFaqs(searchText: text)
+                Task { @MainActor [weak self] in
+                    self?.getFAQs(searchText: text)
+                }
             }.store(in: &cancellableSet)
     }
+    
     
     @MainActor func getAccountInfo() {
         loading = true
@@ -108,17 +111,21 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func getFaqs(searchText: String = "") {
+    @MainActor func getFAQs(searchText: String = "") {
         loading = true
+
         Task {
-            
-            let result = await manager.fetchFaqs(page: page, search: searchText)
-            switch result {
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            case .success(let faqs):
-                self.faqs.append(contentsOf: faqs)
+            do {
+                let result = try await manager.fetchFaqs(query: searchText, page: page)
+                self.faqs.append(contentsOf: result.hits)
                 self.page += 1
+            } catch let error as NetworkError {
+                if let backendError = error.backendError {
+                    self.alertMessage = backendError.message
+                    self.showAlert.toggle()
+                } else {
+                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
+                }
             }
             
             if !Task.isCancelled {
