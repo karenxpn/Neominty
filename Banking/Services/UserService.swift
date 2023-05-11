@@ -35,7 +35,7 @@ extension UserSerive: UserServiceProtocol {
         let headers: HTTPHeaders = ["X-Algolia-Application-Id": Credentials.algolia_app_id,
                                     "X-Algolia-API-Key": Credentials.algolia_api_key]
         
-        let params: Parameters = [ "params" : "query=\(query)&hitsPerPage=1&page=\(page)" ]
+        let params: Parameters = [ "params" : "query=\(query)&hitsPerPage=5&page=\(page)" ]
         
         return try await withUnsafeThrowingContinuation({ continuation in
             AF.request(url,
