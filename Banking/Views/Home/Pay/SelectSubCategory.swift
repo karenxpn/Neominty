@@ -11,15 +11,17 @@ struct SelectSubCategory: View {
     @EnvironmentObject private var payVM: PayViewModel
     let category: PayCategoryViewModel
     @Binding var navigateToDetails: Bool
+    @Binding var showSheet: Bool
     @State private var selectedCategory: String = ""
     @State private var fields = [String: String]()
     @State private var fieldsValidation = [String: Bool]()
 
     
-    init(category: PayCategoryViewModel, navigateToDetails: Binding<Bool>) {
+    init(category: PayCategoryViewModel, navigateToDetails: Binding<Bool>, showSheet: Binding<Bool>) {
         self.category = category
         _selectedCategory = State(initialValue: category.subCategories[0].id)
         _navigateToDetails = navigateToDetails
+        _showSheet = showSheet
         
         
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
@@ -32,9 +34,7 @@ struct SelectSubCategory: View {
             VStack(alignment: .leading, spacing: 10) {
                 TabView(selection: $selectedCategory) {
                     ForEach(category.subCategories, id: \.id) { subCategory in
-                        Image(subCategory.image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        ImageHelper(image: subCategory.image, contentMode: .fit)
                             .frame(width: UIScreen.main.bounds.width * 0.8,
                                    height: UIScreen.main.bounds.height * 0.25)
                             .clipped()
@@ -56,6 +56,7 @@ struct SelectSubCategory: View {
                                  || subCategory.fields.map({fieldsValidation[$0.name] == nil}).contains(true), label: NSLocalizedString("continue", comment: "")) {
                         payVM.selectedPaymentCategory = category.subCategories.first(where: {$0.id == selectedCategory})
                         payVM.fields = fields
+                        showSheet.toggle()
                         navigateToDetails.toggle()
                         // navigation
                     }.padding(.top, 100)
@@ -69,7 +70,7 @@ struct SelectSubCategory: View {
 
 struct SelectSubCategory_Previews: PreviewProvider {
     static var previews: some View {
-        SelectSubCategory(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]), navigateToDetails: .constant(false))
+        SelectSubCategory(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]), navigateToDetails: .constant(false), showSheet: .constant(false))
             .environmentObject(PayViewModel())
     }
 }

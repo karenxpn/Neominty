@@ -33,11 +33,11 @@ struct PayCategoryCell: View {
                 }.cornerRadius(16)
         }.sheet(isPresented: $showSheet) {
             if #available(iOS 16.4, *) {
-                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails)
+                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails, showSheet: $showSheet)
                     .presentationDetents([.fraction(0.8)])
                     .presentationCornerRadius(40)
             } else {
-                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails)
+                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails, showSheet: $showSheet)
                     .presentationDetents([.fraction(0.8)])
             }
             

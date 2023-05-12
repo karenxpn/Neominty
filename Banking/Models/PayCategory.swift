@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
+
 struct PayCategory: Identifiable, Codable {
-    var id: String
+    @DocumentID var id: String?
     var title: String
-    var subCategory: [SubCategory]
+    var subCategories: [SubCategory]
 }
 
 struct SubCategory: Identifiable, Codable {
@@ -27,10 +29,10 @@ struct PayCategoryViewModel: Identifiable {
         self.model = model
     }
     
-    var id: String      { self.model.id }
+    var id: String      { self.model.id ?? UUID().uuidString }
     var title: String   { self.model.title }
     var image: String   { self.model.title.lowercased() + "-icon" }
-    var subCategories: [SubCategory]    { self.model.subCategory }
+    var subCategories: [SubCategory]    { self.model.subCategories }
 }
 
 struct SubcategoryField: Identifiable, Codable {
