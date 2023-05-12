@@ -57,6 +57,11 @@ struct PayView: View {
             }
             
         }.padding(.top, 1)
+            .alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(payVM.alertMessage)
+            })
             .scrollDismissesKeyboard(.immediately)
             .navigationDestination(isPresented: $navigate) {
                 PaymentDetails()
