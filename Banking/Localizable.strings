@@ -119,3 +119,6 @@
 "justNow" = "Just Now";
 "notValidQR" = "Scanned QR code is not in valid form";
 "somethingWentWrong" = "Something went wrong please try again later";
+"phone" = "Phone";
+"gambling" = "Gambling";
+"insurance" = "Insurance";

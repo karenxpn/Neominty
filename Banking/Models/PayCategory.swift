@@ -30,7 +30,7 @@ struct PayCategoryViewModel: Identifiable {
     }
     
     var id: String      { self.model.id ?? UUID().uuidString }
-    var title: String   { self.model.title }
+    var title: String   { NSLocalizedString("\(self.model.title.lowercased())", comment: "")}
     var image: String   { self.model.title.lowercased() + "-icon" }
     var subCategories: [SubCategory]    { self.model.subCategories }
 }
