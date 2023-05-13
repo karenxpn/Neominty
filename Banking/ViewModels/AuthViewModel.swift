@@ -128,7 +128,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     // pin authentication
     func checkPinExistence() {
         let pin = keychainManager.get("pin")
-        if let pin {
+        if pin != nil {
             self.authState = .enterPasscode
             if self.biometricEnabled {
                 self.biometricAuthentication()

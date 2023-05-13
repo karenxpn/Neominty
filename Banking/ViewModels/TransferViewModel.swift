@@ -47,12 +47,6 @@ class TransferViewModel: AlertViewModel, ObservableObject {
         loading = true
         
         Task {
-            
-            print(selectedCard)
-            print(selectedTransfer)
-            print(transferAmount)
-            print(cardNumber)
-            
             NotificationCenter.default.post(name: Notification.Name("transferSuccess"), object: nil)
 
             

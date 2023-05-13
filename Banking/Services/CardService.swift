@@ -105,7 +105,6 @@ extension CardService: CardServiceProtocol {
         let url = URL(string: "\(Credentials.functions_base_url)receiveGatewayForm")!
         do {
             let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true).token
-            print(token)
             let headers: HTTPHeaders? = ["Authorization": "Bearer \(token ?? "")"]
             
             return try await withUnsafeThrowingContinuation({ continuation in

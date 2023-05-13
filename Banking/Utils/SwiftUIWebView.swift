@@ -58,7 +58,7 @@ struct SwiftUIWebView: UIViewRepresentable {
             
             if webView.url?.absoluteString.hasPrefix("https://neominty.com/?orderId") == true {
                 decisionHandler(.cancel)
-                if let url = webView.url, let orderId = url.valueOf("orderId") {
+                if let url = webView.url, let _ = url.valueOf("orderId") {
                     self.webView.cardsVM.getAttachmentStatus()
                 }
                 self.webView.active = false
