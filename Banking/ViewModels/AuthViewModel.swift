@@ -15,6 +15,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @AppStorage("userID") var userID: String = ""
     @AppStorage("phoneNumber") var localPhone: String = ""
+    @AppStorage("fullName") var localName: String = ""
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @Published var country: String = "AM"
     @Published var code: String = "374"
@@ -93,9 +94,10 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
-            case .success(let uid):
+            case .success(let res):
                 if auth {
-                    self.userID = uid
+                    self.userID = res.0
+                    self.localName = res.1
                 } else {
                     self.path.append(ViewPaths.setPasscode)
                 }
