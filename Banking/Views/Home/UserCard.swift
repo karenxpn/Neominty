@@ -13,7 +13,7 @@ struct UserCard: View {
     
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 36) {
+        VStack(alignment: .leading, spacing: 20) {
             HStack(spacing: 10) {
                 
                 Image("chip")
@@ -30,9 +30,10 @@ struct UserCard: View {
                 TextHelper(text: card.cardPan, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
                 TextHelper(text: card.expirationDate, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
             }.padding(.horizontal, 20)
+                .padding(.top, 13)
             
             HStack {
-                TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
                 Spacer()
                 if card.cardType == .masterCard {
                     Image("mc_symbol")
