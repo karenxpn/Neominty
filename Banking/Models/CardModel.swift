@@ -99,6 +99,23 @@ enum CardType : RawRepresentable, CaseIterable, Codable {
         case let .unknown(value)    : return value
         }
     }
+    
+    public var icon: String {
+        switch self {
+        case .visa:
+            return "visa"
+        case .masterCard:
+            return "mc_symbol"
+        case .maestro:
+            return "maestro"
+        case .mir:
+            return "mir"
+        case .amex:
+            return "amex"
+        default:
+            return ""
+        }
+    }
 }
 
 

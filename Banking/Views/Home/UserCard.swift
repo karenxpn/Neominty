@@ -35,22 +35,10 @@ struct UserCard: View {
             HStack {
                 TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
                 Spacer()
-                if card.cardType == .masterCard {
-                    Image("mc_symbol")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 45, height: 26)
-                } else if card.cardType == .visa {
-                    Image("visa")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 45, height: 26)
-                } else if card.cardType == .mir {
-                    Image("mir")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 45, height: 26)
-                }
+                Image(card.cardType.icon)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 45, height: 26)
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
                 .background {
