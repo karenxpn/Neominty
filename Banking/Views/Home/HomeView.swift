@@ -43,7 +43,7 @@ struct HomeView: View {
                             }.options(options)
                                 .pagePadding(
                                     vertical: .absolute(40),
-                                    horizontal: .absolute(80)
+                                    horizontal: .absolute(50)
                                 )
                                 .frame(height: 250)
                         }
