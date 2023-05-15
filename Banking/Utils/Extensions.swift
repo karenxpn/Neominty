@@ -481,6 +481,12 @@ extension String {
         let range = NSRange(self.startIndex..., in: self)
         return regex.firstMatch(in: self, options: [], range: range) != nil
     }
+    
+    func isQrValid() -> Bool {
+        let regex = try! NSRegularExpression(pattern: "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}")
+        let range = NSRange(self.startIndex..., in: self)
+        return regex.firstMatch(in: self, options: [], range: range) != nil
+    }
 }
 
 extension CIImage {
