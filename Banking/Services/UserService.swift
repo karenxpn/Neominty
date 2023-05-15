@@ -103,7 +103,7 @@ extension UserSerive: UserServiceProtocol {
     func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
             try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name,
-                                                                                       "email": email?.isEmpty ?? true ? nil : email])
+                                                                                       "email": email as Any])
         }
     }
     
