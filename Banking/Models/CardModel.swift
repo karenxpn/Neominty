@@ -123,17 +123,37 @@ enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable {
     
     typealias RawValue = String
     
+    case standardBlue
+    case standardGreen
+    case standardBlueGreen
+    case standardGreenBlue
+    case hexBlue
+    case hexGreen
+    case hexBlueGreen
+    case hexGreenBlue
     case blue
     case green
     case blueGreen
     case greenBlue
+    case signedGreenBlue
+    case signedBlueGreen
     case unknown(RawValue)
     
     static let allCases: AllCases = [
         .blue,
         .green,
         .blueGreen,
-        .greenBlue
+        .greenBlue,
+        .standardBlue,
+        .standardGreen,
+        .standardBlueGreen,
+        .standardGreenBlue,
+        .hexBlue,
+        .hexGreen,
+        .hexBlueGreen,
+        .hexGreenBlue,
+        .signedGreenBlue,
+        .signedBlueGreen
     ]
     
     init(rawValue: RawValue) {
@@ -151,6 +171,16 @@ enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable {
         case .green                     : return "green"
         case .blueGreen                 : return "blueGreen"
         case .greenBlue                 : return "greenBlue"
+        case .standardBlue              : return "standardBlue"
+        case .standardGreen             : return "standardGreen"
+        case .standardBlueGreen         : return "standardBlueGreen"
+        case .standardGreenBlue         : return "standardGreenBlue"
+        case .hexBlue                   : return "hexBlue"
+        case .hexGreen                  : return "hexGreen"
+        case .hexGreenBlue              : return "hexGreenBlue"
+        case .hexBlueGreen              : return "hexBlueGreen"
+        case .signedGreenBlue           : return "signedGreenBlue"
+        case .signedBlueGreen           : return "signedBlueGreen"
         case let .unknown(value)    : return value
         }
     }
