@@ -97,7 +97,7 @@ struct ScanQR: View {
                     CodeScannerView(codeTypes: [.qr], scanMode: .continuous, showViewfinder: true, simulatedData: "Paul Hudson") { response in
                         switch response {
                         case .success(let result):
-                            if CreditCardValidator(result.string).isValid {
+                            if result.string.isQrValid() {
                                 self.result = result.string
                             } else {
                                 qrVM.showAlert.toggle()
