@@ -84,10 +84,6 @@ struct UserCard: View {
             }
         }
         .cornerRadius(16)
-        .frame(
-              minWidth: 0,
-              maxWidth: UIScreen.main.bounds.width
-            )
     }
 }
 

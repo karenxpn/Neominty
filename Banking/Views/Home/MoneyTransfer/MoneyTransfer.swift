@@ -6,20 +6,28 @@
 //
 
 import SwiftUI
+import CollectionViewPagingLayout
 
 struct MoneyTransfer: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var transferVM = TransferViewModel()
     let cards: [CardModel]
-    @State private var selectedCard: CardModel?
+    @State private var selectedCard: String??
     
     @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
     @State private var navigateToTransferDetails: Bool = false
     
+    var options: ScaleTransformViewOptions {
+        
+        var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
+        viewOptions.shadowEnabled = false
+        return viewOptions
+    }
+    
     init(cards: [CardModel]) {
         self.cards = cards
-        _selectedCard = State(initialValue: cards.first(where: { $0.defaultCard }))
+        _selectedCard = State(initialValue: cards.first(where: { $0.defaultCard })?.id)
     }
     
     var body: some View {
@@ -31,18 +39,16 @@ struct MoneyTransfer: View {
                 TextHelper(text: NSLocalizedString("chooseCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .padding(.leading, 20)
                 
-                ScrollView( .horizontal, showsIndicators: false ) {
-                    LazyHStack(spacing: 16) {
-                        ForEach( cards, id: \.id ) { card in
-                            Button {
-                                selectedCard = card
-                            } label: {
-                                UserCard(card: card, selected: card.id == selectedCard?.id)
-                                    .frame(width: UIScreen.main.bounds.width * 0.8)
-                            }
-                        }
-                    }.padding(.horizontal, 20)
-                }
+                ScalePageView(cards, selection: $selectedCard) { card in
+                    UserCard(card: card, selected: card.id == selectedCard)
+                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                }.options(options)
+                    .pagePadding(
+                        vertical: .absolute(40),
+                        horizontal: .absolute(80)
+                    )
+                    .frame(height: 250)
+                
                 
                 
                 VStack(alignment: .leading, spacing: 15) {
@@ -111,9 +117,9 @@ struct MoneyTransfer: View {
                             
                             RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
-                                                
+                        
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
-                            transferVM.selectedCard = selectedCard
+                            transferVM.selectedCard = cards.first(where: {$0.id == selectedCard})
                             navigateToTransferDetails.toggle()
                         }.padding(.top, 20)
                             .navigationDestination(isPresented: $navigateToTransferDetails) {
@@ -127,15 +133,15 @@ struct MoneyTransfer: View {
             
         }.padding(.top, 1)
             .scrollDismissesKeyboard(.immediately)
-        .navigationTitle(Text(""))
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                VStack(alignment: .leading, spacing: 4) {
-                    TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: Roboto.bold.rawValue, fontSize: 20)
+            .navigationTitle(Text(""))
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    }
+                    
                 }
-                
-            }
-        }.task {
+            }.task {
                 transferVM.getRecentTransfers()
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }

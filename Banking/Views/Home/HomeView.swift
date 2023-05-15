@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import CollectionViewPagingLayout
 
 struct HomeView: View {
     @AppStorage("fullName") var localName: String = ""
-
+    
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
+    
+    var options: ScaleTransformViewOptions {
+    
+        var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
+        viewOptions.shadowEnabled = false
+        return viewOptions
+    }
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
@@ -20,32 +28,31 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 
                 ZStack(alignment: .bottom) {
-                    
+
                     Image("layer-blur")
                         .opacity(0.9)
-                    
-                    VStack(spacing: 34) {
-                        
-                        ScrollView( .horizontal, showsIndicators: false ) {
-                            LazyHStack(spacing: 16) {
-                                if homeVM.loading {
-                                    ProgressView()
-                                } else {
-                                    ForEach( homeVM.cards, id: \.id ) { card in
-                                        UserCard(card: card, selected: card.defaultCard)
-                                            .frame(width: UIScreen.main.bounds.width * 0.8)
-                                    }
-                                }
-                                
-                            }.padding(.horizontal, 20)
+
+                    VStack {
+
+                        if homeVM.loading {
+                            ProgressView()
+                        } else {
+                            ScalePageView(homeVM.cards) { card in
+                                UserCard(card: card, selected: card.defaultCard)
+                                    .frame(width: UIScreen.main.bounds.width * 0.8)
+                            }.options(options)
+                                .pagePadding(
+                                    vertical: .absolute(40),
+                                    horizontal: .absolute(80)
+                                )
+                                .frame(height: 250)
                         }
-                        
+
                         HomeMenu()
                             .environmentObject(viewRouter)
-                        
-                    }.padding(.top)
+
+                    }
                 }
-                
                 
                 RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
                     viewRouter.pushHomePath(.allTransactions)
@@ -101,7 +108,9 @@ struct HomeView: View {
 }
 
 struct HomeView_Previews: PreviewProvider {
+    @StateObject var homeVM = HomeViewModel()
     static var previews: some View {
+        
         HomeView()
             .environmentObject(ViewRouter())
     }
