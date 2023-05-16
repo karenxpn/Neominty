@@ -42,11 +42,7 @@ struct SignedStyle: View {
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
                 .background {
-                    if card.cardStyle == .signedBlueGreen {
-                        AppColors.green
-                    } else if card.cardStyle == .signedGreenBlue {
-                        AppColors.darkBlue
-                    }
+                    card.cardStyle == .signedBlueGreen ? AppColors.green : AppColors.darkBlue
                 }
         }.background {
             ZStack(alignment: .trailing) {
