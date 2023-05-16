@@ -9,18 +9,20 @@ import Foundation
 import PhoneNumberKit
 
 struct UserInfo: Codable {
+    var id: String
     var avatar: String?
     var name: String?
     var email: String?
     var phone_number: String?
 }
 
-struct UserInfoViewModel {
+struct UserInfoViewModel: Identifiable {
     var model: UserInfo
     init(model: UserInfo) {
         self.model = model
     }
     
+    var id: String  { self.model.id }
     func countryFlag(countryCode: String) -> String {
         return String(String.UnicodeScalarView(
             countryCode.unicodeScalars.compactMap(

@@ -11,7 +11,7 @@ import FirebaseAuth
 
 protocol AuthServiceProtocol {
     func sendVerificationCode(phone: String) async -> Result<Void, Error>
-    func checkVerificationCode(code: String) async -> Result<(String, String), Error>
+    func checkVerificationCode(code: String) async -> Result<String, Error>
     func fetchIntroduction() async -> Result<[IntroductionModel], Error>
     func signOut() async -> Result<Void, Error>
 }
@@ -38,19 +38,14 @@ extension AuthService: AuthServiceProtocol {
         }
     }
     
-    func checkVerificationCode(code: String) async -> Result<(String, String), Error> {
+    func checkVerificationCode(code: String) async -> Result<String, Error> {
         let verificationID = UserDefaults.standard.string(forKey: "authVerificationID")
         guard let verificationID else { return .failure(Error.self as! Error) }
         
         do {
             let credential =  PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: code)
             let uid = try await Auth.auth().signIn(with: credential).user.uid
-            let fullName = try await db.collection(Paths.users.rawValue)
-                .document(uid)
-                .getDocument(as: UserInfo.self)
-                .name ?? ""
-                
-            return .success((uid, fullName))
+            return .success(uid)
             
         } catch {
             return .failure(error)

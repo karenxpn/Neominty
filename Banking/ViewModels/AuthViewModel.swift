@@ -94,10 +94,9 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &alertMessage, alert: &showAlert)
-            case .success(let res):
+            case .success(let uid):
                 if auth {
-                    self.userID = res.0
-                    self.localName = res.1
+                    self.userID = uid
                 } else {
                     self.path.append(ViewPaths.setPasscode)
                 }
