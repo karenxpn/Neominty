@@ -18,10 +18,31 @@ class ViewRouter: ObservableObject {
     @Published var analyticsPath = NavigationPath()
     @Published var accountPath = NavigationPath()
     
-    init() {
+    @AppStorage("userID") var userID: String = ""
+    @AppStorage("fullName") var localName: String = ""
+
+
+    var accountManager: UserServiceProtocol
+    
+    init(accountManager: UserServiceProtocol = UserSerive.shared) {
+        self.accountManager = accountManager
+        
         if self.firstInstall {
             tab = 1
             self.firstInstall = false
+        }
+    }
+    
+    @MainActor func getAccountInfo() {
+        Task {
+            
+            let result = await accountManager.fetchAccountInfo(userID: userID)
+            switch result {
+            case .failure(_):
+                break
+            case .success(let info):
+                self.localName = info.name ?? ""
+            }
         }
     }
     
