@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */; };
 		FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */; };
 		FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF13833F2A03DB8A00607BDB /* PhoneNumberKit */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
@@ -181,6 +182,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardStyle.swift; sourceTree = "<group>"; };
 		FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				FFAC1DE929D1C79500947CBC /* Cards.swift */,
+				FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */,
 				FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */,
 				FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */,
 				FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */,
@@ -957,6 +960,7 @@
 				FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */,
 				FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */,
 				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
+				FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,

@@ -38,7 +38,7 @@ struct Cards: View {
                 .navigationDestination(for: MyCardViewPaths.self) { value in
                     switch value {
                     case .attachCard:
-                        AddNewCard()
+                        SelectCardStyle()
                     }
                 }
         }

@@ -13,8 +13,11 @@ struct AddNewCard: View {
     
     @State private var navigate: Bool = false
     
-    let designs: [CardDesign] = [.blue, .blueGreen, .green, .greenBlue]
+    let designs: [CardDesign : [CardDesign]] = [.hex : [.hexBlue, .hexGreen, .hexGreenBlue, .hexBlueGreen],
+                                                .standard: [.standardBlue, .standardGreen, .standardBlueGreen, .standardGreenBlue],
+                                                .signed: [.signedBlueGreen, .signedGreenBlue]]
     @State private var showAlert: Bool = false
+    let style: CardDesign
     
     
     var body: some View {
@@ -31,9 +34,12 @@ struct AddNewCard: View {
                     .padding(.horizontal, 24)
                     
                     VStack(spacing: 16) {
-                        ForEach(designs, id: \.id) { design in
-                            CardStylingSelector(selectedItem: $cardsVM.design, cardDesign: design)
+                        if let subDesignes = designs[style] {
+                            ForEach(subDesignes, id: \.id) { design in
+                                CardStylingSelector(selectedItem: $cardsVM.design, cardDesign: design)
+                            }
                         }
+
                     }.padding(.vertical, 15)
                         .padding(.horizontal, 8)
                         .background(Color.white)
@@ -88,6 +94,6 @@ struct AddNewCard: View {
 
 struct AddNewCard_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewCard()
+        AddNewCard(style: .standard)
     }
 }

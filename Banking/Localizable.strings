@@ -40,6 +40,7 @@
 "welcomeBack" = "Welcome back!";
 "recentTransactions" = "Recent Transactions";
 "transfer" = "Transfer";
+"chooseYourStyle" = "Choose your style";
 "chooseCard" = "Choose Card";
 "enterReceiverDetails" = "Enter Receiver Card Details";
 "noRecentTransactions" = "No Recent Transactions";
