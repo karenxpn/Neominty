@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */; };
 		FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */; };
 		FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF13833F2A03DB8A00607BDB /* PhoneNumberKit */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
@@ -30,6 +31,9 @@
 		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
+		FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */; };
+		FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */; };
+		FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */; };
 		FF38E9F029CB75A100610F5C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9EF29CB75A100610F5C /* Activity.swift */; };
 		FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F129CB75D500610F5C /* ActivityGraph.swift */; };
 		FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */; };
@@ -178,6 +182,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardStyle.swift; sourceTree = "<group>"; };
 		FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -195,6 +200,9 @@
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardStyles.swift; sourceTree = "<group>"; };
+		FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonStyles.swift; sourceTree = "<group>"; };
+		FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedStyle.swift; sourceTree = "<group>"; };
 		FF38E9EF29CB75A100610F5C /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		FF38E9F129CB75D500610F5C /* ActivityGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityGraph.swift; sourceTree = "<group>"; };
 		FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
@@ -474,6 +482,16 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		FF20A3DE2A12DE7400E41FC2 /* CardStyles */ = {
+			isa = PBXGroup;
+			children = (
+				FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */,
+				FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */,
+				FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */,
+			);
+			path = CardStyles;
+			sourceTree = "<group>";
+		};
 		FF38E9EE29CB759200610F5C /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +516,7 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FF20A3DE2A12DE7400E41FC2 /* CardStyles */,
 				FFB1C97F29EB36A90063DD24 /* Notifications */,
 				FF7A11FA29E047EC00286366 /* Pay */,
 				FF821BCA29D5C0B800F3BA0C /* RequestTransfer */,
@@ -662,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				FFAC1DE929D1C79500947CBC /* Cards.swift */,
+				FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */,
 				FFAC1DED29D1DA7D00947CBC /* AddNewCard.swift */,
 				FFAC1DEF29D1DA8A00947CBC /* CardsList.swift */,
 				FFAC1DF329D2205500947CBC /* CardDetailTextFieldDecorator.swift */,
@@ -912,6 +932,7 @@
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
 				FF7A11DD29D77FFF00286366 /* AccountViewPersonalInfo.swift in Sources */,
 				FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */,
+				FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */,
 				FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
@@ -939,9 +960,11 @@
 				FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */,
 				FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */,
 				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
+				FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
+				FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
@@ -970,6 +993,7 @@
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */,
 				FF7A120429E057E800286366 /* PayService.swift in Sources */,
+				FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */,
 				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,

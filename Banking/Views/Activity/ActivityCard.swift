@@ -33,20 +33,26 @@ struct ActivityCard: View {
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
         }.background {
-            if card.cardStyle == .blue || card.cardStyle == .blueGreen {
+            
+            switch card.cardStyle {
+            case .standardBlue, .hexBlue:
+                AppColors.darkBlue
+            case .standardGreen, .hexGreen:
+                AppColors.green
+            case .standardBlueGreen, .hexBlueGreen:
+                LinearGradient(gradient: Gradient(colors: [AppColors.darkBlue, AppColors.green]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            case .standardGreenBlue, .hexGreenBlue:
+                LinearGradient(gradient: Gradient(colors: [AppColors.green, AppColors.darkBlue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            case .signedBlueGreen, .signedGreenBlue:
                 ZStack(alignment: .trailing) {
-                    AppColors.darkBlue
+                    card.cardStyle == .signedBlueGreen ? AppColors.darkBlue : AppColors.green
                     Image("card-sign")
                         .resizable()
                 }
-            } else if card.cardStyle == .green || card.cardStyle == .greenBlue {
-                
-                ZStack(alignment: .trailing) {
-                    AppColors.green
-                    Image("card-sign")
-                        .resizable()
-                }
+            default:
+                EmptyView()
             }
+
         }
         .cornerRadius(16)
         .frame(

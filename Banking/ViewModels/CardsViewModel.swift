@@ -23,7 +23,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     @Published var expirationDate: String = ""
     
     @Published var cardType = CreditCardType.nonIdentified
-    @Published var design: CardDesign = .blue
+    @Published var design: CardDesign = .standardBlue
     
     
     var manager: CardServiceProtocol

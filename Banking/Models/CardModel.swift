@@ -99,24 +99,67 @@ enum CardType : RawRepresentable, CaseIterable, Codable {
         case let .unknown(value)    : return value
         }
     }
+    
+    public var icon: String {
+        switch self {
+        case .visa:
+            return "visa"
+        case .masterCard:
+            return "mc_symbol"
+        case .maestro:
+            return "maestro"
+        case .mir:
+            return "mir"
+        case .amex:
+            return "amex"
+        default:
+            return ""
+        }
+    }
 }
 
 
-enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable {
+enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable, Hashable {
     
     typealias RawValue = String
     
+    case standard
+    case hex
+    case signed
+    case standardBlue
+    case standardGreen
+    case standardBlueGreen
+    case standardGreenBlue
+    case hexBlue
+    case hexGreen
+    case hexBlueGreen
+    case hexGreenBlue
     case blue
     case green
     case blueGreen
     case greenBlue
+    case signedGreenBlue
+    case signedBlueGreen
     case unknown(RawValue)
     
     static let allCases: AllCases = [
+        .standard,
+        .hex,
+        .signed,
         .blue,
         .green,
         .blueGreen,
-        .greenBlue
+        .greenBlue,
+        .standardBlue,
+        .standardGreen,
+        .standardBlueGreen,
+        .standardGreenBlue,
+        .hexBlue,
+        .hexGreen,
+        .hexBlueGreen,
+        .hexGreenBlue,
+        .signedGreenBlue,
+        .signedBlueGreen
     ]
     
     init(rawValue: RawValue) {
@@ -134,6 +177,19 @@ enum CardDesign : RawRepresentable, CaseIterable, Codable, Identifiable {
         case .green                     : return "green"
         case .blueGreen                 : return "blueGreen"
         case .greenBlue                 : return "greenBlue"
+        case .standardBlue              : return "standardBlue"
+        case .standardGreen             : return "standardGreen"
+        case .standardBlueGreen         : return "standardBlueGreen"
+        case .standardGreenBlue         : return "standardGreenBlue"
+        case .hexBlue                   : return "hexBlue"
+        case .hexGreen                  : return "hexGreen"
+        case .hexGreenBlue              : return "hexGreenBlue"
+        case .hexBlueGreen              : return "hexBlueGreen"
+        case .signedGreenBlue           : return "signedGreenBlue"
+        case .signedBlueGreen           : return "signedBlueGreen"
+        case .standard                  : return "standard"
+        case .signed                    : return "signed"
+        case .hex                       : return "hex"
         case let .unknown(value)    : return value
         }
     }
