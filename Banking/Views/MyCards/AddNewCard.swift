@@ -19,7 +19,6 @@ struct AddNewCard: View {
     @State private var showAlert: Bool = false
     let style: CardDesign
     
-    
     var body: some View {
         
         ScrollView(showsIndicators: false) {
@@ -72,6 +71,9 @@ struct AddNewCard: View {
             }
             
         }.padding(.top, 1)
+            .onAppear {
+                cardsVM.design = designs[style]?.first ?? .standardBlue
+            }
             .scrollDismissesKeyboard(.immediately)
         .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)

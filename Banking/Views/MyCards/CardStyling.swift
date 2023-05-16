@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct CardStyling: View {
     
@@ -15,75 +16,35 @@ struct CardStyling: View {
     @Binding var expireDate: String
     @Binding var cardDesign: CardDesign
     
+    var card: CardModel
+    
+    init(cardNumber: Binding<String>, cardType: Binding<CreditCardType>, cardHolder: Binding<String>, expireDate: Binding<String>, cardDesign: Binding<CardDesign>) {
+        self._cardNumber = cardNumber
+        self._cardType = cardType
+        self._cardHolder = cardHolder
+        self._expireDate = expireDate
+        self._cardDesign = cardDesign
+        
+        self.card = CardModel(cardPan: cardNumber.wrappedValue.isEmpty ? "xxxx xxxx xxxx xxxx" : cardNumber.wrappedValue,
+                              cardHolder: cardHolder.wrappedValue.isEmpty ? "John Smith" : cardHolder.wrappedValue ,
+                              expirationDate: expireDate.wrappedValue.isEmpty ? "MM/YYYY" : expireDate.wrappedValue,
+                              bankName: "",
+                              cardStyle: cardDesign.wrappedValue,
+                              cardType: .masterCard, createdAt: Timestamp(date: Date()), bindingId: "")
+    }
+    
     var body: some View {
         
-        VStack(alignment: .leading, spacing: 36) {
-            HStack(spacing: 10) {
-                
-                Image("chip")
-                Image("wifi")
-                
-                Spacer()
-                
-            }.padding([.horizontal, .top], 20)
-            
-            VStack(alignment: .leading, spacing: 6) {
-                TextHelper(text: cardNumber.isEmpty ? "0000 0000 0000 0000" : cardNumber, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
-                
-                TextHelper(text: expireDate.isEmpty ? "00/00" : expireDate, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-            }.padding(.horizontal, 20)
-            
-            HStack {
-                TextHelper(text: cardHolder.isEmpty ? NSLocalizedString("yourName", comment: "") : cardHolder,
-                           color: .white,
-                           fontName: Roboto.bold.rawValue,
-                           fontSize: 20)
-                
-                Spacer()
-                
-                Image(cardType.textFieldIcon)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 45, height: 26)
-                
-            }.padding(.vertical, 16)
-                .padding(.horizontal, 20)
-                .background {
-                    if cardDesign == .blueGreen {
-                        AppColors.green
-                    } else if cardDesign == .greenBlue {
-                        AppColors.darkBlue
-                    }
-                }
-        }.background {
-            if cardDesign == .blue || cardDesign == .blueGreen {
-                ZStack(alignment: .trailing) {
-                    AppColors.darkBlue
-                    if cardDesign == .blue {
-                        CardHexDesign()
-                    } else {
-                        Image("card-sign")
-                            .resizable()
-                    }
-                }
-            } else if cardDesign == .green || cardDesign == .greenBlue {
-                
-                ZStack(alignment: .trailing) {
-                    AppColors.green
-                    if cardDesign == .green {
-                        CardHexDesign()
-                    } else {
-                        Image("card-sign")
-                            .resizable()
-                    }
-                }
-            }
+        switch cardDesign {
+        case .standardBlue, .standardGreen, .standardBlueGreen, .standardGreenBlue:
+            StandardStyles(card: card, selected: false)
+        case .hexBlue, .hexGreen, .hexBlueGreen, .hexGreenBlue:
+            HexagonStyles(card: card, selected: false)
+        case .signedGreenBlue, .signedBlueGreen:
+            SignedStyle(card: card, selected: false)
+        default:
+            EmptyView()
         }
-        .cornerRadius(16)
-        .frame(
-              minWidth: 0,
-              maxWidth: UIScreen.main.bounds.width
-            )
     }
 }
 
