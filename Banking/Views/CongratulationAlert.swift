@@ -9,13 +9,14 @@ import SwiftUI
 
 struct CongratulationAlert<Content: View>: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    @Environment(\.presentationMode) var presentationMode
     private var content: Content
+    private var action: () -> ()
 
     
-    init( @ViewBuilder content: () -> Content) {
+    init( @ViewBuilder content: () -> Content, action: @escaping () -> () ) {
         UITableView.appearance().backgroundColor = .clear
         self.content = content()
+        self.action = action
     }
     
     var body: some View {
@@ -47,7 +48,7 @@ struct CongratulationAlert<Content: View>: View {
                     
                     
                     ButtonHelper(disabled: false, label: NSLocalizedString("okIamReady", comment: "")) {
-                        viewRouter.popToCardRoot()
+                        action()
                     }
                     
                 }.padding(24)
@@ -69,8 +70,9 @@ struct CongratulationAlert_Previews: PreviewProvider {
                 TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                 
                 TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                
             }
+        }, action: {
+            
         })
     }
 }

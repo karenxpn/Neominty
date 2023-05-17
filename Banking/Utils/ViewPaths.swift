@@ -29,6 +29,7 @@ enum HomeViewPaths: String, Identifiable {
     case more
     case notifications
     case allTransactions
+    case attachCard
     
     var id: String {
         self.rawValue

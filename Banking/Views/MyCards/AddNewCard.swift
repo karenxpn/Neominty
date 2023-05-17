@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddNewCard: View {
     
+    @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var cardsVM = CardsViewModel()
     
     @State private var navigate: Bool = false
@@ -63,6 +64,9 @@ struct AddNewCard: View {
                                 TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
 
                             }
+                        } action: {
+                            showAlert = false
+                            viewRouter.popToCardRoot()
                         }
                     }
                     
