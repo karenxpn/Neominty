@@ -10,6 +10,7 @@ import SwiftUI
 struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
+    @State private var showCardAttachedAlert: Bool = false
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
@@ -41,6 +42,10 @@ struct Activity: View {
                                 .onChange(of: activityVM.selectedCard) { newValue in
                                     activityVM.getActivity()
                                 }
+                        } else {
+                            AttachCardButtonLikeSelect {
+                                viewRouter.pushAnalyicsPath(.attachCard)
+                            } .frame(width: UIScreen.main.bounds.width * 0.9)
                         }
                         
                         VStack(spacing: 24) {
@@ -115,6 +120,9 @@ struct Activity: View {
                             RecentTransactions(loading: .constant(false), transactions: transactions) {
                                 viewRouter.pushAnalyicsPath(.allTransactions)
                             }
+                        } else {
+                            NoTransactionsToShow()
+                                .padding(.horizontal, 24)
                         }
                     }.padding(.top, 1)
                     
@@ -138,7 +146,21 @@ struct Activity: View {
                 }, message: {
                     Text(activityVM.alertMessage)
                 })
-        }
+        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+            showCardAttachedAlert.toggle()
+        }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
+            CongratulationAlert {
+                VStack(spacing: 12) {
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+
+                }
+            } action: {
+                showCardAttachedAlert = false
+                viewRouter.popToAnalyticsRoot()
+            }
+        })
     }
 }
 
