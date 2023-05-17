@@ -45,7 +45,7 @@ enum MyCardViewPaths: String, Identifiable {
 }
 
 enum ScanViewPaths: String, Identifiable {
-    case scan
+    case attachCard
     
     var id: String {
         self.rawValue
@@ -54,6 +54,7 @@ enum ScanViewPaths: String, Identifiable {
 
 enum AnalyticsViewPaths: String, Identifiable {
     case allTransactions
+    case attachCard
     
     var id: String {
         self.rawValue

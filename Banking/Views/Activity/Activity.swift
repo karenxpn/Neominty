@@ -130,6 +130,8 @@ struct Activity: View {
                     switch value {
                     case .allTransactions:
                         AllTransactions()
+                    case .attachCard:
+                        SelectCardStyle()
                     }
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $activityVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
