@@ -53,31 +53,34 @@ struct Activity: View {
                             if activityVM.loadingActivity {
                                 ProgressView()
                             } else {
+                                
+                                HStack {
+                                    
+                                    HStack(spacing: 12) {
+                                        Image("income-icon")
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            
+                                        }
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    HStack(spacing: 12) {
+                                        Image("expense-icon")
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.expenses, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                        }
+                                    }
+                                    
+                                }.padding(.bottom, 20)
+                                
+                                
                                 if let activity = activityVM.activity {
-                                    HStack {
-                                        
-                                        HStack(spacing: 12) {
-                                            Image("income-icon")
-                                            VStack(alignment: .leading, spacing: 2) {
-                                                TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
-                                                TextHelper(text: activity.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                                                
-                                            }
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        HStack(spacing: 12) {
-                                            Image("expense-icon")
-                                            VStack(alignment: .leading, spacing: 2) {
-                                                TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
-                                                TextHelper(text: activity.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                                            }
-                                        }
-                                        
-                                    }.padding(.bottom, 20)
                                     
                                     HStack {
                                         ForEach(activityVM.activityUnit, id: \.self) { unit in
@@ -100,6 +103,16 @@ struct Activity: View {
                                     }
                                     
                                     ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
+                                        .padding(.horizontal, -24)
+                                } else {
+                                    ActivityGraph(points: [
+                                        .init(unit: "Mon", amount: 0),
+                                        .init(unit: "Tue", amount: 0),
+                                        .init(unit: "Wed", amount: 0),
+                                        .init(unit: "Thu", amount: 0),
+                                        .init(unit: "Fri", amount: 0),
+                                        .init(unit: "Sat", amount: 0),
+                                        .init(unit: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                 }
                             }
