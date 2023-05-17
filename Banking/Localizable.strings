@@ -76,6 +76,7 @@
 "createYourNeomintyCard" = "Create your Neominty Card";
 "createYourCardMessage" = "The customizable, no hidden fee, instant discount debit or credit card";
 "attachCard" = "Attach Card";
+"attachNewCard" = "Attach a new card";
 "attachCardToRequestTransfer" = "Attach a card to request transfer from users";
 "selectYourCard" = "Select your card";
 "enterSenderPhone" = "Enter sender phone number";
@@ -124,3 +125,5 @@
 "gambling" = "Gambling";
 "insurance" = "Insurance";
 "welcomeToNeominty" = "Welcome to Neominty🥳";
+"nothingToShow" = "Nothing to show";
+"makeYourFirstTransaction" = "Make your first transaction";

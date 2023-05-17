@@ -14,6 +14,7 @@ struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
+    @State private var showCardAttachedAlert: Bool = false
     
     var options: ScaleTransformViewOptions {
     
@@ -36,6 +37,11 @@ struct HomeView: View {
 
                         if homeVM.loading {
                             ProgressView()
+                        } else if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
+                            AttachNewCardButton {
+                                viewRouter.pushHomePath(.attachCard)
+                            }.padding(24)
+                            
                         } else {
                             ScalePageView(homeVM.cards) { card in
                                 UserCard(card: card, selected: card.defaultCard)
@@ -101,9 +107,25 @@ struct HomeView: View {
                         MoreTransfers()
                     case .notifications:
                         Notifications()
+                    case .attachCard:
+                        SelectCardStyle()
                     }
                 }
-        }
+        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+            showCardAttachedAlert.toggle()
+        }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
+            CongratulationAlert {
+                VStack(spacing: 12) {
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+
+                }
+            } action: {
+                showCardAttachedAlert = false
+                viewRouter.popToHomeRoot()
+            }
+        })
     }
 }
 

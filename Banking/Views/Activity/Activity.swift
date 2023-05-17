@@ -10,6 +10,7 @@ import SwiftUI
 struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
+    @State private var showCardAttachedAlert: Bool = false
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
@@ -41,6 +42,10 @@ struct Activity: View {
                                 .onChange(of: activityVM.selectedCard) { newValue in
                                     activityVM.getActivity()
                                 }
+                        } else {
+                            AttachCardButtonLikeSelect {
+                                viewRouter.pushAnalyicsPath(.attachCard)
+                            } .frame(width: UIScreen.main.bounds.width * 0.9)
                         }
                         
                         VStack(spacing: 24) {
@@ -48,31 +53,34 @@ struct Activity: View {
                             if activityVM.loadingActivity {
                                 ProgressView()
                             } else {
+                                
+                                HStack {
+                                    
+                                    HStack(spacing: 12) {
+                                        Image("income-icon")
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            
+                                        }
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    HStack(spacing: 12) {
+                                        Image("expense-icon")
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.expenses, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                        }
+                                    }
+                                    
+                                }.padding(.bottom, 20)
+                                
+                                
                                 if let activity = activityVM.activity {
-                                    HStack {
-                                        
-                                        HStack(spacing: 12) {
-                                            Image("income-icon")
-                                            VStack(alignment: .leading, spacing: 2) {
-                                                TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
-                                                TextHelper(text: activity.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                                                
-                                            }
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        HStack(spacing: 12) {
-                                            Image("expense-icon")
-                                            VStack(alignment: .leading, spacing: 2) {
-                                                TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-                                                
-                                                TextHelper(text: activity.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                                            }
-                                        }
-                                        
-                                    }.padding(.bottom, 20)
                                     
                                     HStack {
                                         ForEach(activityVM.activityUnit, id: \.self) { unit in
@@ -96,6 +104,16 @@ struct Activity: View {
                                     
                                     ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
+                                } else {
+                                    ActivityGraph(points: [
+                                        .init(unit: "Mon", amount: 0),
+                                        .init(unit: "Tue", amount: 0),
+                                        .init(unit: "Wed", amount: 0),
+                                        .init(unit: "Thu", amount: 0),
+                                        .init(unit: "Fri", amount: 0),
+                                        .init(unit: "Sat", amount: 0),
+                                        .init(unit: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
+                                        .padding(.horizontal, -24)
                                 }
                             }
                             
@@ -115,6 +133,9 @@ struct Activity: View {
                             RecentTransactions(loading: .constant(false), transactions: transactions) {
                                 viewRouter.pushAnalyicsPath(.allTransactions)
                             }
+                        } else {
+                            NoTransactionsToShow()
+                                .padding(.horizontal, 24)
                         }
                     }.padding(.top, 1)
                     
@@ -130,13 +151,29 @@ struct Activity: View {
                     switch value {
                     case .allTransactions:
                         AllTransactions()
+                    case .attachCard:
+                        SelectCardStyle()
                     }
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $activityVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
                 }, message: {
                     Text(activityVM.alertMessage)
                 })
-        }
+        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+            showCardAttachedAlert.toggle()
+        }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
+            CongratulationAlert {
+                VStack(spacing: 12) {
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+
+                }
+            } action: {
+                showCardAttachedAlert = false
+                viewRouter.popToAnalyticsRoot()
+            }
+        })
     }
 }
 

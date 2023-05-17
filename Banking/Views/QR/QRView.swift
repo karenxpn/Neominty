@@ -15,6 +15,7 @@ struct QRView: View {
     @StateObject private var qrVM = QrViewModel()
     @State private var selectCard: Bool = false
     @State private var scanQR: Bool = false
+    @State private var showCardAttachedAlert: Bool = false
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -27,6 +28,26 @@ struct QRView: View {
                     
                     if qrVM.loading {
                         ProgressView()
+                    } else if qrVM.selectedCard == nil && qrVM.alertMessage.isEmpty {
+                        AttachCardButtonLikeSelect {
+                            viewRouter.pushScanPath(.attachCard)
+                        }
+                        
+                        Image(uiImage: generateQRCode(from: "Welcome To Neominty)"))
+                            .resizable()
+                            .interpolation(.none)
+                            .scaledToFit()
+                            .frame(width: 210, height: 210)
+                            .overlay(content: {
+                                Color.gray.opacity(0.5)
+                                    .cornerRadius(20)
+                            })
+                            .padding(.horizontal, 47)
+                            .padding(.vertical, 57)
+                            .background(Color.white)
+                            .cornerRadius(20)
+                            .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
+                        
                     } else {
                         
                         if qrVM.selectedCard != nil {
@@ -86,7 +107,27 @@ struct QRView: View {
                             }
                         }
                     }
-        }
+                    .navigationDestination(for: ScanViewPaths.self) { value in
+                        switch value {
+                        case .attachCard:
+                            SelectCardStyle()
+                        }
+                    }
+        }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+            showCardAttachedAlert.toggle()
+        }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
+            CongratulationAlert {
+                VStack(spacing: 12) {
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+
+                }
+            } action: {
+                showCardAttachedAlert = false
+                viewRouter.popToScanRoot()
+            }
+        })
     }
     
     func generateQRCode(from string: String) -> UIImage {

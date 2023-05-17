@@ -39,15 +39,21 @@ struct MoneyTransfer: View {
                 TextHelper(text: NSLocalizedString("chooseCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .padding(.leading, 20)
                 
-                ScalePageView(cards, selection: $selectedCard) { card in
-                    UserCard(card: card, selected: card.id == selectedCard)
-                        .frame(width: UIScreen.main.bounds.width * 0.8)
-                }.options(options)
-                    .pagePadding(
-                        vertical: .absolute(40),
-                        horizontal: .absolute(80)
-                    )
-                    .frame(height: 250)
+                if cards.isEmpty {
+                    AttachNewCardButton {
+                        viewRouter.pushHomePath(.attachCard)
+                    }.padding(24)
+                } else {
+                    ScalePageView(cards, selection: $selectedCard) { card in
+                        UserCard(card: card, selected: card.id == selectedCard)
+                            .frame(width: UIScreen.main.bounds.width * 0.8)
+                    }.options(options)
+                        .pagePadding(
+                            vertical: .absolute(40),
+                            horizontal: .absolute(80)
+                        )
+                        .frame(height: 250)
+                }
                 
                 
                 

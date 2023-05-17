@@ -19,6 +19,10 @@ struct PaymentDetails: View {
             VStack(spacing: 42) {
                 if payVM.loading {
                     ProgressView()
+                } else if payVM.cards.isEmpty && payVM.selectedCard == nil && payVM.alertMessage.isEmpty {
+                    AttachCardButtonLikeSelect {
+                        viewRouter.pushHomePath(.attachCard)
+                    }
                 } else if payVM.selectedCard != nil {
                     SelectCardButton(card: payVM.selectedCard!, buttonType: .popup) {
                         selectCard.toggle()

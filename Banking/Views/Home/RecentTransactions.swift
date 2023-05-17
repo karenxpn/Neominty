@@ -30,33 +30,37 @@ struct RecentTransactions: View {
                 }
             }
             
-            ForEach(transactions, id: \.id) { transaction in
-                HStack(spacing: 16) {
-                    
-                    Image(transaction.icon)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 48, height: 48)
-                    
-                    VStack(alignment: .leading, spacing: 4) {
-                        TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-//                        TextHelper(text: transaction.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
-                    }
-                    
-                    Spacer()
-                    
-                    TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-
-                }
-                
-                Divider()
-                    .overlay(AppColors.superLightGray)
-
-            }
             
             if loading {
                 ProgressView()
+            } else if transactions.isEmpty {
+                NoTransactionsToShow()
+            } else {
+                ForEach(transactions, id: \.id) { transaction in
+                    HStack(spacing: 16) {
+                        
+                        Image(transaction.icon)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 48, height: 48)
+                        
+                        VStack(alignment: .leading, spacing: 4) {
+                            TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                            //                        TextHelper(text: transaction.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                        }
+                        
+                        Spacer()
+                        
+                        TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                        
+                    }
+                    
+                    Divider()
+                        .overlay(AppColors.superLightGray)
+                    
+                }
             }
+
             
         }.padding(20)
             .padding(.bottom, UIScreen.main.bounds.height * 0.15)

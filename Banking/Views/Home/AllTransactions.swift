@@ -15,6 +15,11 @@ struct AllTransactions: View {
         
         ScrollView(showsIndicators: false) {
             LazyVStack(spacing: 16) {
+                
+                if allTransferVM.transfers.isEmpty && allTransferVM.alertMessage.isEmpty && !allTransferVM.loading {
+                    NoTransactionsToShow()
+                }
+                
                 ForEach(allTransferVM.transfers, id: \.id) { transfer in
                     HStack(spacing: 16) {
                         
