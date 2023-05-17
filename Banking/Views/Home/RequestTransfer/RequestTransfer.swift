@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RequestTransfer: View {
-    
+    @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var requestVM = RequestTransferViewModel()
     @State private var selectCard: Bool = false
     @State private var countryPicker: Bool = false
@@ -20,13 +20,15 @@ struct RequestTransfer: View {
         ZStack {
             if requestVM.loading {
                 ProgressView()
-            } else if !requestVM.loading && requestVM.cards.isEmpty {
-                TextHelper(text: NSLocalizedString("attachCardToRequestTransfer", comment: ""),
-                           fontName: Roboto.medium.rawValue)
             } else {
                 ScrollView(showsIndicators: false) {
-                    VStack(spacing: 42) {
-                        if requestVM.selectedCard != nil {
+                    VStack(spacing: 75) {
+                        
+                        if !requestVM.loading && requestVM.cards.isEmpty && requestVM.alertMessage.isEmpty {
+                            AttachCardButtonLikeSelect {
+                                viewRouter.pushHomePath(.attachCard)
+                            }
+                        } else if requestVM.selectedCard != nil {
                             SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
                                 selectCard.toggle()
                             }
@@ -39,59 +41,8 @@ struct RequestTransfer: View {
                             AmountTextField(text: $requestVM.amount, fontSize: 40)
                                 .frame(width: UIScreen.main.bounds.width * 0.4)
                         }
-
                         
-                        VStack(spacing: 9) {
-                            RequestTypeList(selected: $requestVM.requestType)
-                            
-                            if requestVM.requestType == .email {
-                                
-                                CardDetailTextFieldDecorator(content: {
-                                    TextField(NSLocalizedString("enterSenderEmail", comment: ""), text: $requestVM.email)
-                                        .keyboardType(.emailAddress)
-                                        .font(.custom(Roboto.regular.rawValue, size: 16))
-                                        .onChange(of: requestVM.email) { newValue in
-                                            requestVM.isEmailValid = newValue.isEmail
-                                        }
-                                }, isValid: $requestVM.isEmailValid)
-                                // email field
-                            } else if requestVM.requestType == .phone {
-                                // phone field
-
-                                HStack(spacing: 0) {
-                                    
-                                    Button {
-                                        countryPicker.toggle()
-                                    } label: {
-                                        HStack {
-                                            TextHelper(text: "\(requestVM.flag)",
-                                                       fontName: Roboto.bold.rawValue, fontSize: 18)
-                                            
-                                            Image("drop_arrow")
-                                            
-                                        }.frame(height: 56)
-                                            .padding(.horizontal, 10)
-                                            .background(AppColors.superLightGray)
-                                            .cornerRadius(16, corners: [.topLeft, .bottomLeft])
-                                    }
-                                    
-                                    TextField(NSLocalizedString("enterSenderPhone", comment: ""), text: $requestVM.phoneNumber)
-                                        .keyboardType(.phonePad)
-                                        .font(.custom(Roboto.regular.rawValue, size: 16))
-                                        .padding(.leading, 5)
-                                        .frame(height: 56)
-                                        .background(AppColors.superLightGray)
-                                        .cornerRadius(16, corners: [.topRight, .bottomRight])
-                                }
-                            }
-                        }
-                        
-                        ButtonHelper(disabled:
-                                        (requestVM.requestType == .email && !requestVM.isEmailValid)
-                                     || (requestVM.requestType == .phone && requestVM.phoneNumber.isEmpty)
-                                     || (requestVM.amount.isEmpty)
-                                     || (requestVM.selectedCard == nil)
-                                     || (requestVM.loadingRequest), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
+                        ButtonHelper(disabled: (requestVM.loadingRequest) || (requestVM.selectedCard == nil), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
                             requestVM.requestPayment()
                         }
                         
