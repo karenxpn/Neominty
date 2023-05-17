@@ -10,6 +10,7 @@
 		FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */; };
 		FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */; };
 		FF130E9D2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */; };
+		FF130E9F2A1519B200F7A5B8 /* AttachNewCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */; };
 		FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF13833F2A03DB8A00607BDB /* PhoneNumberKit */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
 		FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24229BA8010004EF3A3 /* FirebaseAuth */; };
@@ -186,6 +187,7 @@
 		FF04FC5B2A13A9E40049D42F /* SelectCardStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardStyle.swift; sourceTree = "<group>"; };
 		FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCardButtonLikeSelect.swift; sourceTree = "<group>"; };
+		FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachNewCardButton.swift; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF18C25529BA8E70004EF3A3 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */,
+				FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */,
 			);
 			path = EmptyPageHelpers;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF7A11F329DC6EF300286366 /* FAQList.swift in Sources */,
+				FF130E9F2A1519B200F7A5B8 /* AttachNewCardButton.swift in Sources */,
 				FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */,
 				FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */,
 				FF7A11DF29D7876600286366 /* Gallery.swift in Sources */,
