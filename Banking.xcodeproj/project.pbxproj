@@ -11,6 +11,7 @@
 		FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */; };
 		FF130E9D2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */; };
 		FF130E9F2A1519B200F7A5B8 /* AttachNewCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */; };
+		FF130EA12A151CA100F7A5B8 /* NoTransactionsToShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF130EA02A151CA100F7A5B8 /* NoTransactionsToShow.swift */; };
 		FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = FF13833F2A03DB8A00607BDB /* PhoneNumberKit */; };
 		FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24029BA8010004EF3A3 /* FirebaseAnalytics */; };
 		FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C24229BA8010004EF3A3 /* FirebaseAuth */; };
@@ -188,6 +189,7 @@
 		FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachCardButtonLikeSelect.swift; sourceTree = "<group>"; };
 		FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachNewCardButton.swift; sourceTree = "<group>"; };
+		FF130EA02A151CA100F7A5B8 /* NoTransactionsToShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTransactionsToShow.swift; sourceTree = "<group>"; };
 		FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF18C24C29BA84D6004EF3A3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FF18C25529BA8E70004EF3A3 /* Introduction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Introduction.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				FF130E9C2A1517CC00F7A5B8 /* AttachCardButtonLikeSelect.swift */,
 				FF130E9E2A1519B200F7A5B8 /* AttachNewCardButton.swift */,
+				FF130EA02A151CA100F7A5B8 /* NoTransactionsToShow.swift */,
 			);
 			path = EmptyPageHelpers;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */,
+				FF130EA12A151CA100F7A5B8 /* NoTransactionsToShow.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF7A120F29E6CC6200286366 /* ScanQR.swift in Sources */,
