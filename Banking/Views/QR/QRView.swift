@@ -38,15 +38,15 @@ struct QRView: View {
                             .interpolation(.none)
                             .scaledToFit()
                             .frame(width: 210, height: 210)
-                            .overlay(content: {
-                                Color.gray.opacity(0.5)
-                                    .cornerRadius(20)
-                            })
                             .padding(.horizontal, 47)
                             .padding(.vertical, 57)
                             .background(Color.white)
                             .cornerRadius(20)
                             .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
+                            .overlay(content: {
+                                Color.gray.opacity(0.35)
+                                    .cornerRadius(20)
+                            })
                         
                     } else if qrVM.selectedCard == nil && !qrVM.alertMessage.isEmpty {
                         ViewFailedToLoad {
