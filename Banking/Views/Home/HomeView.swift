@@ -42,25 +42,29 @@ struct HomeView: View {
                                 viewRouter.pushHomePath(.attachCard)
                             }.padding(24)
                             
-                        } else if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
-                            ViewFailedToLoad {
-                                homeVM.getCards()
-                                homeVM.getRecentTransfers()
-                            }
                         } else {
-                            ScalePageView(homeVM.cards) { card in
-                                UserCard(card: card, selected: card.defaultCard)
-                                    .frame(width: UIScreen.main.bounds.width * 0.8)
-                            }.options(options)
-                                .pagePadding(
-                                    vertical: .absolute(40),
-                                    horizontal: .absolute(50)
-                                )
-                                .frame(height: 250)
+                            if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
+                                ViewFailedToLoad {
+                                    homeVM.getCards()
+                                    homeVM.getRecentTransfers()
+                                }
+                            } else {
+                                ScalePageView(homeVM.cards) { card in
+                                    UserCard(card: card, selected: card.defaultCard)
+                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+                                }.options(options)
+                                    .pagePadding(
+                                        vertical: .absolute(40),
+                                        horizontal: .absolute(50)
+                                    )
+                                    .frame(height: 250)
+                                
+                                
+                                HomeMenu()
+                                    .environmentObject(viewRouter)
+                            }
                         }
 
-                        HomeMenu()
-                            .environmentObject(viewRouter)
 
                     }
                 }
