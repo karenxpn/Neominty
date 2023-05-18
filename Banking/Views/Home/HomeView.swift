@@ -41,6 +41,9 @@ struct HomeView: View {
                             AttachNewCardButton {
                                 viewRouter.pushHomePath(.attachCard)
                             }.padding(24)
+                                                        
+                            HomeMenu()
+                                .environmentObject(viewRouter)
                             
                         } else {
                             if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
@@ -58,7 +61,6 @@ struct HomeView: View {
                                         horizontal: .absolute(50)
                                     )
                                     .frame(height: 250)
-                                
                                 
                                 HomeMenu()
                                     .environmentObject(viewRouter)

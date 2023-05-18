@@ -24,17 +24,19 @@ struct RequestTransfer: View {
                 ScrollView(showsIndicators: false) {
                     VStack(spacing: 75) {
                         
-                        if !requestVM.loading && requestVM.cards.isEmpty && requestVM.alertMessage.isEmpty {
-                            AttachCardButtonLikeSelect {
-                                viewRouter.pushHomePath(.attachCard)
-                            }
-                        } else if !requestVM.loading && !requestVM.alertMessage.isEmpty && requestVM.cards.isEmpty {
+                        if !requestVM.loading && !requestVM.alertMessage.isEmpty && requestVM.cards.isEmpty {
                             ViewFailedToLoad {
                                 requestVM.getCards()
                             }
-                        } else if requestVM.selectedCard != nil {
-                            SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
-                                selectCard.toggle()
+                        } else {
+                            if !requestVM.loading && requestVM.cards.isEmpty && requestVM.alertMessage.isEmpty {
+                                 AttachCardButtonLikeSelect {
+                                     viewRouter.pushHomePath(.attachCard)
+                                 }
+                            } else if requestVM.selectedCard != nil {
+                                SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
+                                    selectCard.toggle()
+                                }
                             }
                             
                             HStack(spacing: 10) {
@@ -49,6 +51,7 @@ struct RequestTransfer: View {
                                 requestVM.requestPayment()
                             }
                         }
+                        
                         
                     }.padding(24)
                         .padding(.bottom, UIScreen.main.bounds.height * 0.15)
