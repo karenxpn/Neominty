@@ -42,7 +42,7 @@ struct MoneyTransfer: View {
                 if cards.isEmpty {
                     AttachNewCardButton {
                         viewRouter.pushHomePath(.attachCard)
-                    }.padding(24)
+                    }.padding(.horizontal)
                 } else {
                     ScalePageView(cards, selection: $selectedCard) { card in
                         UserCard(card: card, selected: card.id == selectedCard)
@@ -59,7 +59,6 @@ struct MoneyTransfer: View {
                 
                 VStack(alignment: .leading, spacing: 15) {
                     TextHelper(text: NSLocalizedString("enterReceiverDetails", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-                        .padding(.top, 13)
                     
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
