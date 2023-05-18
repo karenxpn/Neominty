@@ -16,9 +16,14 @@ struct Cards: View {
             ZStack {
                 if cardsVM.loading {
                     ProgressView()
-                } else if cardsVM.cards.isEmpty && !cardsVM.loading {
+                } else if cardsVM.cards.isEmpty && !cardsVM.loading && cardsVM.alertMessage.isEmpty {
                     RequestToAddNewCard()
-                } else {
+                } else if cardsVM.cards.isEmpty && !cardsVM.alertMessage.isEmpty && !cardsVM.loading {
+                    ViewFailedToLoad {
+                        cardsVM.getCards()
+
+                    }
+                }  else {
                     CardsList(cards: cardsVM.cards)
                         .environmentObject(cardsVM)
                 }
