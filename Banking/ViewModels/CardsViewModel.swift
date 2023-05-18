@@ -39,6 +39,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getCards() {
         loading = true
+        alertMessage = ""
+        
         Task {
             let result = await manager.fetchCards(userID: userID)
             switch result {

@@ -127,3 +127,5 @@
 "welcomeToNeominty" = "Welcome to Neominty🥳";
 "nothingToShow" = "Nothing to show";
 "makeYourFirstTransaction" = "Make your first transaction";
+"viewFiledToLoad" = "Failed to load this screen please try again later or press Reload button";
+"reload" = "Reload";

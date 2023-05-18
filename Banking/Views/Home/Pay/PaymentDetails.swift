@@ -19,48 +19,55 @@ struct PaymentDetails: View {
             VStack(spacing: 42) {
                 if payVM.loading {
                     ProgressView()
-                } else if payVM.cards.isEmpty && payVM.selectedCard == nil && payVM.alertMessage.isEmpty {
-                    AttachCardButtonLikeSelect {
-                        viewRouter.pushHomePath(.attachCard)
+                } else if payVM.cards.isEmpty && payVM.selectedCard == nil && !payVM.alertMessage.isEmpty {
+                    ViewFailedToLoad {
+                        payVM.getCards()
                     }
-                } else if payVM.selectedCard != nil {
-                    SelectCardButton(card: payVM.selectedCard!, buttonType: .popup) {
-                        selectCard.toggle()
-                    }
-                }
-                
-                HStack(spacing: 10) {
-                    
-                    TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
-                    
-                    AmountTextField(text: $payVM.amount, fontSize: 40)
-                        .frame(width: UIScreen.main.bounds.width * 0.4)
-                }
-                
-                if let category = payVM.selectedPaymentCategory {
-                    HStack {
-                        VStack(alignment: .leading, spacing: 9) {
-                            TextHelper(text: category.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                            TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                } else {
+                    if payVM.cards.isEmpty && payVM.selectedCard == nil && payVM.alertMessage.isEmpty {
+                        AttachCardButtonLikeSelect {
+                            viewRouter.pushHomePath(.attachCard)
                         }
-                        Spacer()
+                    } else if payVM.selectedCard != nil {
+                        SelectCardButton(card: payVM.selectedCard!, buttonType: .popup) {
+                            selectCard.toggle()
+                        }
                     }
-                }
-                
-                ButtonHelper(disabled: payVM.amount.isEmpty
-                             || payVM.selectedCard == nil
-                             || payVM.loadingPayment,
-                             label: payVM.loadingPayment
-                             ? NSLocalizedString("pleaseWait", comment: "")
-                             : NSLocalizedString("next", comment: "")) {
                     
-                    payVM.performPayment()
-                }.navigationDestination(isPresented: $completed) {
-                    TransferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd) {
-                        viewRouter.popToHomeRoot()
+                    
+                    HStack(spacing: 10) {
+                        
+                        TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                        
+                        AmountTextField(text: $payVM.amount, fontSize: 40)
+                            .frame(width: UIScreen.main.bounds.width * 0.4)
                     }
+                    
+                    if let category = payVM.selectedPaymentCategory {
+                        HStack {
+                            VStack(alignment: .leading, spacing: 9) {
+                                TextHelper(text: category.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                                TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                            }
+                            Spacer()
+                        }
+                    }
+                    
+                    ButtonHelper(disabled: payVM.amount.isEmpty
+                                 || payVM.selectedCard == nil
+                                 || payVM.loadingPayment,
+                                 label: payVM.loadingPayment
+                                 ? NSLocalizedString("pleaseWait", comment: "")
+                                 : NSLocalizedString("next", comment: "")) {
+                        
+                        payVM.performPayment()
+                    }.navigationDestination(isPresented: $completed) {
+                        TransferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd) {
+                            viewRouter.popToHomeRoot()
+                        }
+                    }
+                    
                 }
-                
                 
             }.padding(24)
             

@@ -28,22 +28,26 @@ struct RequestTransfer: View {
                             AttachCardButtonLikeSelect {
                                 viewRouter.pushHomePath(.attachCard)
                             }
+                        } else if !requestVM.loading && !requestVM.alertMessage.isEmpty && requestVM.cards.isEmpty {
+                            ViewFailedToLoad {
+                                requestVM.getCards()
+                            }
                         } else if requestVM.selectedCard != nil {
                             SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
                                 selectCard.toggle()
                             }
-                        }
-                        
-                        HStack(spacing: 10) {
                             
-                            TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                            HStack(spacing: 10) {
+                                
+                                TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                                
+                                AmountTextField(text: $requestVM.amount, fontSize: 40)
+                                    .frame(width: UIScreen.main.bounds.width * 0.4)
+                            }
                             
-                            AmountTextField(text: $requestVM.amount, fontSize: 40)
-                                .frame(width: UIScreen.main.bounds.width * 0.4)
-                        }
-                        
-                        ButtonHelper(disabled: (requestVM.loadingRequest) || (requestVM.selectedCard == nil), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
-                            requestVM.requestPayment()
+                            ButtonHelper(disabled: (requestVM.loadingRequest) || (requestVM.selectedCard == nil), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
+                                requestVM.requestPayment()
+                            }
                         }
                         
                     }.padding(24)

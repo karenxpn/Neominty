@@ -45,6 +45,7 @@ class HomeViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getRecentTransfers() {
         loadingTransactions = true
+        alertMessage = ""
         Task {
             let result = await transferManager.fetchRecentTransferHistory(userID: userID)
             switch result {
@@ -62,6 +63,7 @@ class HomeViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getCards() {
         loading = true
+        alertMessage = ""
         Task {
             let result = await cardManager.fetchCards(userID: userID)
             switch result {
