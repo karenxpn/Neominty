@@ -44,6 +44,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getCards() {
         loading = true
+        alertMessage = ""
         
         Task {
             let result = await cardManager.fetchCards(userID: userID)

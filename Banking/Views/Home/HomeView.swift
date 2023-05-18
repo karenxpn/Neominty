@@ -42,6 +42,11 @@ struct HomeView: View {
                                 viewRouter.pushHomePath(.attachCard)
                             }.padding(24)
                             
+                        } else if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
+                            ViewFailedToLoad {
+                                homeVM.getCards()
+                                homeVM.getRecentTransfers()
+                            }
                         } else {
                             ScalePageView(homeVM.cards) { card in
                                 UserCard(card: card, selected: card.defaultCard)

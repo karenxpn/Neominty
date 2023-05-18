@@ -23,7 +23,12 @@ struct PaymentDetails: View {
                     AttachCardButtonLikeSelect {
                         viewRouter.pushHomePath(.attachCard)
                     }
-                } else if payVM.selectedCard != nil {
+                } else if payVM.cards.isEmpty && payVM.selectedCard == nil && !payVM.alertMessage.isEmpty {
+                    ViewFailedToLoad {
+                        payVM.getCards()
+                    }
+                }
+                else if payVM.selectedCard != nil {
                     SelectCardButton(card: payVM.selectedCard!, buttonType: .popup) {
                         selectCard.toggle()
                     }

@@ -28,6 +28,10 @@ struct RequestTransfer: View {
                             AttachCardButtonLikeSelect {
                                 viewRouter.pushHomePath(.attachCard)
                             }
+                        } else if !requestVM.loading && !requestVM.alertMessage.isEmpty && requestVM.cards.isEmpty {
+                            ViewFailedToLoad {
+                                requestVM.getCards()
+                            }
                         } else if requestVM.selectedCard != nil {
                             SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
                                 selectCard.toggle()
