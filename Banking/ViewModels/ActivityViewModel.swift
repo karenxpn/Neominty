@@ -39,6 +39,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getCards() {
         loading = true
+        alertMessage = ""
         
         Task {
             

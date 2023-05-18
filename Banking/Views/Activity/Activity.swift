@@ -24,6 +24,10 @@ struct Activity: View {
             ZStack {
                 if activityVM.loading {
                     ProgressView()
+                } else if !activityVM.loading && !activityVM.alertMessage.isEmpty {
+                    ViewFailedToLoad {
+                        activityVM.getCards()
+                    }
                 } else {
                     ScrollView(showsIndicators: false) {
                         
