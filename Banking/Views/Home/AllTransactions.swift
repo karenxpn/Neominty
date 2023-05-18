@@ -18,6 +18,10 @@ struct AllTransactions: View {
                 
                 if allTransferVM.transfers.isEmpty && allTransferVM.alertMessage.isEmpty && !allTransferVM.loading {
                     NoTransactionsToShow()
+                } else if allTransferVM.transfers.isEmpty && !allTransferVM.alertMessage.isEmpty && !allTransferVM.loading {
+                    ViewFailedToLoad {
+                        allTransferVM.getTransactionList()
+                    }
                 }
                 
                 ForEach(allTransferVM.transfers, id: \.id) { transfer in
