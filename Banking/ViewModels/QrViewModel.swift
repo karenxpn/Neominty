@@ -28,6 +28,8 @@ class QrViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getCards() {
         loading = true
+        self.alertMessage = ""
+        
         Task {
             let result = await cardManager.fetchCards(userID: userID)
             switch result {

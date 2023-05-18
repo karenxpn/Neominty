@@ -48,6 +48,10 @@ struct QRView: View {
                             .cornerRadius(20)
                             .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
                         
+                    } else if qrVM.selectedCard == nil && !qrVM.alertMessage.isEmpty {
+                        ViewFailedToLoad {
+                            qrVM.getCards()
+                        }
                     } else {
                         
                         if qrVM.selectedCard != nil {
