@@ -37,21 +37,20 @@ struct HomeView: View {
 
                         if homeVM.loading {
                             ProgressView()
-                        } else if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
-                            AttachNewCardButton {
-                                viewRouter.pushHomePath(.attachCard)
-                            }.padding(24)
-                                                        
-                            HomeMenu()
-                                .environmentObject(viewRouter)
-                            
+                        } else if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
+                            ViewFailedToLoad {
+                                homeVM.getCards()
+                                homeVM.getRecentTransfers()
+                            }
                         } else {
-                            if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
-                                ViewFailedToLoad {
-                                    homeVM.getCards()
-                                    homeVM.getRecentTransfers()
-                                }
-                            } else {
+                             
+                             if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
+                                 AttachNewCardButton {
+                                     viewRouter.pushHomePath(.attachCard)
+                                 }.padding(24)
+                             }
+                             
+                             else {
                                 ScalePageView(homeVM.cards) { card in
                                     UserCard(card: card, selected: card.defaultCard)
                                         .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -61,13 +60,11 @@ struct HomeView: View {
                                         horizontal: .absolute(50)
                                     )
                                     .frame(height: 250)
-                                
-                                HomeMenu()
-                                    .environmentObject(viewRouter)
                             }
+                             
+                             HomeMenu()
+                                 .environmentObject(viewRouter)
                         }
-
-
                     }
                 }
                 
