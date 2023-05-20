@@ -166,6 +166,13 @@ extension CardService: CardServiceProtocol {
                         orderedCards.append(card)
                     }
                 }
+                
+                for card in cards {
+                    if orderRules.contains(where: {$0 == card.id }) == false {
+                        orderedCards.append(card)
+                    }
+                }
+                
             } else {
                 orderedCards = cards
             }
