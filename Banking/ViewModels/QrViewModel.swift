@@ -46,15 +46,22 @@ class QrViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func performPayment(account: String, amount: String) {
+    @MainActor func performPayment(sender: String, receiver: String, amount: String) {
+        
         loading = true
         Task {
-            let result = await payManager.performPayment(amount: amount)
-            switch result {
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            case .success(()):
+            do {
+                let result = try await payManager.performPaymentWithBindingId(sender: sender, receiver: receiver, amount: Decimal(string: amount) ?? 0)
+                
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.paymentCompleted.rawValue), object: nil)
+                
+            } catch let error as NetworkError {
+                if let backendError = error.backendError {
+                    self.alertMessage = backendError.message
+                    self.showAlert.toggle()
+                } else {
+                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
+                }
             }
             
             if !Task.isCancelled {

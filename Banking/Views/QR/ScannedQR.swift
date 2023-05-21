@@ -86,9 +86,11 @@ struct ScannedQR: View {
                             }
                     }
                     
-                    ButtonHelper(disabled: amount.isEmpty || qrVM.loading,
+                    ButtonHelper(disabled: amount.isEmpty
+                                 || qrVM.loading
+                                 || qrVM.selectedCard == nil,
                                  label: qrVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
-                        qrVM.performPayment(account: result, amount: amount)
+                        qrVM.performPayment(sender: qrVM.selectedCard!.bindingId, receiver: result, amount: amount)
                     }.navigationDestination(isPresented: $completed) {
                         TransferSuccess(amount: amount, currency: .usd) {
                             presented.toggle()
