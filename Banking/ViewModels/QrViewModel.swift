@@ -56,12 +56,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.paymentCompleted.rawValue), object: nil)
                 
             } catch let error as NetworkError {
-                if let backendError = error.backendError {
-                    self.alertMessage = backendError.message
-                    self.showAlert.toggle()
-                } else {
-                    self.makeAlert(with: error.initialError, message: &self.alertMessage, alert: &self.showAlert)
-                }
+                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             }
             
             if !Task.isCancelled {
