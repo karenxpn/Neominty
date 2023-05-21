@@ -25,74 +25,8 @@ struct ScanQR: View {
             ZStack(alignment: .topTrailing, content: {
                 
                 if let result {
-
-                    AppColors.darkGray
-                        .edgesIgnoringSafeArea(.all)
-                    
-                    VStack(spacing: 20) {
-                        
-                        Spacer()
-                        
-                        ZStack {
-                            Image(uiImage: generateQRCode(from: result))
-                                .resizable()
-                                .interpolation(.none)
-                                .scaledToFit()
-                                .frame(width: 157, height: 157)
-                                .padding(20)
-                                .background(Color.white)
-                                .cornerRadius(20)
-                                .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
-                            
-                            Image("scan-success")
-                        }
-                        
-                        VStack {
-                            HStack {
-                                TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: AppColors.gray,
-                                           fontName: Roboto.medium.rawValue, fontSize: 12)
-                                
-                                Spacer()
-                                
-                                TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: AppColors.gray,
-                                           fontName: Roboto.medium.rawValue, fontSize: 12)
-                            }.padding(16)
-                            
-                            HStack {
-                                TextHelper(text: "USD", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
-                                    .padding(.vertical, 4)
-                                    .padding(.horizontal, 8)
-                                    .background {
-                                        RoundedRectangle(cornerRadius: 8)
-                                            .fill(AppColors.lightGray)
-                                    }
-                                
-                                AmountTextField(text: $amount, fontSize: 24)
-                                
-                            }.padding([.horizontal, .bottom], 16)
-                        }.background {
-                            RoundedRectangle(cornerRadius: 16)
-                                .strokeBorder(AppColors.lightGray, lineWidth: 1)
-                                .background {
-                                    RoundedRectangle(cornerRadius: 16)
-                                        .fill(Color.white)
-                                }
-                        }
-                        
-                        ButtonHelper(disabled: amount.isEmpty || qrVM.loading,
-                                     label: qrVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
-                            qrVM.performPayment(account: result, amount: amount)
-                        }.navigationDestination(isPresented: $completed) {
-                            TransferSuccess(amount: amount, currency: .usd) {
-                                presented.toggle()
-                                viewRouter.popToScanRoot()
-                            }
-                        }
-                        
-                    }.padding(24)
-                        .padding(.bottom, UIScreen.main.bounds.height * 0.1)
-                    
-                    
+                    ScannedQR(result: result, amount: $amount, presented: $presented, completed: $completed)
+                        .environmentObject(qrVM)
                 } else {
                     CodeScannerView(codeTypes: [.qr], scanMode: .continuous, showViewfinder: true, simulatedData: "Paul Hudson") { response in
                         switch response {
@@ -128,6 +62,9 @@ struct ScanQR: View {
                     Text(qrVM.alertMessage)
                 }).toolbar(.hidden, for: .navigationBar)
                 .navigationTitle(Text(""))
+                .task {
+                    qrVM.getCards()
+                }
         }
     }
     
