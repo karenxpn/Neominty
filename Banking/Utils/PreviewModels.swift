@@ -70,13 +70,13 @@ struct PreviewModels {
                                                                                                                                                                                                                                                                                                                                                                                                              senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))]
     
     static let expensesPoints: [ExpensePoint] = [
-        .init(unit: "Mon", amount: 989),
-        .init(unit: "Tue", amount: 1200),
-        .init(unit: "Wed", amount: 750),
-        .init(unit: "Thu", amount: 650),
-        .init(unit: "Fri", amount: 950),
-        .init(unit: "Sat", amount: 650),
-        .init(unit: "Sun", amount: 1200)]
+        .init(period: "Mon", amount: 989),
+        .init(period: "Tue", amount: 1200),
+        .init(period: "Wed", amount: 750),
+        .init(period: "Thu", amount: 650),
+        .init(period: "Fri", amount: 950),
+        .init(period: "Sat", amount: 650),
+        .init(period: "Sun", amount: 1200)]
     
     static let userInfo = UserInfoViewModel(model: UserInfo(id: UUID().uuidString, avatar: nil, name: "Karen Mirakyan", email: nil, phone_number: "+37493936313"))
     

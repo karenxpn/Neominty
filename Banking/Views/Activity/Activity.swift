@@ -110,13 +110,13 @@ struct Activity: View {
                                         .padding(.horizontal, -24)
                                 } else {
                                     ActivityGraph(points: [
-                                        .init(unit: "Mon", amount: 0),
-                                        .init(unit: "Tue", amount: 0),
-                                        .init(unit: "Wed", amount: 0),
-                                        .init(unit: "Thu", amount: 0),
-                                        .init(unit: "Fri", amount: 0),
-                                        .init(unit: "Sat", amount: 0),
-                                        .init(unit: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
+                                        .init(period: "Mon", amount: 0),
+                                        .init(period: "Tue", amount: 0),
+                                        .init(period: "Wed", amount: 0),
+                                        .init(period: "Thu", amount: 0),
+                                        .init(period: "Fri", amount: 0),
+                                        .init(period: "Sat", amount: 0),
+                                        .init(period: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                 }
                             }

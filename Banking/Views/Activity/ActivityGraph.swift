@@ -45,9 +45,9 @@ struct ActivityGraph: View {
             
             ForEach(points, id: \.id) { point in
                 
-                if let selectedPoint, selectedPoint == point.unit {
+                if let selectedPoint, selectedPoint == point.period {
                     RectangleMark(
-                        x: .value("Week Day", point.unit),
+                        x: .value("Week Day", point.period),
                         yStart: .value("Amount", 0),
                         yEnd: .value("Amount", point.amount + 1),
                         width: 24
@@ -56,7 +56,7 @@ struct ActivityGraph: View {
                         .opacity(0.8)
                     
                     PointMark(
-                        x: .value("Week Day", point.unit),
+                        x: .value("Week Day", point.period),
                         y: .value("Amount", point.amount)
                         )
                     .annotation(alignment: .bottom, spacing: 0) {
@@ -81,7 +81,7 @@ struct ActivityGraph: View {
                 }
                 
                 LineMark(
-                    x: .value("Week Day", point.unit),
+                    x: .value("Week Day", point.period),
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
@@ -90,7 +90,7 @@ struct ActivityGraph: View {
                 .accessibilityHidden(false)
                 
                 AreaMark(
-                    x: .value("Week Day", point.unit),
+                    x: .value("Week Day", point.period),
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
