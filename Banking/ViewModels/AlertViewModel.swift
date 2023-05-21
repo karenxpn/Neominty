@@ -14,4 +14,13 @@ class AlertViewModel {
         message = error.localizedDescription
         alert.toggle()
     }
+    
+    func makeNetworkAlert(with error: NetworkError, message: inout String, alert: inout Bool ) {
+        if let backendError = error.backendError {
+            message = backendError.message
+            alert.toggle()
+        } else {
+            self.makeAlert(with: error.initialError, message: &message, alert: &alert)
+        }
+    }
 }
