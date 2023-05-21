@@ -166,6 +166,7 @@
 		FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */; };
 		FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0829BBC7E100E774FD /* CreatePin.swift */; };
 		FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */; };
+		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -338,6 +339,7 @@
 		FFC2BD0629BB822100E774FD /* OTPTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPTextFieldView.swift; sourceTree = "<group>"; };
 		FFC2BD0829BBC7E100E774FD /* CreatePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePin.swift; sourceTree = "<group>"; };
 		FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableBiometricAuthentication.swift; sourceTree = "<group>"; };
+		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -681,6 +683,7 @@
 			children = (
 				FF7A120A29E43B0C00286366 /* QRView.swift */,
 				FF7A120E29E6CC6200286366 /* ScanQR.swift */,
+				FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */,
 			);
 			path = QR;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
+				FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */,
 				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF7A11D129D752A000286366 /* Account.swift in Sources */,
