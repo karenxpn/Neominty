@@ -62,6 +62,9 @@ struct ScanQR: View {
                     Text(qrVM.alertMessage)
                 }).toolbar(.hidden, for: .navigationBar)
                 .navigationTitle(Text(""))
+                .task {
+                    qrVM.getCards()
+                }
         }
     }
     
