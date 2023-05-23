@@ -133,7 +133,6 @@
 		FF821BCE29D5C10500F3BA0C /* RequestTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */; };
 		FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */; };
 		FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */; };
-		FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */; };
 		FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864DFA29EB796900EC883E /* AmountTextField.swift */; };
 		FF864E3429ED824E00EC883E /* SubCategoryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */; };
 		FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA67C1A2A06B051007C6A9F /* NetworkError.swift */; };
@@ -307,7 +306,6 @@
 		FF821BCD29D5C10500F3BA0C /* RequestTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTransferViewModel.swift; sourceTree = "<group>"; };
 		FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardButton.swift; sourceTree = "<group>"; };
 		FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardList.swift; sourceTree = "<group>"; };
-		FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTypeList.swift; sourceTree = "<group>"; };
 		FF864DFA29EB796900EC883E /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTextField.swift; sourceTree = "<group>"; };
 		FFA67C1A2A06B051007C6A9F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -697,7 +695,6 @@
 				FF821BCB29D5C0CB00F3BA0C /* RequestTransfer.swift */,
 				FF821BCF29D5C47300F3BA0C /* SelectCardButton.swift */,
 				FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */,
-				FF821BD329D5D89E00F3BA0C /* RequestTypeList.swift */,
 				FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */,
 			);
 			path = RequestTransfer;
@@ -963,7 +960,6 @@
 				FF7A11DD29D77FFF00286366 /* AccountViewPersonalInfo.swift in Sources */,
 				FF7A11D529D777EB00286366 /* AccountListButton.swift in Sources */,
 				FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */,
-				FF821BD429D5D89E00F3BA0C /* RequestTypeList.swift in Sources */,
 				FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */,
 				FF45208929C92315003C6415 /* RecentTransferUsersList.swift in Sources */,
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,

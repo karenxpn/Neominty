@@ -11,9 +11,7 @@ struct RequestTransfer: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var requestVM = RequestTransferViewModel()
     @State private var selectCard: Bool = false
-    @State private var countryPicker: Bool = false
     @State private var requestSuccess: Bool = false
-    
     
     var body: some View {
         
@@ -30,9 +28,9 @@ struct RequestTransfer: View {
                             }
                         } else {
                             if !requestVM.loading && requestVM.cards.isEmpty && requestVM.alertMessage.isEmpty {
-                                 AttachCardButtonLikeSelect {
-                                     viewRouter.pushHomePath(.attachCard)
-                                 }
+                                AttachCardButtonLikeSelect {
+                                    viewRouter.pushHomePath(.attachCard)
+                                }
                             } else if requestVM.selectedCard != nil {
                                 SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {
                                     selectCard.toggle()
@@ -85,10 +83,8 @@ struct RequestTransfer: View {
                                        show: $selectCard)
                         .presentationDetents([.medium, .large])
                     }
-
+                    
                 }
-            }.sheet(isPresented: $countryPicker) {
-                CountryCodeSelection(isPresented: $countryPicker, country: $requestVM.country, code: $requestVM.code, flag: $requestVM.flag)
             }.sheet(isPresented: $requestSuccess, content: {
                 
                 if #available(iOS 16.4, *) {
@@ -102,8 +98,7 @@ struct RequestTransfer: View {
                         .presentationDetents([.fraction(0.7)])
                 }
             })
-            .onReceive(NotificationCenter.default.publisher(for:
-                                                                Notification.Name(rawValue: NotificationName.requestPaymentSent.rawValue))) { _ in
+            .onReceive(NotificationCenter.default.publisher(for:Notification.Name(rawValue: NotificationName.requestPaymentSent.rawValue))) { _ in
                 requestSuccess.toggle()
             }
     }

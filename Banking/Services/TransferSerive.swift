@@ -13,7 +13,7 @@ protocol TransferServiceProtocol {
     func fetchRecentTransfers() async -> Result<[RecentTransfer], Error>
     func fetchRecentTransferHistory(userID: String) async -> Result<[TransactionPreview], Error>
     func fetchTransactionHistory(userID: String, lastDoc: QueryDocumentSnapshot?) async -> Result<([TransactionPreview], QueryDocumentSnapshot?), Error>
-    func requestTransfer(type: RequestType, amount: String, currency: String, phone: String, email: String) async -> Result<GlobalResponse, Error>
+    func requestTransfer(amount: String) async -> Result<GlobalResponse, Error>
 }
 
 class TransferService {
@@ -42,15 +42,10 @@ extension TransferService: TransferServiceProtocol {
         }
     }
     
-    func requestTransfer(type: RequestType, amount: String, currency: String, phone: String, email: String) async -> Result<GlobalResponse, Error> {
+    func requestTransfer(amount: String) async -> Result<GlobalResponse, Error> {
         do {
             try await Task.sleep(nanoseconds: UInt64(1 * Double(NSEC_PER_SEC)))
-            var message = ""
-            if type == .link {
-                message = "www.neominty.com/request8720money/cardnumber/id8645153"
-            } else {
-                message = "Request is sent"
-            }
+            let message = "www.neominty.com/request8720money/cardnumber/id8645153"
             return .success(GlobalResponse(status: "success", message: message))
         } catch {
             return .failure(error)

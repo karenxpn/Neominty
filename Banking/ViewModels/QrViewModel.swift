@@ -51,7 +51,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
         loading = true
         Task {
             do {
-                let result = try await payManager.performPaymentWithBindingId(sender: sender, receiver: receiver, amount: Decimal(string: amount) ?? 0)
+                try await payManager.performPaymentWithBindingId(sender: sender, receiver: receiver, amount: Decimal(string: amount) ?? 0)
                 
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.paymentCompleted.rawValue), object: nil)
                 

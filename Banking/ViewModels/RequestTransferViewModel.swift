@@ -20,18 +20,6 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @Published var amount: String = ""
     
     @Published var selectedCard: CardModel?
-    @Published var requestType: RequestType = .link
-    
-    // phone request
-    @Published var country: String = "AM"
-    @Published var code: String = "374"
-    @Published var phoneNumber: String = ""
-    @Published var flag: String = "🇦🇲"
-    
-    // email request
-    @Published var email: String = ""
-    @Published var isEmailValid: Bool = false
-    
     @Published var generatedLink: String = ""
     
     var cardManager: CardServiceProtocol
@@ -65,11 +53,7 @@ class RequestTransferViewModel: AlertViewModel, ObservableObject {
     @MainActor func requestPayment() {
         loadingRequest = true
         Task {
-            let result = await manager.requestTransfer(type: requestType,
-                                                       amount: amount,
-                                                       currency: selectedCard?.currency.rawValue ?? "USD",
-                                                       phone: "+\(code)\(phoneNumber)",
-                                                       email: email)
+            let result = await manager.requestTransfer(amount: amount)
             
             switch result {
             case .failure(let error):
