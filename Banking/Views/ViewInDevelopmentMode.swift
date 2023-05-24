@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
+import SSSwiftUIGIFView
 
 struct ViewInDevelopmentMode: View {
     var body: some View {
         
         VStack(spacing: 40) {
-            
-            Image("request-transfer-success")
+            SwiftUIGIFPlayerView(gifName: "request-transfer-success-gif")
+                .frame(height: 200)
+
             VStack(spacing: 12) {
                 TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .multilineTextAlignment(.center)
