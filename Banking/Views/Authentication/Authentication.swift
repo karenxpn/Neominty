@@ -17,6 +17,7 @@ struct Authentication: View {
             
             if authVM.authState == .authenticated {
                 MainView()
+                    .environmentObject(authVM)
             } else {
                 NavigationStack(path: $authVM.path) {
                     ZStack {

@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
     @StateObject private var viewRouter = ViewRouter()
     @StateObject private var notificationVM = PushNotificationViewModel()
+    @EnvironmentObject var authVM: AuthViewModel
     @AppStorage("userID") var userID: String = ""
 
     
@@ -45,7 +46,8 @@ struct MainView: View {
                 viewRouter.getAccountInfo()
             }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                // send request for offline
+            authVM.passcodeConfirm = ""
+            authVM.authState = .enterPasscode
             }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 // send request for online
             }.environmentObject(viewRouter)
