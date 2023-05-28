@@ -11,7 +11,7 @@ struct MainView: View {
     @StateObject private var viewRouter = ViewRouter()
     @StateObject private var notificationVM = PushNotificationViewModel()
     @AppStorage("userID") var userID: String = ""
-
+    
     
     var body: some View {
         ZStack( alignment: .bottom) {
@@ -30,7 +30,7 @@ struct MainView: View {
                 } else if viewRouter.tab == 3{
                     Activity()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-
+                    
                 } else if viewRouter.tab == 4 {
                     Account()
                         .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -43,11 +43,6 @@ struct MainView: View {
             .onAppear {
                 notificationVM.requestPermission()
                 viewRouter.getAccountInfo()
-            }
-        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
-                // send request for offline
-            }.onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                // send request for online
             }.environmentObject(viewRouter)
     }
 }

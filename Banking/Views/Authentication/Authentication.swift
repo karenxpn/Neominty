@@ -10,6 +10,8 @@ import SwiftUI
 struct Authentication: View {
     @AppStorage("phoneNumber") var localPhone: String = ""
     @StateObject private var authVM = AuthViewModel()
+    @Environment(\.scenePhase) private var phase
+
 
     var body: some View {
         
@@ -52,6 +54,29 @@ struct Authentication: View {
             
         }.task {
             authVM.checkPinExistence()
+        }.onChange(of: phase) { newScene in
+            
+            switch newScene {
+            case .active:
+
+                if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
+                    if lastOnline - .now < -5*60 {
+                        authVM.authState = .enterPasscode
+                        authVM.checkPinExistence()
+                    } else {
+                        authVM.authState = .authenticated
+                    }
+                    UserDefaults.standard.removeObject(forKey: "lastOnline")
+                }
+            case .background:
+                if authVM.authState == .authenticated {
+                    UserDefaults.standard.set(Date.now, forKey: "lastOnline")
+                    authVM.passcodeConfirm = ""
+                    authVM.authState = .enterPasscode
+                }
+            default:
+                break
+            }
         }
     }
 }

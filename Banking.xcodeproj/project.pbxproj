@@ -38,7 +38,6 @@
 		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
-		FF1BA58E2A1E545F00F0B2FB /* request-transfer-success-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = FF1BA58D2A1E545F00F0B2FB /* request-transfer-success-gif.gif */; };
 		FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */; };
 		FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */; };
 		FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */; };
@@ -222,7 +221,6 @@
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
-		FF1BA58D2A1E545F00F0B2FB /* request-transfer-success-gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = "request-transfer-success-gif.gif"; path = "../../../Downloads/request-transfer-success-gif.gif"; sourceTree = "<group>"; };
 		FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardStyles.swift; sourceTree = "<group>"; };
 		FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonStyles.swift; sourceTree = "<group>"; };
 		FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedStyle.swift; sourceTree = "<group>"; };
@@ -644,7 +642,6 @@
 		FF628DFC29BA2CD000FE35EE /* Banking */ = {
 			isa = PBXGroup;
 			children = (
-				FF1BA58D2A1E545F00F0B2FB /* request-transfer-success-gif.gif */,
 				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
@@ -915,7 +912,6 @@
 				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
 				FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
-				FF1BA58E2A1E545F00F0B2FB /* request-transfer-success-gif.gif in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
 				FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */,

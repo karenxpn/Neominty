@@ -222,6 +222,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                     self.localPhone = ""
                     self.keychainManager.delete("pin")
                     self.biometricEnabled = false
+                    UserDefaults.standard.removeObject(forKey: "lastOnline")
                 }
             }
         }
