@@ -61,6 +61,7 @@ struct Authentication: View {
 
                 if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
                     if lastOnline - .now < -5*60 {
+                        authVM.passcodeConfirm = ""
                         authVM.authState = .enterPasscode
                         authVM.checkPinExistence()
                     } else {
@@ -71,8 +72,6 @@ struct Authentication: View {
             case .background:
                 if authVM.authState == .authenticated {
                     UserDefaults.standard.set(Date.now, forKey: "lastOnline")
-                    authVM.passcodeConfirm = ""
-                    authVM.authState = .enterPasscode
                 }
             default:
                 break
