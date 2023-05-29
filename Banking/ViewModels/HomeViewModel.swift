@@ -12,7 +12,7 @@ import SwiftUI
 class HomeViewModel: AlertViewModel, ObservableObject {
     @AppStorage("userID") var userID: String = ""
     
-    @Published var loading: Bool = false
+    @Published var loading: Bool = true
     @Published var loadingTransactions: Bool = false
     
     @Published var showAlert: Bool = false
