@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GeneralSettings: View {
+    @AppStorage("userID") var userID: String = ""
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @StateObject private var authVM = AuthViewModel()
     @StateObject private var accountVM = AccountViewModel()
@@ -57,7 +58,9 @@ struct GeneralSettings: View {
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .task {
-                accountVM.getPreferences()
+                if !userID.isEmpty {
+                    accountVM.getPreferences()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
