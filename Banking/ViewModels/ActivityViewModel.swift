@@ -63,12 +63,13 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func getActivity() {
         loadingActivity = true
+        activity = nil
+        
         Task {
-            print(selectedCard)
             let result = await manager.fetchActivity(bindingId: selectedCard)
             switch result {
-            case .failure(let error):
-                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .failure(_):
+                break
             case .success(let activity):
                 self.activity = ActivityModelViewModel(model: activity)
             }

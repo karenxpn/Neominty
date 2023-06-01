@@ -29,13 +29,17 @@ extension ActivityService: ActivityServiceProtocol {
                 .limit(to: 10)
                 .getDocuments()
                 .documents
+            
+            var activity = try await db.collection(Paths.userTransferActivity.rawValue)
+                .document(bindingId)
+                .getDocument(as: ActivityModel.self)
+            
+            print("activity", activity)
                         
             let transactions = try docs.map({try $0.data(as: TransactionPreview.self)})
+            activity.transactiions = transactions
             
-            return .success(ActivityModel(income: "$ 5300",
-                                          expenses: "$ 2265.80",
-                                          expensesPoints: PreviewModels.expensesPoints,
-                                          transactiions: transactions))
+            return .success(activity)
         } catch {
             return .failure(error)
         }

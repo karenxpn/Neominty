@@ -13,7 +13,7 @@ struct ActivityGraph: View {
     let points: [ExpensePoint]
     let currencySymbol: String
     @State private var location: CGPoint = .zero
-    @State private var amount: Double = 0
+    @State private var amount: Decimal = 0
     @State private var selectedPoint: String? = nil
 
     
@@ -42,27 +42,27 @@ struct ActivityGraph: View {
         )
         
         Chart {
-            
-            ForEach(points, id: \.id) { point in
-                
-                if let selectedPoint, selectedPoint == point.period {
+
+            ForEach(points, id: \.self) { point in
+
+                if let selectedPoint, selectedPoint == point.interval {
                     RectangleMark(
-                        x: .value("Week Day", point.period),
+                        x: .value("Week Day", point.interval),
                         yStart: .value("Amount", 0),
                         yEnd: .value("Amount", point.amount + 1),
                         width: 24
                     ).foregroundStyle(rectangleMarkGradient)
                         .cornerRadius(8)
                         .opacity(0.8)
-                    
+
                     PointMark(
-                        x: .value("Week Day", point.period),
+                        x: .value("Week Day", point.interval),
                         y: .value("Amount", point.amount)
                         )
                     .annotation(alignment: .bottom, spacing: 0) {
-                        
+
                         VStack(spacing: 0) {
-                            TextHelper(text: "\(currencySymbol) \(String(format: "%.2f", point.amount))", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
+                            TextHelper(text: "\(currencySymbol) \(point.amount)", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 5)
                                 .background {
@@ -74,55 +74,55 @@ struct ActivityGraph: View {
                                 .fill(Color.black)
                                 .frame(width: 0.5, height: 40)
                         }
-                        
+
                     }.foregroundStyle(.black)
                         .interpolationMethod(.catmullRom)
 
                 }
-                
+
                 LineMark(
-                    x: .value("Week Day", point.period),
+                    x: .value("Week Day", point.interval),
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(AppColors.green)
                 .lineStyle(StrokeStyle(lineWidth: 3))
                 .accessibilityHidden(false)
-                
+
                 AreaMark(
-                    x: .value("Week Day", point.period),
+                    x: .value("Week Day", point.interval),
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(curGradient)
-                
+
             }
         }.chartYAxis(.hidden)
             .chartPlotStyle { plotArea in
                 plotArea
                     .background(.white)
-            }.chartYScale(domain: 0...Int((points.map{Int($0.amount)}.max() ?? 75) ))
+            }.chartYScale(domain: 0...Int((points.map{Int(truncating: $0.amount as NSNumber)}.max() ?? 75) ))
             .chartXAxis() {
                 AxisMarks(position: .bottom)
             }
             .frame(height:150)
-        
+
             .chartOverlay { chart in
                 GeometryReader { geometry in
                     Rectangle()
                         .fill(Color.clear)
                         .contentShape(Rectangle())
                         .onTapGesture(perform: { value in
-                            
+
                             let currentX = value.x - geometry[chart.plotAreaFrame].origin.x
                             guard currentX >= 0, currentX < chart.plotAreaSize.width else {
                                 return
                             }
-                            
+
                             guard let index = chart.value(atX: currentX, as: String.self) else {
                                 return
                             }
-                            
+
                             selectedPoint = index
                         })
                 }

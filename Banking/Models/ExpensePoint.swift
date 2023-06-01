@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
-struct ExpensePoint: Identifiable, Codable {
-    let id: String = UUID().uuidString
-    var period: String
-    var amount: Double
+struct ExpensePoint: Codable, Hashable {
+    var amount: Decimal
+    var interval: String
+    var timestamp: Timestamp
 }

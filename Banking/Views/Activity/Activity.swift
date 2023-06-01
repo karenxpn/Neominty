@@ -11,6 +11,8 @@ struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var showCardAttachedAlert: Bool = false
+    @State private var expense: Decimal = 0
+    @State private var expensePoints: [ExpensePoint] = []
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
@@ -65,7 +67,7 @@ struct Activity: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.income, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                                             
                                         }
                                     }
@@ -77,7 +79,7 @@ struct Activity: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" : activityVM.activity!.expenses, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.selectedUnit == "week" && expense == 0 && activityVM.activity!.weekTotal != 0 ? activityVM.activity!.weekTotal : expense)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                                         }
                                     }
                                     
@@ -102,22 +104,35 @@ struct Activity: View {
                                                     }
                                             }
                                         }
-                                    }.onChange(of: activityVM.selectedUnit) { newValue in
-                                        activityVM.getActivity()
+                                    }.onChange(of: activityVM.selectedUnit) { value in
+                                        if activityVM.selectedUnit == "week" {
+                                            expense = activityVM.activity!.weekTotal
+                                            expensePoints = activity.week
+                                        } else if activityVM.selectedUnit == "day" {
+                                            expense = activityVM.activity!.dayTotal
+                                            expensePoints = activity.day
+                                        } else if activityVM.selectedUnit == "month" {
+                                            expense = activityVM.activity!.monthTotal
+                                            expensePoints = activity.month
+                                        } else if activityVM.selectedUnit == "year" {
+                                            expense = activityVM.activity!.yearTotal
+                                            expensePoints = activity.year
+                                        }
                                     }
                                     
-                                    ActivityGraph(points: activity.expensesPoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
+                                    ActivityGraph(points: (expensePoints.isEmpty && activityVM.selectedUnit == "week") ? activity.week : expensePoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
+                                    
                                 } else {
-                                    ActivityGraph(points: [
-                                        .init(period: "Mon", amount: 0),
-                                        .init(period: "Tue", amount: 0),
-                                        .init(period: "Wed", amount: 0),
-                                        .init(period: "Thu", amount: 0),
-                                        .init(period: "Fri", amount: 0),
-                                        .init(period: "Sat", amount: 0),
-                                        .init(period: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
-                                        .padding(.horizontal, -24)
+//                                    ActivityGraph(points: [
+//                                        .init(period: "Mon", amount: 0),
+//                                        .init(period: "Tue", amount: 0),
+//                                        .init(period: "Wed", amount: 0),
+//                                        .init(period: "Thu", amount: 0),
+//                                        .init(period: "Fri", amount: 0),
+//                                        .init(period: "Sat", amount: 0),
+//                                        .init(period: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
+//                                        .padding(.horizontal, -24)
                                 }
                             }
                             

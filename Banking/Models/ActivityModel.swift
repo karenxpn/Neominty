@@ -7,10 +7,15 @@
 
 import Foundation
 struct ActivityModel: Codable {
-    var income: String
-    var expenses: String
-    var expensesPoints: [ExpensePoint]
-    var transactiions: [TransactionPreview]
+    var totalday: Decimal
+    var totalweek: Decimal
+    var totalmonth: Decimal
+    var totalyear: Decimal
+    var day: [ExpensePoint]
+    var week: [ExpensePoint]
+    var month: [ExpensePoint]
+    var year: [ExpensePoint]
+    var transactiions: [TransactionPreview]?
 }
 
 
@@ -20,8 +25,21 @@ struct ActivityModelViewModel {
         self.model = model
     }
     
-    var income: String                              { self.model.income }
-    var expenses: String                            { self.model.expenses }
-    var expensesPoints: [ExpensePoint]              { self.model.expensesPoints}
-    var transactions: [TransactionPreviewViewModel] { self.model.transactiions.map(TransactionPreviewViewModel.init)}
+    var dayTotal: Decimal                                { self.model.totalday }
+    var weekTotal: Decimal                               { self.model.totalweek }
+    var monthTotal: Decimal                              { self.model.totalmonth }
+    var yearTotal: Decimal                               { self.model.totalyear }
+    
+    var day: [ExpensePoint]          { self.model.day }
+    var week: [ExpensePoint]         { self.model.week }
+    var month: [ExpensePoint]        { self.model.month }
+    var year: [ExpensePoint]         { self.model.year }
+
+    var transactions: [TransactionPreviewViewModel] {
+        if self.model.transactiions != nil {
+            return self.model.transactiions!.map(TransactionPreviewViewModel.init)
+        } else {
+            return []
+        }
+    }
 }

@@ -19,6 +19,7 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
     case defaultCard
     case transactions
     case payments
+    case userTransferActivity
     case unknown(RawValue)
     
     static let allCases: AllCases = [
@@ -29,7 +30,8 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
         .orderRules,
         .defaultCard,
         .transactions,
-        .payments
+        .payments,
+        .userTransferActivity
     ]
     
     init(rawValue: RawValue) {
@@ -47,6 +49,7 @@ enum Paths : RawRepresentable, CaseIterable, Codable {
         case .orderRules                        : return "orderRules"
         case .transactions                      : return "transactions"
         case .payments                          : return "payments"
+        case .userTransferActivity              : return "userTransferActivity"
         case let .unknown(value)                : return value
         }
     }
