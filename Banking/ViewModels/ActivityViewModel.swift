@@ -71,6 +71,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
             case .failure(_):
                 break
             case .success(let activity):
+                self.selectedUnit = ActivityUnit.week.rawValue
                 self.activity = ActivityModelViewModel(model: activity)
             }
             if !Task.isCancelled {
