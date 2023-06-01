@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
@@ -124,15 +125,15 @@ struct Activity: View {
                                         .padding(.horizontal, -24)
                                     
                                 } else {
-//                                    ActivityGraph(points: [
-//                                        .init(period: "Mon", amount: 0),
-//                                        .init(period: "Tue", amount: 0),
-//                                        .init(period: "Wed", amount: 0),
-//                                        .init(period: "Thu", amount: 0),
-//                                        .init(period: "Fri", amount: 0),
-//                                        .init(period: "Sat", amount: 0),
-//                                        .init(period: "Sun", amount: 0)], currencySymbol: "USD".currencySymbol)
-//                                        .padding(.horizontal, -24)
+                                    ActivityGraph(points: [
+                                        .init(amount: 0, interval: "Mon", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Tue", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Wed", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Thu", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Fri", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Sat", timestamp: Timestamp(date: Date())),
+                                        .init(amount: 0, interval: "Sun", timestamp: Timestamp(date: Date()))], currencySymbol: "USD".currencySymbol)
+                                        .padding(.horizontal, -24)
                                 }
                             }
                             
