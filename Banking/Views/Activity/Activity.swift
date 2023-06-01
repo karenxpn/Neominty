@@ -47,6 +47,8 @@ struct Activity: View {
                                 .tabViewStyle(.page)
                                 .tabViewStyle(.page(indexDisplayMode: .always))
                                 .onChange(of: activityVM.selectedCard) { newValue in
+                                    expense = 0
+                                    expensePoints.removeAll(keepingCapacity: false)
                                     activityVM.getActivity()
                                 }
                         } else {
