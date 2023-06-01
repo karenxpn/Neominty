@@ -33,9 +33,7 @@ extension ActivityService: ActivityServiceProtocol {
             var activity = try await db.collection(Paths.userTransferActivity.rawValue)
                 .document(bindingId)
                 .getDocument(as: ActivityModel.self)
-            
-            print("activity", activity)
-                        
+                                    
             let transactions = try docs.map({try $0.data(as: TransactionPreview.self)})
             activity.transactiions = transactions
             
