@@ -27,6 +27,9 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     @Published var selectedUnit = ActivityUnit.week.rawValue
     @Published var selectedCard: String = ""
     
+    @Published var expense: Decimal = 0
+    @Published var expensePoints: [ExpensePoint] = []
+    
     
     var manager: ActivityServiceProtocol
     var cardManager: CardServiceProtocol
@@ -35,6 +38,22 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
          cardManager: CardServiceProtocol = CardService.shared) {
         self.manager = manager
         self.cardManager = cardManager
+    }
+    
+    func setValues() {
+        if selectedUnit == "week" {
+            expense = activity!.weekTotal
+            expensePoints = activity!.week
+        } else if selectedUnit == "day" {
+            expense = activity!.dayTotal
+            expensePoints = activity!.day
+        } else if selectedUnit == "month" {
+            expense = activity!.monthTotal
+            expensePoints = activity!.month
+        } else if selectedUnit == "year" {
+            expense = activity!.yearTotal
+            expensePoints = activity!.year
+        }
     }
     
     @MainActor func getCards() {
@@ -64,6 +83,8 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     @MainActor func getActivity() {
         loadingActivity = true
         activity = nil
+        expense = 0
+        expensePoints.removeAll(keepingCapacity: false)
         
         Task {
             let result = await manager.fetchActivity(bindingId: selectedCard)
@@ -73,6 +94,8 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
             case .success(let activity):
                 self.selectedUnit = ActivityUnit.week.rawValue
                 self.activity = ActivityModelViewModel(model: activity)
+                self.expense = self.activity!.weekTotal
+                self.expensePoints = self.activity!.week
             }
             if !Task.isCancelled {
                 loadingActivity = false
