@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
 struct ActivityModel: Codable {
     var totalday: Decimal
     var totalweek: Decimal
@@ -31,10 +33,24 @@ struct ActivityModelViewModel {
     var yearTotal: Decimal                               { self.model.totalyear }
     
     var day: [ExpensePointViewModel] {
-        self.model.day.map(ExpensePointViewModel.init).map { point in
+        var points = self.model.day.map(ExpensePointViewModel.init).map { point in
             var cur = point
             cur.interval = point.timestamp.getHour()
-            return cur        }
+            return cur
+        }
+        
+        if points.last?.interval ?? "" < Date().getHour() {
+            
+            if let tmp = Int(points.last?.timestamp.getHour() ?? "0") {
+                var cur = tmp + 1
+                while points.last?.interval ?? "" < Date().getHour() {
+                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: String(cur), timestamp: Timestamp(date: Date()))))
+                    cur += 1
+                }
+            }
+        }
+        
+        return points
     }
     
     var week: [ExpensePointViewModel]         {
