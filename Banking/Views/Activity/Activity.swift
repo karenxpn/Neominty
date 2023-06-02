@@ -112,13 +112,13 @@ struct Activity: View {
                                     
                                 } else {
                                     ActivityGraph(points: [
-                                        .init(amount: 0, interval: "Mon", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Tue", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Wed", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Thu", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Fri", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Sat", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Sun", timestamp: Timestamp(date: Date()))], currencySymbol: "USD".currencySymbol)
+                                        .init(model: .init(amount: 0, interval: "Mon", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Tue", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Wed", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Thu", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Fri", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Sat", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Sun", timestamp: Timestamp(date: Date())))], currencySymbol: "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                 }
                             }

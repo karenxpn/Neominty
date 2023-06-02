@@ -28,7 +28,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
     @Published var selectedCard: String = ""
     
     @Published var expense: Decimal = 0
-    @Published var expensePoints: [ExpensePoint] = []
+    @Published var expensePoints: [ExpensePointViewModel] = []
     
     
     var manager: ActivityServiceProtocol

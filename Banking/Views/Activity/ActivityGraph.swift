@@ -10,7 +10,7 @@ import Charts
 
 
 struct ActivityGraph: View {
-    let points: [ExpensePoint]
+    let points: [ExpensePointViewModel]
     let currencySymbol: String
     @State private var location: CGPoint = .zero
     @State private var amount: Decimal = 0
@@ -130,8 +130,8 @@ struct ActivityGraph: View {
     }
 }
 
-struct ActivityGraph_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityGraph(points: PreviewModels.expensesPoints, currencySymbol: "USD".currencySymbol)
-    }
-}
+//struct ActivityGraph_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ActivityGraph(points: PreviewModels.expensesPoints, currencySymbol: "USD".currencySymbol)
+//    }
+//}
