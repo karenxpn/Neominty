@@ -38,14 +38,17 @@ struct ActivityModelViewModel {
             cur.interval = point.timestamp.getHour()
             return cur
         }
-        
-        if points.last?.interval ?? "" < Date().getHour() {
-            
-            if let tmp = Int(points.last?.timestamp.getHour() ?? "0") {
-                var cur = tmp + 1
-                while points.last?.interval ?? "" < Date().getHour() {
-                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: String(cur), timestamp: Timestamp(date: Date()))))
-                    cur += 1
+                
+        if points.last?.timestamp ?? Date() < Date() {
+            let calendar = Calendar.current
+            if let startDate = points.last?.timestamp {
+                var curDate = calendar.date(byAdding: .hour, value: 1, to: startDate) ?? Date()
+                while curDate < Date() {
+                    if points.first?.interval == curDate.getHour() {
+                        points.remove(at: 0)
+                        points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: String(curDate.getHour()), timestamp: Timestamp(date: Date()))))
+                    }
+                    curDate = calendar.date(byAdding: .hour, value: 1, to: curDate) ?? Date()
                 }
             }
         }
