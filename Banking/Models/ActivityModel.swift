@@ -27,9 +27,10 @@ struct ActivityModelViewModel {
         if points.last?.timestamp ?? Date() < Date() {
             let calendar = Calendar.current
             if let startDate = points.last?.timestamp {
-                var curDate = calendar.date(byAdding: addBy, value: 1, to: startDate) ?? Date()
+                var curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy, value: addBy == .weekOfYear ? 7 : 1, to: startDate) ?? Date()
                 
                 while curDate < Date() {
+
                     var interval: String
                     switch addBy {
                     case .hour:
@@ -38,15 +39,19 @@ struct ActivityModelViewModel {
                         interval = curDate.getWeekDay()
                     case .month:
                         interval = curDate.getMonth()
+                    case .weekOfYear:
+                        interval = curDate.getWeek()
                     default:
                         interval = "some interval \(UUID().uuidString)"
                     }
                     
                     if points.first?.interval == interval {
                         points.remove(at: 0)
-                        points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
                     }
-                    curDate = calendar.date(byAdding: addBy, value: 1, to: curDate) ?? Date()
+                    
+                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
+                    
+                    curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy, value: addBy == .weekOfYear ? 7 : 1, to: curDate) ?? Date()
                 }
             }
         }
@@ -82,11 +87,15 @@ struct ActivityModelViewModel {
         
     }
     var month: [ExpensePointViewModel]        {
-        self.model.month.map(ExpensePointViewModel.init).map { point in
+        var points = self.model.month.map(ExpensePointViewModel.init).map { point in
             var cur = point
             cur.interval = point.timestamp.getWeek()
             return cur
         }
+        
+        self.fixPoints(points: &points, addBy: .weekOfYear)
+        
+        return points
         
     }
     var year: [ExpensePointViewModel]         {
