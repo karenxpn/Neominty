@@ -81,7 +81,14 @@ struct ActivityModelViewModel {
         return points
         
     }
-    var month: [ExpensePointViewModel]        { self.model.month.map(ExpensePointViewModel.init) }
+    var month: [ExpensePointViewModel]        {
+        self.model.month.map(ExpensePointViewModel.init).map { point in
+            var cur = point
+            cur.interval = point.timestamp.getWeek()
+            return cur
+        }
+        
+    }
     var year: [ExpensePointViewModel]         {
         var points = self.model.year.map(ExpensePointViewModel.init).map { point in
             var cur = point
