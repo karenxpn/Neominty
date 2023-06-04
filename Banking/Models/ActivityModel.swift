@@ -6,11 +6,9 @@
 //
 
 import Foundation
+import FirebaseFirestore
+
 struct ActivityModel: Codable {
-    var totalday: Decimal
-    var totalweek: Decimal
-    var totalmonth: Decimal
-    var totalyear: Decimal
     var day: [ExpensePoint]
     var week: [ExpensePoint]
     var month: [ExpensePoint]
@@ -25,16 +23,94 @@ struct ActivityModelViewModel {
         self.model = model
     }
     
-    var dayTotal: Decimal                                { self.model.totalday }
-    var weekTotal: Decimal                               { self.model.totalweek }
-    var monthTotal: Decimal                              { self.model.totalmonth }
-    var yearTotal: Decimal                               { self.model.totalyear }
-    
-    var day: [ExpensePoint]          { self.model.day }
-    var week: [ExpensePoint]         { self.model.week }
-    var month: [ExpensePoint]        { self.model.month }
-    var year: [ExpensePoint]         { self.model.year }
+    func fixPoints(points: inout [ExpensePointViewModel], addBy: Calendar.Component) {
+        if points.last?.timestamp ?? Date() < Date() {
+            let calendar = Calendar.current
+            if let startDate = points.last?.timestamp {
+                var curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
+                                            value: addBy == .weekOfYear ? 7 : 1, to: startDate) ?? Date()
+                
+                while curDate < Date() {
 
+                    var interval: String
+                    switch addBy {
+                    case .hour:
+                        interval = curDate.getHour()
+                    case .day:
+                        interval = curDate.getWeekDay()
+                    case .month:
+                        interval = curDate.getMonth()
+                    case .weekOfYear:
+                        interval = curDate.getWeek()
+                    default:
+                        interval = "some interval \(UUID().uuidString)"
+                    }
+                    
+                    if points.first?.interval == interval {
+                        points.remove(at: 0)
+                    }
+                    
+                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
+                    
+                    curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
+                                            value: addBy == .weekOfYear ? 7 : 1, to: curDate) ?? Date()
+                }
+            }
+        }
+    }
+    
+    var dayTotal: Decimal                                { self.day.map{$0.amount}.reduce(0, +) }
+    var weekTotal: Decimal                               { self.week.map{$0.amount}.reduce(0, +) }
+    var monthTotal: Decimal                              { self.month.map{$0.amount}.reduce(0, +) }
+    var yearTotal: Decimal                               { self.year.map{$0.amount}.reduce(0, +) }
+    
+    var day: [ExpensePointViewModel] {
+        var points = self.model.day.map(ExpensePointViewModel.init).map { point in
+            var cur = point
+            cur.interval = point.timestamp.getHour()
+            return cur
+        }
+                
+        self.fixPoints(points: &points, addBy: .hour)
+        
+        return points
+    }
+    
+    var week: [ExpensePointViewModel]         {
+        var points = self.model.week.map(ExpensePointViewModel.init).map { point in
+            var cur = point
+            cur.interval = point.timestamp.getWeekDay()
+            return cur
+        }
+        
+        self.fixPoints(points: &points, addBy: .day)
+        
+        return points
+        
+    }
+    var month: [ExpensePointViewModel]        {
+        var points = self.model.month.map(ExpensePointViewModel.init).map { point in
+            var cur = point
+            cur.interval = point.timestamp.getWeek()
+            return cur
+        }
+        
+        self.fixPoints(points: &points, addBy: .weekOfYear)
+        
+        return points
+        
+    }
+    var year: [ExpensePointViewModel]         {
+        var points = self.model.year.map(ExpensePointViewModel.init).map { point in
+            var cur = point
+            cur.interval = point.timestamp.getMonth()
+            return cur
+        }
+        
+        self.fixPoints(points: &points, addBy: .month)
+        return points
+    }
+    
     var transactions: [TransactionPreviewViewModel] {
         if self.model.transactiions != nil {
             return self.model.transactiions!.map(TransactionPreviewViewModel.init)

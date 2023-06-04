@@ -313,6 +313,37 @@ extension Date {
         // 4) Finally, create a date using the seconds offset since 1970 for the local date.
         return Date(timeIntervalSince1970: timezoneEpochOffset)
     }
+    
+    func getWeekDay() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE"
+        let weekDay = dateFormatter.string(from: self)
+        return weekDay
+    }
+    
+    func getHour() -> String {
+        return "\(Calendar.current.component(.hour, from: self))"
+    }
+    
+    func getWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        let calendar = Calendar.current
+        var endOfWeek = calendar.date(byAdding: .day, value: 7, to: self) ?? Date()
+        if endOfWeek > Date() {
+            endOfWeek = Date()
+        }
+        
+        return "\(dateFormatter.string(from: self)):\n\(dateFormatter.string(from: endOfWeek))"
+    }
+    
+    func getMonth() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM"
+        let month = dateFormatter.string(from: self)
+        return month
+    }
 }
 
 extension Formatter {
@@ -433,7 +464,7 @@ extension CardValidationTF {
     
     public static func isCardHolderNameValid(_ name: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: "^[A-Z][a-z]+(?: [A-Z][a-z\\-]*)*(?: [A-Z][a-z]*(?:-[A-Z][a-z]*)?)$"
-)
+        )
         let range = NSRange(name.startIndex..., in: name)
         return regex.firstMatch(in: name, options: [], range: range) != nil
     }
@@ -444,36 +475,36 @@ extension CardValidationTF {
 
 class Currency {
     static let shared: Currency = Currency()
-
+    
     private var cache: [String:String] = [:]
-
+    
     func findSymbol(currencyCode:String) -> String {
         if let hit = cache[currencyCode] { return hit }
         guard currencyCode.count < 4 else { return "" }
-
+        
         let symbol = findSymbolBy(currencyCode)
         cache[currencyCode] = symbol
-
+        
         return symbol
     }
-
+    
     private func findSymbolBy(_ currencyCode: String) -> String {
         var candidates: [String] = []
         let locales = NSLocale.availableLocaleIdentifiers
-
+        
         for localeId in locales {
             guard let symbol = findSymbolBy(localeId, currencyCode) else { continue }
             if symbol.count == 1 { return symbol }
             candidates.append(symbol)
         }
-
+        
         return candidates.sorted(by: { $0.count < $1.count }).first ?? ""
     }
-
+    
     private func findSymbolBy(_ localeId: String, _ currencyCode: String) -> String? {
         let locale = Locale(identifier: localeId)
         return currencyCode.caseInsensitiveCompare(locale.currency?.identifier ?? "") == .orderedSame
-            ? locale.currencySymbol : nil
+        ? locale.currencySymbol : nil
     }
 }
 
@@ -482,7 +513,7 @@ extension String {
     
     func isFullNameValid() -> Bool {
         let regex = try! NSRegularExpression(pattern: "^[A-Z][a-z]+(?: [A-Z][a-z\\-]*)*(?: [A-Z][a-z]*(?:-[A-Z][a-z]*)?)$"
-)
+        )
         let range = NSRange(self.startIndex..., in: self)
         return regex.firstMatch(in: self, options: [], range: range) != nil
     }
@@ -499,15 +530,15 @@ extension CIImage {
     var transparent: CIImage? {
         return inverted?.blackTransparent
     }
-
+    
     /// Inverts the colors.
     var inverted: CIImage? {
         guard let invertedColorFilter = CIFilter(name: "CIColorInvert") else { return nil }
-
+        
         invertedColorFilter.setValue(self, forKey: "inputImage")
         return invertedColorFilter.outputImage
     }
-
+    
     /// Converts all black to transparent.
     var blackTransparent: CIImage? {
         guard let blackTransparentFilter = CIFilter(name: "CIMaskToAlpha") else { return nil }
@@ -521,14 +552,14 @@ extension CIImage {
             let transparentQRImage = transparent,
             let filter = CIFilter(name: "CIMultiplyCompositing"),
             let colorFilter = CIFilter(name: "CIConstantColorGenerator") else { return nil }
-
+        
         let ciColor = CIColor(color: color)
         colorFilter.setValue(ciColor, forKey: kCIInputColorKey)
         let colorImage = colorFilter.outputImage
-
+        
         filter.setValue(colorImage, forKey: kCIInputImageKey)
         filter.setValue(transparentQRImage, forKey: kCIInputBackgroundImageKey)
-
+        
         return filter.outputImage!
     }
 }

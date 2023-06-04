@@ -12,8 +12,6 @@ struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var showCardAttachedAlert: Bool = false
-    @State private var expense: Decimal = 0
-    @State private var expensePoints: [ExpensePoint] = []
     
     init() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(AppColors.darkBlue)
@@ -47,8 +45,6 @@ struct Activity: View {
                                 .tabViewStyle(.page)
                                 .tabViewStyle(.page(indexDisplayMode: .always))
                                 .onChange(of: activityVM.selectedCard) { newValue in
-                                    expense = 0
-                                    expensePoints.removeAll(keepingCapacity: false)
                                     activityVM.getActivity()
                                 }
                         } else {
@@ -82,7 +78,7 @@ struct Activity: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.selectedUnit == "week" && expense == 0 && activityVM.activity!.weekTotal != 0 ? activityVM.activity!.weekTotal : expense)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                                         }
                                     }
                                     
@@ -108,33 +104,21 @@ struct Activity: View {
                                             }
                                         }
                                     }.onChange(of: activityVM.selectedUnit) { value in
-                                        if activityVM.selectedUnit == "week" {
-                                            expense = activityVM.activity!.weekTotal
-                                            expensePoints = activity.week
-                                        } else if activityVM.selectedUnit == "day" {
-                                            expense = activityVM.activity!.dayTotal
-                                            expensePoints = activity.day
-                                        } else if activityVM.selectedUnit == "month" {
-                                            expense = activityVM.activity!.monthTotal
-                                            expensePoints = activity.month
-                                        } else if activityVM.selectedUnit == "year" {
-                                            expense = activityVM.activity!.yearTotal
-                                            expensePoints = activity.year
-                                        }
+                                        activityVM.setValues()
                                     }
                                     
-                                    ActivityGraph(points: (expensePoints.isEmpty && activityVM.selectedUnit == "week") ? activity.week : expensePoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
+                                    ActivityGraph(points: activityVM.expensePoints, currencySymbol: activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                     
                                 } else {
                                     ActivityGraph(points: [
-                                        .init(amount: 0, interval: "Mon", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Tue", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Wed", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Thu", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Fri", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Sat", timestamp: Timestamp(date: Date())),
-                                        .init(amount: 0, interval: "Sun", timestamp: Timestamp(date: Date()))], currencySymbol: "USD".currencySymbol)
+                                        .init(model: .init(amount: 0, interval: "Mon", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Tue", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Wed", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Thu", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Fri", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Sat", timestamp: Timestamp(date: Date()))),
+                                        .init(model: .init(amount: 0, interval: "Sun", timestamp: Timestamp(date: Date())))], currencySymbol: "USD".currencySymbol)
                                         .padding(.horizontal, -24)
                                 }
                             }
