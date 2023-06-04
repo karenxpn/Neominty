@@ -27,7 +27,8 @@ struct ActivityModelViewModel {
         if points.last?.timestamp ?? Date() < Date() {
             let calendar = Calendar.current
             if let startDate = points.last?.timestamp {
-                var curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy, value: addBy == .weekOfYear ? 7 : 1, to: startDate) ?? Date()
+                var curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
+                                            value: addBy == .weekOfYear ? 7 : 1, to: startDate) ?? Date()
                 
                 while curDate < Date() {
 
@@ -51,7 +52,8 @@ struct ActivityModelViewModel {
                     
                     points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
                     
-                    curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy, value: addBy == .weekOfYear ? 7 : 1, to: curDate) ?? Date()
+                    curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
+                                            value: addBy == .weekOfYear ? 7 : 1, to: curDate) ?? Date()
                 }
             }
         }
