@@ -27,7 +27,7 @@ class PayService {
 
 extension PayService: PayServiceProtocol {
     func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal) async throws -> BothBindingPaymentResponse {
-        let url = URL(string: "\(Credentials.functions_base_url)bothBindingPayment")!
+        let url = URL(string: "\(Credentials.functions_base_url)bindingPayment")!
         
         let params: Parameters = [
             "sender": sender,
@@ -41,7 +41,7 @@ extension PayService: PayServiceProtocol {
             
             return try await withUnsafeThrowingContinuation({ continuation in
                 AF.request(url,
-                           method: .post,
+                           method: .get,
                            parameters: params,
                            encoding: URLEncoding.queryString,
                            headers: headers)
