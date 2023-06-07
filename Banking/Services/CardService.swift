@@ -40,18 +40,15 @@ extension CardService: CardServiceProtocol {
                 
                 // find the card that is default card and make it not default
                 if let ind = cards.firstIndex(where: {$0.defaultCard}) {
+                    print("ind = ", ind)
                     // make this card not default
-                    try await db.collection(Paths.users.rawValue)
-                        .document(userID)
-                        .collection(Paths.cards.rawValue)
+                    try await db.collection(Paths.cards.rawValue)
                         .document(cards[ind].id ?? "undefined")
                         .updateData([Paths.defaultCard.rawValue : false])
                 }
                 
                 
-                try await db.collection(Paths.users.rawValue)
-                    .document(userID)
-                    .collection(Paths.cards.rawValue)
+                try await db.collection(Paths.cards.rawValue)
                     .document(cards[0].id ?? "undefined")
                     .updateData([Paths.defaultCard.rawValue : true])
             }
@@ -133,9 +130,7 @@ extension CardService: CardServiceProtocol {
     
     func removeCard(userID: String, cardID: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await db.collection(Paths.users.rawValue)
-                .document(userID)
-                .collection(Paths.cards.rawValue)
+            try await db.collection(Paths.cards.rawValue)
                 .document(cardID)
                 .delete()
         }
@@ -145,15 +140,13 @@ extension CardService: CardServiceProtocol {
         do {
             
             // get order rules
-            
-            let docs = try await db.collection(Paths.users.rawValue)
-                .document(userID)
-                .collection(Paths.cards.rawValue)
-                .order(by: "createdAt", descending: true)
+            let docs = try await db.collection(Paths.cards.rawValue)
+                .whereField("userId", isEqualTo: userID)
+                .order(by: "createdAt", descending: false)
                 .getDocuments().documents
-            let cards = try docs.map { try $0.data(as: CardModel.self ) }
-                
             
+            let cards = try docs.map { try $0.data(as: CardModel.self ) }
+                            
             let orderRules = try await db.collection(Paths.users.rawValue)
                 .document(userID)
                 .getDocument()

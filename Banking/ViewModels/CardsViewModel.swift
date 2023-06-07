@@ -58,7 +58,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     
     @MainActor func reorderCards() {
         Task {
-            let _ = await manager.reorderCards(userID: userID, cards: cards)
+            let result = await manager.reorderCards(userID: userID, cards: cards)
+            print(result)
         }
     }
     
