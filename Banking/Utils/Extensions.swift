@@ -344,6 +344,17 @@ extension Date {
         let month = dateFormatter.string(from: self)
         return month
     }
+    
+    func getDayTime() -> String {
+        let hour = Calendar.current.component(.hour, from: self)
+        switch hour {
+        case 6..<12 : return (NSLocalizedString("morning", comment: ""))
+        case 12 : return (NSLocalizedString("noon", comment: ""))
+        case 13..<17 : return (NSLocalizedString("afternoon", comment: ""))
+        case 17..<22 : return (NSLocalizedString("evening", comment: ""))
+        default: return NSLocalizedString("night", comment: "")
+        }
+    }
 }
 
 extension Formatter {
