@@ -347,7 +347,7 @@ extension Date {
     
     func getDayOfYear() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd"
+        dateFormatter.dateFormat = "MMM dd"
         let month = dateFormatter.string(from: self)
         return month
     }
