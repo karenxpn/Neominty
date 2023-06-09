@@ -70,12 +70,14 @@ struct ActivityModelViewModel {
 
                     let interval = curDate.getDayTime()
 
-                    if points.first?.interval == interval {
+                    if points.first?.interval.components(separatedBy: "\n").first == interval {
                         points.remove(at: 0)
                     }
                     
-                    if points.contains(where: {$0.interval == curDate.getDayTime()}) == false {
-                        points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
+                    let formattedInterval = "\(curDate.getDayTime())\n\(curDate.getDayOfYear())"
+
+                    if points.contains(where: {$0.interval == formattedInterval}) == false {
+                        points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: formattedInterval, timestamp: Timestamp(date: Date()))))
                     }
 
                     curDate = calendar.date(byAdding: .hour,
@@ -95,17 +97,22 @@ struct ActivityModelViewModel {
         
         var formattedPoints = [ExpensePointViewModel]()
         for point in points {
-            if let index = formattedPoints.firstIndex(where: {$0.interval == point.timestamp.getDayTime()}) {
+            
+            let formattedInterval = "\(point.timestamp.getDayTime())\n\(point.timestamp.getDayOfYear())"
+            if let index = formattedPoints.firstIndex(where:
+                                                        {$0.interval == formattedInterval}) {
                 formattedPoints[index].amount += point.amount
             } else {
                 var cur = point
-                cur.interval = point.timestamp.getDayTime()
+                cur.interval = "\(point.timestamp.getDayTime())\n\(point.timestamp.getDayOfYear())"
                 formattedPoints.append(cur)
-                
             }
         }
         
-        
+        if formattedPoints.first?.interval.components(separatedBy: "\n").first == formattedPoints.last?.interval.components(separatedBy: "\n").first {
+            formattedPoints.removeFirst()
+        }
+            
         self.fixDayPoints(points: &formattedPoints)
         
         return formattedPoints

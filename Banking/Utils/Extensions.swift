@@ -345,6 +345,13 @@ extension Date {
         return month
     }
     
+    func getDayOfYear() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        let month = dateFormatter.string(from: self)
+        return month
+    }
+    
     func getDayTime() -> String {
         let hour = Calendar.current.component(.hour, from: self)
         switch hour {
