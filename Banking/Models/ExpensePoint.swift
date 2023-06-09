@@ -20,7 +20,11 @@ struct ExpensePointViewModel: Hashable {
         self.model = model
     }
     
-    var amount: Decimal     { self.model.amount }
+    var amount: Decimal     {
+        get { self.model.amount }
+        set { self.model.amount = newValue }
+        
+    }
     var interval: String    {
         get { self.model.interval }
         set { self.model.interval = newValue }

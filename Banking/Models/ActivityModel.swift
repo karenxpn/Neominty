@@ -35,7 +35,7 @@ struct ActivityModelViewModel {
                     var interval: String
                     switch addBy {
                     case .hour:
-                        interval = curDate.getHour()
+                        interval = curDate.getDayTime()
                     case .day:
                         interval = curDate.getWeekDay()
                     case .month:
@@ -59,21 +59,56 @@ struct ActivityModelViewModel {
         }
     }
     
+    func fixDayPoints(points: inout [ExpensePointViewModel]) {
+        if points.last?.timestamp ?? Date() < Date() {
+            let calendar = Calendar.current
+            if let startDate = points.last?.timestamp {
+                var curDate = calendar.date(byAdding: .hour,
+                                            value: 1, to: startDate) ?? Date()
+                
+                while curDate < Date() {
+
+                    let interval = curDate.getDayTime()
+
+                    if points.first?.interval == interval {
+                        points.remove(at: 0)
+                    }
+                    
+                    if points.contains(where: {$0.interval == curDate.getDayTime()}) == false {
+                        points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
+                    }
+
+                    curDate = calendar.date(byAdding: .hour,
+                                            value: 1, to: curDate) ?? Date()
+                }
+            }
+        }
+    }
+    
     var dayTotal: Decimal                                { self.day.map{$0.amount}.reduce(0, +) }
     var weekTotal: Decimal                               { self.week.map{$0.amount}.reduce(0, +) }
     var monthTotal: Decimal                              { self.month.map{$0.amount}.reduce(0, +) }
     var yearTotal: Decimal                               { self.year.map{$0.amount}.reduce(0, +) }
     
     var day: [ExpensePointViewModel] {
-        var points = self.model.day.map(ExpensePointViewModel.init).map { point in
-            var cur = point
-            cur.interval = point.timestamp.getHour()
-            return cur
-        }
-                
-        self.fixPoints(points: &points, addBy: .hour)
+        var points = self.model.day.map(ExpensePointViewModel.init)
         
-        return points
+        var formattedPoints = [ExpensePointViewModel]()
+        for point in points {
+            if let index = formattedPoints.firstIndex(where: {$0.interval == point.timestamp.getDayTime()}) {
+                formattedPoints[index].amount += point.amount
+            } else {
+                var cur = point
+                cur.interval = point.timestamp.getDayTime()
+                formattedPoints.append(cur)
+                
+            }
+        }
+        
+        
+        self.fixDayPoints(points: &formattedPoints)
+        
+        return formattedPoints
     }
     
     var week: [ExpensePointViewModel]         {
