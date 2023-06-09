@@ -93,7 +93,7 @@ struct ActivityModelViewModel {
     var yearTotal: Decimal                               { self.year.map{$0.amount}.reduce(0, +) }
     
     var day: [ExpensePointViewModel] {
-        var points = self.model.day.map(ExpensePointViewModel.init)
+        let points = self.model.day.map(ExpensePointViewModel.init)
         
         var formattedPoints = [ExpensePointViewModel]()
         for point in points {
