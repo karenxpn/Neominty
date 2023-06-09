@@ -130,3 +130,9 @@
 "viewFiledToLoad" = "Failed to load this screen please try again later or press Reload button";
 "reload" = "Reload";
 "shareLink" = "Share the link";
+"morning" = "Morning";
+"noon" = "Noon";
+"afternoon" = "Afternoon";
+"evening" = "Evening";
+"night" = "Night";
+"good" = "Good";

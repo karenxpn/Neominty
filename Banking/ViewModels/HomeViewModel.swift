@@ -48,7 +48,6 @@ class HomeViewModel: AlertViewModel, ObservableObject {
         alertMessage = ""
         Task {
             let result = await transferManager.fetchRecentTransferHistory(userID: userID)
-            print(result)
             switch result {
             case .success(let recent):
                 self.transactions = recent.map(TransactionPreviewViewModel.init)
