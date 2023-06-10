@@ -358,7 +358,7 @@ extension Date {
         case 6..<12 : return (NSLocalizedString("morning", comment: ""))
         case 12 : return (NSLocalizedString("noon", comment: ""))
         case 13..<18 : return (NSLocalizedString("afternoon", comment: ""))
-        case 18..<22 : return (NSLocalizedString("evening", comment: ""))
+        case 18..<24 : return (NSLocalizedString("evening", comment: ""))
         default: return NSLocalizedString("night", comment: "")
         }
     }
