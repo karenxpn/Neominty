@@ -69,12 +69,13 @@ struct ActivityModelViewModel {
                 while curDate < Date() {
 
                     let interval = curDate.getDayTime()
+                    let formattedInterval = "\(curDate.getDayTime())\n\(curDate.getDayOfYear())"
 
-                    if points.first?.interval.components(separatedBy: "\n").first == interval {
+                    if points.first?.interval.components(separatedBy: "\n").first == interval &&
+                        points.first?.interval != formattedInterval{
                         points.remove(at: 0)
                     }
                     
-                    let formattedInterval = "\(curDate.getDayTime())\n\(curDate.getDayOfYear())"
 
                     if points.contains(where: {$0.interval == formattedInterval}) == false {
                         points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: formattedInterval, timestamp: Timestamp(date: Date()))))
@@ -113,7 +114,7 @@ struct ActivityModelViewModel {
             formattedPoints.first != formattedPoints.last {
             formattedPoints.removeFirst()
         }
-            
+
         self.fixDayPoints(points: &formattedPoints)
         
         return formattedPoints
