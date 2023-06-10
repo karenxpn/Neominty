@@ -109,7 +109,8 @@ struct ActivityModelViewModel {
             }
         }
         
-        if formattedPoints.first?.interval.components(separatedBy: "\n").first == formattedPoints.last?.interval.components(separatedBy: "\n").first {
+        if formattedPoints.first?.interval.components(separatedBy: "\n").first == formattedPoints.last?.interval.components(separatedBy: "\n").first  &&
+            formattedPoints.first != formattedPoints.last {
             formattedPoints.removeFirst()
         }
             
