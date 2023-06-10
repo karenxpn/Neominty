@@ -103,7 +103,14 @@ struct ActivityGraph: View {
                     .background(.white)
             }.chartYScale(domain: 0...Int((points.map{Int(truncating: $0.amount as NSNumber)}.max() ?? 75) ))
             .chartXAxis() {
-                AxisMarks(position: .bottom)
+                AxisMarks(position: .bottom) { value in
+                    AxisValueLabel() {
+                         if let strValue = value.as(String.self) {
+                             Text("\(strValue)")
+                                 .minimumScaleFactor(0.4)
+                         }
+                     }
+                }
             }
             .frame(height:150)
 
