@@ -27,8 +27,7 @@ struct ActivityModelViewModel {
         if points.last?.timestamp ?? Date() < Date() {
             let calendar = Calendar.current
             if let startDate = points.last?.timestamp {
-                var curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
-                                            value: addBy == .weekOfYear ? 7 : 1, to: startDate) ?? Date()
+                var curDate = calendar.date(byAdding: addBy, value: 1, to: startDate) ?? Date()
                 
                 while curDate < Date() {
 
@@ -50,8 +49,7 @@ struct ActivityModelViewModel {
                     
                     points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
                     
-                    curDate = calendar.date(byAdding: addBy == .weekOfYear ? .day : addBy,
-                                            value: addBy == .weekOfYear ? 7 : 1, to: curDate) ?? Date()
+                    curDate = calendar.date(byAdding: addBy, value: 1, to: startDate) ?? Date()
                 }
             }
         }
@@ -85,6 +83,25 @@ struct ActivityModelViewModel {
             }
         }
     }
+    
+//    func fixMonthPoints(points: inout [ExpensePointViewModel]) {
+//        if points.last?.timestamp ?? Date() < Date() {
+//            let calendar = Calendar.current
+//            if points.last?.timestamp != nil {
+//                var startDate = calendar.date(byAdding: .day, value: 1, to: (points.last?.timestamp)!) ?? Date()
+//                var curDate = calendar.date(byAdding: .day, value: 6, to: startDate) ?? Date()
+//                
+//                while startDate < Date() {
+//                    let formattedInterval = "\(startDate.getDayOfYear()):\n\(curDate.getDayOfYear())"
+//                    points.remove(at: 0)
+//                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: formattedInterval, timestamp: Timestamp(date: startDate))))
+//                    
+//                    startDate = calendar.date(byAdding: .day, value: 1, to: curDate) ?? Date()
+//                    curDate = calendar.date(byAdding: .day, value: 6, to: startDate) ?? Date()
+//                }
+//            }
+//        }
+//    }
     
     var dayTotal: Decimal                                { self.day.map{$0.amount}.reduce(0, +) }
     var weekTotal: Decimal                               { self.week.map{$0.amount}.reduce(0, +) }
@@ -150,7 +167,7 @@ struct ActivityModelViewModel {
                 preformattedPoints.append(cur)
             }
         }
-        
+                
         var formattedPoints = [ExpensePointViewModel]()
         
         var formattedInterval = preformattedPoints.first?.interval
@@ -170,7 +187,7 @@ struct ActivityModelViewModel {
             }
         }
                 
-//        self.fixPoints(points: &points, addBy: .weekOfYear)
+//        self.fixMonthPoints(points: &formattedPoints)
         
         return formattedPoints
         
