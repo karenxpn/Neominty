@@ -40,8 +40,6 @@ struct ActivityModelViewModel {
                         interval = curDate.getWeekDay()
                     case .month:
                         interval = curDate.getMonth()
-                    case .weekOfYear:
-                        interval = curDate.getWeek()
                     default:
                         interval = "some interval \(UUID().uuidString)"
                     }
@@ -105,7 +103,7 @@ struct ActivityModelViewModel {
                 formattedPoints[index].amount += point.amount
             } else {
                 var cur = point
-                cur.interval = "\(point.timestamp.getDayTime())\n\(point.timestamp.getDayOfYear())"
+                cur.interval = formattedInterval
                 formattedPoints.append(cur)
             }
         }
@@ -133,15 +131,48 @@ struct ActivityModelViewModel {
         
     }
     var month: [ExpensePointViewModel]        {
-        var points = self.model.month.map(ExpensePointViewModel.init).map { point in
-            var cur = point
-            cur.interval = point.timestamp.getWeek()
-            return cur
+        let points = self.model.month.map(ExpensePointViewModel.init)
+        
+        var preformattedPoints = [ExpensePointViewModel]()
+        if let startDate = points.first?.timestamp, let endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) {
+            var start = startDate
+            var end = endDate
+            
+            for point in points {
+                if (start...end).contains(point.timestamp) == false {
+                    start = point.timestamp
+                    end = Calendar.current.date(byAdding: .day, value: 6, to: start) ?? Date()
+                }
+                
+                let formattedInterval = "\(start.getDayOfYear()):\n\(end.getDayOfYear())"
+                var cur = point
+                cur.interval = formattedInterval
+                preformattedPoints.append(cur)
+            }
         }
         
-        self.fixPoints(points: &points, addBy: .weekOfYear)
+        var formattedPoints = [ExpensePointViewModel]()
         
-        return points
+        var formattedInterval = preformattedPoints.first?.interval
+        if formattedInterval != nil {
+            for point in preformattedPoints {
+                if point.interval == formattedInterval! {
+                    if let index = formattedPoints.firstIndex(where:
+                                                                {$0.interval == formattedInterval!}) {
+                        formattedPoints[index].amount += point.amount
+                    } else {
+                        formattedPoints.append(point)
+                    }
+                } else {
+                    formattedPoints.append(point)
+                    formattedInterval = point.interval
+                }
+            }
+        }
+                
+//        self.fixPoints(points: &points, addBy: .weekOfYear)
+        
+        return formattedPoints
         
     }
     var year: [ExpensePointViewModel]         {

@@ -325,17 +325,11 @@ extension Date {
         return "\(Calendar.current.component(.hour, from: self))"
     }
     
-    func getWeek() -> String {
+    func getDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let calendar = Calendar.current
-        var endOfWeek = calendar.date(byAdding: .day, value: 7, to: self) ?? Date()
-        if endOfWeek > Date() {
-            endOfWeek = Date()
-        }
-        
-        return "\(dateFormatter.string(from: self)):\n\(dateFormatter.string(from: endOfWeek))"
+        return dateFormatter.string(from: self)
     }
     
     func getMonth() -> String {
