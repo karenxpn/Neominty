@@ -96,6 +96,7 @@ class ActivityViewModel: AlertViewModel, ObservableObject {
                 self.activity = ActivityModelViewModel(model: activity)
                 self.expense = self.activity!.weekTotal
                 self.expensePoints = self.activity!.week
+                print(self.activity)
             }
             if !Task.isCancelled {
                 loadingActivity = false

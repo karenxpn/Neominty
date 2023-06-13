@@ -49,7 +49,7 @@ struct ActivityModelViewModel {
                     
                     points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: interval, timestamp: Timestamp(date: Date()))))
                     
-                    curDate = calendar.date(byAdding: addBy, value: 1, to: startDate) ?? Date()
+                    curDate = calendar.date(byAdding: addBy, value: 1, to: curDate) ?? Date()
                 }
             }
         }
@@ -90,12 +90,12 @@ struct ActivityModelViewModel {
 //            if points.last?.timestamp != nil {
 //                var startDate = calendar.date(byAdding: .day, value: 1, to: (points.last?.timestamp)!) ?? Date()
 //                var curDate = calendar.date(byAdding: .day, value: 6, to: startDate) ?? Date()
-//                
+//
 //                while startDate < Date() {
 //                    let formattedInterval = "\(startDate.getDayOfYear()):\n\(curDate.getDayOfYear())"
 //                    points.remove(at: 0)
 //                    points.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: formattedInterval, timestamp: Timestamp(date: startDate))))
-//                    
+//
 //                    startDate = calendar.date(byAdding: .day, value: 1, to: curDate) ?? Date()
 //                    curDate = calendar.date(byAdding: .day, value: 6, to: startDate) ?? Date()
 //                }
@@ -154,13 +154,13 @@ struct ActivityModelViewModel {
         if let startDate = points.first?.timestamp, let endDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) {
             var start = startDate
             var end = endDate
-            
+
             for point in points {
                 if (start...end).contains(point.timestamp) == false {
                     start = point.timestamp
                     end = Calendar.current.date(byAdding: .day, value: 6, to: start) ?? Date()
                 }
-                
+
                 let formattedInterval = "\(start.getDayOfYear()):\n\(end.getDayOfYear())"
                 var cur = point
                 cur.interval = formattedInterval
@@ -169,7 +169,7 @@ struct ActivityModelViewModel {
         }
                 
         var formattedPoints = [ExpensePointViewModel]()
-        
+
         var formattedInterval = preformattedPoints.first?.interval
         if formattedInterval != nil {
             for point in preformattedPoints {
@@ -186,8 +186,6 @@ struct ActivityModelViewModel {
                 }
             }
         }
-                
-//        self.fixMonthPoints(points: &formattedPoints)
         
         return formattedPoints
         
