@@ -20,28 +20,12 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     @Published var receiveNotifications: Bool = false
     @Published var receiveEmails: Bool = false
     
-    @Published var search: String = ""
-    @Published var faqs = [FAQModel]()
-    @Published var page = 0
-    
     @Published var info: UserInfoViewModel?
     
     private var cancellableSet: Set<AnyCancellable> = []
     var manager: UserServiceProtocol
     init(manager: UserServiceProtocol = UserSerive.shared) {
         self.manager = manager
-        super.init()
-        
-        $search
-            .removeDuplicates()
-            .debounce(for: 0.3, scheduler: DispatchQueue.main)
-            .sink { (text) in
-                self.page = 0
-                self.faqs.removeAll(keepingCapacity: false)
-                Task { @MainActor [weak self] in
-                    self?.getFAQs(searchText: text)
-                }
-            }.store(in: &cancellableSet)
     }
     
     
@@ -110,24 +94,6 @@ class AccountViewModel: AlertViewModel, ObservableObject {
     @MainActor func updateEmailPreference(receive: Bool) {
         Task {
             let _ = await manager.updateEmailPreferences(userID: userID, receive: receive)
-        }
-    }
-    
-    @MainActor func getFAQs(searchText: String = "") {
-        loading = true
-
-        Task {
-            do {
-                let result = try await manager.fetchFaqs(query: searchText, page: page)
-                self.faqs.append(contentsOf: result.hits)
-                self.page += 1
-            } catch let error as NetworkError {
-                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
-            }
-            
-            if !Task.isCancelled {
-                loading = false
-            }
         }
     }
     

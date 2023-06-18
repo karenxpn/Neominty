@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FAQ: View {
     
-    @StateObject private var accountVM = AccountViewModel()
+    @StateObject private var faqVM = FAQViewModel()
     @State private var navigate: Bool = false
     
     var body: some View {
@@ -23,7 +23,7 @@ struct FAQ: View {
             HStack(spacing: 10) {
                 Image("search")
                 
-                TextField(NSLocalizedString("search", comment: ""), text: $accountVM.search)
+                TextField(NSLocalizedString("search", comment: ""), text: $faqVM.search)
                     .font(.custom(Roboto.regular.rawValue, size: 16))
                     .padding(.vertical, 16)
             }.padding(.horizontal, 18)
@@ -49,14 +49,14 @@ struct FAQ: View {
             }.padding(.top, 10)
             
             FAQList()
-                .environmentObject(accountVM)
+                .environmentObject(faqVM)
             
             
         }.padding(24)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
+            .alert(NSLocalizedString("error", comment: ""), isPresented: $faqVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {
-                Text(accountVM.alertMessage)
+                Text(faqVM.alertMessage)
             })
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
