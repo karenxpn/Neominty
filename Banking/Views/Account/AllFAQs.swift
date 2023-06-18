@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct AllFAQs: View {
-    @StateObject private var accountVM = AccountViewModel()
+    @StateObject private var faqVM = FAQViewModel()
     @State private var showDetail: Bool = false
 
     var body: some View {
         ScrollView(showsIndicators: false) {
             
             LazyVStack {
-                ForEach(accountVM.faqs, id: \.id) { faq in
+                ForEach(faqVM.faqs, id: \.id) { faq in
                     Button {
                         showDetail.toggle()
                     } label: {
@@ -32,8 +32,8 @@ struct AllFAQs: View {
                                 RoundedRectangle(cornerRadius: 20)
                                     .strokeBorder(AppColors.border, lineWidth: 1)
                             }.onAppear {
-                                if faq.id == accountVM.faqs.last?.id && !accountVM.loading {
-                                    accountVM.getFAQs()
+                                if faq.id == faqVM.faqs.last?.id && !faqVM.loading {
+                                    faqVM.getFAQs()
                                 }
                             }
                     }.sheet(isPresented: $showDetail) {
@@ -41,17 +41,17 @@ struct AllFAQs: View {
                     }
                 }
                 
-                if accountVM.loading {
+                if faqVM.loading {
                     ProgressView()
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.padding(.top, 1)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
+            .alert(NSLocalizedString("error", comment: ""), isPresented: $faqVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {
-                Text(accountVM.alertMessage)
+                Text(faqVM.alertMessage)
             })
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)

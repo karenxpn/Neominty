@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FAQList: View {
-    @EnvironmentObject var accountVM: AccountViewModel
+    @EnvironmentObject var faqVM: FAQViewModel
     @State private var showDetail: Bool = false
     
     var body: some View {
@@ -16,7 +16,7 @@ struct FAQList: View {
             
             LazyVStack {
                 
-                ForEach(accountVM.faqs, id: \.id) { faq in
+                ForEach(faqVM.faqs, id: \.id) { faq in
                     Button {
                         showDetail.toggle()
                     } label: {
@@ -38,13 +38,13 @@ struct FAQList: View {
                     }
                 }
                 
-                if accountVM.loading {
+                if faqVM.loading {
                     ProgressView()
                 }
                 
-                ButtonHelper(disabled: accountVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: AppColors.superLightGray, labelColor: AppColors.darkBlue) {
+                ButtonHelper(disabled: faqVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: AppColors.superLightGray, labelColor: AppColors.darkBlue) {
                     
-                    accountVM.getFAQs()
+                    faqVM.getFAQs()
                 }.padding(.top, 35)
             }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
         }.scrollDismissesKeyboard(.immediately)
