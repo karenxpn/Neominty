@@ -188,7 +188,7 @@ struct ActivityModelViewModel {
         }
         
         if let last = points.last?.timestamp, let start = Calendar.current.date(byAdding: .day, value: 1, to: last) {
-            if last < Date() {
+            if start < Date() {
                 formattedPoints.append(ExpensePointViewModel(model: ExpensePoint(amount: 0, interval: "\(start.getDayOfYear()):\n\(NSLocalizedString("now", comment: ""))", timestamp: Timestamp(date: start))))
             }
         }
