@@ -93,6 +93,8 @@ struct Activity: View {
                                                 activityVM.selectedUnit = unit
                                             } label: {
                                                 TextHelper(text: NSLocalizedString(unit, comment: ""), color: activityVM.selectedUnit == unit ? .black : AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 14)
+                                                    .lineLimit(1)
+                                                    .minimumScaleFactor(0.3)
                                                     .padding(.horizontal, 16)
                                                     .padding(.vertical, 8)
                                                     .background {
