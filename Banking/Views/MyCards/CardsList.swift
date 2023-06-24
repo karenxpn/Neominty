@@ -36,6 +36,7 @@ struct CardsList: View {
                         }
                     }
             }.onMove(perform: move)
+                .moveDisabled(loading)
 
             
             if !loading {
