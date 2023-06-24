@@ -31,9 +31,7 @@ struct RecentTransactions: View {
             }
             
             
-            if loading {
-                ProgressView()
-            } else if transactions.isEmpty {
+            if transactions.isEmpty {
                 NoTransactionsToShow()
             } else {
                 ForEach(transactions, id: \.id) { transaction in

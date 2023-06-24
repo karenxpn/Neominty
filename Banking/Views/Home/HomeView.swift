@@ -76,8 +76,19 @@ struct HomeView: View {
                     }
                 }
                 
-                RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
-                    viewRouter.pushHomePath(.allTransactions)
+                if homeVM.loadingTransactions {
+                    RecentTransactions(loading: $homeVM.loadingTransactions, transactions: PreviewModels.transactionList) {
+                        viewRouter.pushHomePath(.allTransactions)
+                    }.redacted(reason: .placeholder)
+                        .shimmering(
+                            active: homeVM.loading,
+                            animation: .easeInOut(duration: 1)
+                                .repeatForever(autoreverses: false)
+                        )
+                } else {
+                    RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
+                        viewRouter.pushHomePath(.allTransactions)
+                    }
                 }
             }.padding(.top, 1)
                 .task {
