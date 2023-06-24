@@ -169,6 +169,7 @@
 		FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0829BBC7E100E774FD /* CreatePin.swift */; };
 		FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */; };
 		FFDC38982A3F260E00B78E8C /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC38972A3F260E00B78E8C /* FAQViewModel.swift */; };
+		FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FFDE8FE52A4723750005A35F /* Shimmer */; };
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE0C6AB2A1A554B0043E5FF /* BothBindingPaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BothBindingPaymentResponse.swift */; };
 /* End PBXBuildFile section */
@@ -369,6 +370,7 @@
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
 				FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */,
 				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
+				FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */,
 				FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */,
 				FF18C24929BA8010004EF3A3 /* FirebaseStorage in Frameworks */,
 				FF18C24729BA8010004EF3A3 /* FirebaseFirestoreSwift in Frameworks */,
@@ -810,6 +812,7 @@
 				FF42813829F743D900E57567 /* Alamofire */,
 				FF13833F2A03DB8A00607BDB /* PhoneNumberKit */,
 				FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */,
+				FFDE8FE52A4723750005A35F /* Shimmer */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -894,6 +897,7 @@
 				FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FF13833E2A03DB8A00607BDB /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
+				FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1585,6 +1589,14 @@
 				kind = branch;
 			};
 		};
+		FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1642,6 +1654,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF7A121329E6ED0900286366 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		FFDE8FE52A4723750005A35F /* Shimmer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
+			productName = Shimmer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CollectionViewPagingLayout
+import Shimmer
 
 struct HomeView: View {
     @AppStorage("fullName") var localName: String = ""
@@ -17,7 +18,7 @@ struct HomeView: View {
     @State private var showCardAttachedAlert: Bool = false
     
     var options: ScaleTransformViewOptions {
-    
+        
         var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
         viewOptions.shadowEnabled = false
         return viewOptions
@@ -29,28 +30,35 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 
                 ZStack(alignment: .bottom) {
-
+                    
                     Image("layer-blur")
                         .opacity(0.9)
-
+                    
                     VStack {
-
+                        
                         if homeVM.loading {
-                            ProgressView()
+                            UserCard(card: PreviewModels.visaCard, selected: false)
+                                .redacted(reason: .placeholder)
+                                .shimmering(
+                                    active: homeVM.loading,
+                                    animation: .easeInOut(duration: 1)
+                                        .repeatForever(autoreverses: false)
+                                )
+                                .frame(width: UIScreen.main.bounds.width * 0.8, height: 250)
                         } else if homeVM.cards.isEmpty && !homeVM.alertMessage.isEmpty {
                             ViewFailedToLoad {
                                 homeVM.getCards()
                                 homeVM.getRecentTransfers()
                             }
                         } else {
-                             
-                             if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
-                                 AttachNewCardButton {
-                                     viewRouter.pushHomePath(.attachCard)
-                                 }.padding(24)
-                             }
-                             
-                             else {
+                            
+                            if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
+                                AttachNewCardButton {
+                                    viewRouter.pushHomePath(.attachCard)
+                                }.padding(24)
+                            }
+                            
+                            else {
                                 ScalePageView(homeVM.cards) { card in
                                     UserCard(card: card, selected: card.defaultCard)
                                         .frame(width: UIScreen.main.bounds.width * 0.8)
@@ -61,15 +69,26 @@ struct HomeView: View {
                                     )
                                     .frame(height: 250)
                             }
-                             
-                             HomeMenu()
-                                 .environmentObject(viewRouter)
+                            
+                            HomeMenu()
+                                .environmentObject(viewRouter)
                         }
                     }
                 }
                 
-                RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
-                    viewRouter.pushHomePath(.allTransactions)
+                if homeVM.loadingTransactions {
+                    RecentTransactions(transactions: PreviewModels.transactionList) {
+                        viewRouter.pushHomePath(.allTransactions)
+                    }.redacted(reason: .placeholder)
+                        .shimmering(
+                            active: homeVM.loading,
+                            animation: .easeInOut(duration: 1)
+                                .repeatForever(autoreverses: false)
+                        )
+                } else {
+                    RecentTransactions(transactions: homeVM.transactions) {
+                        viewRouter.pushHomePath(.allTransactions)
+                    }
                 }
             }.padding(.top, 1)
                 .task {
@@ -126,9 +145,9 @@ struct HomeView: View {
             CongratulationAlert {
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
-
+                    
                     TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
-
+                    
                 }
             } action: {
                 showCardAttachedAlert = false

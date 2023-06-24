@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RecentTransactions: View {
     
-    @Binding var loading: Bool
     let transactions: [TransactionPreviewViewModel]
     let action: () -> ()
     
@@ -31,9 +30,7 @@ struct RecentTransactions: View {
             }
             
             
-            if loading {
-                ProgressView()
-            } else if transactions.isEmpty {
+            if transactions.isEmpty {
                 NoTransactionsToShow()
             } else {
                 ForEach(transactions, id: \.id) { transaction in
@@ -43,6 +40,7 @@ struct RecentTransactions: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 48, height: 48)
+                            .cornerRadius(12)
                         
                         VStack(alignment: .leading, spacing: 4) {
                             TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
@@ -69,7 +67,7 @@ struct RecentTransactions: View {
 
 struct RecentTransactions_Previews: PreviewProvider {
     static var previews: some View {
-        RecentTransactions(loading: .constant(false), transactions: PreviewModels.transactionList) {
+        RecentTransactions(transactions: PreviewModels.transactionList) {
             
         }
     }

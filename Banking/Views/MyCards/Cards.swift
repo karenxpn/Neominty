@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Shimmer
+
 
 struct Cards: View {
     @EnvironmentObject var viewRouter: ViewRouter
@@ -15,16 +17,23 @@ struct Cards: View {
         NavigationStack(path: $viewRouter.cardPath) {
             ZStack {
                 if cardsVM.loading {
-                    ProgressView()
+                    CardsList(cards: [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.amexCard],
+                              loading: $cardsVM.loading)
+                        .redacted(reason: .placeholder)
+                            .shimmering(
+                                active: cardsVM.loading,
+                                animation: .easeInOut(duration: 1)
+                                    .repeatForever(autoreverses: false)
+                            )
                 } else if cardsVM.cards.isEmpty && !cardsVM.loading && cardsVM.alertMessage.isEmpty {
                     RequestToAddNewCard()
                 } else if cardsVM.cards.isEmpty && !cardsVM.alertMessage.isEmpty && !cardsVM.loading {
                     ViewFailedToLoad {
                         cardsVM.getCards()
-
                     }
-                }  else {
-                    CardsList(cards: cardsVM.cards)
+                } else {
+                    CardsList(cards: cardsVM.cards,
+                              loading: $cardsVM.loading)
                         .environmentObject(cardsVM)
                 }
             }.navigationTitle(Text(""))
