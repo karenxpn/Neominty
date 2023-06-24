@@ -43,6 +43,7 @@ struct RecentTransactions: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 48, height: 48)
+                            .cornerRadius(12)
                         
                         VStack(alignment: .leading, spacing: 4) {
                             TextHelper(text: transaction.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
