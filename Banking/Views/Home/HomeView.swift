@@ -77,7 +77,7 @@ struct HomeView: View {
                 }
                 
                 if homeVM.loadingTransactions {
-                    RecentTransactions(loading: $homeVM.loadingTransactions, transactions: PreviewModels.transactionList) {
+                    RecentTransactions(transactions: PreviewModels.transactionList) {
                         viewRouter.pushHomePath(.allTransactions)
                     }.redacted(reason: .placeholder)
                         .shimmering(
@@ -86,7 +86,7 @@ struct HomeView: View {
                                 .repeatForever(autoreverses: false)
                         )
                 } else {
-                    RecentTransactions(loading: $homeVM.loadingTransactions, transactions: homeVM.transactions) {
+                    RecentTransactions(transactions: homeVM.transactions) {
                         viewRouter.pushHomePath(.allTransactions)
                     }
                 }

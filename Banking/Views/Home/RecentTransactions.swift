@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RecentTransactions: View {
     
-    @Binding var loading: Bool
     let transactions: [TransactionPreviewViewModel]
     let action: () -> ()
     
@@ -68,7 +67,7 @@ struct RecentTransactions: View {
 
 struct RecentTransactions_Previews: PreviewProvider {
     static var previews: some View {
-        RecentTransactions(loading: .constant(false), transactions: PreviewModels.transactionList) {
+        RecentTransactions(transactions: PreviewModels.transactionList) {
             
         }
     }

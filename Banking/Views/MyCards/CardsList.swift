@@ -11,6 +11,7 @@ struct CardsList: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var cardsVM: CardsViewModel
     let cards: [CardModel]
+    @Binding var loading: Bool
     @State private var selectedToDelete: CardModel?
     @State private var showConfirmationDialog: Bool = false
     
@@ -21,7 +22,7 @@ struct CardsList: View {
                 UserCard(card: card, selected: false)
                     .listRowSeparator(.hidden)
                     .swipeActions {
-                        if !card.defaultCard {
+                        if !card.defaultCard && !loading {
                             Button {
                                 selectedToDelete = card
                                 showConfirmationDialog.toggle()
@@ -37,25 +38,27 @@ struct CardsList: View {
             }.onMove(perform: move)
 
             
-            Button {
-                viewRouter.pushCardPath(.attachCard)
-            } label: {
-                
-                HStack(spacing: 12) {
-                    Spacer()
+            if !loading {
+                Button {
+                    viewRouter.pushCardPath(.attachCard)
+                } label: {
                     
-                    Image("plus-without-circle")
+                    HStack(spacing: 12) {
+                        Spacer()
+                        
+                        Image("plus-without-circle")
+                        
+                        Text( NSLocalizedString("addNewCard", comment: "") )
+                            .font(.custom(Roboto.bold.rawValue, size: 16))
+                            .foregroundColor(AppColors.darkBlue)
+                        
+                        Spacer()
+                    }.frame(height: 56)
+                        .background(AppColors.superLightGray)
+                        .cornerRadius(16)
                     
-                    Text( NSLocalizedString("addNewCard", comment: "") )
-                        .font(.custom(Roboto.bold.rawValue, size: 16))
-                        .foregroundColor(AppColors.darkBlue)
-                    
-                    Spacer()
-                }.frame(height: 56)
-                .background(AppColors.superLightGray)
-                    .cornerRadius(16)
-                
-            }.buttonStyle(.plain)
+                }.buttonStyle(.plain)
+            }
             
             Spacer()
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
@@ -82,14 +85,16 @@ struct CardsList: View {
             }
     }
     
-    func move(from source: IndexSet, to destination: Int) {        
-        cardsVM.cards.move(fromOffsets: source, toOffset: destination)
-        cardsVM.reorderCards()
+    func move(from source: IndexSet, to destination: Int) {
+        if !loading {
+            cardsVM.cards.move(fromOffsets: source, toOffset: destination)
+            cardsVM.reorderCards()
+        }
     }
 }
 
 struct CardsList_Previews: PreviewProvider {
     static var previews: some View {
-        CardsList(cards: [PreviewModels.visaCard, PreviewModels.masterCard])
+        CardsList(cards: [PreviewModels.visaCard, PreviewModels.masterCard], loading: .constant(false))
     }
 }
