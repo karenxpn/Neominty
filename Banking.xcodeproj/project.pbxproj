@@ -140,6 +140,9 @@
 		FF864E3429ED824E00EC883E /* SubCategoryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */; };
 		FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */; };
 		FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */; };
+		FF95D94E2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */; };
+		FF95D9502ACDA76600CEF7BC /* IdentityVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */; };
+		FF95D9522ACDC68C00CEF7BC /* VerifyIdentityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */; };
 		FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA67C1A2A06B051007C6A9F /* NetworkError.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
@@ -174,6 +177,7 @@
 		FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FFDE8FE52A4723750005A35F /* Shimmer */; };
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE0C6AB2A1A554B0043E5FF /* BothBindingPaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BothBindingPaymentResponse.swift */; };
+		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -324,6 +328,9 @@
 		FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardList.swift; sourceTree = "<group>"; };
 		FF864DFA29EB796900EC883E /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTextField.swift; sourceTree = "<group>"; };
+		FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerificationViewModel.swift; sourceTree = "<group>"; };
+		FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerification.swift; sourceTree = "<group>"; };
+		FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityService.swift; sourceTree = "<group>"; };
 		FFA67C1A2A06B051007C6A9F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -357,6 +364,7 @@
 		FFDC38972A3F260E00B78E8C /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 		FFE0C6AA2A1A554B0043E5FF /* BothBindingPaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BothBindingPaymentResponse.swift; sourceTree = "<group>"; };
+		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +500,7 @@
 				FF7A120C29E43BF900286366 /* QrViewModel.swift */,
 				FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */,
 				FFDC38972A3F260E00B78E8C /* FAQViewModel.swift */,
+				FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -508,6 +517,7 @@
 				FFAC1DF129D1DB5D00947CBC /* CardService.swift */,
 				FF7A120329E057E800286366 /* PayService.swift */,
 				FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */,
+				FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -529,6 +539,7 @@
 				FF7A11FF29E051FD00286366 /* PayCategory.swift */,
 				FFB1C97929EB2B060063DD24 /* NotificationModel.swift */,
 				FFA67C1A2A06B051007C6A9F /* NetworkError.swift */,
+				FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -753,6 +764,7 @@
 			isa = PBXGroup;
 			children = (
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
+				FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1116,9 +1128,11 @@
 				FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */,
 				FF130EA12A151CA100F7A5B8 /* NoTransactionsToShow.swift in Sources */,
 				FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */,
+				FF95D94E2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift in Sources */,
 				FF80569629BDFA510081AD76 /* ConfirmPin.swift in Sources */,
 				FF7A120F29E6CC6200286366 /* ScanQR.swift in Sources */,
 				FF7A11E129DAF64200286366 /* GeneralSettings.swift in Sources */,
+				FF95D9502ACDA76600CEF7BC /* IdentityVerification.swift in Sources */,
 				FF7A11FE29E0484100286366 /* PayViewModel.swift in Sources */,
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
@@ -1168,6 +1182,7 @@
 				FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */,
+				FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */,
 				FF45206329C66AB5003C6415 /* MoreTransfers.swift in Sources */,
 				FF38E9F829CCC48500610F5C /* ActivityModel.swift in Sources */,
 				FF7A11EF29DC490F00286366 /* UserPreferences.swift in Sources */,
@@ -1187,6 +1202,7 @@
 				FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
 				FF42814429F7FB9900E57567 /* OrderStatusRequest.swift in Sources */,
+				FF95D9522ACDC68C00CEF7BC /* VerifyIdentityService.swift in Sources */,
 				FF42814629F7FBF000E57567 /* OrderStatusResponse.swift in Sources */,
 				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
