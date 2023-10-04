@@ -41,6 +41,7 @@ class IdentityVerificationViewModel: ObservableObject {
         }
         
         self.addEvents(sdk: sdk)
+        self.setupTheme(sdk: sdk)
         self.sdk = sdk
         self.sdk.present()
     }
@@ -69,6 +70,11 @@ class IdentityVerificationViewModel: ObservableObject {
                 print("Some but not all of the verification steps have been passed over")
                 
             case .pending:
+                if prevStatus == .initial || prevStatus == .incomplete {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        sdk.dismiss()
+                    }
+                }
                 print("Verification is pending")
                 
             case .temporarilyDeclined:
@@ -126,6 +132,12 @@ class IdentityVerificationViewModel: ObservableObject {
         sdk.onDidDismiss { (sdk) in
             print("onDidDismiss: sdk has been dismissed with status [\(sdk.description(for: sdk.status))]")
         }
+    }
+    
+    func setupTheme(sdk: SNSMobileSDK) {
+        sdk.theme.colors.contentStrong = .init(AppColors.darkBlue)
+        sdk.theme.colors.primaryButtonBackground = .init(AppColors.green)
+        sdk.theme.colors.primaryButtonBackgroundHighlighted  = .init(AppColors.green.opacity(0.5))
     }
     
     func get_token_from_your_backend(completion: @escaping (String?) -> Void) {
