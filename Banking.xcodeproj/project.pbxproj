@@ -138,6 +138,8 @@
 		FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */; };
 		FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864DFA29EB796900EC883E /* AmountTextField.swift */; };
 		FF864E3429ED824E00EC883E /* SubCategoryTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */; };
+		FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */; };
+		FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */; };
 		FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA67C1A2A06B051007C6A9F /* NetworkError.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
@@ -366,7 +368,9 @@
 				FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */,
 				FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */,
 				FF7A121529E6ED0A00286366 /* CodeScanner in Frameworks */,
+				FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */,
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
+				FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */,
 				FF18C24129BA8010004EF3A3 /* FirebaseAnalytics in Frameworks */,
 				FF18C24329BA8010004EF3A3 /* FirebaseAuth in Frameworks */,
 				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
@@ -582,6 +586,7 @@
 		FF45205129C33D89003C6415 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FF95D9472ACDA62100CEF7BC /* More */,
 				FF20A3DE2A12DE7400E41FC2 /* CardStyles */,
 				FFB1C97F29EB36A90063DD24 /* Notifications */,
 				FF7A11FA29E047EC00286366 /* Pay */,
@@ -590,7 +595,6 @@
 				FF45205229C33D9B003C6415 /* HomeView.swift */,
 				FF45205829C66712003C6415 /* HomeMenu.swift */,
 				FF45205A29C66794003C6415 /* HomeMenuItem.swift */,
-				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
 				FF45206629C72D40003C6415 /* UserCard.swift */,
 				FF45206829C7336C003C6415 /* CardHexDesign.swift */,
 				FF45206E29C73A1D003C6415 /* RecentTransactions.swift */,
@@ -745,6 +749,14 @@
 			path = RequestTransfer;
 			sourceTree = "<group>";
 		};
+		FF95D9472ACDA62100CEF7BC /* More */ = {
+			isa = PBXGroup;
+			children = (
+				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		FFAC1DE829D1C78700947CBC /* MyCards */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,6 +825,8 @@
 				FF13833F2A03DB8A00607BDB /* PhoneNumberKit */,
 				FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */,
 				FFDE8FE52A4723750005A35F /* Shimmer */,
+				FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */,
+				FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -898,6 +912,7 @@
 				FF13833E2A03DB8A00607BDB /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
 				FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
+				FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1589,6 +1604,14 @@
 				kind = branch;
 			};
 		};
+		FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SumSubstance/IdensicMobileSDK-iOS.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/markiv/SwiftUI-Shimmer";
@@ -1654,6 +1677,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF7A121329E6ED0900286366 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */;
+			productName = IdensicMobileSDK;
+		};
+		FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */;
+			productName = IdensicMobileSDK_VideoIdent;
 		};
 		FFDE8FE52A4723750005A35F /* Shimmer */ = {
 			isa = XCSwiftPackageProductDependency;
