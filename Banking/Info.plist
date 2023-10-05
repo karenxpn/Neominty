@@ -35,5 +35,12 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
+    
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Time to record a video</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Let us pick a photo</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Please provide us with your geolocation data to prove your current location</string>
 </dict>
 </plist>
