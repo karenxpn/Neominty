@@ -79,7 +79,7 @@ struct PreviewModels {
         .init(amount: 989, interval: "Sun", timestamp: Timestamp(date: Date()))
 ]
     
-    static let userInfo = UserInfoViewModel(model: UserInfo(id: UUID().uuidString, avatar: nil, name: "Karen Mirakyan", email: nil, phone_number: "+37493936313"))
+    static let userInfo = UserInfoViewModel(model: UserInfo(id: UUID().uuidString, avatar: nil, name: "Karen Mirakyan", email: nil, phone_number: "+37493936313", isVerified: true))
     
     static let faqList = [FAQModel(id: UUID().uuidString, question: "How do I create a Neominty account?", answer: "You can create a neominty account by: download and open the neominty application first then select ..."),
                           FAQModel(id: UUID().uuidString, question: "How to create a card for Neominty?", answer: "You can select the create card menu then select 'Add New Card' select the continue button then you ..."),

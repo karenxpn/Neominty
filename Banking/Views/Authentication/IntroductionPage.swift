@@ -58,10 +58,6 @@ struct IntroductionPage: View {
                             }
                         }
                     }.padding(.top, 18)
-                        .navigationDestination(isPresented: $authenticate) {
-                            PhoneAuthentication()
-                        }
-                    
                     
                 }.padding(45)
                     .background(Color.white)
@@ -75,12 +71,11 @@ struct IntroductionPage: View {
                             authenticate = true
                         } label: {
                             TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
-                        }.navigationDestination(isPresented: $authenticate) {
-                            PhoneAuthentication()
-                        }
-                        
+                        }                        
                     }
                 }
+            }.navigationDestination(isPresented: $authenticate) {
+                PhoneAuthentication()
             }
     }
 }

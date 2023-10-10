@@ -14,6 +14,7 @@ struct UserInfo: Codable {
     var name: String?
     var email: String?
     var phone_number: String?
+    var isVerified: Bool?
 }
 
 struct UserInfoViewModel: Identifiable {
@@ -59,4 +60,5 @@ struct UserInfoViewModel: Identifiable {
     var email: String?      { self.model.email }
     var flag: String        { countryFlag(countryCode: getCountryCode())}
     var phone: String?      { getNationalNumber() }
+    var isVerified: Bool?   { self.model.isVerified }
 }

@@ -21,7 +21,7 @@ struct AccountViewPersonalInfo: View {
             Button {
                 showGallery.toggle()
             } label: {
-                ZStack {
+                ZStack(alignment: .bottomTrailing) {
                     
                     Circle()
                         .fill(Color.white)
@@ -44,6 +44,13 @@ struct AccountViewPersonalInfo: View {
                         ImageHelper(image: info.avatar!, contentMode: .fill)
                             .frame(width: 80, height: 80)
                             .clipShape(Circle())
+                    }
+                    
+                    if let verified = info.isVerified {
+                        Image(verified ? "user-verified" : "user-rejected")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 25, height: 25)
                     }
 
                 }

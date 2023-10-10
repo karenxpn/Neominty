@@ -62,6 +62,11 @@ struct Account: View {
             }.padding(.top, 1)
                 .navigationTitle(Text(""))
                     .navigationBarTitleDisplayMode(.inline)
+                    .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
+                        Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                    }, message: {
+                        Text(accountVM.alertMessage)
+                    })
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             TextHelper(text: NSLocalizedString("account", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
