@@ -46,6 +46,30 @@ class ViewRouter: ObservableObject {
         }
     }
     
+    @ViewBuilder
+    func buildHomeView(page: HomeViewPaths) -> some View {
+        switch page {
+        case .allTransactions:
+            AllTransactions()
+        case .send(let cards):
+            MoneyTransfer(cards: cards)
+        case .pay:
+            PayView()
+        case .receive:
+            RequestTransfer()
+        case .more:
+            MoreTransfers()
+        case .notifications:
+            Notifications()
+        case .attachCard:
+            SelectCardStyle()
+        case .transferSuccess(let amount, let currency, let action):
+            TransferSuccess(amount: amount, currency: currency) {
+                action.action()
+            }
+        }
+    }
+    
     // add new view
     func pushHomePath(_ page: HomeViewPaths) {
         homePath.append(page)

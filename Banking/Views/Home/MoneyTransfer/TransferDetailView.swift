@@ -14,7 +14,6 @@ struct TransferDetailView: View {
     @State private var cardHolder: String = ""
     @State private var cardType = CreditCardType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
-    @State private var navigateToSuccess: Bool = false
     @State private var showGallery: Bool = false
 
     
@@ -160,11 +159,6 @@ struct TransferDetailView: View {
                             // start transaction
                             transferVM.startTransaction()
                         }
-                    }.navigationDestination(isPresented: $navigateToSuccess) {
-                        TransferSuccess(amount: transferVM.transferAmount,
-                                        currency: transferVM.selectedCard?.currency ?? CardCurrency.usd) {
-                            viewRouter.popToHomeRoot()
-                        }
                     }
                 
             }.padding(.horizontal, 24)
@@ -182,7 +176,12 @@ struct TransferDetailView: View {
                     
                 }
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
-                navigateToSuccess.toggle()
+                viewRouter.pushHomePath(.transferSuccess(amount: transferVM.transferAmount,
+                                                         currency: transferVM.selectedCard?.currency ?? CardCurrency.usd,
+                                                         action: CustomAction(action: {
+                    viewRouter.popToHomeRoot()
+
+                })))
             }.sheet(isPresented: $showGallery, content: {
                 Gallery { image in
                     // store image

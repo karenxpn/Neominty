@@ -12,13 +12,19 @@ struct HomeMenu: View {
     
     let icons = ["money-send", "money-exchange", "money-receive", "more"]
     let labels = [NSLocalizedString("send", comment: ""),
-    NSLocalizedString("pay", comment: ""),
-    NSLocalizedString("request", comment: ""),
-    NSLocalizedString("more", comment: "")]
-    let paths = [HomeViewPaths.send,
-                 HomeViewPaths.pay,
-                 HomeViewPaths.receive,
-                 HomeViewPaths.more]
+                  NSLocalizedString("pay", comment: ""),
+                  NSLocalizedString("request", comment: ""),
+                  NSLocalizedString("more", comment: "")]
+    let cards: [CardModel]
+    let paths: [HomeViewPaths]
+    
+    init(cards: [CardModel]) {
+        self.cards = cards
+        self.paths = [.send(cards: cards),
+                        .pay,
+                        .receive,
+                        .more]
+    }
     
     var body: some View {
         HStack {
@@ -28,13 +34,13 @@ struct HomeMenu: View {
                 }.environmentObject(viewRouter)
             }
         }.padding(.vertical, 15)
-        .background(AppColors.whiteOpacity)
+            .background(AppColors.whiteOpacity)
     }
 }
 
 struct HomeMenu_Previews: PreviewProvider {
     static var previews: some View {
-        HomeMenu()
+        HomeMenu(cards: [])
             .environmentObject(ViewRouter())
     }
 }
