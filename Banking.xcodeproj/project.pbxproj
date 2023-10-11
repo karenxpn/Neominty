@@ -1385,7 +1385,11 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please provide us with your geolocation data to prove your current location";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Time to record a video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Let us pick a photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
@@ -1421,7 +1425,11 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please provide us with your geolocation data to prove your current location";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Time to record a video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Let us pick a photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";

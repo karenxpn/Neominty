@@ -44,6 +44,9 @@ struct MainView: View {
                 notificationVM.requestPermission()
                 viewRouter.getAccountInfo()
             }.environmentObject(viewRouter)
+            .onOpenURL { url in
+                print(url)
+            }
     }
 }
 
