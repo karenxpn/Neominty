@@ -133,4 +133,35 @@ class ViewRouter: ObservableObject {
     func popToAccountRoot() {
         accountPath.removeLast(accountPath.count)
     }
+    
+    func findHomeRoute(from url: URL) {
+        guard let host = url.host() else { return }
+        
+        if url.pathComponents.count >= 2 {
+            switch DeeplinkURLs(rawValue: host) {
+            case .home:
+                tab = 0
+                if DeeplinkURLs(rawValue: url.pathComponents[1]) == .transferSuccess {
+                    let queryParams = url.queryParameters
+                    guard let amount = queryParams?["amount"] as? String,
+                          let currency = queryParams?["currency"] as? String else { return }
+                    
+                    self.pushHomePath(.transferSuccess(amount: amount, currency: CardCurrency(rawValue: currency), action: CustomAction(action: {
+                        self.popToHomeRoot()
+                    })))
+                }
+            case .cards:
+                tab = 1
+            case .qr:
+                tab = 2
+            case .account:
+                tab = 4
+            default:
+                return
+            }
+            
+        } else {
+            
+        }
+    }
 }

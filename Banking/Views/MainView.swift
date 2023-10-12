@@ -46,6 +46,7 @@ struct MainView: View {
             }.environmentObject(viewRouter)
             .onOpenURL { url in
                 print(url)
+                viewRouter.findHomeRoute(from: url)
             }
     }
 }
