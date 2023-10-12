@@ -35,7 +35,7 @@ struct Account: View {
                     }.frame(height: 170)
                     
                     AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
-                        viewRouter.pushAccountPath(.info)
+                        viewRouter.pushAccountPath(.info(name: accountVM.info?.name, flag: accountVM.info?.flag, phone: accountVM.info?.phone, email: accountVM.info?.email))
                     }.disabled(accountVM.info == nil)
                     
                     AccountListButton(icon: "settings", label: NSLocalizedString("generalSettings", comment: "")) {
@@ -75,20 +75,8 @@ struct Account: View {
                         if !userID.isEmpty {
                             accountVM.getAccountInfo()
                         }
-                    }.navigationDestination(for: AccountViewPaths.self) { value in
-                        switch value {
-                        case .settings:
-                            GeneralSettings()
-                        case .changePin:
-                            CheckPin()
-                        case .info:
-                            AccountInfo(name: accountVM.info?.name,
-                                        flag: accountVM.info?.flag,
-                                        phone: accountVM.info?.phone,
-                                        email: accountVM.info?.email)
-                        case .faq:
-                            FAQ()
-                        }
+                    }.navigationDestination(for: AccountViewPaths.self) { page in
+                        viewRouter.buildAccountView(page: page)
                     }
         }
     }

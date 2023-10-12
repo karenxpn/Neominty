@@ -76,16 +76,14 @@ enum AnalyticsViewPaths: String, Identifiable {
     }
 }
 
-enum AccountViewPaths: String, Identifiable {
+enum AccountViewPaths: Equatable, Hashable {
     
-    case info
+    case info(name: String?, flag: String?, phone: String?, email: String?)
     case settings
     case changePin
     case faq
-    
-    var id: String {
-        self.rawValue
-    }
+    case accountRejected
+    case accountVerified
 }
 
 

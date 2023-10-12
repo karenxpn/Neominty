@@ -123,22 +123,6 @@ struct HomeView: View {
                 }
                 .navigationDestination(for: HomeViewPaths.self) { page in
                     viewRouter.buildHomeView(page: page)
-//                    switch page {
-//                    case .allTransactions:
-//                        AllTransactions()
-//                    case .send:
-//                        MoneyTransfer(cards: homeVM.cards)
-//                    case .pay:
-//                        PayView()
-//                    case .receive:
-//                        RequestTransfer()
-//                    case .more:
-//                        MoreTransfers()
-//                    case .notifications:
-//                        Notifications()
-//                    case .attachCard:
-//                        SelectCardStyle()
-//                    }
                 }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()
