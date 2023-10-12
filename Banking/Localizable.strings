@@ -141,3 +141,9 @@
 "letsVerifyIdentity" = "Let’s verify your identity";
 "weAreRequiredByLaw" = "We’re required by law to verify your identity before we expand your limits";
 "verifyIdentity" = "Verify Identity";
+"congratulations" = "Congratulations";
+"yourAccountIsVerified" = "Your account is now verified, so you unlocked the limits on your account with some other features.";
+"weAreSorry" = "We are sorry";
+"yourAccountWasRejected" = "Your account was rejected, please contact our support team to try again.";
+"contactSupport" = "Contact Support";
+"verificationStatus" = "Verification Status";

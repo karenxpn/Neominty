@@ -85,9 +85,9 @@ class ViewRouter: ObservableObject {
         case .faq:
             FAQ()
         case .accountVerified:
-            Text("Account Verified")
+            AccountVerificationApproved()
         case .accountRejected:
-            Text("Account Rejected")
+            AccountVerificationRejected()
         }
     }
     
