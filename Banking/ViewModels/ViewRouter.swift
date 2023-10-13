@@ -172,6 +172,8 @@ class ViewRouter: ObservableObject {
                     self.pushHomePath(.transferSuccess(amount: amount, currency: CardCurrency(rawValue: currency), action: CustomAction(action: {
                         self.popToHomeRoot()
                     })))
+                } else if DeeplinkURLs(rawValue: destination) == .notifications {
+                    self.pushHomePath(.notifications)
                 }
             case .cards:
                 tab = 1
