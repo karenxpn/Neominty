@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject private var viewRouter = ViewRouter()
+    @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var notificationVM = PushNotificationViewModel()
     @AppStorage("userID") var userID: String = ""
     
@@ -40,13 +40,14 @@ struct MainView: View {
             CustomTabView()
             
         }.edgesIgnoringSafeArea(.bottom)
-            .onAppear {
-                notificationVM.requestPermission()
+            .task({
+                await notificationVM.requestPermission()
+                await notificationVM.checkPermission()
                 viewRouter.getAccountInfo()
-            }.environmentObject(viewRouter)
+            }).environmentObject(viewRouter)
             .onOpenURL { url in
                 print(url)
-                viewRouter.findHomeRoute(from: url)
+                viewRouter.handleDeeplink(from: url)
             }
     }
 }

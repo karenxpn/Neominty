@@ -155,7 +155,7 @@ class ViewRouter: ObservableObject {
         accountPath.removeLast(accountPath.count)
     }
     
-    func findHomeRoute(from url: URL) {
+    func handleDeeplink(from url: URL) {
         guard let host = url.host() else { return }
         
         if url.pathComponents.count >= 2 {

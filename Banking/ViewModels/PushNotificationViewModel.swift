@@ -9,37 +9,34 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
-class PushNotificationViewModel: NSObject, UNUserNotificationCenterDelegate, ObservableObject {
+@MainActor
+class PushNotificationViewModel: ObservableObject {
     @Published var deviceToken: String = ""
+    @Published private(set) var hasPermission = false
     
-    func requestPermission() {
-        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().delegate = self
-
-        UNUserNotificationCenter.current()
-            .requestAuthorization(options: options) { (granted, error) in
-            
-            guard granted else { return }
-            
-            DispatchQueue.main.async {
-                UIApplication.shared.registerForRemoteNotifications()
-            }
+    
+    init() {
+        Task {
+            await checkPermission()
+        }
+    }
+    func requestPermission() async {
+        do {
+            self.hasPermission = try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound])
+        } catch {
+            print(error)
         }
     }
     
-    func checkPermissionStatus(completion: @escaping(UNAuthorizationStatus) -> ()) {
-        UNUserNotificationCenter.current().getNotificationSettings { permission in
-            DispatchQueue.main.async {
-                completion(permission.authorizationStatus)
-            }
+    func checkPermission() async {
+        let status = await UNUserNotificationCenter.current().notificationSettings()
+        switch status.authorizationStatus {
+        case .authorized,
+                .provisional,
+                .ephemeral:
+            hasPermission = true
+        default:
+            hasPermission = false
         }
-    }
-    
-    func turnOnNotifications() {
-        UIApplication.shared.registerForRemoteNotifications()
-    }
-    
-    func turnOffNotifications() {
-        UIApplication.shared.unregisterForRemoteNotifications()
     }
 }

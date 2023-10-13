@@ -11,6 +11,8 @@ import SwiftUI
 struct BankingApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @StateObject private var viewRouter = ViewRouter()
+
     
     init() {
         let newAppearance = UINavigationBarAppearance()
@@ -23,6 +25,16 @@ struct BankingApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewRouter)
+                .onAppear(perform: {
+                    delegate.app = self
+                })
         }
+    }
+}
+
+extension BankingApp {
+    func handleDeeplink(from url: URL) {
+        viewRouter.handleDeeplink(from: url)
     }
 }
