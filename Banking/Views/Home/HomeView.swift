@@ -70,7 +70,7 @@ struct HomeView: View {
                                     .frame(height: 250)
                             }
                             
-                            HomeMenu()
+                            HomeMenu(cards: homeVM.cards)
                                 .environmentObject(viewRouter)
                         }
                     }
@@ -122,22 +122,7 @@ struct HomeView: View {
                     }
                 }
                 .navigationDestination(for: HomeViewPaths.self) { page in
-                    switch page {
-                    case .allTransactions:
-                        AllTransactions()
-                    case .send:
-                        MoneyTransfer(cards: homeVM.cards)
-                    case .pay:
-                        PayView()
-                    case .receive:
-                        RequestTransfer()
-                    case .more:
-                        MoreTransfers()
-                    case .notifications:
-                        Notifications()
-                    case .attachCard:
-                        SelectCardStyle()
-                    }
+                    viewRouter.buildHomeView(page: page)
                 }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()

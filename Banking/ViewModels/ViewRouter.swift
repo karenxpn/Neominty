@@ -46,6 +46,51 @@ class ViewRouter: ObservableObject {
         }
     }
     
+    @ViewBuilder
+    func buildHomeView(page: HomeViewPaths) -> some View {
+        switch page {
+        case .allTransactions:
+            AllTransactions()
+        case .send(let cards):
+            MoneyTransfer(cards: cards)
+        case .pay:
+            PayView()
+        case .receive:
+            RequestTransfer()
+        case .more:
+            MoreTransfers()
+        case .notifications:
+            Notifications()
+        case .attachCard:
+            SelectCardStyle()
+        case .transferSuccess(let amount, let currency, let action):
+            TransferSuccess(amount: amount, currency: currency) {
+                action.action()
+            }
+        }
+    }
+        
+    @ViewBuilder
+    func buildAccountView(page: AccountViewPaths) -> some View {
+        switch page {
+        case .settings:
+            GeneralSettings()
+        case .changePin:
+            CheckPin()
+        case .info(let name, let flag, let phone, let email):
+            AccountInfo(name: name,
+                        flag: flag,
+                        phone: phone,
+                        email: email)
+        case .faq:
+            FAQ()
+        case .accountVerified:
+            AccountVerificationApproved()
+        case .accountRejected:
+            AccountVerificationRejected()
+        }
+    }
+    
     // add new view
     func pushHomePath(_ page: HomeViewPaths) {
         homePath.append(page)
@@ -108,5 +153,45 @@ class ViewRouter: ObservableObject {
     
     func popToAccountRoot() {
         accountPath.removeLast(accountPath.count)
+    }
+    
+    func handleDeeplink(from url: URL) {
+        guard let host = url.host() else { return }
+        
+        if url.pathComponents.count >= 2 {
+            
+            let destination = url.pathComponents[1]
+            switch DeeplinkURLs(rawValue: host) {
+            case .home:
+                tab = 0
+                if DeeplinkURLs(rawValue: destination) == .transferSuccess {
+                    let queryParams = url.queryParameters
+                    guard let amount = queryParams?["amount"] as? String,
+                          let currency = queryParams?["currency"] as? String else { return }
+                    
+                    self.pushHomePath(.transferSuccess(amount: amount, currency: CardCurrency(rawValue: currency), action: CustomAction(action: {
+                        self.popToHomeRoot()
+                    })))
+                } else if DeeplinkURLs(rawValue: destination) == .notifications {
+                    self.pushHomePath(.notifications)
+                }
+            case .cards:
+                tab = 1
+            case .qr:
+                tab = 2
+            case .account:
+                tab = 4
+                if DeeplinkURLs(rawValue: destination) == .accountVerified {
+                    self.pushAccountPath(.accountVerified)
+                } else if DeeplinkURLs(rawValue: destination) == .accountRejected {
+                    self.pushAccountPath(.accountRejected)
+                }
+            default:
+                return
+            }
+            
+        } else {
+            
+        }
     }
 }

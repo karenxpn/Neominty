@@ -12,12 +12,15 @@ import FirebaseAuth
 import UserNotifications
 
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
     @ObservedObject var notificationVM = PushNotificationViewModel()
+    var app: BankingApp?
+    
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
         
         return true
     }
@@ -48,5 +51,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             completionHandler(UIBackgroundFetchResult.newData)
             return
         }
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse) async {
+        if let deeplink = response.notification.request.content.userInfo["link"] as? String, let url = URL(string: deeplink) {
+            app?.handleDeeplink(from: url)
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        return [.sound, .badge, .banner, .list]
     }
 }

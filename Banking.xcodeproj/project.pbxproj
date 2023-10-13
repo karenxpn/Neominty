@@ -154,6 +154,8 @@
 		FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF529D23FAD00947CBC /* CardStyling.swift */; };
 		FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */; };
 		FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */; };
+		FFAFCE222AD8592F00FC84DE /* AccountVerificationRejected.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCE212AD8592F00FC84DE /* AccountVerificationRejected.swift */; };
+		FFAFCE242AD85F2500FC84DE /* AccountVerificationApproved.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFCE232AD85F2500FC84DE /* AccountVerificationApproved.swift */; };
 		FFB1C97A29EB2B060063DD24 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97929EB2B060063DD24 /* NotificationModel.swift */; };
 		FFB1C97C29EB2E490063DD24 /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */; };
 		FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */; };
@@ -342,6 +344,8 @@
 		FFAC1DF529D23FAD00947CBC /* CardStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStyling.swift; sourceTree = "<group>"; };
 		FFAC1DF729D253FE00947CBC /* RequestToAddNewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestToAddNewCard.swift; sourceTree = "<group>"; };
 		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
+		FFAFCE212AD8592F00FC84DE /* AccountVerificationRejected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationRejected.swift; sourceTree = "<group>"; };
+		FFAFCE232AD85F2500FC84DE /* AccountVerificationApproved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationApproved.swift; sourceTree = "<group>"; };
 		FFB1C97929EB2B060063DD24 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
@@ -723,6 +727,8 @@
 				FF7A11F229DC6EF300286366 /* FAQList.swift */,
 				FF7A11F629DCA34700286366 /* AllFAQs.swift */,
 				FF7A11F829DCA43A00286366 /* FAQDetail.swift */,
+				FFAFCE212AD8592F00FC84DE /* AccountVerificationRejected.swift */,
+				FFAFCE232AD85F2500FC84DE /* AccountVerificationApproved.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1149,6 +1155,7 @@
 				FF45205729C66453003C6415 /* CardModel.swift in Sources */,
 				FFDC38982A3F260E00B78E8C /* FAQViewModel.swift in Sources */,
 				FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */,
+				FFAFCE222AD8592F00FC84DE /* AccountVerificationRejected.swift in Sources */,
 				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
 				FF7A11D129D752A000286366 /* Account.swift in Sources */,
@@ -1156,6 +1163,7 @@
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
+				FFAFCE242AD85F2500FC84DE /* AccountVerificationApproved.swift in Sources */,
 				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,
 				FFE0C6AB2A1A554B0043E5FF /* BothBindingPaymentResponse.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
@@ -1385,7 +1393,11 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please provide us with your geolocation data to prove your current location";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Time to record a video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Let us pick a photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
@@ -1421,7 +1433,11 @@
 				INFOPLIST_FILE = Banking/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please provide us with your geolocation data to prove your current location";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Time to record a video";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Let us pick a photo";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";

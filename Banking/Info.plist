@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Give access to your camera to scan the QR code</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -12,6 +10,16 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>com.googleusercontent.apps.335131641366-0racvft7aairikbu15nntcagr5j8p7e0</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.xpn-development.Banking</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>neominty</string>
 			</array>
 		</dict>
 	</array>
@@ -35,12 +43,5 @@
 		<string>fetch</string>
 		<string>remote-notification</string>
 	</array>
-    
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Time to record a video</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Let us pick a photo</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Please provide us with your geolocation data to prove your current location</string>
 </dict>
 </plist>

@@ -239,7 +239,18 @@ enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable {
         case .numbers                       : return "Numbers"
         case .keyboard                      : return "Keyboard"
         case .phone                         : return "Phone"
-        case let .unknown(value)        : return value
+        case let .unknown(value)            : return value
         }
     }
+}
+
+enum DeeplinkURLs: String {
+    case home
+    case cards
+    case account
+    case notifications
+    case qr
+    case transferSuccess
+    case accountVerified
+    case accountRejected
 }

@@ -9,7 +9,8 @@ import Foundation
 import FirebaseFirestoreSwift
 import FirebaseFirestore
 
-struct CardModel: Identifiable, Codable {
+struct CardModel: Identifiable, Codable, Equatable, Hashable {
+
     @DocumentID var id: String?
     var cardPan: String
     var cardHolder: String
@@ -23,7 +24,7 @@ struct CardModel: Identifiable, Codable {
     var bindingId: String
 }
 
-enum CardCurrency: RawRepresentable, CaseIterable, Codable {
+enum CardCurrency: RawRepresentable, CaseIterable, Codable, Hashable {
     
     typealias RawValue = String
     
@@ -57,7 +58,7 @@ enum CardCurrency: RawRepresentable, CaseIterable, Codable {
     }
 }
 
-enum CardType : RawRepresentable, CaseIterable, Codable {
+enum CardType : RawRepresentable, CaseIterable, Codable, Hashable {
     
     typealias RawValue = String
     

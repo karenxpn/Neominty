@@ -582,4 +582,15 @@ extension URL {
         guard let url = URLComponents(string: self.absoluteString) else { return nil }
         return url.queryItems?.first(where: { $0.name == queryParameterName })?.value
     }
+    
+    
+    public var queryParameters: [String: String]? {
+        guard
+            let components = URLComponents(url: self, resolvingAgainstBaseURL: true),
+            let queryItems = components.queryItems else { return nil }
+        return queryItems.reduce(into: [String: String]()) { result, item in
+            result[item.name] = item.value?.replacingOccurrences(of: "+", with: " ")
+        }
+    }
+
 }
