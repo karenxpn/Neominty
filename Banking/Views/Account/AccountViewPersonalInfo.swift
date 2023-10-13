@@ -18,43 +18,46 @@ struct AccountViewPersonalInfo: View {
         
         VStack(spacing: 16) {
             
-            Button {
-                showGallery.toggle()
-            } label: {
-                ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .bottomTrailing) {
+                Button {
+                    showGallery.toggle()
+                } label: {
                     
-                    Circle()
-                        .fill(Color.white)
-                        .frame(width: 100, height: 100)
-                        .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
-                    
-                    if info.avatar == nil && selectedImage == nil {
-                        Image("plus-sign")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
-                    } else if selectedImage != nil {
-                        Image(uiImage: UIImage(data: selectedImage!) ?? UIImage())
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
-                    } else {
-                        ImageHelper(image: info.avatar!, contentMode: .fill)
-                            .frame(width: 80, height: 80)
-                            .clipShape(Circle())
+                    ZStack {
+                        Circle()
+                            .fill(Color.white)
+                            .frame(width: 100, height: 100)
+                            .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
+                        
+                        if info.avatar == nil && selectedImage == nil {
+                            Image("plus-sign")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                        } else if selectedImage != nil {
+                            Image(uiImage: UIImage(data: selectedImage!) ?? UIImage())
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                        } else {
+                            ImageHelper(image: info.avatar!, contentMode: .fill)
+                                .frame(width: 80, height: 80)
+                                .clipShape(Circle())
+                        }
                     }
-                    
-                    if let verified = info.isVerified {
-                        Image(verified ? "user-verified" : "user-rejected")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 25, height: 25)
-                    }
-
+                }
+                
+                if let verified = info.isVerified {
+                    Image(verified ? "user-verified" : "user-rejected")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 25, height: 25)
+                        .offset(x: -8, y: -8)
                 }
             }
+            
             
             VStack(spacing: 8) {
                 if info.name != nil {
