@@ -38,6 +38,7 @@ struct AccountInfo: View {
                         
                         CardDetailTextFieldDecorator(content: {
                             TextField(NSLocalizedString("John Smith", comment: ""), text: $name)
+                                .keyboardType(.asciiCapable)
                                 .font(.custom(Roboto.medium.rawValue, size: 16))
                                 .padding(.leading, 16)
                                 .onChange(of: name) { newValue in
