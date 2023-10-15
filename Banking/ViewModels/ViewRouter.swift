@@ -84,6 +84,8 @@ class ViewRouter: ObservableObject {
                         email: email)
         case .faq:
             FAQ()
+        case .verifyAccount:
+            IdentityVerification()
         case .accountVerified:
             AccountVerificationApproved()
         case .accountRejected:
@@ -185,6 +187,8 @@ class ViewRouter: ObservableObject {
                     self.pushAccountPath(.accountVerified)
                 } else if DeeplinkURLs(rawValue: destination) == .accountRejected {
                     self.pushAccountPath(.accountRejected)
+                } else if DeeplinkURLs(rawValue: destination) == .verifyAccount {
+                    self.pushAccountPath(.verifyAccount)
                 }
             default:
                 return

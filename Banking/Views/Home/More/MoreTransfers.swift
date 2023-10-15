@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MoreTransfers: View {
     var body: some View {
-        IdentityVerification()
+        ViewInDevelopmentMode()
     }
 }
 

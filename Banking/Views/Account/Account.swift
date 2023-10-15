@@ -47,6 +47,10 @@ struct Account: View {
                         viewRouter.pushAccountPath(.changePin)
                     }
                     
+                    AccountListButton(icon: "verify-identity-icon", label: NSLocalizedString("verifyIdentity", comment: "")) {
+                        viewRouter.pushAccountPath(.verifyAccount)
+                    }
+                    
                     Divider()
                     
                     AccountListButton(icon: "faq", label: NSLocalizedString("faq", comment: "")) {
@@ -56,6 +60,7 @@ struct Account: View {
                     AccountListButton(icon: "rate", label: NSLocalizedString("rateUs", comment: "")) {
                         requestReview()
                     }
+                    
                     
                 }.padding(24)
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)

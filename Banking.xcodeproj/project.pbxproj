@@ -727,6 +727,7 @@
 				FF7A11F229DC6EF300286366 /* FAQList.swift */,
 				FF7A11F629DCA34700286366 /* AllFAQs.swift */,
 				FF7A11F829DCA43A00286366 /* FAQDetail.swift */,
+				FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */,
 				FFAFCE212AD8592F00FC84DE /* AccountVerificationRejected.swift */,
 				FFAFCE232AD85F2500FC84DE /* AccountVerificationApproved.swift */,
 			);
@@ -770,7 +771,6 @@
 			isa = PBXGroup;
 			children = (
 				FF45206229C66AB5003C6415 /* MoreTransfers.swift */,
-				FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */,
 			);
 			path = More;
 			sourceTree = "<group>";

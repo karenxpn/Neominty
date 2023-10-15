@@ -82,6 +82,7 @@ enum AccountViewPaths: Equatable, Hashable {
     case settings
     case changePin
     case faq
+    case verifyAccount
     case accountRejected
     case accountVerified
 }

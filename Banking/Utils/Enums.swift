@@ -251,6 +251,7 @@ enum DeeplinkURLs: String {
     case notifications
     case qr
     case transferSuccess
+    case verifyAccount
     case accountVerified
     case accountRejected
 }
