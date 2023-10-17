@@ -16,7 +16,7 @@ struct SubCategoryTextField: View {
     
     var body: some View {
         TextField(fields[field.name] == nil || ((fields[field.name]?.isEmpty) != nil) ? field.placeholder : fields[field.name]!, text: $text)
-            .keyboardType( field.keyboardType == .keyboard ? .default : (field.keyboardType == .phone ? .phonePad : .numberPad))
+            .keyboardType( field.keyboardType == .keyboard ? .asciiCapable : (field.keyboardType == .phone ? .phonePad : .numberPad))
             .font(.custom(Roboto.regular.rawValue, size: 16))
             .padding(.vertical, 16)
             .padding(.horizontal, 18)
