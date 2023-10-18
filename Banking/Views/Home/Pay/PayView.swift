@@ -9,8 +9,6 @@ import SwiftUI
 
 struct PayView: View {
     @StateObject private var payVM = PayViewModel()
-    @State private var navigate: Bool = false
-    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
@@ -38,7 +36,7 @@ struct PayView: View {
                             ? true
                             : ($0.title.localizedCaseInsensitiveContains(self.payVM.search)
                             || $0.subCategories.contains(where: { $0.name.localizedCaseInsensitiveContains(self.payVM.search)}))}, id: \.id) { category in
-                            PayCategoryCell(category: category, navigateToDetails: $navigate)
+                            PayCategoryCell(category: category)
                         }
                     } header: {
                         HStack(spacing: 10) {
@@ -63,10 +61,10 @@ struct PayView: View {
                 Text(payVM.alertMessage)
             })
             .scrollDismissesKeyboard(.immediately)
-            .navigationDestination(isPresented: $navigate) {
-                PaymentDetails()
-                    .environmentObject(payVM)
-            }
+//            .navigationDestination(isPresented: $navigate) {
+//                PaymentDetails()
+//                    .environmentObject(payVM)
+//            }
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

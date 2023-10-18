@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct PayCategoryCell: View {
+    @EnvironmentObject var payVM: PayViewModel
     let category: PayCategoryViewModel
-    @Binding var navigateToDetails: Bool
-    @State private var showSheet: Bool = false
+    @State private var showCategory: Bool = false
     
     var body: some View {
         Button {
-            showSheet.toggle()
+            showCategory.toggle()
         } label: {
             LazyVStack(alignment: .leading, spacing: 8) {
                 Image(category.image)
@@ -24,29 +24,16 @@ struct PayCategoryCell: View {
                 .background {
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(AppColors.lightGray, lineWidth: 1)
-                        .background {
-//                            if selected?.id == category.id {
-//                                RoundedRectangle(cornerRadius: 16)
-//                                    .fill(AppColors.superLightGray)
-//                            }
-                        }
                 }.cornerRadius(16)
-        }.sheet(isPresented: $showSheet) {
-            if #available(iOS 16.4, *) {
-                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails, showSheet: $showSheet)
-                    .presentationDetents([.fraction(0.8)])
-                    .presentationCornerRadius(40)
-            } else {
-                SelectSubCategory(category: category, navigateToDetails: $navigateToDetails, showSheet: $showSheet)
-                    .presentationDetents([.fraction(0.8)])
-            }
-            
-        }
+        }.navigationDestination(isPresented: $showCategory, destination: {
+            SelectSubCategory(category: category)
+                .environmentObject(payVM)
+        })
     }
 }
 
 struct PayCategoryCell_Previews: PreviewProvider {
     static var previews: some View {
-        PayCategoryCell(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]), navigateToDetails: .constant(false))
+        PayCategoryCell(category: PayCategoryViewModel(model: PreviewModels.payCategories[0]))
     }
 }
