@@ -61,10 +61,6 @@ struct PayView: View {
                 Text(payVM.alertMessage)
             })
             .scrollDismissesKeyboard(.immediately)
-//            .navigationDestination(isPresented: $navigate) {
-//                PaymentDetails()
-//                    .environmentObject(payVM)
-//            }
             .navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
