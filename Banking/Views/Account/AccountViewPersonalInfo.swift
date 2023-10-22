@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import AlertToast
+import SimpleToast
 
 struct AccountViewPersonalInfo: View {
     
@@ -13,6 +15,11 @@ struct AccountViewPersonalInfo: View {
     @State private var showGallery: Bool = false
     @State private var selectedImage: Data?
     let info: UserInfoViewModel
+    @State private var showToast: Bool = false
+    
+    private let toastOptions = SimpleToastOptions(
+        hideAfter: 2
+    )
     
     var body: some View {
         
@@ -65,7 +72,19 @@ struct AccountViewPersonalInfo: View {
                 }
                 
                 if info.email != nil {
-                    TextHelper(text: info.email!, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    HStack {
+                        TextHelper(text: info.email!, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        if !info.emailVerified {
+                            Button {
+                                showToast.toggle()
+                            } label: {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .resizable()
+                                    .foregroundStyle(.yellow)
+                                    .frame(width: 12, height: 12)
+                            }
+                        }
+                    }
                 }
             }
         }.sheet(isPresented: $showGallery) {
@@ -73,6 +92,26 @@ struct AccountViewPersonalInfo: View {
                 selectedImage = image
                 accountVM.updateAvatar(image: image)
             }
+        }.simpleToast(isPresented: $showToast, options: toastOptions) {
+            Label(
+                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontName: Roboto.regular.rawValue, fontSize: 16) },
+                icon: { Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.yellow)
+                }
+            )
+            .padding()
+            .background {
+                RoundedRectangle(cornerRadius: 20)
+                    .strokeBorder(Color.gray, lineWidth: 1)
+                    .background {
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(AppColors.superLightGray)
+                    }
+            }
+            .shadow(radius: 10)
+            .foregroundColor(Color.black)
+            .cornerRadius(20)
+            .padding(.top)
         }
     }
 }

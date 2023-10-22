@@ -63,6 +63,7 @@ struct UserInfoViewModel: Identifiable {
     var avatar: String?     { self.model.avatar }
     var name: String?       { self.model.name }
     var email: String?      { self.model.email?.email }
+    var emailVerified: Bool { self.model.email?.verified ?? false }
     var flag: String        { countryFlag(countryCode: getCountryCode())}
     var phone: String?      { getNationalNumber() }
     var isVerified: Bool?   { self.model.isVerified }
