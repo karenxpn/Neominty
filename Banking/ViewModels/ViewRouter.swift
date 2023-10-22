@@ -82,6 +82,8 @@ class ViewRouter: ObservableObject {
                         flag: flag,
                         phone: phone,
                         email: email)
+        case .accountEmail(let email):
+            UpdateAccountEmail(email: email)
         case .faq:
             FAQ()
         case .verifyAccount:

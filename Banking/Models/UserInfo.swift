@@ -12,9 +12,14 @@ struct UserInfo: Codable {
     var id: String
     var avatar: String?
     var name: String?
-    var email: String?
+    var email: EmailModel?
     var phone_number: String?
     var isVerified: Bool?
+}
+
+struct EmailModel: Codable {
+    var email: String?
+    var verified: Bool
 }
 
 struct UserInfoViewModel: Identifiable {
@@ -57,7 +62,7 @@ struct UserInfoViewModel: Identifiable {
     
     var avatar: String?     { self.model.avatar }
     var name: String?       { self.model.name }
-    var email: String?      { self.model.email }
+    var email: String?      { self.model.email?.email }
     var flag: String        { countryFlag(countryCode: getCountryCode())}
     var phone: String?      { getNationalNumber() }
     var isVerified: Bool?   { self.model.isVerified }

@@ -47,11 +47,11 @@ class AccountViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func updateInfo(name: String, email: String?) {
+    @MainActor func updateInfo(name: String) {
         loading = true
         Task {
             
-            let result = await manager.updateAccountInfo(userID: userID, name: name, email: email)
+            let result = await manager.updateAccountInfo(userID: userID, name: name)
             
             switch result {
             case .failure(let error):
@@ -60,6 +60,25 @@ class AccountViewModel: AlertViewModel, ObservableObject {
                 self.localName = name
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.infoUpdated.rawValue), object: nil)
             }
+            
+            if !Task.isCancelled {
+                loading = false
+            }
+        }
+    }
+    
+    @MainActor func updateEmail(email: String) {
+        loading = true
+        Task {
+            
+            let result = await manager.updateEmail(userID: userID, email: email)
+            switch result {
+            case .failure(let error):
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            case .success(()):
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.emailUpdated.rawValue), object: nil)
+            }
+            
             
             if !Task.isCancelled {
                 loading = false

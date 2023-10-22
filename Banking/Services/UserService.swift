@@ -14,13 +14,13 @@ import FirebaseAuth
 
 protocol UserServiceProtocol {
     func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error>
-    func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error>
+    func updateAccountInfo(userID: String, name: String) async -> Result<Void, Error>
     func updateEmailPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateAvatar(userID: String, image: Data) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
     func fetchFaqs(query: String, page: Int) async throws -> FAQListModel
-    func updateEmail(email: String) async -> Result<Void, Error>
+    func updateEmail(userID: String, email: String) async -> Result<Void, Error>
 }
 
 class UserSerive {
@@ -102,11 +102,9 @@ extension UserSerive: UserServiceProtocol {
         }
     }
     
-    func updateAccountInfo(userID: String, name: String, email: String?) async -> Result<Void, Error> {
+    func updateAccountInfo(userID: String, name: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name,
-                                                                                       "email": email as Any])
-            
+            try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name])            
         }
     }
     
@@ -119,15 +117,25 @@ extension UserSerive: UserServiceProtocol {
         }
     }
     
-    func updateEmail(email: String) async -> Result<Void, Error> {
+    func updateEmail(userID: String, email: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest(action: {
-            var actionCodeSettings =  ActionCodeSettings.init()
+            let actionCodeSettings =  ActionCodeSettings.init()
             actionCodeSettings.handleCodeInApp = false
             actionCodeSettings.url = URL(string: "https://neominty.page.link/email")
             actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
-            
-            try await Auth.auth().currentUser?.updateEmail(to: email)
-            try await Auth.auth().currentUser?.sendEmailVerification(with: actionCodeSettings)
+            let user = Auth.auth().currentUser
+                       
+            if let user {
+                try await user.updateEmail(to: email)
+                if !user.isEmailVerified {
+                    print("This email is not verified")
+                    try await user.sendEmailVerification(with: actionCodeSettings)
+                    try await db.collection(Paths.users.rawValue).document(userID).updateData(
+                        ["email": ["email" : email,
+                                   "verified": user.isEmailVerified]]
+                    )
+                }
+            }
         })
     }
     
