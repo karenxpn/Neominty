@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AlertToast
 import SimpleToast
 
 struct AccountViewPersonalInfo: View {
