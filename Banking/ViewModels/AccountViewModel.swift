@@ -60,8 +60,9 @@ class AccountViewModel: AlertViewModel, ObservableObject {
                 self.localName = name
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.infoUpdated.rawValue), object: nil)
             }
+            
             if !Task.isCancelled {
-                loading = true
+                loading = false
             }
         }
     }

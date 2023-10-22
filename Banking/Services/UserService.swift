@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseStorage
 import Alamofire
 import Combine
+import FirebaseAuth
 
 protocol UserServiceProtocol {
     func fetchAccountInfo(userID: String) async -> Result<UserInfo, Error>
@@ -19,6 +20,7 @@ protocol UserServiceProtocol {
     func updateAvatar(userID: String, image: Data) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
     func fetchFaqs(query: String, page: Int) async throws -> FAQListModel
+    func updateEmail(email: String) async -> Result<Void, Error>
 }
 
 class UserSerive {
@@ -104,6 +106,7 @@ extension UserSerive: UserServiceProtocol {
         return await APIHelper.shared.voidRequest {
             try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name,
                                                                                        "email": email as Any])
+            
         }
     }
     
@@ -114,6 +117,18 @@ extension UserSerive: UserServiceProtocol {
         } catch {
             return .failure(error)
         }
+    }
+    
+    func updateEmail(email: String) async -> Result<Void, Error> {
+        return await APIHelper.shared.voidRequest(action: {
+            var actionCodeSettings =  ActionCodeSettings.init()
+            actionCodeSettings.handleCodeInApp = false
+            actionCodeSettings.url = URL(string: "https://neominty.page.link/email")
+            actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
+            
+            try await Auth.auth().currentUser?.updateEmail(to: email)
+            try await Auth.auth().currentUser?.sendEmailVerification(with: actionCodeSettings)
+        })
     }
     
 }
