@@ -147,3 +147,7 @@
 "yourAccountWasRejected" = "Your account was rejected, please contact our support team to try again.";
 "contactSupport" = "Contact Support";
 "verificationStatus" = "Verification Status";
+"update" = "Update";
+"verifyYourEmail" = "Verify Email Address";
+"youWillReceiveVerificationEmail" = "ℹ︎ You will receive a verification email tap on the link in that mail to verify it";
+"yourEmailIsNotVerifiedYet" = "Your email is not verified yet. Please visit you email and verify it.";

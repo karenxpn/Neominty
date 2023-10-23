@@ -14,7 +14,6 @@ struct AccountInfo: View {
     @State private var flag: String
     @State private var phone: String
     @State private var email: String
-    @State private var emailValid: Bool
     @State private var nameValid: Bool
     
     init(name: String?, flag: String?, phone: String?, email: String?) {
@@ -22,7 +21,6 @@ struct AccountInfo: View {
         _flag = State(initialValue: flag ?? "")
         _phone = State(initialValue: phone ?? "")
         _email = State(initialValue: email ?? "")
-        _emailValid = State(initialValue: email?.isEmail ?? false)
         _nameValid = State(initialValue: name?.isFullNameValid() ?? false)
     }
     
@@ -54,7 +52,6 @@ struct AccountInfo: View {
                         HStack(spacing: 0) {
                             
                             Button {
-                                
                             } label: {
                                 HStack {
                                     TextHelper(text: "\(flag)",
@@ -82,15 +79,22 @@ struct AccountInfo: View {
                     VStack(alignment: .leading, spacing: 12) {
                         TextHelper(text: NSLocalizedString("email", comment: ""), color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 16)
                         
-                        CardDetailTextFieldDecorator(content: {
-                            TextField(NSLocalizedString("example@domain.com", comment: ""), text: $email)
-                                .keyboardType(.emailAddress)
-                                .font(.custom(Roboto.medium.rawValue, size: 16))
-                                .padding(.leading, 16)
-                                .onChange(of: email) { newValue in
-                                    emailValid = newValue.isEmail
+                        Button {
+                            viewRouter.pushAccountPath(.accountEmail(email: email))
+                        } label: {
+                            HStack {
+                                TextHelper(text: email.isEmpty ? NSLocalizedString("example@domain.com", comment: "") : email, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                                Spacer()
+                            }.padding(16)
+                                .background {
+                                    RoundedRectangle(cornerRadius: 16)
+                                        .strokeBorder(Color.clear, lineWidth: 1)
+                                        .background {
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .fill(AppColors.superLightGray)
+                                        }
                                 }
-                        }, isValid: $emailValid)
+                        }
                     }
                     
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
@@ -102,9 +106,9 @@ struct AccountInfo: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: !nameValid || (!emailValid && !email.isEmpty) || accountVM.loading,
+                    ButtonHelper(disabled: !nameValid || accountVM.loading,
                                  label: accountVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("save", comment: "")) {
-                        accountVM.updateInfo(name: name, email: email.isEmpty ? nil : email)
+                        accountVM.updateInfo(name: name)
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     
                 }

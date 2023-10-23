@@ -38,6 +38,8 @@
 		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
+		FF1F4FE22AE5B1300031BB36 /* UpdateAccountEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F4FE12AE5B1300031BB36 /* UpdateAccountEmail.swift */; };
+		FF1F4FE82AE5C4C50031BB36 /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = FF1F4FE72AE5C4C50031BB36 /* SimpleToast */; };
 		FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */; };
 		FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */; };
 		FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */; };
@@ -232,6 +234,7 @@
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
 		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		FF1F4FE12AE5B1300031BB36 /* UpdateAccountEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountEmail.swift; sourceTree = "<group>"; };
 		FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardStyles.swift; sourceTree = "<group>"; };
 		FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonStyles.swift; sourceTree = "<group>"; };
 		FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedStyle.swift; sourceTree = "<group>"; };
@@ -390,6 +393,7 @@
 				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
 				FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */,
 				FF18C24529BA8010004EF3A3 /* FirebaseFirestore in Frameworks */,
+				FF1F4FE82AE5C4C50031BB36 /* SimpleToast in Frameworks */,
 				FF18C24929BA8010004EF3A3 /* FirebaseStorage in Frameworks */,
 				FF18C24729BA8010004EF3A3 /* FirebaseFirestoreSwift in Frameworks */,
 				18C3663BB2628D87D16ED523 /* Pods_Banking.framework in Frameworks */,
@@ -725,6 +729,7 @@
 				FF7A11E629DB04ED00286366 /* AccountCreatePin.swift */,
 				FF7A11E829DB04F700286366 /* AccountConfirmPin.swift */,
 				FF7A11EA29DB3B9800286366 /* AccountInfo.swift */,
+				FF1F4FE12AE5B1300031BB36 /* UpdateAccountEmail.swift */,
 				FF7A11F029DC6BC200286366 /* FAQ.swift */,
 				FF7A11F229DC6EF300286366 /* FAQList.swift */,
 				FF7A11F629DCA34700286366 /* AllFAQs.swift */,
@@ -848,6 +853,7 @@
 				FFDE8FE52A4723750005A35F /* Shimmer */,
 				FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */,
 				FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */,
+				FF1F4FE72AE5C4C50031BB36 /* SimpleToast */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -934,6 +940,7 @@
 				FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
 				FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */,
+				FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1148,6 +1155,7 @@
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
 				FF42813C29F7C84500E57567 /* RegisterOrderRequest.swift in Sources */,
+				FF1F4FE22AE5B1300031BB36 /* UpdateAccountEmail.swift in Sources */,
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
 				FF45207129C73AE7003C6415 /* TransactionPreview.swift in Sources */,
@@ -1608,6 +1616,14 @@
 				kind = branch;
 			};
 		};
+		FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sanzaru/SimpleToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.8.0;
+			};
+		};
 		FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/amirdew/CollectionViewPagingLayout";
@@ -1693,6 +1709,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF18C27129BB37C5004EF3A3 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		FF1F4FE72AE5C4C50031BB36 /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
 		};
 		FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */ = {
 			isa = XCSwiftPackageProductDependency;

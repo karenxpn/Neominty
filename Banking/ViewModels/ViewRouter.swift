@@ -82,6 +82,8 @@ class ViewRouter: ObservableObject {
                         flag: flag,
                         phone: phone,
                         email: email)
+        case .accountEmail(let email):
+            UpdateAccountEmail(email: email)
         case .faq:
             FAQ()
         case .verifyAccount:
@@ -160,42 +162,49 @@ class ViewRouter: ObservableObject {
     func handleDeeplink(from url: URL) {
         guard let host = url.host() else { return }
         
-        if url.pathComponents.count >= 2 {
+        if host == "neominty.page.link" {
             
-            let destination = url.pathComponents[1]
-            switch DeeplinkURLs(rawValue: host) {
-            case .home:
-                tab = 0
-                if DeeplinkURLs(rawValue: destination) == .transferSuccess {
-                    let queryParams = url.queryParameters
-                    guard let amount = queryParams?["amount"] as? String,
-                          let currency = queryParams?["currency"] as? String else { return }
-                    
-                    self.pushHomePath(.transferSuccess(amount: amount, currency: CardCurrency(rawValue: currency), action: CustomAction(action: {
-                        self.popToHomeRoot()
-                    })))
-                } else if DeeplinkURLs(rawValue: destination) == .notifications {
-                    self.pushHomePath(.notifications)
-                }
-            case .cards:
-                tab = 1
-            case .qr:
-                tab = 2
-            case .account:
-                tab = 4
-                if DeeplinkURLs(rawValue: destination) == .accountVerified {
-                    self.pushAccountPath(.accountVerified)
-                } else if DeeplinkURLs(rawValue: destination) == .accountRejected {
-                    self.pushAccountPath(.accountRejected)
-                } else if DeeplinkURLs(rawValue: destination) == .verifyAccount {
-                    self.pushAccountPath(.verifyAccount)
-                }
-            default:
-                return
-            }
+            print("Hello firebase")
             
         } else {
             
+            if url.pathComponents.count >= 2 {
+                
+                let destination = url.pathComponents[1]
+                switch DeeplinkURLs(rawValue: host) {
+                case .home:
+                    tab = 0
+                    if DeeplinkURLs(rawValue: destination) == .transferSuccess {
+                        let queryParams = url.queryParameters
+                        guard let amount = queryParams?["amount"] as? String,
+                              let currency = queryParams?["currency"] as? String else { return }
+                        
+                        self.pushHomePath(.transferSuccess(amount: amount, currency: CardCurrency(rawValue: currency), action: CustomAction(action: {
+                            self.popToHomeRoot()
+                        })))
+                    } else if DeeplinkURLs(rawValue: destination) == .notifications {
+                        self.pushHomePath(.notifications)
+                    }
+                case .cards:
+                    tab = 1
+                case .qr:
+                    tab = 2
+                case .account:
+                    tab = 4
+                    if DeeplinkURLs(rawValue: destination) == .accountVerified {
+                        self.pushAccountPath(.accountVerified)
+                    } else if DeeplinkURLs(rawValue: destination) == .accountRejected {
+                        self.pushAccountPath(.accountRejected)
+                    } else if DeeplinkURLs(rawValue: destination) == .verifyAccount {
+                        self.pushAccountPath(.verifyAccount)
+                    }
+                default:
+                    return
+                }
+                
+            } else {
+                
+            }
         }
     }
 }

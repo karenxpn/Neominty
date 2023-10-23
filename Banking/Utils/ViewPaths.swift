@@ -79,6 +79,7 @@ enum AnalyticsViewPaths: String, Identifiable {
 enum AccountViewPaths: Equatable, Hashable {
     
     case info(name: String?, flag: String?, phone: String?, email: String?)
+    case accountEmail(email: String?)
     case settings
     case changePin
     case faq
