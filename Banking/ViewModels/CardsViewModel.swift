@@ -12,7 +12,8 @@ import Combine
 class CardsViewModel: AlertViewModel, ObservableObject {
     @AppStorage("userID") var userID: String = ""
 
-    @Published var loading: Bool = true
+    @Published var loading: Bool = false
+    @Published var loadingCards: Bool = true
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     @Published var cards = [CardModel]()
@@ -38,7 +39,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     }
     
     @MainActor func getCards() {
-        loading = true
+        loadingCards = true
         alertMessage = ""
         
         Task {
@@ -51,7 +52,7 @@ class CardsViewModel: AlertViewModel, ObservableObject {
             }
             
             if !Task.isCancelled {
-                loading = false
+                loadingCards = false
             }
         }
     }

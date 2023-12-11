@@ -16,24 +16,24 @@ struct Cards: View {
     var body: some View {
         NavigationStack(path: $viewRouter.cardPath) {
             ZStack {
-                if cardsVM.loading {
+                if cardsVM.loadingCards {
                     CardsList(cards: [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.amexCard],
-                              loading: $cardsVM.loading)
+                              loading: $cardsVM.loadingCards)
                         .redacted(reason: .placeholder)
                             .shimmering(
-                                active: cardsVM.loading,
+                                active: cardsVM.loadingCards,
                                 animation: .easeInOut(duration: 1)
                                     .repeatForever(autoreverses: false)
                             )
-                } else if cardsVM.cards.isEmpty && !cardsVM.loading && cardsVM.alertMessage.isEmpty {
+                } else if cardsVM.cards.isEmpty && !cardsVM.loadingCards && cardsVM.alertMessage.isEmpty {
                     RequestToAddNewCard()
-                } else if cardsVM.cards.isEmpty && !cardsVM.alertMessage.isEmpty && !cardsVM.loading {
+                } else if cardsVM.cards.isEmpty && !cardsVM.alertMessage.isEmpty && !cardsVM.loadingCards {
                     ViewFailedToLoad {
                         cardsVM.getCards()
                     }
                 } else {
                     CardsList(cards: cardsVM.cards,
-                              loading: $cardsVM.loading)
+                              loading: $cardsVM.loadingCards)
                         .environmentObject(cardsVM)
                 }
             }.navigationTitle(Text(""))
