@@ -17,7 +17,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
     
     @Published var selectedCard: CardModel?
     @Published var cards = [CardModel]()
-    
+        
     var cardManager: CardServiceProtocol
     var payManager: PayServiceProtocol
     init(cardManager: CardServiceProtocol = CardService.shared,
@@ -46,14 +46,16 @@ class QrViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func performPayment(sender: String, receiver: String, amount: String) {
+    @MainActor func performPayment(receiver: String, amount: String, action: @escaping () -> ()) {
         
         loading = true
         Task {
             do {
-                try await payManager.performPaymentWithBindingId(sender: sender, receiver: receiver, amount: Decimal(string: amount) ?? 0)
-                
-                NotificationCenter.default.post(name: Notification.Name(NotificationName.paymentCompleted.rawValue), object: nil)
+                let _ = try await payManager.performPaymentWithBindingId(sender: selectedCard!.bindingId,
+                                                                 receiver: receiver,
+                                                                 amount: Decimal(string: amount) ?? 0,
+                                                                 currency: selectedCard!.currency.rawValue)
+                action()
                 
             } catch let error as NetworkError {
                 self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)

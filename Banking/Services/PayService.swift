@@ -14,7 +14,8 @@ import FirebaseFirestore
 
 protocol PayServiceProtocol {
     func fetchCategories() async -> Result<[PayCategory], Error>
-    func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal) async throws -> BothBindingPaymentResponse
+    func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToBindingPaymentResponseModel
+    func performBindingToCardPayment(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToCardPaymentResponseModel
     func performPayment(amount: String) async -> Result<Void, Error>
 }
 
@@ -26,44 +27,25 @@ class PayService {
 }
 
 extension PayService: PayServiceProtocol {
-    func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal) async throws -> BothBindingPaymentResponse {
-        let url = URL(string: "\(Credentials.functions_base_url)bindingPayment")!
+    func performBindingToCardPayment(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToCardPaymentResponseModel {
+        let url = URL(string: "\(Credentials.functions_base_url)bindingToCardPayment")!
+        let params = BindingToCardPaymentRequestModel(sender: sender,
+                                                      receiver: receiver,
+                                                      amount: amount,
+                                                      currency: currency)
         
-        let params: Parameters = [
-            "sender": sender,
-            "receiver": receiver,
-            "amount": amount
-        ]
+        return try await APIHelper.shared.httpRequest(params: params, url: url, responseType: BindingToCardPaymentResponseModel.self)
+    }
+    
+    func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToBindingPaymentResponseModel {
+        let url = URL(string: "\(Credentials.functions_base_url)bindingToBindingPayment")!
         
-        do {
-            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true).token
-            let headers: HTTPHeaders? = ["Authorization": "Bearer \(token ?? "")"]
-            
-            return try await withUnsafeThrowingContinuation({ continuation in
-                AF.request(url,
-                           method: .get,
-                           parameters: params,
-                           encoding: URLEncoding.queryString,
-                           headers: headers)
-                .validate()
-                .responseDecodable(of: BothBindingPaymentResponse.self) { response in
-
-                    if response.error != nil {
-                        response.error.map { err in
-                            let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                            continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
-                        }
-                    }
-                    
-                    if let registered = response.value {
-                        continuation.resume(returning: registered)
-                    }
-                }
-            })
-            
-        } catch {
-            throw error
-        }
+        let params = BindingToBindingPaymentRequestModel(sender: sender,
+                                                         receiver: receiver,
+                                                         amount: amount,
+                                                         currency: currency)
+        
+        return try await APIHelper.shared.httpRequest(params: params, url: url, responseType: BindingToBindingPaymentResponseModel.self)
     }
     
     func performPayment(amount: String) async -> Result<Void, Error> {

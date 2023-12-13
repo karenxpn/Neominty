@@ -15,7 +15,6 @@ struct ScanQR: View {
     
     @State private var result: String?
     @State private var amount: String = ""
-    @State private var completed: Bool = false
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
@@ -25,7 +24,7 @@ struct ScanQR: View {
             ZStack(alignment: .topTrailing, content: {
                 
                 if let result {
-                    ScannedQR(result: result, amount: $amount, presented: $presented, completed: $completed)
+                    ScannedQR(result: result, amount: $amount, presented: $presented)
                         .environmentObject(qrVM)
                 } else {
                     CodeScannerView(codeTypes: [.qr], scanMode: .continuous, showViewfinder: true, simulatedData: "Paul Hudson") { response in
@@ -52,11 +51,7 @@ struct ScanQR: View {
                 }
             }).gesture(DragGesture().onChanged({ _ in
                 UIApplication.shared.endEditing()
-            })).onReceive(NotificationCenter
-                .default
-                .publisher(for:Notification.Name(rawValue: NotificationName.paymentCompleted.rawValue))) { _ in
-                    completed.toggle()
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
+            })).alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
                 }, message: {
                     Text(qrVM.alertMessage)

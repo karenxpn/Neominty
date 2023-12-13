@@ -59,12 +59,9 @@ enum MyCardViewPaths: String, Identifiable {
     }
 }
 
-enum ScanViewPaths: String, Identifiable {
+enum ScanViewPaths: Equatable, Hashable {
     case attachCard
-    
-    var id: String {
-        self.rawValue
-    }
+    case transferSuccess(amount: String, currency: CardCurrency, action: CustomAction)
 }
 
 enum AnalyticsViewPaths: String, Identifiable {

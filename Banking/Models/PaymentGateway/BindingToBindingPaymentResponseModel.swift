@@ -6,6 +6,6 @@
 //
 
 import Foundation
-struct BothBindingPaymentResponse: Codable {
+struct BindingToBindingPaymentResponseModel: Codable {
     var message: String
 }

@@ -15,7 +15,6 @@ struct ScannedQR: View {
     let result: String
     @Binding var amount: String
     @Binding var presented: Bool
-    @Binding var completed: Bool
 
     @State private var selectCard: Bool = false
 
@@ -90,12 +89,19 @@ struct ScannedQR: View {
                                  || qrVM.loading
                                  || qrVM.selectedCard == nil,
                                  label: qrVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
-                        qrVM.performPayment(sender: qrVM.selectedCard!.bindingId, receiver: result, amount: amount)
-                    }.navigationDestination(isPresented: $completed) {
-                        TransferSuccess(amount: amount, currency: .usd) {
+                        qrVM.performPayment(receiver: result,
+                                            amount: amount, action: {
+                            print(viewRouter.scanPath.count)
+
                             presented.toggle()
-                            viewRouter.popToScanRoot()
-                        }
+                            viewRouter.pushScanPath(.transferSuccess(amount: amount,
+                                                                     currency: qrVM.selectedCard!.currency,
+                                                                     action: CustomAction(action: {
+                                viewRouter.popToScanRoot()
+                            })))
+                            
+                            print(viewRouter.scanPath.count)
+                        })
                     }
                     
                 }.padding(24)
@@ -136,6 +142,6 @@ struct ScannedQR: View {
 
 struct ScannedQR_Previews: PreviewProvider {
     static var previews: some View {
-        ScannedQR(result: "", amount: .constant("100"), presented: .constant(false), completed: .constant(true))
+        ScannedQR(result: "", amount: .constant("100"), presented: .constant(false))
     }
 }

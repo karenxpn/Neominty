@@ -14,7 +14,7 @@ class ViewRouter: ObservableObject {
     @Published var tab: Int = 0
     @Published var homePath = NavigationPath()
     @Published var cardPath = NavigationPath()
-    @Published var scanPath = NavigationPath()
+    @Published var scanPath = [ScanViewPaths]()
     @Published var analyticsPath = NavigationPath()
     @Published var accountPath = NavigationPath()
     
@@ -61,6 +61,18 @@ class ViewRouter: ObservableObject {
             MoreTransfers()
         case .notifications:
             Notifications()
+        case .attachCard:
+            SelectCardStyle()
+        case .transferSuccess(let amount, let currency, let action):
+            TransferSuccess(amount: amount, currency: currency) {
+                action.action()
+            }
+        }
+    }
+    
+    @ViewBuilder
+    func buildQrView(page: ScanViewPaths) -> some View {
+        switch page {
         case .attachCard:
             SelectCardStyle()
         case .transferSuccess(let amount, let currency, let action):

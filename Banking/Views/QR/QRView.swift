@@ -111,11 +111,8 @@ struct QRView: View {
                             }
                         }
                     }
-                    .navigationDestination(for: ScanViewPaths.self) { value in
-                        switch value {
-                        case .attachCard:
-                            SelectCardStyle()
-                        }
+                    .navigationDestination(for: ScanViewPaths.self) { page in
+                        viewRouter.buildQrView(page: page)
                     }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()

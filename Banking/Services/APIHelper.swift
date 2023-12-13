@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 import Combine
 import SwiftUI
 import Alamofire
@@ -24,53 +25,44 @@ class APIHelper {
         }
     }
     
-    func get_deleteRequest<T, P>(params: P?,
-                              url: URL,
-                              method: HTTPMethod = .get,
-                              responseType: T.Type)
-    -> AnyPublisher<T, Error> where T : Decodable, P : Encodable {
+    func httpRequest<T, P>(params: P?,
+                           url: URL,
+                           method: HTTPMethod = .get,
+                           responseType: T.Type) async throws -> T where T : Decodable, P : Encodable {
         
-        let data = try! JSONEncoder.init().encode(params)
-        let dictionary = try! JSONSerialization.jsonObject(with: data) as! [String: Any]
-
         
-        return AF.request(url,
-                          method: method,
-                          parameters: dictionary,
-                          encoding: URLEncoding.default)
-            .validate()
-            .publishDecodable(type: T.self)
-            .value()
-            .mapError({ $0 as Error })
-            .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
+        
+        do {
+            let data = try JSONEncoder.init().encode(params)
+            let parameters = try JSONSerialization.jsonObject(with: data) as! [String: Any]
+            
+            
+            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true).token
+            let headers: HTTPHeaders? = ["Authorization": "Bearer \(token ?? "")"]
+            
+            return try await withUnsafeThrowingContinuation({ continuation in
+                AF.request(url,
+                           method: method,
+                           parameters: parameters,
+                           encoding: URLEncoding.queryString,
+                           headers: headers)
+                .validate()
+                .responseDecodable(of: T.self) { response in
+                    
+                    if response.error != nil {
+                        response.error.map { err in
+                            let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
+                            continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
+                        }
+                    }
+                    
+                    if let registered = response.value {
+                        continuation.resume(returning: registered)
+                    }
+                }
+            })
+        } catch {
+            throw error
+        }
     }
-        
-//    func post_patchRequest<T, P>( params: P,
-//                                  url: URL,
-//                                  method: HTTPMethod = .post,
-//                                  responseType: T.Type)
-//    -> AnyPublisher<DataResponse<T, NetworkError>, Never> where T : Decodable, P : Encodable {
-//
-//        var headers: HTTPHeaders?
-//        if !token.isEmpty || !initialToken.isEmpty {
-//            headers = ["Authorization": "Bearer \(token == "" ? initialToken : token)"]
-//        }
-//
-//        return AF.request(url,
-//                          method: method,
-//                          parameters: params,
-//                          encoder: JSONParameterEncoder.default,
-//                          headers: headers)
-//            .validate()
-//            .publishDecodable(type: T.self)
-//            .map { response in
-//                response.mapError { error in
-//                    let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-//                    return NetworkError(initialError: error, backendError: backendError)
-//                }
-//            }
-//            .receive(on: DispatchQueue.main)
-//            .eraseToAnyPublisher()
-//    }
 }
