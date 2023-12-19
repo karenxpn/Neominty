@@ -43,7 +43,6 @@ struct MainView: View {
             .task({
                 await notificationVM.requestPermission()
                 await notificationVM.checkPermission()
-                viewRouter.getAccountInfo()
             }).environmentObject(viewRouter)
             .onOpenURL { url in
                 print(url)

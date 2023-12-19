@@ -104,7 +104,11 @@ extension UserSerive: UserServiceProtocol {
     
     func updateAccountInfo(userID: String, name: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name])            
+            var changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            changeRequest?.displayName = name
+
+            try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name])
+            try await changeRequest?.commitChanges()
         }
     }
     

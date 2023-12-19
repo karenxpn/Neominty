@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import FirebaseAuth
 
 class ViewRouter: ObservableObject {
     @AppStorage("firstInstall") var firstInstall: Bool = true
@@ -33,16 +34,19 @@ class ViewRouter: ObservableObject {
         }
     }
     
-    @MainActor func getAccountInfo() {
-        Task {
-            
-            let result = await accountManager.fetchAccountInfo(userID: userID)
-            switch result {
-            case .failure(_):
-                break
-            case .success(let info):
-                self.localName = info.name ?? ""
+    var user: User? {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    func listenToAuthState() {
+        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self else {
+                return
             }
+            self.user = user
+            self.localName = user?.displayName ?? ""
         }
     }
     

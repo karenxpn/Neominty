@@ -10,8 +10,6 @@ import CollectionViewPagingLayout
 import Shimmer
 
 struct HomeView: View {
-    @AppStorage("fullName") var localName: String = ""
-    
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
@@ -107,9 +105,8 @@ struct HomeView: View {
                             
                             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                             
-                            TextHelper(text: localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: viewRouter.localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                         }
-                        
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -118,7 +115,6 @@ struct HomeView: View {
                         } label: {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
                         }
-                        
                     }
                 }
                 .navigationDestination(for: HomeViewPaths.self) { page in
