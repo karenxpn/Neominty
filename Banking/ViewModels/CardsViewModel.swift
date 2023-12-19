@@ -94,8 +94,9 @@ class CardsViewModel: AlertViewModel, ObservableObject {
                     NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
                 }
                 
-            } catch let error as NetworkError {
-                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            } catch {
+                self.showAlert.toggle()
+                self.alertMessage = error.localizedDescription
             }
             
             if !Task.isCancelled {

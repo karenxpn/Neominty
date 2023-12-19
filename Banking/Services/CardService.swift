@@ -11,6 +11,7 @@ import Alamofire
 import SwiftUI
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseFunctions
 
 protocol CardServiceProtocol {
     func fetchCards(userID: String) async -> Result<[CardModel], Error>
@@ -25,7 +26,7 @@ class CardService {
     static let shared: CardServiceProtocol = CardService()
     @AppStorage("userID") var userID: String = ""
     let db = Firestore.firestore()
-    
+    var function = Functions.functions()
     
     private init() { }
 }
@@ -79,7 +80,7 @@ extension CardService: CardServiceProtocol {
                            headers: headers)
                 .validate()
                 .responseDecodable(of: GlobalResponse.self) { response in
-
+                    
                     if response.error != nil {
                         response.error.map { err in
                             let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
@@ -99,34 +100,8 @@ extension CardService: CardServiceProtocol {
     }
     
     func registerOrder() async throws -> RegisterOrderResponse {
-        let url = URL(string: "\(Credentials.functions_base_url)receiveGatewayForm")!
-        do {
-            let token = try await Auth.auth().currentUser?.getIDTokenResult(forcingRefresh: true).token
-            print(token)
-            let headers: HTTPHeaders? = ["Authorization": "Bearer \(token ?? "")"]
-            
-            return try await withUnsafeThrowingContinuation({ continuation in
-                AF.request(url,
-                           method: .get,
-                           headers: headers)
-                .validate()
-                .responseDecodable(of: RegisterOrderResponse.self) { response in
-
-                    if response.error != nil {
-                        response.error.map { err in
-                            let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                            continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
-                        }
-                    }
-                    
-                    if let registered = response.value {
-                        continuation.resume(returning: registered)
-                    }
-                }
-            })
-        } catch {
-            throw error
-        }
+        return try await APIHelper.shared.onCallRequest(name: "receiveGatewayForm",
+                                                        responseType: RegisterOrderResponse.self)
     }
     
     func removeCard(userID: String, cardID: String) async -> Result<Void, Error> {
@@ -147,12 +122,12 @@ extension CardService: CardServiceProtocol {
                 .getDocuments().documents
             
             let cards = try docs.map { try $0.data(as: CardModel.self ) }
-                            
+            
             let orderRules = try await db.collection(Paths.users.rawValue)
                 .document(userID)
                 .getDocument()
                 .get(Paths.orderRules.rawValue) as? [String]
-                        
+            
             var orderedCards = [CardModel]()
             if let orderRules {
                 for rule in orderRules {
@@ -170,7 +145,7 @@ extension CardService: CardServiceProtocol {
             } else {
                 orderedCards = cards
             }
-
+            
             
             return .success(orderedCards
             )

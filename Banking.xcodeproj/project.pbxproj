@@ -98,6 +98,7 @@
 		FF628E1929BA2CD200FE35EE /* BankingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1829BA2CD200FE35EE /* BankingUITests.swift */; };
 		FF628E1B29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628E1A29BA2CD200FE35EE /* BankingUITestsLaunchTests.swift */; };
 		FF628E2929BA2D7600FE35EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FF628E2829BA2D7600FE35EE /* .gitignore */; };
+		FF787B842B317C6400C971D4 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = FF787B832B317C6400C971D4 /* FirebaseFunctions */; };
 		FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11CB29D709F900286366 /* GlobalResponse.swift */; };
 		FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11CD29D70C7F00286366 /* RequestTransferSuccess.swift */; };
 		FF7A11D129D752A000286366 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A11D029D752A000286366 /* Account.swift */; };
@@ -387,6 +388,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF787B842B317C6400C971D4 /* FirebaseFunctions in Frameworks */,
 				FF42813929F743D900E57567 /* Alamofire in Frameworks */,
 				FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */,
 				FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */,
@@ -863,6 +865,7 @@
 				FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */,
 				FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */,
 				FF1F4FE72AE5C4C50031BB36 /* SimpleToast */,
+				FF787B832B317C6400C971D4 /* FirebaseFunctions */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -1741,6 +1744,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF45204629C07B1E003C6415 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		FF787B832B317C6400C971D4 /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF18C23F29BA8010004EF3A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
 		};
 		FF7A121429E6ED0A00286366 /* CodeScanner */ = {
 			isa = XCSwiftPackageProductDependency;

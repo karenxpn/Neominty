@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFunctions
 import FirebaseAuth
 import Combine
 import SwiftUI
@@ -16,6 +17,12 @@ import Alamofire
 class APIHelper {
     static let shared = APIHelper()
     
+    let function: Functions
+    private init() {
+        self.function = Functions.functions()
+    }
+     
+    
     func voidRequest(action: () async throws -> Void) async -> Result<Void, Error> {
         do {
             try await action()
@@ -23,6 +30,29 @@ class APIHelper {
         } catch {
             return .failure(error)
         }
+    }
+    
+    func onCallRequest<T>(params: [String: Any]? = nil,
+                          name: String,
+                          responseType: T.Type) async throws -> T where T : Decodable {
+        
+        do {
+            let result = try await function.httpsCallable("receiveGatewayForm").call(params)
+            
+            if let data = try? JSONSerialization.data(withJSONObject: result.data) {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(T.self, from: data)
+                return response
+            } else {
+                // Handle error: Unable to parse response data
+                throw NSError(domain: "JSONParsing",
+                              code: 0,
+                              userInfo: [NSLocalizedDescriptionKey: "Invalid JSON data"])
+            }
+        } catch {
+            throw error
+        }
+        
     }
     
     func httpRequest<T, P>(params: P?,
@@ -65,4 +95,6 @@ class APIHelper {
             throw error
         }
     }
+    
+    
 }
