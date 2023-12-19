@@ -82,20 +82,15 @@ class CardsViewModel: AlertViewModel, ObservableObject {
         Task {
             do {
                 let result = try await manager.registerOrder()
+
+                self.formURL = result.formUrl!
+                self.orderNumber = result.orderNumber
+                self.orderID = result.orderId!
+                print(result)
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
                 
-                if result.error ?? false {
-                    self.showAlert = result.error!
-                    self.alertMessage = result.errorMessage!
-                } else {
-                    self.formURL = result.formUrl!
-                    self.orderNumber = result.orderNumber
-                    self.orderID = result.orderId!
-                    print(result)
-                    NotificationCenter.default.post(name: Notification.Name(NotificationName.orderRegistered.rawValue), object: nil)
-                }
-                
-            } catch let error as NetworkError {
-                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            } catch {
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             }
             
             if !Task.isCancelled {
@@ -107,7 +102,6 @@ class CardsViewModel: AlertViewModel, ObservableObject {
     @MainActor func getAttachmentStatus() {
         loading = true
         Task {
-            
             do {
                 let result = try await manager.attachCard(orderNumber: orderNumber, orderId: orderID, cardStyle: design)
                 print(result)
@@ -115,8 +109,8 @@ class CardsViewModel: AlertViewModel, ObservableObject {
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.cardAttached.rawValue), object: nil)
 
                 
-            } catch let error as NetworkError {
-                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            } catch {
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             }
             
             if !Task.isCancelled {

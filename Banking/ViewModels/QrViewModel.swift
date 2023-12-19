@@ -57,8 +57,8 @@ class QrViewModel: AlertViewModel, ObservableObject {
                                                                  currency: selectedCard!.currency.rawValue)
                 action()
                 
-            } catch let error as NetworkError {
-                self.makeNetworkAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
+            } catch {
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             }
             
             if !Task.isCancelled {
