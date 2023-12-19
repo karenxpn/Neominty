@@ -28,24 +28,31 @@ class PayService {
 
 extension PayService: PayServiceProtocol {
     func performBindingToCardPayment(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToCardPaymentResponseModel {
-        let url = URL(string: "\(Credentials.functions_base_url)bindingToCardPayment")!
-        let params = BindingToCardPaymentRequestModel(sender: sender,
-                                                      receiver: receiver,
-                                                      amount: amount,
-                                                      currency: currency)
+        let params = [
+            "sender": sender,
+            "receiver": receiver,
+            "amount": amount,
+            "currency": currency
+        ] as [String : Any]
         
-        return try await APIHelper.shared.httpRequest(params: params, url: url, responseType: BindingToCardPaymentResponseModel.self)
+        return try await APIHelper.shared.onCallRequest(params: params,
+                                                        name: "bindingToCardPayment",
+                                                        responseType: BindingToCardPaymentResponseModel.self)
+        
     }
     
     func performPaymentWithBindingId(sender: String, receiver: String, amount: Decimal, currency: String) async throws -> BindingToBindingPaymentResponseModel {
-        let url = URL(string: "\(Credentials.functions_base_url)bindingToBindingPayment")!
         
-        let params = BindingToBindingPaymentRequestModel(sender: sender,
-                                                         receiver: receiver,
-                                                         amount: amount,
-                                                         currency: currency)
+        let params = [
+            "sender": sender,
+            "receiver": receiver,
+            "amount": amount,
+            "currency": currency
+        ] as [String : Any]
         
-        return try await APIHelper.shared.httpRequest(params: params, url: url, responseType: BindingToBindingPaymentResponseModel.self)
+        return try await APIHelper.shared.onCallRequest(params: params,
+                                                        name: "bindingToBindingPayment",
+                                                        responseType: BindingToBindingPaymentResponseModel.self)
     }
     
     func performPayment(amount: String) async -> Result<Void, Error> {

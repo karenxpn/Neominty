@@ -148,8 +148,6 @@
 		FF95D9502ACDA76600CEF7BC /* IdentityVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */; };
 		FF95D9522ACDC68C00CEF7BC /* VerifyIdentityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */; };
 		FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA67C1A2A06B051007C6A9F /* NetworkError.swift */; };
-		FFAA60B92B29FE970058CECC /* BindingToBindingPaymentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA60B82B29FE970058CECC /* BindingToBindingPaymentRequestModel.swift */; };
-		FFAA60BB2B29FFBA0058CECC /* BindingToCardPaymentRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA60BA2B29FFBA0058CECC /* BindingToCardPaymentRequestModel.swift */; };
 		FFAA60BD2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
@@ -343,8 +341,6 @@
 		FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerification.swift; sourceTree = "<group>"; };
 		FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityService.swift; sourceTree = "<group>"; };
 		FFA67C1A2A06B051007C6A9F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		FFAA60B82B29FE970058CECC /* BindingToBindingPaymentRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentRequestModel.swift; sourceTree = "<group>"; };
-		FFAA60BA2B29FFBA0058CECC /* BindingToCardPaymentRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToCardPaymentRequestModel.swift; sourceTree = "<group>"; };
 		FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToCardPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
@@ -608,8 +604,6 @@
 				FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */,
 				FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */,
 				FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */,
-				FFAA60B82B29FE970058CECC /* BindingToBindingPaymentRequestModel.swift */,
-				FFAA60BA2B29FFBA0058CECC /* BindingToCardPaymentRequestModel.swift */,
 				FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */,
 			);
 			path = PaymentGateway;
@@ -1187,12 +1181,10 @@
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
-				FFAA60B92B29FE970058CECC /* BindingToBindingPaymentRequestModel.swift in Sources */,
 				FFAFCE242AD85F2500FC84DE /* AccountVerificationApproved.swift in Sources */,
 				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,
 				FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
-				FFAA60BB2B29FFBA0058CECC /* BindingToCardPaymentRequestModel.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
