@@ -87,7 +87,7 @@ struct TransferDetailView: View {
                     .padding(16)
                     .background {
                         RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(!isNameValid ? Color.red : Color.clear, lineWidth: 1)
+                            .strokeBorder(!isNameValid && !cardHolder.isEmpty ? Color.red : Color.clear, lineWidth: 1)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(AppColors.superLightGray)
