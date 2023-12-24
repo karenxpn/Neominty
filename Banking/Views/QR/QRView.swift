@@ -26,7 +26,7 @@ struct QRView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 60) {
                     
-                    if qrVM.loading {
+                    if qrVM.loadingCards {
                         ProgressView()
                     } else if qrVM.selectedCard == nil && qrVM.alertMessage.isEmpty {
                         AttachCardButtonLikeSelect {

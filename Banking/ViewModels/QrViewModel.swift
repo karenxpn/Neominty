@@ -11,7 +11,8 @@ import SwiftUI
 class QrViewModel: AlertViewModel, ObservableObject {
     @AppStorage("userID") var userID: String = ""
 
-    @Published var loading: Bool = false
+    @Published var loadingCards: Bool = true
+    @Published var loadingPayment: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
@@ -27,7 +28,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
     }
     
     @MainActor func getCards() {
-        loading = true
+        loadingCards = true
         self.alertMessage = ""
         
         Task {
@@ -41,14 +42,14 @@ class QrViewModel: AlertViewModel, ObservableObject {
             }
             
             if !Task.isCancelled {
-                loading = false
+                loadingCards = false
             }
         }
     }
     
     @MainActor func performPayment(receiver: String, amount: String, action: @escaping () -> ()) {
         
-        loading = true
+        loadingPayment = true
         Task {
             do {
                 let _ = try await payManager.performPaymentWithBindingId(sender: selectedCard!.bindingId,
@@ -62,7 +63,7 @@ class QrViewModel: AlertViewModel, ObservableObject {
             }
             
             if !Task.isCancelled {
-                loading = false
+                loadingPayment = false
             }
         }
     }

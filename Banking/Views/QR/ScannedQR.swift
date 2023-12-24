@@ -86,9 +86,9 @@ struct ScannedQR: View {
                     }
                     
                     ButtonHelper(disabled: amount.isEmpty
-                                 || qrVM.loading
+                                 || qrVM.loadingPayment
                                  || qrVM.selectedCard == nil,
-                                 label: qrVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
+                                 label: qrVM.loadingPayment ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
                         qrVM.performPayment(receiver: result,
                                             amount: amount, action: {
                             print(viewRouter.scanPath.count)
