@@ -14,11 +14,13 @@ struct ImageHelper: View {
     let contentMode: ContentMode
     
     var body: some View {
-        WebImage(url: URL(string: image))
-            .placeholder(content: {
-                ProgressView()
-            })
-            .resizable()
-            .aspectRatio(contentMode: contentMode)
+        WebImage(url: URL(string: image)) { image in
+            image
+                .resizable()
+                .aspectRatio(contentMode: contentMode)
+        } placeholder: {
+            ProgressView()
+
+        }
     }
 }
