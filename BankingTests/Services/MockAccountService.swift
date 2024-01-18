@@ -98,7 +98,7 @@ class MockAccountService: UserServiceProtocol {
         if updateEmailError {
             return .failure(NSError(domain: "Error",
                                     code: 0,
-                                    userInfo: [NSLocalizedDescriptionKey: "Error fetching FAQs"]))
+                                    userInfo: [NSLocalizedDescriptionKey: "Error updating email"]))
         } else {
             return .success(())
         }
