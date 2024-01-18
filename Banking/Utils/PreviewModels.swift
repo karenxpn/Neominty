@@ -145,4 +145,6 @@ struct PreviewModels {
                                                   body: "Unknown type of notification",
                                                   read: false,
                                                   created_at: Timestamp(date: Date(timeIntervalSinceNow: -30000023).toGlobalTime()), type: .unknown("some unknown")),]
+    
+    static let userPreferences = UserPreferences(email_notifications: false, push_notifications: true)
 }
