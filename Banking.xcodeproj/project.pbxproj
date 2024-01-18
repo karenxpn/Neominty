@@ -187,6 +187,7 @@
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
 		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
 		FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */; };
+		FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A72B59479F00B0766D /* MockAccountService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -381,6 +382,7 @@
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
 		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57A72B59479F00B0766D /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -843,6 +845,7 @@
 			isa = PBXGroup;
 			children = (
 				FFED57A12B591F9500B0766D /* MockAuthService.swift */,
+				FFED57A72B59479F00B0766D /* MockAccountService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1279,6 +1282,7 @@
 				FF628E0F29BA2CD200FE35EE /* BankingTests.swift in Sources */,
 				FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */,
 				FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */,
+				FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
