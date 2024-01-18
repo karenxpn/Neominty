@@ -190,6 +190,7 @@
 		FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A72B59479F00B0766D /* MockAccountService.swift */; };
 		FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */; };
 		FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AB2B59B02A00B0766D /* MockCardsService.swift */; };
+		FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +388,7 @@
 		FFED57A72B59479F00B0766D /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
 		FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57AB2B59B02A00B0766D /* MockCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCardsService.swift; sourceTree = "<group>"; };
+		FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -842,6 +844,7 @@
 			children = (
 				FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */,
 				FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */,
+				FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1289,6 +1292,7 @@
 				FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */,
 				FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */,
 				FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */,
+				FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */,
 				FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */,
 				FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */,
 			);

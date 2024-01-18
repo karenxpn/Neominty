@@ -17,7 +17,7 @@ class MockCardsService: CardServiceProtocol {
     var attachCardError: Bool = false
     
     let globalResponse = GlobalResponse(status: "success", message: "Your card is attached")
-    let registerOrderResponse = RegisterOrderResponse(orderNumber: "orderNumber")
+    let registerOrderResponse = RegisterOrderResponse(orderNumber: "orderNumber", orderId: "123", formUrl: "https://google.com")
     
     func fetchCards(userID: String) async -> Result<[CardModel], Error> {
         if fetchCardsError {
@@ -56,7 +56,7 @@ class MockCardsService: CardServiceProtocol {
         if registerOrderError {
             throw NSError(domain: "Error",
                           code: 0,
-                          userInfo: [NSLocalizedDescriptionKey: "Error fetching user preferences"])
+                          userInfo: [NSLocalizedDescriptionKey: "Error registering new order"])
             
         } else {
             return registerOrderResponse
@@ -67,7 +67,7 @@ class MockCardsService: CardServiceProtocol {
         if attachCardError {
             throw             NSError(domain: "Error",
                                       code: 0,
-                                      userInfo: [NSLocalizedDescriptionKey: "Error fetching user preferences"])
+                                      userInfo: [NSLocalizedDescriptionKey: "Error attaching new card"])
             
         } else {
             return globalResponse
