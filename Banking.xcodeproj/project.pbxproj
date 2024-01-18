@@ -185,6 +185,7 @@
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */; };
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
+		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +378,7 @@
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 		FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
+		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,6 +710,8 @@
 		FF628E0D29BA2CD200FE35EE /* BankingTests */ = {
 			isa = PBXGroup;
 			children = (
+				FFED57A02B591F6300B0766D /* Services */,
+				FFED579F2B591F5B00B0766D /* ViewModels */,
 				FF628E0E29BA2CD200FE35EE /* BankingTests.swift */,
 			);
 			path = BankingTests;
@@ -823,6 +827,21 @@
 				FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		FFED579F2B591F5B00B0766D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FFED57A02B591F6300B0766D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FFED57A12B591F9500B0766D /* MockAuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1255,6 +1274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF628E0F29BA2CD200FE35EE /* BankingTests.swift in Sources */,
+				FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
