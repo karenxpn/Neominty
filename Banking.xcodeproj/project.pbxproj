@@ -191,6 +191,8 @@
 		FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */; };
 		FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AB2B59B02A00B0766D /* MockCardsService.swift */; };
 		FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */; };
+		FFED57B02B5AA3FE00B0766D /* MockActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */; };
+		FFED57B22B5AA4B900B0766D /* ActivityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -389,6 +391,8 @@
 		FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57AB2B59B02A00B0766D /* MockCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCardsService.swift; sourceTree = "<group>"; };
 		FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivityService.swift; sourceTree = "<group>"; };
+		FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -845,6 +849,7 @@
 				FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */,
 				FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */,
 				FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */,
+				FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -855,6 +860,7 @@
 				FFED57A12B591F9500B0766D /* MockAuthService.swift */,
 				FFED57A72B59479F00B0766D /* MockAccountService.swift */,
 				FFED57AB2B59B02A00B0766D /* MockCardsService.swift */,
+				FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1292,6 +1298,8 @@
 				FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */,
 				FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */,
 				FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */,
+				FFED57B22B5AA4B900B0766D /* ActivityViewModelTests.swift in Sources */,
+				FFED57B02B5AA3FE00B0766D /* MockActivityService.swift in Sources */,
 				FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */,
 				FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */,
 				FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */,
