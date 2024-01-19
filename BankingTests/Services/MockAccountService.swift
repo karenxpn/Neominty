@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 @testable import Banking
 
 class MockAccountService: UserServiceProtocol {
@@ -85,9 +86,8 @@ class MockAccountService: UserServiceProtocol {
     
     func fetchFaqs(query: String, page: Int) async throws -> FAQListModel {
         if fetchFAQError {
-            throw NSError(domain: "Error",
-                          code: 0,
-                          userInfo: [NSLocalizedDescriptionKey: "Error fetching FAQs"])
+            throw NetworkError(initialError: AFError.explicitlyCancelled, 
+                               backendError: BackendError(message: "Error fetching FAQs"))
             
         } else {
             return FAQListModel(hits: PreviewModels.faqList)
