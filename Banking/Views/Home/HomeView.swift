@@ -93,12 +93,8 @@ struct HomeView: View {
                     homeVM.getCards()
                     homeVM.getRecentTransfers()
                 }
-                .navigationBarTitle(Text(""), displayMode: .inline)
-                .alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
-                }, message: {
-                    Text(homeVM.alertMessage)
-                })
+                .navigationBarTitle(Text(""))
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
@@ -116,7 +112,11 @@ struct HomeView: View {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
                         }
                     }
-                }
+                }.alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
+                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }, message: {
+                    Text(homeVM.alertMessage)
+                })
                 .navigationDestination(for: HomeViewPaths.self) { page in
                     viewRouter.buildHomeView(page: page)
                 }

@@ -185,6 +185,22 @@
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */; };
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
+		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
+		FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */; };
+		FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A72B59479F00B0766D /* MockAccountService.swift */; };
+		FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */; };
+		FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AB2B59B02A00B0766D /* MockCardsService.swift */; };
+		FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */; };
+		FFED57B02B5AA3FE00B0766D /* MockActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */; };
+		FFED57B22B5AA4B900B0766D /* ActivityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */; };
+		FFED57B42B5AAA1C00B0766D /* MockTransferService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B32B5AAA1C00B0766D /* MockTransferService.swift */; };
+		FFED57B62B5AAB3B00B0766D /* AllTransferViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B52B5AAB3B00B0766D /* AllTransferViewModelTests.swift */; };
+		FFED57B82B5AB00700B0766D /* FAQViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */; };
+		FFED57BA2B5AB4A300B0766D /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */; };
+		FFED57BC2B5AB63200B0766D /* MockNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BB2B5AB63200B0766D /* MockNotificationService.swift */; };
+		FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */; };
+		FFED57C02B5ABD4F00B0766D /* MockPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */; };
+		FFED57C22B5ABE7600B0766D /* QRViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,6 +393,22 @@
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 		FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
+		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
+		FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57A72B59479F00B0766D /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
+		FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57AB2B59B02A00B0766D /* MockCardsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCardsService.swift; sourceTree = "<group>"; };
+		FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockActivityService.swift; sourceTree = "<group>"; };
+		FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57B32B5AAA1C00B0766D /* MockTransferService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTransferService.swift; sourceTree = "<group>"; };
+		FFED57B52B5AAB3B00B0766D /* AllTransferViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransferViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57BB2B5AB63200B0766D /* MockNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationService.swift; sourceTree = "<group>"; };
+		FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModelTests.swift; sourceTree = "<group>"; };
+		FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPayService.swift; sourceTree = "<group>"; };
+		FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,6 +740,8 @@
 		FF628E0D29BA2CD200FE35EE /* BankingTests */ = {
 			isa = PBXGroup;
 			children = (
+				FFED57A02B591F6300B0766D /* Services */,
+				FFED579F2B591F5B00B0766D /* ViewModels */,
 				FF628E0E29BA2CD200FE35EE /* BankingTests.swift */,
 			);
 			path = BankingTests;
@@ -823,6 +857,36 @@
 				FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		FFED579F2B591F5B00B0766D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */,
+				FFED57A92B594A5800B0766D /* AccountViewModelTests.swift */,
+				FFED57AD2B59B20E00B0766D /* CardViewModelTests.swift */,
+				FFED57B12B5AA4B900B0766D /* ActivityViewModelTests.swift */,
+				FFED57B52B5AAB3B00B0766D /* AllTransferViewModelTests.swift */,
+				FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */,
+				FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */,
+				FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */,
+				FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FFED57A02B591F6300B0766D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FFED57A12B591F9500B0766D /* MockAuthService.swift */,
+				FFED57A72B59479F00B0766D /* MockAccountService.swift */,
+				FFED57AB2B59B02A00B0766D /* MockCardsService.swift */,
+				FFED57AF2B5AA3FE00B0766D /* MockActivityService.swift */,
+				FFED57B32B5AAA1C00B0766D /* MockTransferService.swift */,
+				FFED57BB2B5AB63200B0766D /* MockNotificationService.swift */,
+				FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1254,7 +1318,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFED57BA2B5AB4A300B0766D /* HomeViewModelTests.swift in Sources */,
 				FF628E0F29BA2CD200FE35EE /* BankingTests.swift in Sources */,
+				FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */,
+				FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */,
+				FFED57C02B5ABD4F00B0766D /* MockPayService.swift in Sources */,
+				FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */,
+				FFED57B62B5AAB3B00B0766D /* AllTransferViewModelTests.swift in Sources */,
+				FFED57B22B5AA4B900B0766D /* ActivityViewModelTests.swift in Sources */,
+				FFED57C22B5ABE7600B0766D /* QRViewModelTests.swift in Sources */,
+				FFED57B02B5AA3FE00B0766D /* MockActivityService.swift in Sources */,
+				FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */,
+				FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */,
+				FFED57BC2B5AB63200B0766D /* MockNotificationService.swift in Sources */,
+				FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */,
+				FFED57B82B5AB00700B0766D /* FAQViewModelTests.swift in Sources */,
+				FFED57B42B5AAA1C00B0766D /* MockTransferService.swift in Sources */,
+				FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

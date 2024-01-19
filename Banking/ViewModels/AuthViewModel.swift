@@ -211,7 +211,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     }
     
     
-    func signOut() {
+    @MainActor func signOut() {
         loading = true
         Task {
             let result = await manager.signOut()
