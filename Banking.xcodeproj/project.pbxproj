@@ -198,6 +198,7 @@
 		FFED57B82B5AB00700B0766D /* FAQViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */; };
 		FFED57BA2B5AB4A300B0766D /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */; };
 		FFED57BC2B5AB63200B0766D /* MockNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BB2B5AB63200B0766D /* MockNotificationService.swift */; };
+		FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -403,6 +404,7 @@
 		FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57BB2B5AB63200B0766D /* MockNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationService.swift; sourceTree = "<group>"; };
+		FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -863,6 +865,7 @@
 				FFED57B52B5AAB3B00B0766D /* AllTransferViewModelTests.swift */,
 				FFED57B72B5AB00700B0766D /* FAQViewModelTests.swift */,
 				FFED57B92B5AB4A300B0766D /* HomeViewModelTests.swift */,
+				FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1320,6 +1323,7 @@
 				FFED57AE2B59B20E00B0766D /* CardViewModelTests.swift in Sources */,
 				FFED57AA2B594A5800B0766D /* AccountViewModelTests.swift in Sources */,
 				FFED57BC2B5AB63200B0766D /* MockNotificationService.swift in Sources */,
+				FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */,
 				FFED57B82B5AB00700B0766D /* FAQViewModelTests.swift in Sources */,
 				FFED57B42B5AAA1C00B0766D /* MockTransferService.swift in Sources */,
 				FFED57AC2B59B02A00B0766D /* MockCardsService.swift in Sources */,
