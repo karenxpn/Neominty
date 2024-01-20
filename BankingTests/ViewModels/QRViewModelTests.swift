@@ -21,70 +21,60 @@ final class QRViewModelTests: XCTestCase {
         self.viewModel = QrViewModel(cardManager: self.cardService, payManager: self.payService)
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetCardsWithError() async {
+    func testGetCardsWithError() async {
         cardService.fetchCardsError = true
-        var expectation = expectation(description: "Error fetching cards")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+                
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching cards")
     }
     
-    @MainActor func testGetCardsWithSuccess() async {
+    func testGetCardsWithSuccess() async {
         cardService.fetchCardsError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testPerformPaymentWithError() async {
+    func testPerformPaymentWithError() async {
         payService.bindingToBindingError = true
-        var expectation = expectation(description: "Error performing binding to binding payment")
-        viewModel.selectedCard = PreviewModels.amexCard
-        viewModel.performPayment(receiver: "", amount: "") { }
+        await wait {
+            self.viewModel.selectedCard = PreviewModels.amexCard
+            await self.viewModel.performPayment(receiver: "", amount: "") { }
+        }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)        
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error performing binding to binding payment")
     }
 
-    @MainActor func testPerformPaymentWithSuccess() async {
+    func testPerformPaymentWithSuccess() async {
         payService.bindingToBindingError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.selectedCard = PreviewModels.amexCard
-        viewModel.performPayment(receiver: "", amount: "") { }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
+        await wait {
+            self.viewModel.selectedCard = PreviewModels.amexCard
+            await self.viewModel.performPayment(receiver: "", amount: "") { }
+        }
         
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
+    }
+}
 
+
+extension XCTestCase {
+    @MainActor func wait(for task: @escaping @Sendable () async throws -> Void, timeout: TimeInterval = 30) async {
+        let expectation = XCTestExpectation(description: "Async task completion")
+        
+        Task {
+            do {
+                try await task()
+            } catch {
+                XCTFail("Unexpected error: \(error)")
+            }
+            
+            expectation.fulfill()
+        }
+        
+        await fulfillment(of: [expectation], timeout: timeout)
     }
 }
