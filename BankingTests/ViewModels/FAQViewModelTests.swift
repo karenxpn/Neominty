@@ -18,44 +18,20 @@ final class FAQViewModelTests: XCTestCase {
         self.viewModel = FAQViewModel(manager: self.service)
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetFAQsWithError() async {
+    func testGetFAQsWithError() async {
         service.fetchFAQError = true
-        var expectation = expectation(description: "Error fetching FAQs")
-        viewModel.getFAQs()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            XCTAssertTrue(self.viewModel.faqs.isEmpty)
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getFAQs() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching FAQs")
+        XCTAssertTrue(self.viewModel.faqs.isEmpty)
     }
     
-    @MainActor func testGetFAQsWithSuccess() async {
+    func testGetFAQsWithSuccess() async {
         service.fetchFAQError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getFAQs()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getFAQs() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
     }
 }
