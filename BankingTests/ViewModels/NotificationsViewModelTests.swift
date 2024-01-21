@@ -18,63 +18,37 @@ final class NotificationsViewModelTests: XCTestCase {
         self.viewModel = NotificationsViewModel(manager: self.service)
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetNotificationsWithError() async {
+    func testGetNotificationsWithError() async {
         service.fetchNotificationsError = true
-        var expectation = expectation(description: "Error fetching notifications")
-        viewModel.getNotifications()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getNotifications() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching notifications")
+
     }
     
-    @MainActor func testGetNotificationsWithSuccess() async {
+    func testGetNotificationsWithSuccess() async {
         service.fetchNotificationsError = false
-        var expectation = expectation(description: "No error")
-        viewModel.getNotifications()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getNotifications() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testMarkAllAsReadWithError() async {
+    func testMarkAllAsReadWithError() async {
         service.markAllAsReadError = true
-        var expectation = expectation(description: "Error when trying to mark all notifications as read")
-        viewModel.markAsRead()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.markAsRead() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error when trying to mark all notifications as read")
+
     }
     
-    @MainActor func testMarkAllAsReadWithSuccess() async {
+    func testMarkAllAsReadWithSuccess() async {
         service.markAllAsReadError = false
-        var expectation = expectation(description: "No error")
-        viewModel.markAsRead()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.markAsRead() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
     }
 }
