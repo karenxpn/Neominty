@@ -18,117 +18,68 @@ final class AuthViewModelTests: XCTestCase {
         self.viewModel = AuthViewModel(manager: self.service)
     }
     
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkError(expectation: inout XCTestExpectation, message: String) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, message)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testSendVerificatioinWithError() async {
+    func testSendVerificatioinWithError() async {
         service.sendVerificationError = true
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.sendVerificationCode() })
 
-        viewModel.sendVerificationCode()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error sending Verification Code")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error sending Verification Code")
     }
     
-    @MainActor func testSendVerificationCodeWithSuccess() async {
+    func testSendVerificationCodeWithSuccess() async {
         service.sendVerificationError = false
-        var expectation = expectation(description: "No Error")
-        
-        viewModel.sendVerificationCode()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.sendVerificationCode() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testCheckVerificationCodeWithError() async {
+    func testCheckVerificationCodeWithError() async {
         service.checkVerificationError = true
-        var expectation = expectation(description: "Error alert expectation")
-        viewModel.checkVerificationCode()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Invalid OTP")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.checkVerificationCode() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Invalid OTP")
     }
     
-    @MainActor func testCheckVerificationCodeWithSuccess() async {
+    func testCheckVerificationCodeWithSuccess() async {
         service.checkVerificationError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.checkVerificationCode()
+        await wait(for: { await self.viewModel.checkVerificationCode() })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testFetchIntroWithError() async {
+    func testFetchIntroWithError() async {
         service.fetchIntroError = true
-        var expectation = expectation(description: "Error alert expectation")
-        viewModel.getIntroductionPages()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error fetching introduction")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getIntroductionPages() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching introduction")
     }
     
-    @MainActor func testFetchIntroWithSuccess() async {
+    func testFetchIntroWithSuccess() async {
         service.fetchIntroError = false
+        await wait(for: { await self.viewModel.getIntroductionPages() })
         
-        var expectation = expectation(description: "No Error")
-        viewModel.getIntroductionPages()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testSignOutWithError() async {
+    func testSignOutWithError() async {
         service.signOutError = true
-        var expectation = expectation(description: "Error alert expectation")
-        viewModel.signOut()
-                
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error signing out")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.signOut() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error signing out")
 
     }
     
-    @MainActor func testSignOutWithSuccess() async {
+    func testSignOutWithSuccess() async {
         service.signOutError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.signOut()
+        await wait(for: { await self.viewModel.signOut() })
                 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
 }

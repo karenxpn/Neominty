@@ -18,43 +18,20 @@ final class AllTransferViewModelTests: XCTestCase {
         self.viewModel = AllTransferViewModel(manager: self.service)
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetAllTransfersWithError() async {
+    func testGetAllTransfersWithError() async {
         service.fetchTransactionHistoryError = true
-        var expectation = expectation(description: "Error fetching history")
-        viewModel.getTransactionList()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getTransactionList() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching history")
+
     }
     
-    @MainActor func testGetAllTransfersWithSuccess() async {
+    func testGetAllTransfersWithSuccess() async {
         service.fetchTransactionHistoryError = false
-        var expectation = expectation(description: "No error")
-        viewModel.getTransactionList()
+        await wait(for: { await self.viewModel.getTransactionList() })
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
     }
 }

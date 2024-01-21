@@ -27,67 +27,37 @@ final class HomeViewModelTests: XCTestCase {
         )
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetCardsWithError() async {
+    func testGetCardsWithError() async {
         cardService.fetchCardsError = true
-        var expectation = expectation(description: "Error fetching cards")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching cards")
     }
     
-    @MainActor func testGetCardsWithSuccess() async {
+    func testGetCardsWithSuccess() async {
         cardService.fetchCardsError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            XCTAssertFalse(self.viewModel.cards.isEmpty)
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
+        XCTAssertFalse(self.viewModel.cards.isEmpty)
+
     }
     
-    @MainActor func testGetRecentTransfersWithError() async {
+    func testGetRecentTransfersWithError() async {
         transferService.fetchRecentTransferHistoryError = true
-        var expectation = expectation(description: "Error fetching recent transfers history")
-        viewModel.getRecentTransfers()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getRecentTransfers() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching recent transfers history")
     }
     
-    @MainActor func testGetRecentTransfersWithSuccess() async {
+    func testGetRecentTransfersWithSuccess() async {
         transferService.fetchRecentTransferHistoryError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getRecentTransfers()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getRecentTransfers() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
     }
 }

@@ -62,7 +62,7 @@ final class QRViewModelTests: XCTestCase {
 
 
 extension XCTestCase {
-    @MainActor func wait(for task: @escaping @Sendable () async throws -> Void, timeout: TimeInterval = 30) async {
+    @MainActor func wait(for task: @escaping @Sendable () async throws -> Void, timeout: TimeInterval = 5) async {
         let expectation = XCTestExpectation(description: "Async task completion")
         
         Task {

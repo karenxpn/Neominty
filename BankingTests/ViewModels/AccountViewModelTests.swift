@@ -18,193 +18,119 @@ final class AccountViewModelTests: XCTestCase {
         self.viewModel = AccountViewModel(manager: self.service)
     }
     
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkError(expectation: inout XCTestExpectation, message: String) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, message)
-            expectation.fulfill()
-        }
-    }
-    
-    
-    @MainActor func testGetAccountInfoWithError() async {
+    func testGetAccountInfoWithError() async {
         service.fetchInfoError = true
-        var expectation = expectation(description: "Error alert expectation")
-        viewModel.getAccountInfo()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error fetching account info")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getAccountInfo() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching account info")
     }
     
-    @MainActor func testGetAccountInfoWithSuccess() async {
+    func testGetAccountInfoWithSuccess() async {
         service.fetchInfoError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getAccountInfo()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getAccountInfo() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateAccountInfoWithError() async {
+    func testUpdateAccountInfoWithError() async {
         service.updateInfoError = true
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.updateInfo(name: "") })
 
-        viewModel.updateInfo(name: "")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error updating account info")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error updating account info")
     }
     
-    @MainActor func testUpdateAccountInfoWithSuccess() async {
+    func testUpdateAccountInfoWithSuccess() async {
         service.updateInfoError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.updateInfo(name: "")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.updateInfo(name: "" ) })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateEmailPreferencesWithError() async {
+    func testUpdateEmailPreferencesWithError() async {
         service.updateEmailPreferenceError = true
-        var expectation = expectation(description: "Error alert expectation")
+        // checking for success cause no error is displaied to the user if something is wrong
+        await wait(for: { await self.viewModel.updateEmailPreference(receive: true ) })
 
-        viewModel.updateEmailPreference(receive: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            // checking for success cause no error is displaied to the user if something is wrong
-            self.checkSuccess(expectation: &expectation)
-        })
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
         
-        await fulfillment(of: [expectation], timeout: 3)
     }
     
-    @MainActor func testUpdateEmailPreferencesWithSuccess() async {
+    func testUpdateEmailPreferencesWithSuccess() async {
         service.updateEmailPreferenceError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.updateEmailPreference(receive: true)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.updateEmailPreference(receive: true ) })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
 
-    @MainActor func testUpdateNotificationPreferencesWithError() async {
+    func testUpdateNotificationPreferencesWithError() async {
         service.updateNotificationPreferenceError = true
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.updateNotificationPreference(receive: true) })
 
-        viewModel.updateNotificationPreference(receive: true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            // checking for success cause no error is displaied to the user if something is wrong
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateUpdateNotificationPreferencesWithSuccess() async {
+    func testUpdateUpdateNotificationPreferencesWithSuccess() async {
         service.updateNotificationPreferenceError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.updateNotificationPreference(receive: true)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.updateNotificationPreference(receive: true) })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateAvatarWithError() async {
+    func testUpdateAvatarWithError() async {
         service.updateAvatarError = true
-        
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.updateAvatar(image: Data()) })
 
-        viewModel.updateAvatar(image: Data())
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error updating avatar")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error updating avatar")
     }
     
-    @MainActor func testUpdateAvatarWithSuccess() async {
+    func testUpdateAvatarWithSuccess() async {
         service.updateAvatarError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.updateAvatar(image: Data())
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.updateAvatar(image: Data()) })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testGetUserPreferencesWithError() async {
+    func testGetUserPreferencesWithError() async {
         service.fetchPreferencesError = true
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.getPreferences() })
 
-        viewModel.getPreferences()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error fetching user preferences")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching user preferences")
     }
     
-    @MainActor func testGetUserPreferencesWithSuccess() async {
+    func testGetUserPreferencesWithSuccess() async {
         service.fetchPreferencesError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getPreferences()
+        await wait(for: { await self.viewModel.getPreferences() })
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
 
-    @MainActor func testUpdateEmailWithError() async {
+    func testUpdateEmailWithError() async {
         service.updateEmailError = true
-        var expectation = expectation(description: "Error alert expectation")
+        await wait(for: { await self.viewModel.updateEmail(email: "") })
 
-        viewModel.updateEmail(email: "")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkError(expectation: &expectation, message: "Error updating email")
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error updating email")
     }
     
-    @MainActor func testUpdateEmailWithSuccess() async {
+    func testUpdateEmailWithSuccess() async {
         service.updateEmailError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.updateEmail(email: "")
+        await wait(for: { await self.viewModel.updateEmail(email: "") })
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
 }
