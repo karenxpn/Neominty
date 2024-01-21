@@ -20,45 +20,22 @@ final class ActivityViewModelTests: XCTestCase {
         self.viewModel = ActivityViewModel(manager: self.service, cardManager: self.cardService)
     }
     
-    func checkError(expectation: inout XCTestExpectation) {
-        XCTAssertTrue(viewModel.showAlert)
-        if viewModel.showAlert {
-            XCTAssertEqual(viewModel.alertMessage, expectation.description)
-            expectation.fulfill()
-        }
-    }
-    
-    func checkSuccess(expectation: inout XCTestExpectation) {
-        XCTAssertFalse(viewModel.showAlert)
-        if !self.viewModel.showAlert {
-            XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
-            expectation.fulfill()
-        }
-    }
-    
-    @MainActor func testGetCardsWithError() async {
+    func testGetCardsWithError() async {
         cardService.fetchCardsError = true
-        var expectation = expectation(description: "Error fetching cards")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            self.checkError(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+
+        XCTAssertTrue(viewModel.showAlert)
+        XCTAssertEqual(viewModel.alertMessage, "Error fetching cards")
     }
     
-    @MainActor func testGetCardsWithSuccess() async {
+    func testGetCardsWithSuccess() async {
         cardService.fetchCardsError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getCards()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            XCTAssertNotNil(self.viewModel.selectedCard)
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getCards() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
+        XCTAssertEqual(viewModel.cards[0].cardType, CardType.masterCard)
+        XCTAssertNotNil(self.viewModel.selectedCard)
     }
     
     // even with error no message is thrown in view model not to distruct the user
@@ -74,17 +51,13 @@ final class ActivityViewModelTests: XCTestCase {
 //        await fulfillment(of: [expectation], timeout: 3)
 //    }
     
-    @MainActor func testGetActivityWithSuccess() async {
+    func testGetActivityWithSuccess() async {
         service.fetchActivityError = false
-        var expectation = expectation(description: "No Error")
-        viewModel.getActivity()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-            XCTAssertNotNil(self.viewModel.activity)
-            self.checkSuccess(expectation: &expectation)
-        })
-        
-        await fulfillment(of: [expectation], timeout: 3)
+        await wait(for: { await self.viewModel.getActivity() })
+
+        XCTAssertFalse(viewModel.showAlert)
+        XCTAssertTrue(viewModel.alertMessage.isEmpty)
+        XCTAssertNotNil(self.viewModel.activity)
     }
 
 }
