@@ -18,7 +18,7 @@ final class AuthViewModelTests: XCTestCase {
         self.viewModel = AuthViewModel(manager: self.service)
     }
     
-    @MainActor func testSendVerificatioinWithError() async {
+    func testSendVerificatioinWithError() async {
         service.sendVerificationError = true
         await wait(for: { await self.viewModel.sendVerificationCode() })
 
@@ -26,7 +26,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error sending Verification Code")
     }
     
-    @MainActor func testSendVerificationCodeWithSuccess() async {
+    func testSendVerificationCodeWithSuccess() async {
         service.sendVerificationError = false
         await wait(for: { await self.viewModel.sendVerificationCode() })
 
@@ -34,7 +34,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testCheckVerificationCodeWithError() async {
+    func testCheckVerificationCodeWithError() async {
         service.checkVerificationError = true
         await wait(for: { await self.viewModel.checkVerificationCode() })
 
@@ -42,7 +42,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Invalid OTP")
     }
     
-    @MainActor func testCheckVerificationCodeWithSuccess() async {
+    func testCheckVerificationCodeWithSuccess() async {
         service.checkVerificationError = false
         await wait(for: { await self.viewModel.checkVerificationCode() })
         
@@ -50,7 +50,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testFetchIntroWithError() async {
+    func testFetchIntroWithError() async {
         service.fetchIntroError = true
         await wait(for: { await self.viewModel.getIntroductionPages() })
 
@@ -58,7 +58,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error fetching introduction")
     }
     
-    @MainActor func testFetchIntroWithSuccess() async {
+    func testFetchIntroWithSuccess() async {
         service.fetchIntroError = false
         await wait(for: { await self.viewModel.getIntroductionPages() })
         
@@ -66,7 +66,7 @@ final class AuthViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testSignOutWithError() async {
+    func testSignOutWithError() async {
         service.signOutError = true
         await wait(for: { await self.viewModel.signOut() })
 
@@ -75,7 +75,7 @@ final class AuthViewModelTests: XCTestCase {
 
     }
     
-    @MainActor func testSignOutWithSuccess() async {
+    func testSignOutWithSuccess() async {
         service.signOutError = false
         await wait(for: { await self.viewModel.signOut() })
                 

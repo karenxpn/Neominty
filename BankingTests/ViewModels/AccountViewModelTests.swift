@@ -18,7 +18,7 @@ final class AccountViewModelTests: XCTestCase {
         self.viewModel = AccountViewModel(manager: self.service)
     }
     
-    @MainActor func testGetAccountInfoWithError() async {
+    func testGetAccountInfoWithError() async {
         service.fetchInfoError = true
         await wait(for: { await self.viewModel.getAccountInfo() })
 
@@ -26,7 +26,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error fetching account info")
     }
     
-    @MainActor func testGetAccountInfoWithSuccess() async {
+    func testGetAccountInfoWithSuccess() async {
         service.fetchInfoError = false
         await wait(for: { await self.viewModel.getAccountInfo() })
 
@@ -34,7 +34,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateAccountInfoWithError() async {
+    func testUpdateAccountInfoWithError() async {
         service.updateInfoError = true
         await wait(for: { await self.viewModel.updateInfo(name: "") })
 
@@ -42,7 +42,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error updating account info")
     }
     
-    @MainActor func testUpdateAccountInfoWithSuccess() async {
+    func testUpdateAccountInfoWithSuccess() async {
         service.updateInfoError = false
         await wait(for: { await self.viewModel.updateInfo(name: "" ) })
 
@@ -50,7 +50,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateEmailPreferencesWithError() async {
+    func testUpdateEmailPreferencesWithError() async {
         service.updateEmailPreferenceError = true
         // checking for success cause no error is displaied to the user if something is wrong
         await wait(for: { await self.viewModel.updateEmailPreference(receive: true ) })
@@ -60,7 +60,7 @@ final class AccountViewModelTests: XCTestCase {
         
     }
     
-    @MainActor func testUpdateEmailPreferencesWithSuccess() async {
+    func testUpdateEmailPreferencesWithSuccess() async {
         service.updateEmailPreferenceError = false
         await wait(for: { await self.viewModel.updateEmailPreference(receive: true ) })
 
@@ -68,7 +68,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
 
-    @MainActor func testUpdateNotificationPreferencesWithError() async {
+    func testUpdateNotificationPreferencesWithError() async {
         service.updateNotificationPreferenceError = true
         await wait(for: { await self.viewModel.updateNotificationPreference(receive: true) })
 
@@ -76,7 +76,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateUpdateNotificationPreferencesWithSuccess() async {
+    func testUpdateUpdateNotificationPreferencesWithSuccess() async {
         service.updateNotificationPreferenceError = false
         await wait(for: { await self.viewModel.updateNotificationPreference(receive: true) })
 
@@ -84,7 +84,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testUpdateAvatarWithError() async {
+    func testUpdateAvatarWithError() async {
         service.updateAvatarError = true
         await wait(for: { await self.viewModel.updateAvatar(image: Data()) })
 
@@ -92,7 +92,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error updating avatar")
     }
     
-    @MainActor func testUpdateAvatarWithSuccess() async {
+    func testUpdateAvatarWithSuccess() async {
         service.updateAvatarError = false
         await wait(for: { await self.viewModel.updateAvatar(image: Data()) })
 
@@ -100,7 +100,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertTrue(self.viewModel.alertMessage.isEmpty)
     }
     
-    @MainActor func testGetUserPreferencesWithError() async {
+    func testGetUserPreferencesWithError() async {
         service.fetchPreferencesError = true
         await wait(for: { await self.viewModel.getPreferences() })
 
@@ -108,7 +108,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error fetching user preferences")
     }
     
-    @MainActor func testGetUserPreferencesWithSuccess() async {
+    func testGetUserPreferencesWithSuccess() async {
         service.fetchPreferencesError = false
         await wait(for: { await self.viewModel.getPreferences() })
 
@@ -117,7 +117,7 @@ final class AccountViewModelTests: XCTestCase {
     }
     
 
-    @MainActor func testUpdateEmailWithError() async {
+    func testUpdateEmailWithError() async {
         service.updateEmailError = true
         await wait(for: { await self.viewModel.updateEmail(email: "") })
 
@@ -125,7 +125,7 @@ final class AccountViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.alertMessage, "Error updating email")
     }
     
-    @MainActor func testUpdateEmailWithSuccess() async {
+    func testUpdateEmailWithSuccess() async {
         service.updateEmailError = false
         await wait(for: { await self.viewModel.updateEmail(email: "") })
 
