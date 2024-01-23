@@ -15,6 +15,8 @@ struct HomeView: View {
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
     
+    @AppStorage("fullName") var localName: String = ""
+    
     var options: ScaleTransformViewOptions {
         
         var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
@@ -101,7 +103,7 @@ struct HomeView: View {
                             
                             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                             
-                            TextHelper(text: viewRouter.localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                         }
                     }
                     

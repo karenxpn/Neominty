@@ -18,10 +18,6 @@ class ViewRouter: ObservableObject {
     @Published var scanPath = [ScanViewPaths]()
     @Published var analyticsPath = NavigationPath()
     @Published var accountPath = NavigationPath()
-    
-    @AppStorage("userID") var userID: String = ""
-    @AppStorage("fullName") var localName: String = ""
-
 
     var accountManager: UserServiceProtocol
     
@@ -31,22 +27,6 @@ class ViewRouter: ObservableObject {
         if self.firstInstall {
             tab = 1
             self.firstInstall = false
-        }
-    }
-    
-    var user: User? {
-        didSet {
-            objectWillChange.send()
-        }
-    }
-    
-    func listenToAuthState() {
-        Auth.auth().addStateDidChangeListener { [weak self] _, user in
-            guard let self = self else {
-                return
-            }
-            self.user = user
-            self.localName = user?.displayName ?? ""
         }
     }
     
