@@ -14,9 +14,9 @@ NeoMinty is not just another banking app; it's a revolution in your pocket. Imag
 NeoMinty is designed to make your financial transactions effortless and secure, whether you're managing your day-to-day expenses or sending money across the globe.
 
 ## Screenshots
-![NeoMinty App Screenshot 1](images/Home.png)
-![NeoMinty App Screenshot 2](images/Transfer Money.png)
-![NeoMinty App Screenshot 3](images/Liveness check.png)
-![NeoMinty App Screenshot 4](images/Scan QR Code.png)
-![NeoMinty App Screenshot 5](images/Select card.png)
-![NeoMinty App Screenshot 6](images/Activity Report.png)
+![NeoMinty App Screenshot 1](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Home.png)
+![NeoMinty App Screenshot 2](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Transfer%20Money.png)
+![NeoMinty App Screenshot 3](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Liveness%20check.jpg)
+![NeoMinty App Screenshot 4](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Scan%20QR%20Code.jpg)
+![NeoMinty App Screenshot 5](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Select%20card.jpg)
+![NeoMinty App Screenshot 6](https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Activity%20Report.jpg)

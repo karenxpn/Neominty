@@ -376,7 +376,7 @@
 		FFAC1DF929D2587C00947CBC /* CardStylingSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylingSelector.swift; sourceTree = "<group>"; };
 		FFAFCE212AD8592F00FC84DE /* AccountVerificationRejected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationRejected.swift; sourceTree = "<group>"; };
 		FFAFCE232AD85F2500FC84DE /* AccountVerificationApproved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountVerificationApproved.swift; sourceTree = "<group>"; };
-		FFB1A3302B80FB0900EA6E64 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FFB1A3302B80FB0900EA6E64 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		FFB1A3312B80FCF700EA6E64 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		FFB1A3322B80FCF700EA6E64 /* Activity Report.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Activity Report.jpg"; sourceTree = "<group>"; };
 		FFB1A3332B80FCF700EA6E64 /* Scan QR Code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Scan QR Code.jpg"; sourceTree = "<group>"; };
