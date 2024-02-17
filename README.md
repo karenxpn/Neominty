@@ -14,24 +14,25 @@ NeoMinty is not just another banking app; it's a revolution in your pocket. Imag
 NeoMinty is designed to make your financial transactions effortless and secure, whether you're managing your day-to-day expenses or sending money across the globe.
 
 ## Screenshots
-<div style="display: inline-block;">
-    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Home.png" alt="NeoMinty App Screenshot 1" width="400"/>
-
-    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Transfer%20Money.png" alt="NeoMinty App Screenshot 2" width="400"/>
-</div>
-
-<div style="display: inline-block;">
-<img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Liveness%20check.jpg" alt="NeoMinty App Screenshot 3" width="400"/>
-</div>
-
-<div style="display: inline-block; margin-left: 20px;">
-<img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Scan%20QR%20Code.jpg" alt="NeoMinty App Screenshot 4" width="400"/>
-</div>
-
-<div style="display: inline-block;">
-<img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Select%20card.jpg" alt="NeoMinty App Screenshot 5" width="400"/>
-</div>
-
-<div style="display: inline-block; margin-left: 20px;">
-<img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Activity%20Report.jpg" alt="NeoMinty App Screenshot 6" width="400"/>
+<div style="display: flex; flex-wrap: wrap;">
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Home.png" alt="NeoMinty App Screenshot 1" style="width: 100%;">
+  </div>
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Transfer%20Money.png" alt="NeoMinty App Screenshot 2" style="width: 100%;">
+  </div>
+  
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Liveness%20check.jpg" alt="NeoMinty App Screenshot 3" style="width: 100%;">
+  </div>
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Scan%20QR%20Code.jpg" alt="NeoMinty App Screenshot 4" style="width: 100%;">
+  </div>
+  
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Select%20card.jpg" alt="NeoMinty App Screenshot 5" style="width: 100%;">
+  </div>
+  <div style="flex: 50%; padding: 5px;">
+    <img src="https://raw.githubusercontent.com/karenxpn/Banking/app-preview/images/Activity%20Report.jpg" alt="NeoMinty App Screenshot 6" style="width: 100%;">
+  </div>
 </div>
