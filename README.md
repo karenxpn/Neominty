@@ -15,3 +15,8 @@ NeoMinty is designed to make your financial transactions effortless and secure, 
 
 ## Screenshots
 ![NeoMinty App Screenshot 1](images/Home.png)
+![NeoMinty App Screenshot 2](images/Transfer Money.png)
+![NeoMinty App Screenshot 3](images/Liveness check.png)
+![NeoMinty App Screenshot 4](images/Scan QR Code.png)
+![NeoMinty App Screenshot 5](images/Select card.png)
+![NeoMinty App Screenshot 6](images/Activity Report.png)
