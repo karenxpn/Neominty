@@ -382,6 +382,7 @@
 		FFB1A3272B80FAE000EA6E64 /* Activity Report.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Activity Report.jpg"; path = "../../../Downloads/Activity Report.jpg"; sourceTree = "<group>"; };
 		FFB1A3282B80FAE000EA6E64 /* Liveness check.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Liveness check.jpg"; path = "../../../Downloads/Liveness check.jpg"; sourceTree = "<group>"; };
 		FFB1A3292B80FAE000EA6E64 /* Scan QR Code.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Scan QR Code.jpg"; path = "../../../Downloads/Scan QR Code.jpg"; sourceTree = "<group>"; };
+		FFB1A3302B80FB0900EA6E64 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		FFB1C97929EB2B060063DD24 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		FFB1C97B29EB2E490063DD24 /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
@@ -698,6 +699,7 @@
 		FF628DF129BA2CD000FE35EE = {
 			isa = PBXGroup;
 			children = (
+				FFB1A3302B80FB0900EA6E64 /* README.md */,
 				FFB1A3232B80FAC800EA6E64 /* images */,
 				FF628E2829BA2D7600FE35EE /* .gitignore */,
 				FF628DFC29BA2CD000FE35EE /* Banking */,
