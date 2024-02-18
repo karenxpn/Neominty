@@ -132,9 +132,18 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     func checkPinExistence() {
         let pin = keychainManager.get("pin")
         if pin != nil {
-            self.authState = .enterPasscode
-            if self.biometricEnabled {
-                self.biometricAuthentication()
+            authState = .enterPasscode
+
+            if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
+                if lastOnline - .now < -5*60 {
+                    passcodeConfirm = ""
+                    if self.biometricEnabled {
+                        self.biometricAuthentication()
+                    }
+                } else {
+                    authState = .authenticated
+                }
+                UserDefaults.standard.removeObject(forKey: "lastOnline")
             }
         } else {
             self.authState = .setPasscode

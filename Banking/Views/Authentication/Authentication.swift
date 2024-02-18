@@ -55,20 +55,7 @@ struct Authentication: View {
         }.task {
             authVM.checkPinExistence()
         }.onChange(of: phase) { newScene in
-            
             switch newScene {
-            case .active:
-
-                if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
-                    if lastOnline - .now < -5*60 && authVM.authState == .authenticated {
-                        authVM.passcodeConfirm = ""
-                        authVM.authState = .enterPasscode
-                        authVM.checkPinExistence()
-                    } else {
-                        authVM.authState = .authenticated
-                    }
-                    UserDefaults.standard.removeObject(forKey: "lastOnline")
-                }
             case .background:
                 if authVM.authState == .authenticated {
                     UserDefaults.standard.set(Date.now, forKey: "lastOnline")
