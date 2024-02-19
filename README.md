@@ -16,16 +16,16 @@ NeoMinty is designed to make your financial transactions effortless and secure, 
 ## Screenshots
 
 <p float="left">
-  <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Home.png?raw=true" width="45%" />
-  <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Transfer%20Money.png?raw=true" width="45%" /> 
+  <img src="https://github.com/karenxpn/Banking/blob/main/images/Home.png?raw=true" width="45%" />
+  <img src="https://github.com/karenxpn/Banking/blob/main/images/Transfer%20Money.png?raw=true" width="45%" /> 
 </p>
 
 <p float="left">
-  <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Scan%20QR%20Code.jpg?raw=true" width="45%" /> 
-    <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Select%20card.jpg?raw=true" width="45%" />
+  <img src="https://github.com/karenxpn/Banking/blob/main/images/Scan%20QR%20Code.jpg?raw=true" width="45%" /> 
+    <img src="https://github.com/karenxpn/Banking/blob/main/images/Select%20card.jpg?raw=true" width="45%" />
 </p>
 
 <p float="left">
-  <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Liveness%20check.jpg?raw=true" width="45%" />
-  <img src="https://github.com/karenxpn/Banking/blob/app-preview/images/Activity%20Report.jpg?raw=true" width="45%" /> 
+  <img src="https://github.com/karenxpn/Banking/blob/main/images/Liveness%20check.jpg?raw=true" width="45%" />
+  <img src="https://github.com/karenxpn/Banking/blob/main/images/Activity%20Report.jpg?raw=true" width="45%" /> 
 </p>
