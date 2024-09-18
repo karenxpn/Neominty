@@ -187,6 +187,8 @@
 		FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0829BBC7E100E774FD /* CreatePin.swift */; };
 		FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */; };
 		FFDC38982A3F260E00B78E8C /* FAQViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDC38972A3F260E00B78E8C /* FAQViewModel.swift */; };
+		FFDDB1C12C9B844D007ED1A6 /* GifImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDDB1C02C9B8449007ED1A6 /* GifImageView.swift */; };
+		FFDDB1C32C9B84A7007ED1A6 /* coins-hover.gif in Resources */ = {isa = PBXBuildFile; fileRef = FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */; };
 		FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FFDE8FE52A4723750005A35F /* Shimmer */; };
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */; };
@@ -403,6 +405,8 @@
 		FFC2BD0829BBC7E100E774FD /* CreatePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePin.swift; sourceTree = "<group>"; };
 		FFC2BD0A29BBC7F000E774FD /* EnableBiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnableBiometricAuthentication.swift; sourceTree = "<group>"; };
 		FFDC38972A3F260E00B78E8C /* FAQViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQViewModel.swift; sourceTree = "<group>"; };
+		FFDDB1C02C9B8449007ED1A6 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
+		FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "coins-hover.gif"; sourceTree = "<group>"; };
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 		FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
@@ -537,6 +541,7 @@
 				FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */,
 				FF7A11D229D752C500286366 /* ViewInDevelopmentMode.swift */,
 				FF130EA22A164B4D00F7A5B8 /* ViewFailedToLoad.swift */,
+				FFDDB1C02C9B8449007ED1A6 /* GifImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 		FF628DFC29BA2CD000FE35EE /* Banking */ = {
 			isa = PBXGroup;
 			children = (
+				FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */,
 				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
@@ -1064,6 +1070,7 @@
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FFB1A33B2B80FCF800EA6E64 /* Transfer Money.png in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
+				FFDDB1C32C9B84A7007ED1A6 /* coins-hover.gif in Resources */,
 				FF628E2929BA2D7600FE35EE /* .gitignore in Resources */,
 				FF0D89DD29D0EC110062BC52 /* Launch Screen.storyboard in Resources */,
 				FFB1A33A2B80FCF800EA6E64 /* Liveness check.jpg in Resources */,
@@ -1205,6 +1212,7 @@
 				FF821BD229D5C7F400F3BA0C /* SelectCardList.swift in Sources */,
 				FFAC1DF629D23FAD00947CBC /* CardStyling.swift in Sources */,
 				FF7A11DF29D7876600286366 /* Gallery.swift in Sources */,
+				FFDDB1C12C9B844D007ED1A6 /* GifImageView.swift in Sources */,
 				FFC2BD0B29BBC7F000E774FD /* EnableBiometricAuthentication.swift in Sources */,
 				FF45205929C66712003C6415 /* HomeMenu.swift in Sources */,
 				FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */,
