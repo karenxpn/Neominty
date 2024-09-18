@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CongratulationAlert<Content: View>: View {
-    @EnvironmentObject var viewRouter: ViewRouter
     private var content: Content
     private var action: () -> ()
 
@@ -34,11 +33,9 @@ struct CongratulationAlert<Content: View>: View {
                 Image("congrat-alert-pattern")
                     .offset(y: -100)
 
-
-                Image("alert-card")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                GifImageView("coins-hover")
                     .frame(width: 88, height: 88)
+                    .clipShape(Circle())
                     .offset(y: -50)
                 
                 VStack( spacing: 15) {
