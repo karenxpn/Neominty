@@ -72,7 +72,7 @@ struct AccountViewPersonalInfo: View {
                 
                 if info.email != nil {
                     HStack {
-                        TextHelper(text: info.email!, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: info.email!, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                         if !info.emailVerified {
                             Button {
                                 showToast.toggle()

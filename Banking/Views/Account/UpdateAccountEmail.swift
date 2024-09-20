@@ -24,7 +24,7 @@ struct UpdateAccountEmail: View {
         
         VStack(alignment: .leading, spacing: 12) {
             
-            TextHelper(text: NSLocalizedString("email", comment: ""), color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 16)
+            TextHelper(text: NSLocalizedString("email", comment: ""), color: AppColors.appGray, fontName: Roboto.bold.rawValue, fontSize: 16)
             
             CardDetailTextFieldDecorator(content: {
                 TextField(NSLocalizedString("example@domain.com", comment: ""), text: $email)
@@ -37,7 +37,7 @@ struct UpdateAccountEmail: View {
                     }
             }, isValid: $emailValid)
             
-            TextHelper(text: NSLocalizedString("youWillReceiveVerificationEmail", comment: ""), color: AppColors.gray)
+            TextHelper(text: NSLocalizedString("youWillReceiveVerificationEmail", comment: ""), color: AppColors.appGray)
             
             
             ButtonHelper(disabled: !emailValid || (emailValid && email.isEmpty) || accountVM.loading, label: NSLocalizedString("update", comment: "")) {

@@ -61,7 +61,7 @@ struct AddNewCard: View {
                             VStack(spacing: 12) {
                                 TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
 
-                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
 
                             }
                         } action: {

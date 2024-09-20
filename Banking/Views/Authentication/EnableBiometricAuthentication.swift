@@ -24,7 +24,7 @@ struct EnableBiometricAuthentication: View {
                 
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("enableBiometric", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("biometricAccessMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("biometricAccessMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                 }
                 
                 Spacer()
@@ -42,7 +42,7 @@ struct EnableBiometricAuthentication: View {
                         biometricEnabled = false
                         authVM.path = []
                     } label: {
-                        TextHelper(text: NSLocalizedString("doItLater", comment: ""), color: AppColors.green, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: NSLocalizedString("doItLater", comment: ""), color: AppColors.appGreen, fontName: Roboto.bold.rawValue, fontSize: 16)
                     }
                 }
 

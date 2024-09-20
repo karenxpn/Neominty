@@ -75,9 +75,9 @@ struct CustomAlert_Previews: PreviewProvider {
                 
                 VStack(spacing: 8) {
                     HStack {
-                        TextHelper(text: "From", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "From", color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                         Spacer()
-                        TextHelper(text: "Bank of America", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "Bank of America", color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                     }
                     
                     HStack {
@@ -92,9 +92,9 @@ struct CustomAlert_Previews: PreviewProvider {
                 
                 VStack(spacing: 8) {
                     HStack {
-                        TextHelper(text: "To", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "To", color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                         Spacer()
-                        TextHelper(text: "Citibank Online", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "Citibank Online", color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                     }
                     
                     HStack {

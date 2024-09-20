@@ -13,7 +13,7 @@ struct PayView: View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
                 TextHelper(text: NSLocalizedString("everythingYouNeed", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                TextHelper(text: NSLocalizedString("everythingYouNeedMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                TextHelper(text: NSLocalizedString("everythingYouNeedMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                 
             }.frame(
                 minWidth: 0,

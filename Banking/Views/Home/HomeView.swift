@@ -8,15 +8,14 @@
 import SwiftUI
 import CollectionViewPagingLayout
 import Shimmer
+import FirebaseAuth
 
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
-    
-    @AppStorage("fullName") var localName: String = ""
-    
+        
     var options: ScaleTransformViewOptions {
         
         var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
@@ -101,9 +100,9 @@ struct HomeView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
                             
-                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 12)
                             
-                            TextHelper(text: localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                         }
                     }
                     
@@ -129,7 +128,7 @@ struct HomeView: View {
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                     
                 }
             } action: {

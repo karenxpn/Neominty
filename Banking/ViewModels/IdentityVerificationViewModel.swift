@@ -136,8 +136,8 @@ class IdentityVerificationViewModel: ObservableObject {
     
     func setupTheme(sdk: SNSMobileSDK) {
         sdk.theme.colors.contentStrong = .init(AppColors.darkBlue)
-        sdk.theme.colors.primaryButtonBackground = .init(AppColors.green)
-        sdk.theme.colors.primaryButtonBackgroundHighlighted  = .init(AppColors.green.opacity(0.5))
+        sdk.theme.colors.primaryButtonBackground = .init(AppColors.appGreen)
+        sdk.theme.colors.primaryButtonBackgroundHighlighted  = .init(AppColors.appGreen.opacity(0.5))
     }
     
     func get_token_from_your_backend(completion: @escaping (String?) -> Void) {

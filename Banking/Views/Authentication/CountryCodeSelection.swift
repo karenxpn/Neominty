@@ -29,7 +29,7 @@ struct CountryCodeSelection: View {
                 } label: {
                     HStack( spacing: 14) {
                         TextHelper(text: countryFlag(countryCode: key), fontSize: 25)
-                        TextHelper(text: key, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                        TextHelper(text: key, color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 16)
                         TextHelper(text: countryName(countryCode: key) ?? "Unknown", color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
                         
                         Spacer()

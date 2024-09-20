@@ -29,7 +29,7 @@ struct IntroductionPage: View {
                         .multilineTextAlignment(.center)
                     
                     
-                    TextHelper(text: introduction.body, color: AppColors.gray)
+                    TextHelper(text: introduction.body, color: AppColors.appGray)
                         .multilineTextAlignment(.center)
                     HStack(spacing: 4) {
                         ForEach(0..<count, id: \.self) { ind in

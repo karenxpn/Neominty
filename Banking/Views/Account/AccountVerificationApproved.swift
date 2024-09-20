@@ -19,20 +19,20 @@ struct AccountVerificationApproved: View {
                 if #available(iOS 17.0, *) {
                     Image(systemName: "checkmark.circle")
                         .resizable()
-                        .foregroundStyle(AppColors.green)
+                        .foregroundStyle(AppColors.appGreen)
                         .symbolEffect(.bounce, options: .nonRepeating, value: animate)
                         .frame(width: 200, height: 200)
                 } else {
                     Image(systemName: "checkmark.circle")
                         .resizable()
-                        .foregroundStyle(AppColors.green)
+                        .foregroundStyle(AppColors.appGreen)
                         .frame(width: 200, height: 200)
                 }
                 
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("congratulations", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("yourAccountIsVerified", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("yourAccountIsVerified", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                         .multilineTextAlignment(.center)
                 }
             }.frame(

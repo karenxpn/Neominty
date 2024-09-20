@@ -46,7 +46,7 @@ struct GeneralSettings: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: AppColors.green) {
+                    ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: AppColors.appGreen) {
                         authVM.signOut()
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     

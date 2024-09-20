@@ -28,7 +28,7 @@ struct SignedStyle: View {
             
             VStack(alignment: .leading, spacing: 6) {
                 TextHelper(text: card.cardPan, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
-                TextHelper(text: card.expirationDate, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: card.expirationDate, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
             }.padding(.horizontal, 20)
                 .padding(.top, 13)
             
@@ -42,14 +42,14 @@ struct SignedStyle: View {
             }.padding(.vertical, 16)
                 .padding(.horizontal, 20)
                 .background {
-                    card.cardStyle == .signedBlueGreen ? AppColors.green : AppColors.darkBlue
+                    card.cardStyle == .signedBlueGreen ? AppColors.appGreen : AppColors.darkBlue
                 }
         }.background {
             ZStack(alignment: .trailing) {
-                card.cardStyle == .signedGreenBlue ? AppColors.green : AppColors.darkBlue
+                card.cardStyle == .signedGreenBlue ? AppColors.appGreen : AppColors.darkBlue
                 Image("card-sign")
                     .resizable()
-                    .foregroundColor(card.cardStyle == .signedBlueGreen ? AppColors.green : AppColors.darkBlue)
+                    .foregroundColor(card.cardStyle == .signedBlueGreen ? AppColors.appGreen : AppColors.darkBlue)
             }
         }
         .cornerRadius(16)

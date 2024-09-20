@@ -21,7 +21,7 @@ struct PhoneAuthentication: View {
                 
                 VStack( alignment: .leading, spacing: 8) {
                     TextHelper(text: NSLocalizedString("hiThere", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                 }
                 
                 HStack(spacing: 0) {

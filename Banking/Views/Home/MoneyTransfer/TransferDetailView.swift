@@ -98,17 +98,17 @@ struct TransferDetailView: View {
                 
                 VStack {
                     HStack {
-                        TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: AppColors.gray,
+                        TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: AppColors.appGray,
                                    fontName: Roboto.medium.rawValue, fontSize: 12)
                         
                         Spacer()
                         
-                        TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: AppColors.gray,
+                        TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: AppColors.appGray,
                                    fontName: Roboto.medium.rawValue, fontSize: 12)
                     }.padding(16)
                     
                     HStack {
-                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 16)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 8)
                             .background {

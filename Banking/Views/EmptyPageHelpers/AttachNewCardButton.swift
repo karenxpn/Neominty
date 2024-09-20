@@ -14,7 +14,7 @@ struct AttachNewCardButton: View {
     var body: some View {
         
         ZStack(alignment: .bottomTrailing) {
-            LinearGradient(colors: [AppColors.green, AppColors.darkBlue], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [AppColors.appGreen, AppColors.darkBlue], startPoint: .topLeading, endPoint: .bottomTrailing)
                         
             Image("neominty-colored")
                 .padding([.bottom, .trailing], 11)

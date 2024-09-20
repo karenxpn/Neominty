@@ -18,9 +18,9 @@ struct GeneralSettingsCell: View {
         Toggle(isOn: $toggler) {
             VStack(alignment: .leading, spacing: 4) {
                 TextHelper(text: title, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
-                TextHelper(text: message, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: message, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
             }
-        }.toggleStyle(SwitchToggleStyle(tint: AppColors.green))
+        }.toggleStyle(SwitchToggleStyle(tint: AppColors.appGreen))
             .onChange(of: toggler) { newValue in
                 action(newValue)
             }

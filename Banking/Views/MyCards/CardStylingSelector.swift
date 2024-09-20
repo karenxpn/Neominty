@@ -21,12 +21,12 @@ struct CardStylingSelector: View {
             ZStack {
                 Circle()
                     .trim(from: 0.5, to: 1)
-                    .fill( cardDesign == .standardBlue || cardDesign == .standardBlueGreen || cardDesign == .hexBlue || cardDesign == .hexBlueGreen || cardDesign == .signedBlueGreen ? AppColors.darkBlue : AppColors.green
+                    .fill( cardDesign == .standardBlue || cardDesign == .standardBlueGreen || cardDesign == .hexBlue || cardDesign == .hexBlueGreen || cardDesign == .signedBlueGreen ? AppColors.darkBlue : AppColors.appGreen
                     )
                     .frame(width: 24, height: 24)
                 Circle()
                     .trim(from: 0, to: 0.5)
-                    .fill(cardDesign == .standardGreen || cardDesign == .standardBlueGreen || cardDesign == .hexGreen || cardDesign == .hexBlueGreen || cardDesign == .signedBlueGreen ? AppColors.green : AppColors.darkBlue)
+                    .fill(cardDesign == .standardGreen || cardDesign == .standardBlueGreen || cardDesign == .hexGreen || cardDesign == .hexBlueGreen || cardDesign == .signedBlueGreen ? AppColors.appGreen : AppColors.darkBlue)
                     .frame(width: 24, height: 24)
                 
                 if selectedItem == cardDesign {

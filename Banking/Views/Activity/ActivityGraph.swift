@@ -85,7 +85,7 @@ struct ActivityGraph: View {
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
-                .foregroundStyle(AppColors.green)
+                .foregroundStyle(AppColors.appGreen)
                 .lineStyle(StrokeStyle(lineWidth: 3))
                 .accessibilityHidden(false)
 

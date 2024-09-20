@@ -36,7 +36,7 @@ struct AccountVerificationRejected: View {
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                         .multilineTextAlignment(.center)
                 }
                 

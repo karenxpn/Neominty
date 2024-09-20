@@ -39,7 +39,7 @@ struct AllTransactions: View {
                         
                         Spacer()
                         
-                        TextHelper(text: transfer.amount, color: transfer.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                        TextHelper(text: transfer.amount, color: transfer.amount.contains(where: { $0 == "+"}) ? AppColors.appGreen : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                     }.onAppear {
                         if transfer.id == allTransferVM.transfers.last?.id && !allTransferVM.loading {
                             allTransferVM.getTransactionList()

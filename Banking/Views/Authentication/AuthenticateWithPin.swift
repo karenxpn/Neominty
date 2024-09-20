@@ -25,7 +25,7 @@ struct AuthenticateWithPin: View {
                     authVM.sendVerificationCode()
                     biometricEnabled = false
                 } label: {
-                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), color: AppColors.green, fontName: Roboto.bold.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), color: AppColors.appGreen, fontName: Roboto.bold.rawValue, fontSize: 16)
                 }.padding(.top, 12)
 
 

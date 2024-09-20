@@ -26,7 +26,7 @@ struct RequestToAddNewCard: View {
                                fontSize: 32)
                     
                     TextHelper(text: NSLocalizedString("createYourCardMessage", comment: ""),
-                               color: AppColors.gray,
+                               color: AppColors.appGray,
                                fontName: Roboto.regular.rawValue,
                                fontSize: 16)
                 }

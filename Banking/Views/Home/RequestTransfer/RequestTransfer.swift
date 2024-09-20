@@ -39,7 +39,7 @@ struct RequestTransfer: View {
                             
                             HStack(spacing: 10) {
                                 
-                                TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                                TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, color: AppColors.appGray, fontName: Roboto.bold.rawValue, fontSize: 40)
                                 
                                 AmountTextField(text: $requestVM.amount, fontSize: 40)
                                     .frame(width: UIScreen.main.bounds.width * 0.4)

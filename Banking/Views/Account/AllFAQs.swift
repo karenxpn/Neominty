@@ -23,7 +23,7 @@ struct AllFAQs: View {
                             TextHelper(text: faq.question, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
-                            TextHelper(text: faq.answer, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                            TextHelper(text: faq.answer, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                 .lineLimit(3)
                                 .multilineTextAlignment(.leading)
 

@@ -24,7 +24,7 @@ struct TransferSuccess: View {
                     .multilineTextAlignment(.center)
                     
                     TextHelper(text: NSLocalizedString("transfersAreReviewed", comment: ""),
-                               color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 11)
+                               color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 11)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                 }

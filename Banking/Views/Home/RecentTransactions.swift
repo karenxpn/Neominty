@@ -15,7 +15,7 @@ struct RecentTransactions: View {
     var body: some View {
         LazyVStack(spacing: 16) {
             HStack {
-                TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 14)
+                TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: AppColors.appGray, fontName: Roboto.bold.rawValue, fontSize: 14)
                 Spacer()
                 
                 Button {
@@ -49,7 +49,7 @@ struct RecentTransactions: View {
                         
                         Spacer()
                         
-                        TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? AppColors.green : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                        TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? AppColors.appGreen : AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                         
                     }
                     

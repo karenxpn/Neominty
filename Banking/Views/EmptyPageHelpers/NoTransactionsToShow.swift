@@ -18,7 +18,7 @@ struct NoTransactionsToShow: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 TextHelper(text: NSLocalizedString("nothingToShow", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
-                        TextHelper(text: NSLocalizedString("makeYourFirstTransaction", comment: ""), color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                        TextHelper(text: NSLocalizedString("makeYourFirstTransaction", comment: ""), color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 12)
             }
             
             Spacer()

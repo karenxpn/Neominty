@@ -53,17 +53,17 @@ struct CustomTabView: View {
                                     Image(id == 2 ? icons[id] : viewRouter.tab == id ? "\(icons[id]).fill" : icons[id])
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? AppColors.darkBlue : AppColors.gray)
+                                        .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? AppColors.darkBlue : AppColors.appGray)
                                         .frame(width: 28, height: 28)
                                         .background(id == 2 ?
                                                     AnyView(Circle()
-                                                        .fill(AppColors.green)
+                                                        .fill(AppColors.appGreen)
                                                         .frame(width: 48, height: 48)) :
                                                         AnyView(EmptyView()))
                                     
                                     
                                     if id != 2 {
-                                        TextHelper(text: icon_lables[id], color: viewRouter.tab == id ? AppColors.darkBlue : AppColors.gray)
+                                        TextHelper(text: icon_lables[id], color: viewRouter.tab == id ? AppColors.darkBlue : AppColors.appGray)
                                     }
                                 }
                             }

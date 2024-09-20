@@ -20,10 +20,10 @@ struct NotificationCell: View {
                     TextHelper(text: notification.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
                     Spacer()
                     TextHelper(text: notification.createdAt,
-                               color: AppColors.gray,
+                               color: AppColors.appGray,
                                fontName: notification.read ? Roboto.regular.rawValue : Roboto.bold.rawValue, fontSize: 12)
                 }
-                TextHelper(text: notification.body, color: AppColors.gray,
+                TextHelper(text: notification.body, color: AppColors.appGray,
                            fontName: notification.read ? Roboto.regular.rawValue : Roboto.bold.rawValue, fontSize: 12)
                     .lineLimit(2)
             }

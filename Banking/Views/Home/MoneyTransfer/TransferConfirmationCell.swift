@@ -18,9 +18,9 @@ struct TransferConfirmationCell: View {
         
         VStack(spacing: 8) {
             HStack {
-                TextHelper(text: direction, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: direction, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                 Spacer()
-                TextHelper(text: bank, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: bank, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
             }
             
             HStack {

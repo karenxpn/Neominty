@@ -64,7 +64,7 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("income-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            TextHelper(text: NSLocalizedString("income", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                             
                                             TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                                             
@@ -76,7 +76,7 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("expense-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                             
                                             TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
                                         }
@@ -92,7 +92,7 @@ struct Activity: View {
                                             Button {
                                                 activityVM.selectedUnit = unit
                                             } label: {
-                                                TextHelper(text: NSLocalizedString(unit, comment: ""), color: activityVM.selectedUnit == unit ? .black : AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 14)
+                                                TextHelper(text: NSLocalizedString(unit, comment: ""), color: activityVM.selectedUnit == unit ? .black : AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 14)
                                                     .lineLimit(1)
                                                     .minimumScaleFactor(0.3)
                                                     .padding(.horizontal, 16)
@@ -174,7 +174,7 @@ struct Activity: View {
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
 
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
 
                 }
             } action: {

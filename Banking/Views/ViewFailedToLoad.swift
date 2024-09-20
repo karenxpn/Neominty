@@ -19,7 +19,7 @@ struct ViewFailedToLoad: View {
                 TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .multilineTextAlignment(.center)
 
-                TextHelper(text: NSLocalizedString("viewFiledToLoad", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 14)
+                TextHelper(text: NSLocalizedString("viewFiledToLoad", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 14)
                     .multilineTextAlignment(.center)
             }
             

@@ -30,7 +30,7 @@ struct CardsList: View {
                                 Image("delete-card")
                                     .padding(.vertical, 29)
                                     .padding(.horizontal, 18)
-                                    .background(AppColors.green)
+                                    .background(AppColors.appGreen)
                                     .cornerRadius(16)
                             }.tint(.clear)
                         }

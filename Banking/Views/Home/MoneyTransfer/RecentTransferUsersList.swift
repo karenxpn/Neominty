@@ -34,7 +34,7 @@ struct RecentTransferUsersList: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 10, height: 10)
-                                    .foregroundColor(AppColors.green)
+                                    .foregroundColor(AppColors.appGreen)
                                     .offset(x: -10, y: 10)
                                 
                             }
@@ -62,7 +62,7 @@ struct RecentTransferUsersList: View {
                                 .padding(.horizontal, 25)
                         }.background {
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(selected?.id == transfer.id ? AppColors.green : AppColors.lightGray, lineWidth: 1)
+                                .stroke(selected?.id == transfer.id ? AppColors.appGreen : AppColors.lightGray, lineWidth: 1)
                             
                         }
                     }

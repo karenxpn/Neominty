@@ -21,7 +21,7 @@ struct AttachCardButtonLikeSelect: View {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     TextHelper(text: NSLocalizedString("attachNewCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
-                    TextHelper(text: "**** **** **** ****", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                    TextHelper(text: "**** **** **** ****", color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 12)
                 }
                 
                 Spacer()
