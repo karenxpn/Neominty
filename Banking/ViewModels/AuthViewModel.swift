@@ -15,7 +15,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     
     @AppStorage("userID") var userID: String = ""
     @AppStorage("phoneNumber") var localPhone: String = ""
-    @AppStorage("fullName") var localName: String = ""
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
     @Published var country: String = "AM"
     @Published var code: String = "374"
@@ -61,7 +60,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             }
             self.user = user
             self.localPhone = user?.phoneNumber ?? ""
-            self.localName = user?.displayName ?? ""
         }
     }
     
@@ -98,7 +96,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
             case .success(let uid):
                 if auth {
                     self.userID = uid
-                    self.localName = Auth.auth().currentUser?.displayName ?? ""
                 } else {
                     self.path.append(ViewPaths.setPasscode)
                 }
@@ -233,7 +230,6 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
                     self.localPhone = ""
                     self.keychainManager.delete("pin")
                     self.biometricEnabled = false
-                    self.localName = ""
                     UserDefaults.standard.removeObject(forKey: "lastOnline")
                 }
             }
