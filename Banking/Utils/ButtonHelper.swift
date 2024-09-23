@@ -13,7 +13,7 @@ struct ButtonHelper: View {
     var disabled: Bool
     var height: CGFloat = 56
     let label: String
-    var color: Color = AppColors.darkBlue
+    var color: Color = Color(.darkBlue)
     var labelColor: Color = .white
     let action: (() -> Void)
 

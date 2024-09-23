@@ -17,8 +17,8 @@ struct VerifyPhoneNumber: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                TextHelper(text: "\(NSLocalizedString("weSentCode", comment: "")) \(phone).\n\(NSLocalizedString("enterItHere", comment: ""))", color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: "\(NSLocalizedString("weSentCode", comment: "")) \(phone).\n\(NSLocalizedString("enterItHere", comment: ""))", color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 16)
 
                 OTPTextFieldView(pin: $authVM.OTP, authState: .notDetermind) { otp in
                     authVM.OTP = otp
@@ -30,7 +30,7 @@ struct VerifyPhoneNumber: View {
                         authVM.sendVerificationCode(send: false)
                         authVM.OTP = ""
                     } label: {
-                        TextHelper(text: NSLocalizedString("resendCode", comment: ""), color: AppColors.appGreen, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: NSLocalizedString("resendCode", comment: ""), color: Color(.appGreen), fontName: Roboto.bold.rawValue, fontSize: 16)
                     }
 
                     Spacer()

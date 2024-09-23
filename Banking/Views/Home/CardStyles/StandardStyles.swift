@@ -28,7 +28,7 @@ struct StandardStyles: View {
             
             VStack(alignment: .leading, spacing: 6) {
                 TextHelper(text: card.cardPan, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
-                TextHelper(text: card.expirationDate, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: card.expirationDate, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
             }.padding(.horizontal, 20)
                 .padding(.top, 19)
             
@@ -45,15 +45,15 @@ struct StandardStyles: View {
             ZStack(alignment: .trailing) {
                 switch card.cardStyle {
                 case .standardBlue:
-                    AppColors.darkBlue
+                    Color(.darkBlue)
                 case .standardGreen:
-                    AppColors.appGreen
+                    Color(.appGreen)
                 case .standardGreenBlue:
-                    LinearGradient(gradient: Gradient(colors: [AppColors.appGreen, AppColors.darkBlue]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color(.appGreen), Color(.darkBlue)]), startPoint: .leading, endPoint: .trailing)
                 case .standardBlueGreen:
-                    LinearGradient(gradient: Gradient(colors: [AppColors.darkBlue, AppColors.appGreen]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color(.darkBlue), Color(.appGreen)]), startPoint: .leading, endPoint: .trailing)
                 default:
-                    AppColors.darkBlue
+                    Color(.darkBlue)
                 }
             }
         }

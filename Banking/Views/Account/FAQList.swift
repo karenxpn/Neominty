@@ -21,17 +21,17 @@ struct FAQList: View {
                         showDetail.toggle()
                     } label: {
                         VStack(alignment: .leading, spacing: 8) {
-                            TextHelper(text: faq.question, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: faq.question, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
-                            TextHelper(text: faq.answer, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                            TextHelper(text: faq.answer, colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                                 .lineLimit(3)
                                 .multilineTextAlignment(.leading)
 
                         }.padding(20)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(AppColors.border, lineWidth: 1)
+                                    .strokeBorder(Color(.border), lineWidth: 1)
                             }
                     }.sheet(isPresented: $showDetail) {
                         FAQDetail(faq: faq)
@@ -42,7 +42,7 @@ struct FAQList: View {
                     ProgressView()
                 }
                 
-                ButtonHelper(disabled: faqVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: AppColors.superLightGray, labelColor: AppColors.darkBlue) {
+                ButtonHelper(disabled: faqVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: Color(.superLightGray), labelColor: Color(.darkBlue)) {
                     
                     faqVM.getFAQs()
                 }.padding(.top, 35)

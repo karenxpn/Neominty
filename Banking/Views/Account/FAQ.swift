@@ -15,7 +15,7 @@ struct FAQ: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
             TextHelper(text: NSLocalizedString("youHaveQuestion", comment: ""),
-                       color: AppColors.darkBlue,
+                       colorResource: .darkBlue,
                        fontName: Roboto.bold.rawValue,
                        fontSize: 24)
             
@@ -27,7 +27,7 @@ struct FAQ: View {
                     .font(.custom(Roboto.regular.rawValue, size: 16))
                     .padding(.vertical, 16)
             }.padding(.horizontal, 18)
-                .background(AppColors.superLightGray)
+                .background(Color(.superLightGray))
                 .cornerRadius(16)
             
             
@@ -62,7 +62,7 @@ struct FAQ: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
             }
     }

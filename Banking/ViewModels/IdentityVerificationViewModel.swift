@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import IdensicMobileSDK
 
 
@@ -135,9 +136,9 @@ class IdentityVerificationViewModel: ObservableObject {
     }
     
     func setupTheme(sdk: SNSMobileSDK) {
-        sdk.theme.colors.contentStrong = .init(AppColors.darkBlue)
-        sdk.theme.colors.primaryButtonBackground = .init(AppColors.appGreen)
-        sdk.theme.colors.primaryButtonBackgroundHighlighted  = .init(AppColors.appGreen.opacity(0.5))
+        sdk.theme.colors.contentStrong = .init(Color(.darkBlue))
+        sdk.theme.colors.primaryButtonBackground = .init(Color(.appGreen))
+        sdk.theme.colors.primaryButtonBackgroundHighlighted  = .init(Color(.appGreen).opacity(0.5))
     }
     
     func get_token_from_your_backend(completion: @escaping (String?) -> Void) {

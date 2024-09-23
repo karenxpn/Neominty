@@ -34,7 +34,7 @@ struct RecentTransferUsersList: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 10, height: 10)
-                                    .foregroundColor(AppColors.appGreen)
+                                    .foregroundColor(Color(.appGreen))
                                     .offset(x: -10, y: 10)
                                 
                             }
@@ -54,7 +54,7 @@ struct RecentTransferUsersList: View {
                                 
                                 
                                 TextHelper(text: transfer.name,
-                                           color: AppColors.darkBlue,
+                                           color: Color(.darkBlue),
                                            fontName: Roboto.bold.rawValue,
                                            fontSize: 12)
                                 
@@ -62,7 +62,7 @@ struct RecentTransferUsersList: View {
                                 .padding(.horizontal, 25)
                         }.background {
                             RoundedRectangle(cornerRadius: 16)
-                                .stroke(selected?.id == transfer.id ? AppColors.appGreen : AppColors.lightGray, lineWidth: 1)
+                                .stroke(selected?.id == transfer.id ? Color(.appGreen) : Color(.lightGray), lineWidth: 1)
                             
                         }
                     }

@@ -20,17 +20,17 @@ struct AllFAQs: View {
                         showDetail.toggle()
                     } label: {
                         VStack(alignment: .leading, spacing: 8) {
-                            TextHelper(text: faq.question, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: faq.question, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
-                            TextHelper(text: faq.answer, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                            TextHelper(text: faq.answer, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
                                 .lineLimit(3)
                                 .multilineTextAlignment(.leading)
 
                         }.padding(20)
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
-                                    .strokeBorder(AppColors.border, lineWidth: 1)
+                                    .strokeBorder(Color(.border), lineWidth: 1)
                             }.onAppear {
                                 if faq.id == faqVM.faqs.last?.id && !faqVM.loading {
                                     faqVM.getFAQs()
@@ -57,7 +57,7 @@ struct AllFAQs: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
             }
     }

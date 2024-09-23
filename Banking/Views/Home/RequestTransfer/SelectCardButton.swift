@@ -23,10 +23,8 @@ struct SelectCardButton: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    
-                    TextHelper(text: card.cardHolder, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
-                    TextHelper(text: card.cardPan, color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 12)
-
+                    TextHelper(text: card.cardHolder, colorResource: .darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
+                    TextHelper(text: card.cardPan, colorResource: .appGray, fontName: Roboto.medium.rawValue, fontSize: 12)
                 }
                 
                 Spacer()
@@ -41,7 +39,7 @@ struct SelectCardButton: View {
                 .padding(.horizontal, 20)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                        .strokeBorder(Color(.lightGray), lineWidth: 1)
                 }
         }
     }

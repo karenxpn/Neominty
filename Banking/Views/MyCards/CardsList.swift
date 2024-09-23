@@ -30,7 +30,7 @@ struct CardsList: View {
                                 Image("delete-card")
                                     .padding(.vertical, 29)
                                     .padding(.horizontal, 18)
-                                    .background(AppColors.appGreen)
+                                    .background(Color(.appGreen))
                                     .cornerRadius(16)
                             }.tint(.clear)
                         }
@@ -51,11 +51,11 @@ struct CardsList: View {
                         
                         Text( NSLocalizedString("addNewCard", comment: "") )
                             .font(.custom(Roboto.bold.rawValue, size: 16))
-                            .foregroundColor(AppColors.darkBlue)
+                            .foregroundColor(Color(.darkBlue))
                         
                         Spacer()
                     }.frame(height: 56)
-                        .background(AppColors.superLightGray)
+                        .background(Color(.superLightGray))
                         .cornerRadius(16)
                     
                 }.buttonStyle(.plain)

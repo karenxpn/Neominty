@@ -20,8 +20,8 @@ struct PhoneAuthentication: View {
                 
                 
                 VStack( alignment: .leading, spacing: 8) {
-                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 16)
                 }
                 
                 HStack(spacing: 0) {
@@ -37,7 +37,7 @@ struct PhoneAuthentication: View {
                             
                         }.frame(height: 56)
                             .padding(.horizontal, 10)
-                            .background(AppColors.superLightGray)
+                            .background(Color(.superLightGray))
                             .cornerRadius(16, corners: [.topLeft, .bottomLeft])
                     }
                     
@@ -46,7 +46,7 @@ struct PhoneAuthentication: View {
                         .font(.custom(Roboto.regular.rawValue, size: 16))
                         .padding(.leading, 5)
                         .frame(height: 56)
-                        .background(AppColors.superLightGray)
+                        .background(Color(.superLightGray))
                         .cornerRadius(16, corners: [.topRight, .bottomRight])
                 }
                 

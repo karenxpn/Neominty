@@ -12,8 +12,8 @@ struct PayView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
-                TextHelper(text: NSLocalizedString("everythingYouNeed", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                TextHelper(text: NSLocalizedString("everythingYouNeedMessage", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                TextHelper(text: NSLocalizedString("everythingYouNeed", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: NSLocalizedString("everythingYouNeedMessage", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
                 
             }.frame(
                 minWidth: 0,
@@ -46,7 +46,7 @@ struct PayView: View {
                                 .font(.custom(Roboto.regular.rawValue, size: 16))
                                 .padding(.vertical, 16)
                         }.padding(.horizontal, 18)
-                            .background(AppColors.superLightGray)
+                            .background(Color(.superLightGray))
                             .cornerRadius(16)
                             .padding(.top, 16)
                     }
@@ -65,7 +65,7 @@ struct PayView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("pay", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("pay", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
             }.task {
                 payVM.getCategories()

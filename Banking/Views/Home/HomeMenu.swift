@@ -34,7 +34,7 @@ struct HomeMenu: View {
                 }.environmentObject(viewRouter)
             }
         }.padding(.vertical, 15)
-            .background(AppColors.whiteOpacity)
+            .background(Color(.whiteOpacity))
     }
 }
 

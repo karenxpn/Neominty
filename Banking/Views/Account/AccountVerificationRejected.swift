@@ -34,9 +34,9 @@ struct AccountVerificationRejected: View {
                 }
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 16)
                         .multilineTextAlignment(.center)
                 }
                 
@@ -56,7 +56,7 @@ struct AccountVerificationRejected: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
             }
     }

@@ -25,7 +25,7 @@ struct CustomTabView: View {
                     
                     Rectangle()
                         .fill(.white)
-                        .shadow(color: AppColors.tabviewShadow, radius: 16, y: -12)
+                        .shadow(color: Color(.tabviewShadow), radius: 16, y: -12)
                     
                     HStack {
                         
@@ -53,17 +53,17 @@ struct CustomTabView: View {
                                     Image(id == 2 ? icons[id] : viewRouter.tab == id ? "\(icons[id]).fill" : icons[id])
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? AppColors.darkBlue : AppColors.appGray)
+                                        .foregroundColor(id == 2 ? .white : viewRouter.tab == id ? Color(.darkBlue) : Color(.appGray))
                                         .frame(width: 28, height: 28)
                                         .background(id == 2 ?
                                                     AnyView(Circle()
-                                                        .fill(AppColors.appGreen)
+                                                        .fill(Color(.appGreen))
                                                         .frame(width: 48, height: 48)) :
                                                         AnyView(EmptyView()))
                                     
                                     
                                     if id != 2 {
-                                        TextHelper(text: icon_lables[id], color: viewRouter.tab == id ? AppColors.darkBlue : AppColors.appGray)
+                                        TextHelper(text: icon_lables[id], color: viewRouter.tab == id ? Color(.darkBlue) : Color(.appGray))
                                     }
                                 }
                             }

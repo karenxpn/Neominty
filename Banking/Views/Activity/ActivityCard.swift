@@ -36,16 +36,16 @@ struct ActivityCard: View {
             
             switch card.cardStyle {
             case .standardBlue, .hexBlue:
-                AppColors.darkBlue
+                Color(.darkBlue)
             case .standardGreen, .hexGreen:
-                AppColors.appGreen
+                Color(.appGreen)
             case .standardBlueGreen, .hexBlueGreen:
-                LinearGradient(gradient: Gradient(colors: [AppColors.darkBlue, AppColors.appGreen]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: Gradient(colors: [Color(.darkBlue), Color(.appGreen)]), startPoint: .topLeading, endPoint: .bottomTrailing)
             case .standardGreenBlue, .hexGreenBlue:
-                LinearGradient(gradient: Gradient(colors: [AppColors.appGreen, AppColors.darkBlue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: Gradient(colors: [Color(.appGreen), Color(.darkBlue)]), startPoint: .topLeading, endPoint: .bottomTrailing)
             case .signedBlueGreen, .signedGreenBlue:
                 ZStack(alignment: .trailing) {
-                    card.cardStyle == .signedBlueGreen ? AppColors.darkBlue : AppColors.appGreen
+                    card.cardStyle == .signedBlueGreen ? Color(.darkBlue) : Color(.appGreen)
                     Image("card-sign")
                         .resizable()
                 }

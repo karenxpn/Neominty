@@ -12,9 +12,9 @@ struct FAQDetail: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 20) {
-                TextHelper(text: faq.question, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: faq.question, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                     .lineLimit(nil)
-                TextHelper(text: faq.answer, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: faq.answer, colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
                     .lineLimit(nil)
             }.padding(24)
         }

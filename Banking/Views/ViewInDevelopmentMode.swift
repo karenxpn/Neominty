@@ -20,10 +20,10 @@ struct ViewInDevelopmentMode: View {
 //            .frame(height: 200)
 
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                     .multilineTextAlignment(.center)
 
-                TextHelper(text: NSLocalizedString("thisPageIsInDevelopmentMode", comment: ""), color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 14)
+                TextHelper(text: NSLocalizedString("thisPageIsInDevelopmentMode", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 14)
                     .multilineTextAlignment(.center)
             }
             

@@ -25,21 +25,22 @@ struct IntroductionPage: View {
                 Spacer()
                 VStack(spacing: 16) {
 
-                    TextHelper(text: introduction.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
                         .multilineTextAlignment(.center)
                     
                     
-                    TextHelper(text: introduction.body, color: AppColors.appGray)
+                    TextHelper(text: introduction.body, colorResource: .appGray)
                         .multilineTextAlignment(.center)
+                    
                     HStack(spacing: 4) {
                         ForEach(0..<count, id: \.self) { ind in
                             if ind != index {
                                 Circle()
-                                    .fill(AppColors.lightGray)
+                                    .fill(Color(.lightGray))
                                     .frame(width: 6, height: 6)
                             } else {
                                 RoundedRectangle(cornerRadius: 10)
-                                    .fill(AppColors.darkBlue)
+                                    .fill(Color(.darkBlue))
                                     .frame(width: 32, height: 6)
                             }
                         }

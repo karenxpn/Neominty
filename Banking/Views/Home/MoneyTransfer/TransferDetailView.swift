@@ -44,7 +44,7 @@ struct TransferDetailView: View {
                     }
                     
                     TextHelper(text: "\(NSLocalizedString("to", comment: "")) \(recentTransfer.name)",
-                               color: AppColors.darkBlue,
+                               colorResource: .darkBlue,
                                fontName: Roboto.bold.rawValue,
                                fontSize: 14)
                     
@@ -81,7 +81,7 @@ struct TransferDetailView: View {
                                      bankCardType: $cardType,
                                      tfType: .cardHolder,
                                      tfFont: .custom(Roboto.bold.rawValue, size: 14),
-                                     tfColor: AppColors.darkBlue,
+                                     tfColor: Color(.darkBlue),
                                      subtitle: NSLocalizedString("enterFullName", comment: ""))
                     .multilineTextAlignment(.center)
                     .padding(16)
@@ -90,7 +90,7 @@ struct TransferDetailView: View {
                             .strokeBorder(!isNameValid && !cardHolder.isEmpty ? Color.red : Color.clear, lineWidth: 1)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .fill(AppColors.superLightGray)
+                                    .fill(Color(.superLightGray))
                             }
                         
                     }
@@ -98,22 +98,22 @@ struct TransferDetailView: View {
                 
                 VStack {
                     HStack {
-                        TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: AppColors.appGray,
+                        TextHelper(text: NSLocalizedString("enterAmount", comment: ""), colorResource: .appGray,
                                    fontName: Roboto.medium.rawValue, fontSize: 12)
                         
                         Spacer()
                         
-                        TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: AppColors.appGray,
+                        TextHelper(text: NSLocalizedString("max $12,652", comment: ""), colorResource: .appGray,
                                    fontName: Roboto.medium.rawValue, fontSize: 12)
                     }.padding(16)
                     
                     HStack {
-                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", color: AppColors.appGray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", colorResource: .appGray, fontName: Roboto.medium.rawValue, fontSize: 16)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 8)
                             .background {
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(AppColors.lightGray)
+                                    .fill(Color(.lightGray))
                             }
                         
                         AmountTextField(text: $transferVM.transferAmount, fontSize: 24)
@@ -122,7 +122,7 @@ struct TransferDetailView: View {
                     }.padding([.horizontal, .bottom], 16)
                 }.background {
                     RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                        .strokeBorder(Color(.lightGray), lineWidth: 1)
                 }
                 
                 // add amount validation
@@ -134,7 +134,7 @@ struct TransferDetailView: View {
                         CustomAlert {
                             
                             VStack(spacing: 31) {
-                                TextHelper(text: "Transfer Confirmation", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
                                 
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
@@ -148,9 +148,9 @@ struct TransferDetailView: View {
                                                          card: transferVM.cardNumber)
                                 
                                 HStack {
-                                    TextHelper(text: "Total", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                                    TextHelper(text: "Total", colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
                                     Spacer()
-                                    TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue.currencySymbol ?? CardCurrency.usd.rawValue.currencySymbol)\(transferVM.transferAmount)", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                                    TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue.currencySymbol ?? CardCurrency.usd.rawValue.currencySymbol)\(transferVM.transferAmount)", colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
                                 }
                                 
                             }

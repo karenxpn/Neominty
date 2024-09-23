@@ -17,13 +17,13 @@ struct NotificationCell: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    TextHelper(text: notification.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                    TextHelper(text: notification.title, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 16)
                     Spacer()
                     TextHelper(text: notification.createdAt,
-                               color: AppColors.appGray,
+                               color: Color(.appGray),
                                fontName: notification.read ? Roboto.regular.rawValue : Roboto.bold.rawValue, fontSize: 12)
                 }
-                TextHelper(text: notification.body, color: AppColors.appGray,
+                TextHelper(text: notification.body, color: Color(.appGray),
                            fontName: notification.read ? Roboto.regular.rawValue : Roboto.bold.rawValue, fontSize: 12)
                     .lineLimit(2)
             }

@@ -33,7 +33,7 @@ struct AccountViewPersonalInfo: View {
                         Circle()
                             .fill(Color.white)
                             .frame(width: 100, height: 100)
-                            .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
+                            .shadow(color: Color(.shadow), radius: 50, x: 5, y: 15)
                         
                         if info.avatar == nil && selectedImage == nil {
                             Image("plus-sign")
@@ -67,12 +67,12 @@ struct AccountViewPersonalInfo: View {
             
             VStack(spacing: 8) {
                 if info.name != nil {
-                    TextHelper(text: info.name!, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: info.name!, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
                 }
                 
                 if info.email != nil {
                     HStack {
-                        TextHelper(text: info.email!, color: AppColors.appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: info.email!, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
                         if !info.emailVerified {
                             Button {
                                 showToast.toggle()
@@ -104,7 +104,7 @@ struct AccountViewPersonalInfo: View {
                     .strokeBorder(Color.gray, lineWidth: 1)
                     .background {
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(AppColors.superLightGray)
+                            .fill(Color(.superLightGray))
                     }
             }
             .shadow(radius: 10)
