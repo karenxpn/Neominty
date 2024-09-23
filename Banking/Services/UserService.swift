@@ -130,7 +130,7 @@ extension UserSerive: UserServiceProtocol {
             let user = Auth.auth().currentUser
                        
             if let user {
-                try await user.updateEmail(to: email)
+                try await user.sendEmailVerification(beforeUpdatingEmail: email)
                 if !user.isEmailVerified {
                     print("This email is not verified")
                     try await user.sendEmailVerification(with: actionCodeSettings)

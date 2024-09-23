@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct SelectCardStyle: View {
     let styles: [CardDesign] = [.hex, .signed, .standard]

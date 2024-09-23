@@ -7,7 +7,6 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct NotificationModel: Codable, Identifiable {
     @DocumentID var id: String?

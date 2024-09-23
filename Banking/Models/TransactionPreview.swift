@@ -8,7 +8,6 @@
 import Foundation
 import SwiftUI
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct TransactionPreview: Identifiable, Codable {
     @DocumentID var id: String?
