@@ -35,7 +35,6 @@
 		FF18C26729BB3159004EF3A3 /* IntroductionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */; };
 		FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26829BB3199004EF3A3 /* Credentials.swift */; };
 		FF18C26B29BB31C2004EF3A3 /* PreviewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */; };
-		FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26C29BB3226004EF3A3 /* AppColors.swift */; };
 		FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */; };
 		FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = FF18C27229BB37C5004EF3A3 /* SDWebImageSwiftUI */; };
 		FF1F4FE22AE5B1300031BB36 /* UpdateAccountEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1F4FE12AE5B1300031BB36 /* UpdateAccountEmail.swift */; };
@@ -258,7 +257,6 @@
 		FF18C26629BB3159004EF3A3 /* IntroductionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPage.swift; sourceTree = "<group>"; };
 		FF18C26829BB3199004EF3A3 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModels.swift; sourceTree = "<group>"; };
-		FF18C26C29BB3226004EF3A3 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		FF1F4FE12AE5B1300031BB36 /* UpdateAccountEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountEmail.swift; sourceTree = "<group>"; };
 		FF20A3E32A12E39100E41FC2 /* StandardStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardStyles.swift; sourceTree = "<group>"; };
@@ -511,7 +509,6 @@
 				FF45204F29C33B01003C6415 /* ViewPaths.swift */,
 				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
 				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
-				FF18C26C29BB3226004EF3A3 /* AppColors.swift */,
 				FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */,
 				FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */,
 				FFC2BCFA29BB628D00E774FD /* TextHelper.swift */,
@@ -1227,7 +1224,6 @@
 				FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */,
 				FF18C24B29BA8042004EF3A3 /* AppDelegate.swift in Sources */,
 				FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */,
-				FF18C26D29BB3226004EF3A3 /* AppColors.swift in Sources */,
 				FFC2BCFB29BB628D00E774FD /* TextHelper.swift in Sources */,
 				FF45205329C33D9B003C6415 /* HomeView.swift in Sources */,
 				FF864E3429ED824E00EC883E /* SubCategoryTextField.swift in Sources */,
