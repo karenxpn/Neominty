@@ -15,14 +15,14 @@ struct RecentTransactions: View {
     var body: some View {
         LazyVStack(spacing: 16) {
             HStack {
-                TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: Color(.appGray), fontName: Roboto.bold.rawValue, fontSize: 14)
+                TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 14)
                 Spacer()
                 
                 Button {
                     action()
                 } label: {
                     HStack(spacing: 0) {
-                        TextHelper(text: NSLocalizedString("allTransactions", comment: ""), color: Color(.darkBlue), fontName: Roboto.medium.rawValue, fontSize: 14)
+                        TextHelper(text: NSLocalizedString("allTransactions", comment: ""), colorResource: .darkBlue, fontName: .medium, fontSize: 14)
                         
                         Image("chevron-right")
                     }
@@ -43,13 +43,13 @@ struct RecentTransactions: View {
                             .cornerRadius(12)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            TextHelper(text: transaction.name, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 14)
+                            TextHelper(text: transaction.name, colorResource: .darkBlue, fontName: .bold, fontSize: 14)
                             //                        TextHelper(text: transaction.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                         }
                         
                         Spacer()
                         
-                        TextHelper(text: transaction.amount, color: transaction.amount.contains(where: { $0 == "+"}) ? Color(.appGreen) : Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 14)
+                        TextHelper(text: transaction.amount, colorResource: transaction.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlue, fontName: .bold, fontSize: 14)
                         
                     }
                     

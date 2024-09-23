@@ -25,7 +25,7 @@ struct IntroductionPage: View {
                 Spacer()
                 VStack(spacing: 16) {
 
-                    TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                         .multilineTextAlignment(.center)
                     
                     
@@ -71,7 +71,7 @@ struct IntroductionPage: View {
                         Button {
                             authenticate = true
                         } label: {
-                            TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: Roboto.bold.rawValue, fontSize: 16)
+                            TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: .bold, fontSize: 16)
                         }                        
                     }
                 }

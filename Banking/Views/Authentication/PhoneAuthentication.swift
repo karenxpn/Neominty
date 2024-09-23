@@ -20,8 +20,8 @@ struct PhoneAuthentication: View {
                 
                 
                 VStack( alignment: .leading, spacing: 8) {
-                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), colorResource: .appGray, fontSize: 16)
                 }
                 
                 HStack(spacing: 0) {
@@ -31,7 +31,7 @@ struct PhoneAuthentication: View {
                     } label: {
                         HStack {
                             TextHelper(text: "\(authVM.flag)",
-                                       fontName: Roboto.bold.rawValue, fontSize: 18)
+                                       fontName: .bold, fontSize: 18)
                             
                             Image("drop_arrow")
                             

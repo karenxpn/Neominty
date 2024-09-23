@@ -54,8 +54,8 @@ struct RecentTransferUsersList: View {
                                 
                                 
                                 TextHelper(text: transfer.name,
-                                           color: Color(.darkBlue),
-                                           fontName: Roboto.bold.rawValue,
+                                           colorResource: .darkBlue,
+                                           fontName: .bold,
                                            fontSize: 12)
                                 
                             }.padding(.vertical, 26)

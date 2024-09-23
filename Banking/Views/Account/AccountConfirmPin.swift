@@ -17,7 +17,7 @@ struct AccountConfirmPin: View {
             ScrollView(showsIndicators: false) {
                 VStack( alignment: .leading, spacing: 12) {
                     
-                    TextHelper(text: NSLocalizedString("confirmYourNewPasscode", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("confirmYourNewPasscode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                     
                     OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                         

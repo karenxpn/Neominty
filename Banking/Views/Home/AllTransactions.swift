@@ -33,13 +33,13 @@ struct AllTransactions: View {
                             .frame(width: 48, height: 48)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            TextHelper(text: transfer.name, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                            TextHelper(text: transfer.name, colorResource: .darkBlue, fontName: .bold, fontSize: 14)
 //                            TextHelper(text: transfer.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                         }
                         
                         Spacer()
                         
-                        TextHelper(text: transfer.amount, colorResource: transfer.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                        TextHelper(text: transfer.amount, colorResource: transfer.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlue, fontName: .bold, fontSize: 14)
                     }.onAppear {
                         if transfer.id == allTransferVM.transfers.last?.id && !allTransferVM.loading {
                             allTransferVM.getTransactionList()

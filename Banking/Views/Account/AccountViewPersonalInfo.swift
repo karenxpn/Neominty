@@ -67,12 +67,12 @@ struct AccountViewPersonalInfo: View {
             
             VStack(spacing: 8) {
                 if info.name != nil {
-                    TextHelper(text: info.name!, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: info.name!, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
                 
                 if info.email != nil {
                     HStack {
-                        TextHelper(text: info.email!, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: info.email!, colorResource: .appGray, fontSize: 12)
                         if !info.emailVerified {
                             Button {
                                 showToast.toggle()
@@ -93,7 +93,7 @@ struct AccountViewPersonalInfo: View {
             }
         }.simpleToast(isPresented: $showToast, options: toastOptions) {
             Label(
-                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontName: Roboto.regular.rawValue, fontSize: 16) },
+                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontSize: 16) },
                 icon: { Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.yellow)
                 }

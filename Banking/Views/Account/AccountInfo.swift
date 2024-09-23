@@ -31,7 +31,7 @@ struct AccountInfo: View {
                 VStack(spacing: 24) {
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        TextHelper(text: NSLocalizedString("yourName", comment: ""), colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: NSLocalizedString("yourName", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
                         
                         
                         CardDetailTextFieldDecorator(content: {
@@ -47,7 +47,7 @@ struct AccountInfo: View {
                     
                     VStack(alignment: .leading, spacing: 12) {
                         
-                        TextHelper(text: NSLocalizedString("phoneNumber", comment: ""), colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: NSLocalizedString("phoneNumber", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
 
                         HStack(spacing: 0) {
                             
@@ -55,7 +55,7 @@ struct AccountInfo: View {
                             } label: {
                                 HStack {
                                     TextHelper(text: "\(flag)",
-                                               fontName: Roboto.bold.rawValue, fontSize: 18)
+                                               fontName: .bold, fontSize: 18)
                                     
                                     Image("drop_arrow")
                                     
@@ -77,13 +77,13 @@ struct AccountInfo: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
                         
                         Button {
                             viewRouter.pushAccountPath(.accountEmail(email: email))
                         } label: {
                             HStack {
-                                TextHelper(text: email.isEmpty ? NSLocalizedString("example@domain.com", comment: "") : email, colorResource: .appGray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                                TextHelper(text: email.isEmpty ? NSLocalizedString("example@domain.com", comment: "") : email, colorResource: .appGray, fontName: .medium, fontSize: 16)
                                 Spacer()
                             }.padding(16)
                                 .background {
@@ -99,7 +99,7 @@ struct AccountInfo: View {
                     
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
                         Image("info")
-                        TextHelper(text: NSLocalizedString("emailInfo", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 11)
+                        TextHelper(text: NSLocalizedString("emailInfo", comment: ""), colorResource: .appGray, fontSize: 11)
                         
                     }.padding(.top, 38)
                     
@@ -121,7 +121,7 @@ struct AccountInfo: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }.onReceive(NotificationCenter.default.publisher(for:
                                                                 Notification.Name(rawValue: NotificationName.infoUpdated.rawValue))) { _ in

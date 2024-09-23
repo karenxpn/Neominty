@@ -37,7 +37,7 @@ struct PaymentDetails: View {
                     
                     HStack(spacing: 10) {
                         
-                        TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                        TextHelper(text: payVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, colorResource: .appGray, fontName: .bold, fontSize: 40)
                         
                         AmountTextField(text: $payVM.amount, fontSize: 40)
                             .frame(width: UIScreen.main.bounds.width * 0.4)
@@ -46,8 +46,8 @@ struct PaymentDetails: View {
                     if let category = payVM.selectedPaymentCategory {
                         HStack {
                             VStack(alignment: .leading, spacing: 9) {
-                                TextHelper(text: category.name, colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                                TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 16)
+                                TextHelper(text: category.name, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                                TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", colorResource: .appGray, fontSize: 16)
                             }
                             Spacer()
                         }

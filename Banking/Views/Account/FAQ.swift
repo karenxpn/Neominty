@@ -16,7 +16,7 @@ struct FAQ: View {
         VStack(alignment: .leading, spacing: 24) {
             TextHelper(text: NSLocalizedString("youHaveQuestion", comment: ""),
                        colorResource: .darkBlue,
-                       fontName: Roboto.bold.rawValue,
+                       fontName: .bold,
                        fontSize: 24)
             
             // search bar
@@ -33,7 +33,7 @@ struct FAQ: View {
             
             HStack {
                 TextHelper(text: NSLocalizedString("frequentlyAsked", comment: ""),
-                           fontName: Roboto.bold.rawValue,
+                           fontName: .bold,
                            fontSize: 20)
                 Spacer()
                 
@@ -41,7 +41,7 @@ struct FAQ: View {
                     navigate.toggle()
                 } label: {
                     TextHelper(text: NSLocalizedString("viewAll", comment: ""),
-                               fontName: Roboto.bold.rawValue,
+                               fontName: .bold,
                                fontSize: 16)
                 }.navigationDestination(isPresented: $navigate) {
                     AllFAQs()
@@ -62,7 +62,7 @@ struct FAQ: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }
     }

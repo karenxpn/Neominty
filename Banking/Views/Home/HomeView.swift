@@ -100,9 +100,9 @@ struct HomeView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
                             
-                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: Color(.appGray), fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
                             
-                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                         }
                     }
                     
@@ -126,9 +126,9 @@ struct HomeView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
                     
                 }
             } action: {

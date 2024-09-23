@@ -86,7 +86,7 @@ struct QRView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                         }
                     }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
                         Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
@@ -119,9 +119,9 @@ struct QRView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
 
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 
                 }
             } action: {

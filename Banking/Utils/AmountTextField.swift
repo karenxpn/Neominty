@@ -38,7 +38,7 @@ struct AmountTextField: View {
                     Button(action: {
                         focused = true
                     }, label: {
-                        TextHelper(text: formatText(text: text), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: fontSize)
+                        TextHelper(text: formatText(text: text), colorResource: .darkBlue, fontName: .bold, fontSize: fontSize)
                             .minimumScaleFactor(0.4)
                             .lineLimit(1)
                     })

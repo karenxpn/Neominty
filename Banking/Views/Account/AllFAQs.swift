@@ -20,10 +20,10 @@ struct AllFAQs: View {
                         showDetail.toggle()
                     } label: {
                         VStack(alignment: .leading, spacing: 8) {
-                            TextHelper(text: faq.question, color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                            TextHelper(text: faq.question, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
-                            TextHelper(text: faq.answer, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
+                            TextHelper(text: faq.answer, colorResource: .appGray, fontSize: 12)
                                 .lineLimit(3)
                                 .multilineTextAlignment(.leading)
 
@@ -57,7 +57,7 @@ struct AllFAQs: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }
     }

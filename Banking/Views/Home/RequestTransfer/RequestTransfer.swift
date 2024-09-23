@@ -39,7 +39,7 @@ struct RequestTransfer: View {
                             
                             HStack(spacing: 10) {
                                 
-                                TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 40)
+                                TextHelper(text: requestVM.selectedCard?.currency.rawValue.currencySymbol ?? "USD".currencySymbol, colorResource: .appGray, fontName: .bold, fontSize: 40)
                                 
                                 AmountTextField(text: $requestVM.amount, fontSize: 40)
                                     .frame(width: UIScreen.main.bounds.width * 0.4)
@@ -60,7 +60,7 @@ struct RequestTransfer: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("request", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("request", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 requestVM.getCards()

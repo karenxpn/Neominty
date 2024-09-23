@@ -19,18 +19,18 @@ struct TransferSuccess: View {
                 
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), colorResource: .darkBlue,
-                               fontName: Roboto.bold.rawValue, fontSize: 24)
+                               fontName: .bold, fontSize: 24)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                     
                     TextHelper(text: NSLocalizedString("transfersAreReviewed", comment: ""),
-                               colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 11)
+                               colorResource: .appGray, fontSize: 11)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                 }
                 
                 TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", colorResource: .darkBlue,
-                           fontName: Roboto.bold.rawValue, fontSize: 31)
+                           fontName: .bold, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
                 .background {

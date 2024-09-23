@@ -27,13 +27,13 @@ struct HexagonStyles: View {
             }.padding([.horizontal, .top], 20)
             
             VStack(alignment: .leading, spacing: 6) {
-                TextHelper(text: card.cardPan, color: Color.white, fontName: Roboto.bold.rawValue, fontSize: 14)
-                TextHelper(text: card.expirationDate, color: Color(.appGray), fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: card.cardPan, color: .white, fontName: .bold, fontSize: 14)
+                TextHelper(text: card.expirationDate, colorResource: .appGray, fontSize: 12)
             }.padding(.horizontal, 20)
                 .padding(.top, 13)
             
             HStack {
-                TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
+                TextHelper(text: card.cardHolder, color: .white, fontName: .medium, fontSize: 14)
                 Spacer()
                 Image(card.cardType.icon)
                     .resizable()

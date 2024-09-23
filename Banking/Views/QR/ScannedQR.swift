@@ -55,17 +55,18 @@ struct ScannedQR: View {
                     
                     VStack {
                         HStack {
-                            TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: Color(.appGray),
-                                       fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("enterAmount", comment: ""),
+                                       colorResource: .appGray,
+                                       fontName: .medium, fontSize: 12)
                             
                             Spacer()
                             
-                            TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: Color(.appGray),
-                                       fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("max $12,652", comment: ""), colorResource: .appGray,
+                                       fontName: .medium, fontSize: 12)
                         }.padding(16)
                         
                         HStack {
-                            TextHelper(text: qrVM.selectedCard?.currency.rawValue ?? "USD", color: Color(.appGray), fontName: Roboto.medium.rawValue, fontSize: 16)
+                            TextHelper(text: qrVM.selectedCard?.currency.rawValue ?? "USD", colorResource: .appGray, fontName: .medium, fontSize: 16)
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 8)
                                 .background {

@@ -34,7 +34,7 @@ struct Notifications: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("notifications", comment: ""), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("notifications", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {

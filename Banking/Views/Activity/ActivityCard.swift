@@ -14,8 +14,8 @@ struct ActivityCard: View {
         VStack(alignment: .leading, spacing: 36) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
-                    TextHelper(text: card.cardPan, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
-                    TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.medium.rawValue, fontSize: 20)
+                    TextHelper(text: card.cardPan, color: .white, fontName: .medium, fontSize: 14)
+                    TextHelper(text: card.cardHolder, color: .white, fontName: .medium, fontSize: 20)
                 }
                 
                 Spacer()

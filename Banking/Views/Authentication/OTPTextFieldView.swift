@@ -42,7 +42,7 @@ struct OTPTextFieldView: View {
                         .background(RoundedRectangle(cornerRadius: 12).fill(Color(.superLightGray)))
                         .frame(width: boxWidth, height: boxHeight)
                     
-                    TextHelper(text: self.getDigits(at: index), color: Color(.darkBlue), fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: self.getDigits(at: index), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                 }
             }
         }

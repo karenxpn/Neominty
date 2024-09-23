@@ -40,7 +40,7 @@ struct Cards: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
                 }.task {
                     cardsVM.getCards()

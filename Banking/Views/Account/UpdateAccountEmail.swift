@@ -24,7 +24,7 @@ struct UpdateAccountEmail: View {
         
         VStack(alignment: .leading, spacing: 12) {
             
-            TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: Roboto.bold.rawValue, fontSize: 16)
+            TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
             
             CardDetailTextFieldDecorator(content: {
                 TextField(NSLocalizedString("example@domain.com", comment: ""), text: $email)
@@ -51,7 +51,7 @@ struct UpdateAccountEmail: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("verifyYourEmail", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("verifyYourEmail", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
                 }.onReceive(NotificationCenter.default.publisher(for:
                                                                     Notification.Name(rawValue: NotificationName.emailUpdated.rawValue))) { _ in

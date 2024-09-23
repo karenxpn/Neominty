@@ -64,9 +64,9 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("income-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("income", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            TextHelper(text: NSLocalizedString("income", comment: ""), colorResource: .appGray, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", colorResource: .darkBlue, fontName: .bold, fontSize: 14)
                                             
                                         }
                                     }
@@ -76,9 +76,9 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("expense-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), colorResource: .appGray, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", colorResource: .darkBlue, fontName: .bold, fontSize: 14)
                                         }
                                     }
                                     
@@ -95,7 +95,7 @@ struct Activity: View {
                                                 TextHelper(text: NSLocalizedString(unit, comment: ""),
                                                            color: activityVM.selectedUnit == unit ? .black : nil,
                                                            colorResource: activityVM.selectedUnit != unit ? .appGray : nil,
-                                                           fontName: Roboto.medium.rawValue, fontSize: 14)
+                                                           fontName: .medium, fontSize: 14)
                                                     .lineLimit(1)
                                                     .minimumScaleFactor(0.3)
                                                     .padding(.horizontal, 16)
@@ -154,7 +154,7 @@ struct Activity: View {
             }.navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
                 }.task {
                     activityVM.getCards()
@@ -175,9 +175,9 @@ struct Activity: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
 
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 
                 }
             } action: {

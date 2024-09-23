@@ -15,7 +15,7 @@ struct AuthenticateWithPin: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("enterYourPasscode", comment: ""), colorResource: .darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: NSLocalizedString("enterYourPasscode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
 
                 OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .enterPasscode) { otp in
                     
@@ -25,7 +25,7 @@ struct AuthenticateWithPin: View {
                     authVM.sendVerificationCode()
                     biometricEnabled = false
                 } label: {
-                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), colorResource: .appGreen, fontName: Roboto.bold.rawValue, fontSize: 16)
+                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), colorResource: .appGreen, fontName: .bold, fontSize: 16)
                 }.padding(.top, 12)
 
 

@@ -10,12 +10,12 @@ import SwiftUI
 struct TextHelper: View {
     let text: String
     let color: Color
-    let fontName: String
+    let fontName: Roboto
     let fontSize: CGFloat
     let font: Font
     
     // Accept a `Color?` for SwiftUI colors or `ColorResource?` for custom colors
-    init(text: String, color: Color? = nil, colorResource: ColorResource? = nil, fontName: String = Roboto.regular.rawValue, fontSize: CGFloat = 12) {
+    init(text: String, color: Color? = nil, colorResource: ColorResource? = nil, fontName: Roboto = .regular, fontSize: CGFloat = 12) {
         self.text = text
         
         // Prioritize the provided `Color`, then use `ColorResource` if provided, otherwise default to `.black`
@@ -29,7 +29,7 @@ struct TextHelper: View {
         
         self.fontName = fontName
         self.fontSize = fontSize
-        self.font = .custom(fontName, size: fontSize)
+        self.font = .custom(fontName.rawValue, size: fontSize)
     }
     
     var body: some View {
