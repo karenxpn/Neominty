@@ -103,7 +103,7 @@ struct HomeView: View {
                             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
                             
                             TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlue, fontName: .bold, fontSize: 24)
-                        }
+                        }.id(UUID())
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -111,8 +111,9 @@ struct HomeView: View {
                             viewRouter.pushHomePath(.notifications)
                         } label: {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
-                        }
+                        }.id(UUID())
                     }
+                    
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
                 }, message: {
