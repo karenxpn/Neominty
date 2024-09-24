@@ -85,7 +85,7 @@ struct Activity: View {
                                 }.padding(.bottom, 20)
                                 
                                 
-                                if let activity = activityVM.activity {
+                                if let _ = activityVM.activity {
                                     
                                     HStack {
                                         ForEach(activityVM.activityUnit, id: \.self) { unit in
