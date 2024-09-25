@@ -36,7 +36,7 @@ struct MoneyTransfer: View {
             
             VStack(alignment: .leading, spacing: 16) {
                 
-                TextHelper(text: NSLocalizedString("chooseCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: NSLocalizedString("chooseCard", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     .padding(.leading, 20)
                 
                 if cards.isEmpty {
@@ -58,7 +58,7 @@ struct MoneyTransfer: View {
                 
                 
                 VStack(alignment: .leading, spacing: 15) {
-                    TextHelper(text: NSLocalizedString("enterReceiverDetails", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("enterReceiverDetails", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -92,13 +92,13 @@ struct MoneyTransfer: View {
                                     .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
                                     .background {
                                         RoundedRectangle(cornerRadius: 16)
-                                            .fill(AppColors.superLightGray)
+                                            .fill(Color(.superLightGray))
                                     }
                             }
                         
                         if transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid {
                             TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
-                                       color: .red, fontName: Roboto.regular.rawValue, fontSize: 10)
+                                       color: .red, fontName: .regular, fontSize: 10)
                         }
                     }
                     
@@ -113,12 +113,12 @@ struct MoneyTransfer: View {
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
                         if transferVM.transactionUsers.isEmpty {
-                            TextHelper(text: NSLocalizedString("noRecentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("noRecentTransactions", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                                 .frame(minWidth: 0,
                                        maxWidth: .infinity)
                                 .padding(.vertical, UIScreen.main.bounds.height * 0.1)
                         } else {
-                            TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                             
                             RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
@@ -142,7 +142,7 @@ struct MoneyTransfer: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack(alignment: .leading, spacing: 4) {
-                        TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: .bold, fontSize: 20)
                     }
                     
                 }

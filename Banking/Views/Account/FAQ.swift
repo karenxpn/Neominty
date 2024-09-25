@@ -15,8 +15,8 @@ struct FAQ: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
             TextHelper(text: NSLocalizedString("youHaveQuestion", comment: ""),
-                       color: AppColors.darkBlue,
-                       fontName: Roboto.bold.rawValue,
+                       colorResource: .darkBlue,
+                       fontName: .bold,
                        fontSize: 24)
             
             // search bar
@@ -27,13 +27,13 @@ struct FAQ: View {
                     .font(.custom(Roboto.regular.rawValue, size: 16))
                     .padding(.vertical, 16)
             }.padding(.horizontal, 18)
-                .background(AppColors.superLightGray)
+                .background(Color(.superLightGray))
                 .cornerRadius(16)
             
             
             HStack {
                 TextHelper(text: NSLocalizedString("frequentlyAsked", comment: ""),
-                           fontName: Roboto.bold.rawValue,
+                           fontName: .bold,
                            fontSize: 20)
                 Spacer()
                 
@@ -41,7 +41,7 @@ struct FAQ: View {
                     navigate.toggle()
                 } label: {
                     TextHelper(text: NSLocalizedString("viewAll", comment: ""),
-                               fontName: Roboto.bold.rawValue,
+                               fontName: .bold,
                                fontSize: 16)
                 }.navigationDestination(isPresented: $navigate) {
                     AllFAQs()
@@ -62,7 +62,7 @@ struct FAQ: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }
     }

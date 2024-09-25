@@ -27,8 +27,8 @@ struct SelectedSubCategory: View {
                     .clipped()
 
 
-                TextHelper(text: subCategory.name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                TextHelper(text: subCategory.address, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: subCategory.name, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                TextHelper(text: subCategory.address, colorResource: .appGray, fontSize: 12)
 
                 ForEach(subCategory.fields, id: \.id) { field in
                     SubCategoryTextField(field: field, fields: $fields, validation: $fieldsValidation)

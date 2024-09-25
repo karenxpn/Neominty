@@ -74,7 +74,7 @@ struct Account: View {
                     })
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            TextHelper(text: NSLocalizedString("account", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("account", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                         }
                     }.task {
                         if !userID.isEmpty {

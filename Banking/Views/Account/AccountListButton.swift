@@ -18,7 +18,7 @@ struct AccountListButton: View {
         } label: {
             HStack(spacing: 16) {
                 Image(icon)
-                TextHelper(text: label, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
+                TextHelper(text: label, color: Color(.darkBlue), fontName: .medium, fontSize: 14)
                 
                 Spacer()
                 

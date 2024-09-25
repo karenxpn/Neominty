@@ -27,13 +27,13 @@ struct StandardStyles: View {
             }.padding([.horizontal, .top], 20)
             
             VStack(alignment: .leading, spacing: 6) {
-                TextHelper(text: card.cardPan, color: .white, fontName: Roboto.bold.rawValue, fontSize: 14)
-                TextHelper(text: card.expirationDate, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: card.cardPan, color: .white, fontName: .bold, fontSize: 14)
+                TextHelper(text: card.expirationDate, colorResource: .appGray, fontSize: 12)
             }.padding(.horizontal, 20)
                 .padding(.top, 19)
             
             HStack {
-                TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
+                TextHelper(text: card.cardHolder, color: .white, fontName: .medium, fontSize: 14)
                 Spacer()
                 Image(card.cardType.icon)
                     .resizable()
@@ -45,15 +45,15 @@ struct StandardStyles: View {
             ZStack(alignment: .trailing) {
                 switch card.cardStyle {
                 case .standardBlue:
-                    AppColors.darkBlue
+                    Color(.darkBlue)
                 case .standardGreen:
-                    AppColors.green
+                    Color(.appGreen)
                 case .standardGreenBlue:
-                    LinearGradient(gradient: Gradient(colors: [AppColors.green, AppColors.darkBlue]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color(.appGreen), Color(.darkBlue)]), startPoint: .leading, endPoint: .trailing)
                 case .standardBlueGreen:
-                    LinearGradient(gradient: Gradient(colors: [AppColors.darkBlue, AppColors.green]), startPoint: .leading, endPoint: .trailing)
+                    LinearGradient(gradient: Gradient(colors: [Color(.darkBlue), Color(.appGreen)]), startPoint: .leading, endPoint: .trailing)
                 default:
-                    AppColors.darkBlue
+                    Color(.darkBlue)
                 }
             }
         }

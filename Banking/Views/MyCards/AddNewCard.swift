@@ -59,9 +59,9 @@ struct AddNewCard: View {
                     }).fullScreenCover(isPresented: $showAlert) {
                         CongratulationAlert {
                             VStack(spacing: 12) {
-                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
 
-                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 
                             }
                         } action: {
@@ -83,7 +83,7 @@ struct AddNewCard: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("newCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("newCard", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }

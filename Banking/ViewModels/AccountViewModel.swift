@@ -11,7 +11,6 @@ import SwiftUI
 
 class AccountViewModel: AlertViewModel, ObservableObject {
     @AppStorage("userID") var userID: String = ""
-    @AppStorage("fullName") var localName: String = ""
 
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
@@ -57,7 +56,6 @@ class AccountViewModel: AlertViewModel, ObservableObject {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(()):
-                self.localName = name
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.infoUpdated.rawValue), object: nil)
             }
             

@@ -18,15 +18,15 @@ struct TransferConfirmationCell: View {
         
         VStack(spacing: 8) {
             HStack {
-                TextHelper(text: direction, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: direction, colorResource: .appGray, fontName: .regular, fontSize: 12)
                 Spacer()
-                TextHelper(text: bank, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: bank, colorResource: .appGray, fontName: .regular, fontSize: 12)
             }
             
             HStack {
-                TextHelper(text: name, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                TextHelper(text: name, colorResource: .darkBlue, fontName: .bold, fontSize: 16)
                 Spacer()
-                TextHelper(text: card, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                TextHelper(text: card, colorResource: .darkBlue, fontName: .bold, fontSize: 16)
             }
             
             Divider()

@@ -42,7 +42,7 @@ struct QRView: View {
                             .padding(.vertical, 57)
                             .background(Color.white)
                             .cornerRadius(20)
-                            .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
+                            .shadow(color: Color(.shadow), radius: 25, x: 2, y: 15)
                             .overlay(content: {
                                 Color.gray.opacity(0.35)
                                     .cornerRadius(20)
@@ -68,7 +68,7 @@ struct QRView: View {
                                 .padding(.vertical, 57)
                                 .background(Color.white)
                                 .cornerRadius(20)
-                                .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
+                                .shadow(color: Color(.shadow), radius: 25, x: 2, y: 15)
                         }
                         
                         ButtonHelper(disabled: qrVM.selectedCard == nil, label: NSLocalizedString("scanQR", comment: "")) {
@@ -86,7 +86,7 @@ struct QRView: View {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            TextHelper(text: NSLocalizedString("showQrCode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                         }
                     }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
                         Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
@@ -119,9 +119,9 @@ struct QRView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
 
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 
                 }
             } action: {

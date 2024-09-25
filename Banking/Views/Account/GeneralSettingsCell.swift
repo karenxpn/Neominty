@@ -17,10 +17,10 @@ struct GeneralSettingsCell: View {
     var body: some View {
         Toggle(isOn: $toggler) {
             VStack(alignment: .leading, spacing: 4) {
-                TextHelper(text: title, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
-                TextHelper(text: message, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: title, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
+                TextHelper(text: message, colorResource: .appGray, fontSize: 12)
             }
-        }.toggleStyle(SwitchToggleStyle(tint: AppColors.green))
+        }.toggleStyle(SwitchToggleStyle(tint: Color(.appGreen)))
             .onChange(of: toggler) { newValue in
                 action(newValue)
             }

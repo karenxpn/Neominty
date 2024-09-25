@@ -33,7 +33,7 @@ struct AccountViewPersonalInfo: View {
                         Circle()
                             .fill(Color.white)
                             .frame(width: 100, height: 100)
-                            .shadow(color:AppColors.shadow, radius: 50, x: 5, y: 15)
+                            .shadow(color: Color(.shadow), radius: 50, x: 5, y: 15)
                         
                         if info.avatar == nil && selectedImage == nil {
                             Image("plus-sign")
@@ -67,12 +67,12 @@ struct AccountViewPersonalInfo: View {
             
             VStack(spacing: 8) {
                 if info.name != nil {
-                    TextHelper(text: info.name!, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: info.name!, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
                 
                 if info.email != nil {
                     HStack {
-                        TextHelper(text: info.email!, color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: info.email!, colorResource: .appGray, fontSize: 12)
                         if !info.emailVerified {
                             Button {
                                 showToast.toggle()
@@ -93,7 +93,7 @@ struct AccountViewPersonalInfo: View {
             }
         }.simpleToast(isPresented: $showToast, options: toastOptions) {
             Label(
-                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontName: Roboto.regular.rawValue, fontSize: 16) },
+                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontSize: 16) },
                 icon: { Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.yellow)
                 }
@@ -104,7 +104,7 @@ struct AccountViewPersonalInfo: View {
                     .strokeBorder(Color.gray, lineWidth: 1)
                     .background {
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(AppColors.superLightGray)
+                            .fill(Color(.superLightGray))
                     }
             }
             .shadow(radius: 10)

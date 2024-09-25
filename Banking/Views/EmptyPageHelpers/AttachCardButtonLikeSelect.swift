@@ -20,8 +20,8 @@ struct AttachCardButtonLikeSelect: View {
                 Image("neominty-logo")
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    TextHelper(text: NSLocalizedString("attachNewCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 16)
-                    TextHelper(text: "**** **** **** ****", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("attachNewCard", comment: ""), colorResource: .darkBlue, fontName: .medium, fontSize: 16)
+                    TextHelper(text: "**** **** **** ****", colorResource: .appGray, fontName: .medium, fontSize: 12)
                 }
                 
                 Spacer()
@@ -34,7 +34,7 @@ struct AttachCardButtonLikeSelect: View {
                 .padding(.horizontal, 20)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                        .strokeBorder(Color(.lightGray), lineWidth: 1)
                 }
         }
     }

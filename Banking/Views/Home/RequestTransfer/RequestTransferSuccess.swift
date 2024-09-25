@@ -18,14 +18,14 @@ struct RequestTransferSuccess: View {
             
             VStack(spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("yourLinkIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                TextHelper(text: NSLocalizedString("yourLinkIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                 
-                TextHelper(text: requestVM.generatedLink, color: AppColors.gray, fontName: Roboto.bold.rawValue, fontSize: 13)
+                TextHelper(text: requestVM.generatedLink, colorResource: .appGray, fontName: .bold, fontSize: 13)
                     .multilineTextAlignment(.center)
                 
                 ShareLink(item: requestVM.generatedLink) {
                     Label(NSLocalizedString("shareLink", comment: ""), systemImage: "paperplane")
-                        .accentColor(AppColors.green)
+                        .accentColor(Color(.appGreen))
                 }
             }
             

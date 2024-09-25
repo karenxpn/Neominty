@@ -17,7 +17,7 @@ struct SelectCardList: View {
         ScrollView(showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 24) {
                 
-                TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     .padding(.top)
                 
                 ForEach(cards, id: \.id) { card in

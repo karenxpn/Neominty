@@ -17,7 +17,7 @@ struct AccountCreatePin: View {
             ScrollView(showsIndicators: false) {
                 VStack( alignment: .leading, spacing: 12) {
                     
-                    TextHelper(text: NSLocalizedString("setNewPasscode", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("setNewPasscode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                     
                     OTPTextFieldView(maxDigits: 5, pin: $authVM.passcode, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                         

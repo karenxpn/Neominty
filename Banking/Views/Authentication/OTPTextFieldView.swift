@@ -39,10 +39,10 @@ struct OTPTextFieldView: View {
                     
                     RoundedRectangle(cornerRadius: 12)
                         .strokeBorder(focus == index ? .black : .clear, lineWidth: 1)
-                        .background(RoundedRectangle(cornerRadius: 12).fill(AppColors.superLightGray))
+                        .background(RoundedRectangle(cornerRadius: 12).fill(Color(.superLightGray)))
                         .frame(width: boxWidth, height: boxHeight)
                     
-                    TextHelper(text: self.getDigits(at: index), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: self.getDigits(at: index), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                 }
             }
         }

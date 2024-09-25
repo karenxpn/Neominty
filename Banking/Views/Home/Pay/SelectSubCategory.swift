@@ -34,12 +34,12 @@ struct SelectSubCategory: View {
                                         .frame(height: 100)
                                         .clipped()
                                     
-                                    TextHelper(text: sub.name, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
+                                    TextHelper(text: sub.name, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
                                     
                                 }.padding(16)
                                     .background {
                                         RoundedRectangle(cornerRadius: 16)
-                                            .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                                            .strokeBorder(Color(.lightGray), lineWidth: 1)
                                     }.cornerRadius(16)
                             }
                         }
@@ -51,7 +51,7 @@ struct SelectSubCategory: View {
                             .font(.custom(Roboto.regular.rawValue, size: 16))
                             .padding(.vertical, 16)
                     }.padding(.horizontal, 18)
-                        .background(AppColors.superLightGray)
+                        .background(Color(.superLightGray))
                         .cornerRadius(16)
                         .padding(.top, 16)
                 }
@@ -65,7 +65,7 @@ struct SelectSubCategory: View {
             .navigationTitle(Text(""))
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: category.title, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: category.title, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }.navigationDestination(isPresented: $navigate) {
                 PaymentDetails()

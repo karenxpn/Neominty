@@ -104,7 +104,7 @@ extension UserSerive: UserServiceProtocol {
     
     func updateAccountInfo(userID: String, name: String) async -> Result<Void, Error> {
         return await APIHelper.shared.voidRequest {
-            var changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
             changeRequest?.displayName = name
 
             try await db.collection(Paths.users.rawValue).document(userID).updateData(["name": name])
@@ -130,7 +130,7 @@ extension UserSerive: UserServiceProtocol {
             let user = Auth.auth().currentUser
                        
             if let user {
-                try await user.updateEmail(to: email)
+                try await user.sendEmailVerification(beforeUpdatingEmail: email)
                 if !user.isEmailVerified {
                     print("This email is not verified")
                     try await user.sendEmailVerification(with: actionCodeSettings)

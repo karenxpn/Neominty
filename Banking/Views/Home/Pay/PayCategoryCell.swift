@@ -19,11 +19,11 @@ struct PayCategoryCell: View {
             LazyVStack(alignment: .leading, spacing: 8) {
                 Image(category.image)
                     .foregroundColor(.black)
-                TextHelper(text: category.title, color: AppColors.darkBlue, fontName: Roboto.medium.rawValue, fontSize: 14)
+                TextHelper(text: category.title, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
             }.padding(16)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                        .strokeBorder(Color(.lightGray), lineWidth: 1)
                 }.cornerRadius(16)
         }.navigationDestination(isPresented: $showCategory, destination: {
             SelectSubCategory(category: category)

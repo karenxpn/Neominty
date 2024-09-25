@@ -7,7 +7,6 @@
 
 import SwiftUI
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 struct SelectCardStyle: View {
     let styles: [CardDesign] = [.hex, .signed, .standard]
@@ -43,7 +42,7 @@ struct SelectCardStyle: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("chooseYourStyle", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("chooseYourStyle", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
                 }
         

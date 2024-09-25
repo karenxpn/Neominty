@@ -25,7 +25,7 @@ struct SubCategoryTextField: View {
                     .strokeBorder(validation[field.name] == false ? Color.red : Color.clear, lineWidth: 1)
                     .background {
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(AppColors.superLightGray)
+                            .fill(Color(.superLightGray))
                     }
             }
             .padding(.top, 16)

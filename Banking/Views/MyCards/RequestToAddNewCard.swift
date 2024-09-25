@@ -21,13 +21,12 @@ struct RequestToAddNewCard: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     TextHelper(text: NSLocalizedString("createYourNeomintyCard", comment: ""),
-                               color: AppColors.darkBlue,
-                               fontName: Roboto.bold.rawValue,
+                               colorResource: .darkBlue,
+                               fontName: .bold,
                                fontSize: 32)
                     
                     TextHelper(text: NSLocalizedString("createYourCardMessage", comment: ""),
-                               color: AppColors.gray,
-                               fontName: Roboto.regular.rawValue,
+                               colorResource: .appGray,
                                fontSize: 16)
                 }
                 

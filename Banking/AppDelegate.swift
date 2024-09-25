@@ -29,7 +29,7 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
         let firebaseAuth = Auth.auth()
         firebaseAuth.setAPNSToken(deviceToken, type: AuthAPNSTokenType.unknown)
         
-        let token = deviceToken
+        let _ = deviceToken
             .map{ String( format: "%02.2hhx", $0)}
             .joined()
         

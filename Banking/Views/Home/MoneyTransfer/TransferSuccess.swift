@@ -18,24 +18,24 @@ struct TransferSuccess: View {
                 Image("transfer-success")
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), color: AppColors.darkBlue,
-                               fontName: Roboto.bold.rawValue, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), colorResource: .darkBlue,
+                               fontName: .bold, fontSize: 24)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                     
                     TextHelper(text: NSLocalizedString("transfersAreReviewed", comment: ""),
-                               color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 11)
+                               colorResource: .appGray, fontSize: 11)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                 }
                 
-                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", color: AppColors.darkBlue,
-                           fontName: Roboto.bold.rawValue, fontSize: 31)
+                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", colorResource: .darkBlue,
+                           fontName: .bold, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(AppColors.lightGray)
+                        .fill(Color(.lightGray))
                 }
                 
                 ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {

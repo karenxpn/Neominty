@@ -25,7 +25,7 @@ struct ScannedQR: View {
     var body: some View {
         
         ZStack {
-            AppColors.darkGray
+            Color(.darkGray)
                 .edgesIgnoringSafeArea(.all)
             
             ScrollView(showsIndicators: false, content: {
@@ -42,7 +42,7 @@ struct ScannedQR: View {
                             .padding(20)
                             .background(Color.white)
                             .cornerRadius(20)
-                            .shadow(color: AppColors.shadow, radius: 25, x: 2, y: 15)
+                            .shadow(color: Color(.shadow), radius: 25, x: 2, y: 15)
                         
                         Image("scan-success")
                     }
@@ -55,22 +55,23 @@ struct ScannedQR: View {
                     
                     VStack {
                         HStack {
-                            TextHelper(text: NSLocalizedString("enterAmount", comment: ""), color: AppColors.gray,
-                                       fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("enterAmount", comment: ""),
+                                       colorResource: .appGray,
+                                       fontName: .medium, fontSize: 12)
                             
                             Spacer()
                             
-                            TextHelper(text: NSLocalizedString("max $12,652", comment: ""), color: AppColors.gray,
-                                       fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("max $12,652", comment: ""), colorResource: .appGray,
+                                       fontName: .medium, fontSize: 12)
                         }.padding(16)
                         
                         HStack {
-                            TextHelper(text: qrVM.selectedCard?.currency.rawValue ?? "USD", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 16)
+                            TextHelper(text: qrVM.selectedCard?.currency.rawValue ?? "USD", colorResource: .appGray, fontName: .medium, fontSize: 16)
                                 .padding(.vertical, 4)
                                 .padding(.horizontal, 8)
                                 .background {
                                     RoundedRectangle(cornerRadius: 8)
-                                        .fill(AppColors.lightGray)
+                                        .fill(Color(.lightGray))
                                 }
                             
                             AmountTextField(text: $amount, fontSize: 24)
@@ -78,7 +79,7 @@ struct ScannedQR: View {
                         }.padding([.horizontal, .bottom], 16)
                     }.background {
                         RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(AppColors.lightGray, lineWidth: 1)
+                            .strokeBorder(Color(.lightGray), lineWidth: 1)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
                                     .fill(Color.white)

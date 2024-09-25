@@ -62,7 +62,7 @@ struct ActivityGraph: View {
                     .annotation(alignment: .bottom, spacing: 0) {
 
                         VStack(spacing: 0) {
-                            TextHelper(text: "\(currencySymbol) \(point.amount)", color: .white, fontName: Roboto.medium.rawValue, fontSize: 10)
+                            TextHelper(text: "\(currencySymbol) \(point.amount)", color: .white, fontName: .medium, fontSize: 10)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 5)
                                 .background {
@@ -85,7 +85,7 @@ struct ActivityGraph: View {
                     y: .value("Amount", point.amount)
                 )
                 .interpolationMethod(.catmullRom)
-                .foregroundStyle(AppColors.green)
+                .foregroundStyle(Color(.appGreen))
                 .lineStyle(StrokeStyle(lineWidth: 3))
                 .accessibilityHidden(false)
 

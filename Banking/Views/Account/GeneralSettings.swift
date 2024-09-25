@@ -46,7 +46,7 @@ struct GeneralSettings: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: AppColors.green) {
+                    ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: Color(.appGreen)) {
                         authVM.signOut()
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     
@@ -64,7 +64,7 @@ struct GeneralSettings: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("generalSettings", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("generalSettings", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
             }
     }

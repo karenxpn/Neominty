@@ -8,15 +8,14 @@
 import SwiftUI
 import CollectionViewPagingLayout
 import Shimmer
+import FirebaseAuth
 
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
-    
-    @AppStorage("fullName") var localName: String = ""
-    
+        
     var options: ScaleTransformViewOptions {
         
         var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
@@ -101,10 +100,10 @@ struct HomeView: View {
                     ToolbarItem(placement: .navigationBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
                             
-                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
+                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
                             
-                            TextHelper(text: localName, color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 24)
-                        }
+                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                        }.id(UUID())
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -112,8 +111,9 @@ struct HomeView: View {
                             viewRouter.pushHomePath(.notifications)
                         } label: {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
-                        }
+                        }.id(UUID())
                     }
+                    
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
                 }, message: {
@@ -127,9 +127,9 @@ struct HomeView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
                     
                 }
             } action: {

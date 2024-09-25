@@ -60,6 +60,11 @@ struct Authentication: View {
                 if authVM.authState == .authenticated {
                     UserDefaults.standard.set(Date.now, forKey: "lastOnline")
                 }
+//            case .active:
+//                if authVM.authState == .authenticated {
+//                    print("determined authenticated state of the user")
+//                    authVM.checkPinExistence()
+//                }
             default:
                 break
             }

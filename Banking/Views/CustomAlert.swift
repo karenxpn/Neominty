@@ -26,7 +26,7 @@ struct CustomAlert<Content: View>: View {
             BackgroundBlurView()
                 .edgesIgnoringSafeArea(.all)
             
-            AppColors.darkBlue.opacity(0.6)
+            Color(.darkBlue).opacity(0.6)
                 .edgesIgnoringSafeArea(.all)
             
 
@@ -70,20 +70,20 @@ struct CustomAlert_Previews: PreviewProvider {
         CustomAlert(content: {
             
             VStack(spacing: 31) {
-                TextHelper(text: "Transfer Confirmation", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 
                 
                 VStack(spacing: 8) {
                     HStack {
-                        TextHelper(text: "From", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "From", colorResource: .appGray, fontSize: 12)
                         Spacer()
-                        TextHelper(text: "Bank of America", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "Bank of America", colorResource: .appGray, fontSize: 12)
                     }
                     
                     HStack {
-                        TextHelper(text: "Tonny Monthana", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: "Tonny Monthana", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
                         Spacer()
-                        TextHelper(text: "**** 1121", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: "**** 1121", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
                     }
                     
                     Divider()
@@ -92,15 +92,15 @@ struct CustomAlert_Previews: PreviewProvider {
                 
                 VStack(spacing: 8) {
                     HStack {
-                        TextHelper(text: "To", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "To", color: Color(.appGray), fontSize: 12)
                         Spacer()
-                        TextHelper(text: "Citibank Online", color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                        TextHelper(text: "Citibank Online", color: Color(.appGray), fontSize: 12)
                     }
                     
                     HStack {
-                        TextHelper(text: "Linda", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: "Linda", color: Color(.darkBlue), fontName: .bold, fontSize: 16)
                         Spacer()
-                        TextHelper(text: "**** 8456", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                        TextHelper(text: "**** 8456", color: Color(.darkBlue), fontName: .bold, fontSize: 16)
                     }
                     
                     Divider()
@@ -108,9 +108,9 @@ struct CustomAlert_Previews: PreviewProvider {
                 }
                 
                 HStack {
-                    TextHelper(text: "Total", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                    TextHelper(text: "Total", color: Color(.darkBlue), fontName: .bold, fontSize: 16)
                     Spacer()
-                    TextHelper(text: "$868.10", color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 16)
+                    TextHelper(text: "$868.10", color: Color(.darkBlue), fontName: .bold, fontSize: 16)
                 }
                 
             }

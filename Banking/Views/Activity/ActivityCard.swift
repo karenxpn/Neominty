@@ -14,8 +14,8 @@ struct ActivityCard: View {
         VStack(alignment: .leading, spacing: 36) {
             HStack {
                 VStack(alignment: .leading, spacing: 6) {
-                    TextHelper(text: card.cardPan, color: .white, fontName: Roboto.medium.rawValue, fontSize: 14)
-                    TextHelper(text: card.cardHolder, color: .white, fontName: Roboto.medium.rawValue, fontSize: 20)
+                    TextHelper(text: card.cardPan, color: .white, fontName: .medium, fontSize: 14)
+                    TextHelper(text: card.cardHolder, color: .white, fontName: .medium, fontSize: 20)
                 }
                 
                 Spacer()
@@ -36,16 +36,16 @@ struct ActivityCard: View {
             
             switch card.cardStyle {
             case .standardBlue, .hexBlue:
-                AppColors.darkBlue
+                Color(.darkBlue)
             case .standardGreen, .hexGreen:
-                AppColors.green
+                Color(.appGreen)
             case .standardBlueGreen, .hexBlueGreen:
-                LinearGradient(gradient: Gradient(colors: [AppColors.darkBlue, AppColors.green]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: Gradient(colors: [Color(.darkBlue), Color(.appGreen)]), startPoint: .topLeading, endPoint: .bottomTrailing)
             case .standardGreenBlue, .hexGreenBlue:
-                LinearGradient(gradient: Gradient(colors: [AppColors.green, AppColors.darkBlue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(gradient: Gradient(colors: [Color(.appGreen), Color(.darkBlue)]), startPoint: .topLeading, endPoint: .bottomTrailing)
             case .signedBlueGreen, .signedGreenBlue:
                 ZStack(alignment: .trailing) {
-                    card.cardStyle == .signedBlueGreen ? AppColors.darkBlue : AppColors.green
+                    card.cardStyle == .signedBlueGreen ? Color(.darkBlue) : Color(.appGreen)
                     Image("card-sign")
                         .resizable()
                 }

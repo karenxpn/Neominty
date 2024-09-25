@@ -24,7 +24,7 @@ struct CongratulationAlert<Content: View>: View {
             BackgroundBlurView()
                 .edgesIgnoringSafeArea(.all)
             
-            AppColors.darkBlue.opacity(0.6)
+            Color(.darkBlue).opacity(0.6)
                 .edgesIgnoringSafeArea(.all)
             
 
@@ -64,9 +64,9 @@ struct CongratulationAlert_Previews: PreviewProvider {
         CongratulationAlert(content: {
             
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), color: AppColors.darkBlue, fontName: Roboto.bold.rawValue, fontSize: 20)
+                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 
-                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), color: AppColors.gray, fontName: Roboto.regular.rawValue, fontSize: 12)
+                TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
             }
         }, action: {
             
