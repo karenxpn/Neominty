@@ -76,7 +76,7 @@
 "createYourNeomintyCard" = "Создайте свою карту Neominty";
 "createYourCardMessage" = "Настраиваемая карта без скрытых комиссий, с мгновенной скидкой";
 "attachCard" = "Присоединить карту";
-"attachNewCard" = "Присоединить новую карту";
+"attachNewCard" = "Добавить новую карту";
 "attachCardToRequestTransfer" = "Присоедините карту, чтобы запросить перевод от пользователей";
 "selectYourCard" = "Выберите свою карту";
 "enterSenderPhone" = "Введите номер телефона отправителя";
