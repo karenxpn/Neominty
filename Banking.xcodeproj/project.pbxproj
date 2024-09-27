@@ -143,6 +143,7 @@
 		FF88E69D2CA1B34300B890E1 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = FF88E69C2CA1B34300B890E1 /* FirebaseFunctions */; };
 		FF88E69F2CA1B34300B890E1 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = FF88E69E2CA1B34300B890E1 /* FirebaseMessaging */; };
 		FF88E6A12CA1B34300B890E1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FF88E6A02CA1B34300B890E1 /* FirebaseStorage */; };
+		FF88E6A42CA71C2800B890E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FF88E6A32CA71C2800B890E1 /* Localizable.strings */; };
 		FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */; };
 		FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */ = {isa = PBXBuildFile; productRef = FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */; };
 		FF95D94E2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */; };
@@ -173,7 +174,6 @@
 		FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */; };
 		FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */; };
 		FFC2BCEE29BB59EC00E774FD /* ButtonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */; };
-		FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCEF29BB5B7200E774FD /* Localizable.strings */; };
 		FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */; };
 		FFC2BCF729BB612100E774FD /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */; };
 		FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */; };
@@ -361,6 +361,8 @@
 		FF821BD129D5C7F400F3BA0C /* SelectCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCardList.swift; sourceTree = "<group>"; };
 		FF864DFA29EB796900EC883E /* AmountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTextField.swift; sourceTree = "<group>"; };
 		FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTextField.swift; sourceTree = "<group>"; };
+		FF88E6A22CA71C2800B890E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF88E6A52CA71C2D00B890E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerificationViewModel.swift; sourceTree = "<group>"; };
 		FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerification.swift; sourceTree = "<group>"; };
 		FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityService.swift; sourceTree = "<group>"; };
@@ -390,7 +392,6 @@
 		FFB1C97D29EB30410063DD24 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		FFB1C98029EB36BC0063DD24 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		FFC2BCED29BB59EC00E774FD /* ButtonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHelper.swift; sourceTree = "<group>"; };
-		FFC2BCEF29BB5B7200E774FD /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FFC2BCF229BB612100E774FD /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		FFC2BCF329BB612100E774FD /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		FFC2BCF429BB612100E774FD /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
@@ -744,7 +745,7 @@
 				FF628E0329BA2CD200FE35EE /* Preview Content */,
 				FF18C24A29BA8042004EF3A3 /* AppDelegate.swift */,
 				FF18C26829BB3199004EF3A3 /* Credentials.swift */,
-				FFC2BCEF29BB5B7200E774FD /* Localizable.strings */,
+				FF88E6A32CA71C2800B890E1 /* Localizable.strings */,
 				FFC2BCF129BB60E300E774FD /* font */,
 				FF0D89DC29D0EC110062BC52 /* Launch Screen.storyboard */,
 			);
@@ -1035,6 +1036,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = FF628DF129BA2CD000FE35EE;
 			packageReferences = (
@@ -1069,7 +1071,7 @@
 				FFB1A3372B80FCF800EA6E64 /* Home.png in Resources */,
 				FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */,
 				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
-				FFC2BCF029BB5B7200E774FD /* Localizable.strings in Resources */,
+				FF88E6A42CA71C2800B890E1 /* Localizable.strings in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FFB1A33B2B80FCF800EA6E64 /* Transfer Money.png in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
@@ -1405,6 +1407,18 @@
 			targetProxy = FF628E1529BA2CD200FE35EE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF88E6A32CA71C2800B890E1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF88E6A22CA71C2800B890E1 /* en */,
+				FF88E6A52CA71C2D00B890E1 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FF628E1C29BA2CD200FE35EE /* Debug */ = {
