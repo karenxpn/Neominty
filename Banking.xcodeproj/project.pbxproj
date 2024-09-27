@@ -363,6 +363,7 @@
 		FF864E3329ED824E00EC883E /* SubCategoryTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryTextField.swift; sourceTree = "<group>"; };
 		FF88E6A22CA71C2800B890E1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF88E6A52CA71C2D00B890E1 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FF88E6A62CA71C8300B890E1 /* hy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hy; path = hy.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FF95D94D2ACDA6F200CEF7BC /* IdentityVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerificationViewModel.swift; sourceTree = "<group>"; };
 		FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerification.swift; sourceTree = "<group>"; };
 		FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityService.swift; sourceTree = "<group>"; };
@@ -1037,6 +1038,7 @@
 				en,
 				Base,
 				ru,
+				hy,
 			);
 			mainGroup = FF628DF129BA2CD000FE35EE;
 			packageReferences = (
@@ -1414,6 +1416,7 @@
 			children = (
 				FF88E6A22CA71C2800B890E1 /* en */,
 				FF88E6A52CA71C2D00B890E1 /* ru */,
+				FF88E6A62CA71C8300B890E1 /* hy */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
