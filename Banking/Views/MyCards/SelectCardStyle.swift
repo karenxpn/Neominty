@@ -21,17 +21,17 @@ struct SelectCardStyle: View {
             
             LazyVStack(spacing: 16) {
                 ForEach(styles, id: \.id) { style in
-                    
-                    
-                    switch style {
-                    case .standard:
-                        SelectCardStyleCell(style: style, card: standardCard)
-                    case .hex:
-                        SelectCardStyleCell(style: style, card: hexCard)
-                    case .signed:
-                        SelectCardStyleCell(style: style, card: signedCard)
-                    default:
-                        EmptyView()
+                    NavigationLink(value: style) {
+                        switch style {
+                        case .standard:
+                            SelectCardStyleCell(style: style, card: standardCard)
+                        case .hex:
+                            SelectCardStyleCell(style: style, card: hexCard)
+                        case .signed:
+                            SelectCardStyleCell(style: style, card: signedCard)
+                        default:
+                            EmptyView()
+                        }
                     }
                 }
             }.padding(24)
@@ -44,6 +44,8 @@ struct SelectCardStyle: View {
                     ToolbarItem(placement: .principal) {
                         TextHelper(text: NSLocalizedString("chooseYourStyle", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
+                }.navigationDestination(for: CardDesign.self) { design in
+                    AddNewCard(style: design)
                 }
         
     }
@@ -56,27 +58,20 @@ struct SelectCardStyle_Previews: PreviewProvider {
 }
 
 struct SelectCardStyleCell: View {
-    @State private var navigate: Bool = false
     let style: CardDesign
     let card: CardModel
     
     var body: some View {
-        Button {
-            navigate.toggle()
-        } label: {
-            switch style {
-            case .standard:
-                StandardStyles(card: card, selected: false)
-            case .hex:
-                HexagonStyles(card: card, selected: false)
-            case .signed:
-                SignedStyle(card: card, selected: false)
-                
-            default:
-                EmptyView()
-            }
-        }.navigationDestination(isPresented: $navigate) {
-            AddNewCard(style: style)
+        switch style {
+        case .standard:
+            StandardStyles(card: card, selected: false)
+        case .hex:
+            HexagonStyles(card: card, selected: false)
+        case .signed:
+            SignedStyle(card: card, selected: false)
+            
+        default:
+            EmptyView()
         }
     }
 }
