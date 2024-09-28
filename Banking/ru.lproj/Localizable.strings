@@ -81,7 +81,7 @@
 "selectYourCard" = "Выберите свою карту";
 "enterSenderPhone" = "Введите номер телефона отправителя";
 "enterSenderEmail" = "Введите электронную почту отправителя";
-"pleaseWait" = "Пожалуйста, подождите...";
+"pleaseWait" = "Пожалуйста подождите...";
 "yourLinkIsReady" = "Ваша ссылка готова!";
 "requestIsSent" = "Запрос отправлен";
 "yourRequestForReceivingMoneyIsSentTo" = "Ваш запрос на получение денег отправлен ";
