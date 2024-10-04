@@ -68,7 +68,7 @@
 "addNewCard" = "Add new card";
 "cardDetails" = "Card Details";
 "cardNumber" = "Card Number";
-"expireDate" = "Expire Date(MM/YY)";
+"expireDate" = "Expiry Date(MM/YY)";
 "cardHolder" = "Card Holder";
 "newCard" = "New Card";
 "yourName" = "Your Name";
@@ -103,7 +103,7 @@
 "logout" = "Log Out";
 "phoneNumber" = "Phone Number";
 "emailInfo" = "Your mail address will be used for receiving mail promotions.\nIn order to not receive mail promotions, please delete your mail address";
-"youHaveQuestion" = "You have any question ?";
+"youHaveQuestion" = "Do you have any question ?";
 "frequentlyAsked" = "Frequently Asked";
 "viewAll" = "View All";
 "search" = "Search";
