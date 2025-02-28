@@ -131,7 +131,8 @@ struct TransferDetailView: View {
                     
                 }.padding(.top, 12)
                     .fullScreenCover(isPresented: $navigateToConfirmation) {
-                        CustomAlert {
+
+                        CustomAlert(loading: $transferVM.loading) {
                             
                             VStack(spacing: 31) {
                                 TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)
