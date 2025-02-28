@@ -156,7 +156,12 @@ struct Activity: View {
                     ToolbarItem(placement: .principal) {
                         TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
-                }.task {
+                }.refreshable {
+                    activityVM.cards.removeAll(keepingCapacity: false)
+                    activityVM.activity = nil
+                    activityVM.getCards()
+                }
+                .task {
                     activityVM.getCards()
                 }.navigationDestination(for: AnalyticsViewPaths.self) { value in
                     switch value {

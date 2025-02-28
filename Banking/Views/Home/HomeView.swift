@@ -85,6 +85,12 @@ struct HomeView: View {
                     }
                 }
             }.padding(.top, 1)
+                .refreshable {
+                    homeVM.cards.removeAll(keepingCapacity: false)
+                    homeVM.transactions.removeAll(keepingCapacity: false)
+                    homeVM.getCards()
+                    homeVM.getRecentTransfers()
+                }
                 .task {
                     homeVM.getCards()
                     homeVM.getRecentTransfers()
