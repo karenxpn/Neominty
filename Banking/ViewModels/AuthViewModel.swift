@@ -130,18 +130,23 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
         let pin = keychainManager.get("pin")
         if pin != nil {
             authState = .enterPasscode
-
-            if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
-                if lastOnline - .now < -5*60 {
-                    passcodeConfirm = ""
-                    if self.biometricEnabled {
-                        self.biometricAuthentication()
-                    }
-                } else {
-                    authState = .authenticated
-                }
-                UserDefaults.standard.removeObject(forKey: "lastOnline")
+            if self.biometricEnabled {
+                self.biometricAuthentication()
+            } else {
+                authState = .authenticated
             }
+
+//            if let lastOnline = UserDefaults.standard.object(forKey: "lastOnline") as? Date {
+//                if lastOnline - .now < -5*60 {
+//                    passcodeConfirm = ""
+//                    if self.biometricEnabled {
+//                        self.biometricAuthentication()
+//                    }
+//                } else {
+//                    authState = .authenticated
+//                }
+//                UserDefaults.standard.removeObject(forKey: "lastOnline")
+//            }
         } else {
             self.authState = .setPasscode
         }
