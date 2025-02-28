@@ -25,7 +25,7 @@ struct OTPTextFieldView: View {
             backgroundField
         }.onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                if authState != .enterPasscode || (authState == .enterPasscode && !biometricEnabled) {
+                if authState == .enterPasscode || (authState == .enterPasscode && !biometricEnabled) {
                     focus = 0
                 }
             }
