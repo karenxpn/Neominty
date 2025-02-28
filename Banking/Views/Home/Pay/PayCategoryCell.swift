@@ -16,7 +16,7 @@ struct PayCategoryCell: View {
         Button {
             showCategory.toggle()
         } label: {
-            LazyVStack(alignment: .leading, spacing: 8) {
+            LazyVStack(alignment: .leading, spacing: 13) {
                 Image(category.image)
                     .foregroundColor(.black)
                 TextHelper(text: category.title, colorResource: .darkBlue, fontName: .medium, fontSize: 14)

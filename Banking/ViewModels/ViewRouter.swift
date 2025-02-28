@@ -38,7 +38,7 @@ class ViewRouter: ObservableObject {
         case .send(let cards):
             MoneyTransfer(cards: cards)
         case .pay:
-            ViewInDevelopmentMode()
+            PayView()
         case .receive:
             RequestTransfer()
         case .more:
