@@ -46,14 +46,15 @@
 		FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F929CDDA8000610F5C /* ActivityCard.swift */; };
 		FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */; };
 		FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */; };
+		FF39E3E42D722F09003380FB /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = FF39E3E32D722F09003380FB /* CarouselStack */; };
+		FF3B61332D71DEE700FA7A54 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61322D71DEE700FA7A54 /* RegisterOrderResponse.swift */; };
+		FF3B61362D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61352D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift */; };
+		FF3B61372D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61342D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift */; };
+		FF3B613A2D72247200FA7A54 /* SnapPagerCarousel in Frameworks */ = {isa = PBXBuildFile; productRef = FF3B61392D72247200FA7A54 /* SnapPagerCarousel */; };
 		FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */; };
 		FF42813929F743D900E57567 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF42813829F743D900E57567 /* Alamofire */; };
-		FF42813C29F7C84500E57567 /* RegisterOrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */; };
-		FF42813E29F7C8D100E57567 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */; };
 		FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */; };
 		FF42814229F7D2AC00E57567 /* VPOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814129F7D2AC00E57567 /* VPOS.swift */; };
-		FF42814429F7FB9900E57567 /* OrderStatusRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */; };
-		FF42814629F7FBF000E57567 /* OrderStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */; };
 		FF45204529C079C3003C6415 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204429C079C3003C6415 /* KeychainManager.swift */; };
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
@@ -150,7 +151,6 @@
 		FF95D9502ACDA76600CEF7BC /* IdentityVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */; };
 		FF95D9522ACDC68C00CEF7BC /* VerifyIdentityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */; };
 		FFA67C1B2A06B051007C6A9F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA67C1A2A06B051007C6A9F /* NetworkError.swift */; };
-		FFAA60BD2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */; };
 		FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */; };
 		FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DE929D1C79500947CBC /* Cards.swift */; };
 		FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */; };
@@ -192,7 +192,6 @@
 		FFDDB1C32C9B84A7007ED1A6 /* coins-hover.gif in Resources */ = {isa = PBXBuildFile; fileRef = FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */; };
 		FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FFDE8FE52A4723750005A35F /* Shimmer */; };
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
-		FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */; };
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
 		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
 		FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */; };
@@ -273,12 +272,11 @@
 		FF38E9F929CDDA8000610F5C /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityService.swift; sourceTree = "<group>"; };
 		FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransferViewModel.swift; sourceTree = "<group>"; };
-		FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderRequest.swift; sourceTree = "<group>"; };
-		FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderResponse.swift; sourceTree = "<group>"; };
+		FF3B61322D71DEE700FA7A54 /* RegisterOrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterOrderResponse.swift; sourceTree = "<group>"; };
+		FF3B61342D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentResponseModel.swift; sourceTree = "<group>"; };
+		FF3B61352D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToCardPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIWebView.swift; sourceTree = "<group>"; };
 		FF42814129F7D2AC00E57567 /* VPOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VPOS.swift; sourceTree = "<group>"; };
-		FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusRequest.swift; sourceTree = "<group>"; };
-		FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusResponse.swift; sourceTree = "<group>"; };
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 		FF95D94F2ACDA76600CEF7BC /* IdentityVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityVerification.swift; sourceTree = "<group>"; };
 		FF95D9512ACDC68C00CEF7BC /* VerifyIdentityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyIdentityService.swift; sourceTree = "<group>"; };
 		FFA67C1A2A06B051007C6A9F /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToCardPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFAC1DE629D1C33E00947CBC /* CongratulationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationAlert.swift; sourceTree = "<group>"; };
 		FFAC1DE929D1C79500947CBC /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		FFAC1DEB29D1C7A400947CBC /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
@@ -409,7 +406,6 @@
 		FFDDB1C02C9B8449007ED1A6 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
 		FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "coins-hover.gif"; sourceTree = "<group>"; };
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
-		FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingToBindingPaymentResponseModel.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
 		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
@@ -446,6 +442,7 @@
 				FF88E6A12CA1B34300B890E1 /* FirebaseStorage in Frameworks */,
 				FF7A121529E6ED0A00286366 /* CodeScanner in Frameworks */,
 				FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */,
+				FF3B613A2D72247200FA7A54 /* SnapPagerCarousel in Frameworks */,
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */,
 				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
@@ -453,6 +450,7 @@
 				FF88E6992CA1B34300B890E1 /* FirebaseCrashlytics in Frameworks */,
 				FF1F4FE82AE5C4C50031BB36 /* SimpleToast in Frameworks */,
 				18C3663BB2628D87D16ED523 /* Pods_Banking.framework in Frameworks */,
+				FF39E3E42D722F09003380FB /* CarouselStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,7 +589,7 @@
 		FF18C25329BA8E4E004EF3A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FF42813A29F7C82B00E57567 /* PaymentGateway */,
+				FF3B61312D71DEC900FA7A54 /* PaymentGateway */,
 				FF18C26429BB2D6F004EF3A3 /* IntroductionModel.swift */,
 				FF45205629C66453003C6415 /* CardModel.swift */,
 				FF45207029C73AE7003C6415 /* TransactionPreview.swift */,
@@ -648,15 +646,12 @@
 			path = Activity;
 			sourceTree = "<group>";
 		};
-		FF42813A29F7C82B00E57567 /* PaymentGateway */ = {
+		FF3B61312D71DEC900FA7A54 /* PaymentGateway */ = {
 			isa = PBXGroup;
 			children = (
-				FF42813B29F7C84500E57567 /* RegisterOrderRequest.swift */,
-				FF42813D29F7C8D100E57567 /* RegisterOrderResponse.swift */,
-				FF42814329F7FB9900E57567 /* OrderStatusRequest.swift */,
-				FF42814529F7FBF000E57567 /* OrderStatusResponse.swift */,
-				FFE0C6AA2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift */,
-				FFAA60BC2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift */,
+				FF3B61322D71DEE700FA7A54 /* RegisterOrderResponse.swift */,
+				FF3B61342D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift */,
+				FF3B61352D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift */,
 			);
 			path = PaymentGateway;
 			sourceTree = "<group>";
@@ -962,6 +957,8 @@
 				FF88E69C2CA1B34300B890E1 /* FirebaseFunctions */,
 				FF88E69E2CA1B34300B890E1 /* FirebaseMessaging */,
 				FF88E6A02CA1B34300B890E1 /* FirebaseStorage */,
+				FF3B61392D72247200FA7A54 /* SnapPagerCarousel */,
+				FF39E3E32D722F09003380FB /* CarouselStack */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -1050,6 +1047,8 @@
 				FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */,
 				FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 				FF88E6912CA1B34200B890E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */,
+				FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1252,7 +1251,6 @@
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
-				FF42813E29F7C8D100E57567 /* RegisterOrderResponse.swift in Sources */,
 				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
@@ -1270,7 +1268,6 @@
 				FF7A11CC29D709F900286366 /* GlobalResponse.swift in Sources */,
 				FF18C26929BB3199004EF3A3 /* Credentials.swift in Sources */,
 				FFC2BCFF29BB6E7100E774FD /* CountryCodeSelection.swift in Sources */,
-				FF42813C29F7C84500E57567 /* RegisterOrderRequest.swift in Sources */,
 				FF1F4FE22AE5B1300031BB36 /* UpdateAccountEmail.swift in Sources */,
 				FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */,
 				FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */,
@@ -1289,11 +1286,12 @@
 				FF7A11D129D752A000286366 /* Account.swift in Sources */,
 				FF7A11F929DCA43A00286366 /* FAQDetail.swift in Sources */,
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
+				FF3B61362D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift in Sources */,
+				FF3B61372D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift in Sources */,
 				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
 				FFAFCE242AD85F2500FC84DE /* AccountVerificationApproved.swift in Sources */,
 				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,
-				FFE0C6AB2A1A554B0043E5FF /* BindingToBindingPaymentResponseModel.swift in Sources */,
 				FF45205B29C66794003C6415 /* HomeMenuItem.swift in Sources */,
 				FF80569229BDF6730081AD76 /* UserService.swift in Sources */,
 				FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */,
@@ -1312,7 +1310,6 @@
 				FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
-				FFAA60BD2B29FFD40058CECC /* BindingToCardPaymentResponseModel.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
 				FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
@@ -1330,6 +1327,7 @@
 				FF18C25C29BB25AF004EF3A3 /* AuthService.swift in Sources */,
 				FFC2BD0729BB822100E774FD /* OTPTextFieldView.swift in Sources */,
 				FF7A11E329DAF69400286366 /* GeneralSettingsCell.swift in Sources */,
+				FF3B61332D71DEE700FA7A54 /* RegisterOrderResponse.swift in Sources */,
 				FF18C26529BB2D6F004EF3A3 /* IntroductionModel.swift in Sources */,
 				FF7A120D29E43BF900286366 /* QrViewModel.swift in Sources */,
 				FF7A11ED29DB90C400286366 /* PushNotificationViewModel.swift in Sources */,
@@ -1338,9 +1336,7 @@
 				FFAC1DEE29D1DA7D00947CBC /* AddNewCard.swift in Sources */,
 				FF7A11E929DB04F700286366 /* AccountConfirmPin.swift in Sources */,
 				FF45206D29C733B7003C6415 /* HomeViewModel.swift in Sources */,
-				FF42814429F7FB9900E57567 /* OrderStatusRequest.swift in Sources */,
 				FF95D9522ACDC68C00CEF7BC /* VerifyIdentityService.swift in Sources */,
-				FF42814629F7FBF000E57567 /* OrderStatusResponse.swift in Sources */,
 				FF7A11E529DB001B00286366 /* CheckPin.swift in Sources */,
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */,
@@ -1563,7 +1559,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1603,7 +1599,7 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1759,6 +1755,22 @@
 				minimumVersion = 0.8.0;
 			};
 		};
+		FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dscyrescotti/ShuffleIt.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MaximeFILIPPI/SnapPagerCarousel";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/amirdew/CollectionViewPagingLayout";
@@ -1832,6 +1844,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */;
 			productName = SimpleToast;
+		};
+		FF39E3E32D722F09003380FB /* CarouselStack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */;
+			productName = CarouselStack;
+		};
+		FF3B61392D72247200FA7A54 /* SnapPagerCarousel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */;
+			productName = SnapPagerCarousel;
 		};
 		FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */ = {
 			isa = XCSwiftPackageProductDependency;

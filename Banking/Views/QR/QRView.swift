@@ -83,46 +83,46 @@ struct QRView: View {
                     .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             }.padding(.top, 1)
                 .navigationTitle(Text(""))
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbar {
-                        ToolbarItem(placement: .principal) {
-                            TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
-                        }
-                    }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
-                        Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
-                    }, message: {
-                        Text(qrVM.alertMessage)
-                    }).task {
-                        qrVM.getCards()
-                    }.sheet(isPresented: $selectCard) {
-                        if qrVM.selectedCard != nil {
-                            
-                            if #available(iOS 16.4, *) {
-                                SelectCardList(cards: qrVM.cards,
-                                               selectedCard: $qrVM.selectedCard,
-                                               show: $selectCard)
-                                .presentationDetents([.medium, .large])
-                                .presentationCornerRadius(40)
-                            } else {
-                                SelectCardList(cards: qrVM.cards,
-                                               selectedCard: $qrVM.selectedCard,
-                                               show: $selectCard)
-                                .presentationDetents([.medium, .large])
-                            }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    }
+                }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
+                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }, message: {
+                    Text(qrVM.alertMessage)
+                }).task {
+                    qrVM.getCards()
+                }.sheet(isPresented: $selectCard) {
+                    if qrVM.selectedCard != nil {
+                        
+                        if #available(iOS 16.4, *) {
+                            SelectCardList(cards: qrVM.cards,
+                                           selectedCard: $qrVM.selectedCard,
+                                           show: $selectCard)
+                            .presentationDetents([.medium, .large])
+                            .presentationCornerRadius(40)
+                        } else {
+                            SelectCardList(cards: qrVM.cards,
+                                           selectedCard: $qrVM.selectedCard,
+                                           show: $selectCard)
+                            .presentationDetents([.medium, .large])
                         }
                     }
-                    .navigationDestination(for: ScanViewPaths.self) { page in
-                        viewRouter.buildQrView(page: page)
-                    }
+                }
+                .navigationDestination(for: ScanViewPaths.self) { page in
+                    viewRouter.buildQrView(page: page)
+                }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
                     TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
-
+                    
                     TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
-
+                    
                 }
             } action: {
                 showCardAttachedAlert = false
@@ -133,13 +133,13 @@ struct QRView: View {
     
     func generateQRCode(from string: String) -> UIImage {
         filter.message = Data(string.utf8)
-
+        
         if let outputImage = filter.outputImage?.tinted(using: UIColor(red: 29/255, green: 58/255, blue: 112/255, alpha: 1)) {
             if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
                 return UIImage(cgImage: cgimg)
             }
         }
-
+        
         return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
 }

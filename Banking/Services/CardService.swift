@@ -122,9 +122,9 @@ extension CardService: CardServiceProtocol {
             }
             
             
-            return .success(orderedCards
-            )
+            return .success(orderedCards)
         } catch {
+            print("error = \(error)")
             return .failure(error)
         }
     }

@@ -15,7 +15,7 @@ class ViewRouter: ObservableObject {
     @Published var tab: Int = 0
     @Published var homePath = NavigationPath()
     @Published var cardPath = NavigationPath()
-    @Published var scanPath = [ScanViewPaths]()
+    @Published var scanPath = NavigationPath()
     @Published var analyticsPath = NavigationPath()
     @Published var accountPath = NavigationPath()
 

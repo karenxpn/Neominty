@@ -12,7 +12,8 @@ import Shimmer
 struct Cards: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @StateObject var cardsVM = CardsViewModel()
-    
+    @State private var showCardAttachedAlert: Bool = false
+
     var body: some View {
         NavigationStack(path: $viewRouter.cardPath) {
             ZStack {
@@ -54,7 +55,21 @@ struct Cards: View {
                     case .attachCard:
                         SelectCardStyle()
                     }
-                }
+                }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
+                    showCardAttachedAlert.toggle()
+                }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
+                    CongratulationAlert {
+                        VStack(spacing: 12) {
+                            TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+
+                            TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
+
+                        }
+                    } action: {
+                        showCardAttachedAlert = false
+                        viewRouter.popToCardRoot()
+                    }
+                })
         }
     }
 }

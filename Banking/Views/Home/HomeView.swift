@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import CollectionViewPagingLayout
+import SnapPagerCarousel
+import CarouselStack
 import Shimmer
 import FirebaseAuth
 
@@ -15,13 +16,8 @@ struct HomeView: View {
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
-        
-    var options: ScaleTransformViewOptions {
-        
-        var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
-        viewOptions.shadowEnabled = false
-        return viewOptions
-    }
+    
+
     
     var body: some View {
         NavigationStack(path: $viewRouter.homePath) {
@@ -58,15 +54,31 @@ struct HomeView: View {
                             }
                             
                             else {
-                                ScalePageView(homeVM.cards) { card in
+                                CarouselStack(homeVM.cards, initialIndex: 0) { card in
                                     UserCard(card: card, selected: card.defaultCard)
                                         .frame(width: UIScreen.main.bounds.width * 0.8)
-                                }.options(options)
-                                    .pagePadding(
-                                        vertical: .absolute(40),
-                                        horizontal: .absolute(50)
-                                    )
-                                    .frame(height: 250)
+                                }.carouselScale(0.8)
+                                    .carouselAnimation(.easeIn)
+                                    .carouselSpacing(15)
+
+                                .frame(height: 250)
+//                                SnapPager(items: $homeVM.cards,
+//                                          selection: .constant(homeVM.cards.filter{$0.defaultCard}.first),
+//                                          currentIndex: .constant(0),
+//                                          edgesOverlap: 30,
+//                                          itemsMargin: 100) { _, card in
+//                                    UserCard(card: card, selected: card.defaultCard)
+//                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+//                                }.frame(height: 250)
+//                                ScalePageView(homeVM.cards) { card in
+//                                    UserCard(card: card, selected: card.defaultCard)
+//                                        .frame(width: UIScreen.main.bounds.width * 0.8)
+//                                }.options(options)
+//                                    .pagePadding(
+//                                        vertical: .absolute(40),
+//                                        horizontal: .absolute(50)
+//                                    )
+//                                    .frame(height: 250)
                             }
                             
                             HomeMenu(cards: homeVM.cards)
@@ -97,21 +109,21 @@ struct HomeView: View {
                 .navigationBarTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarLeading) {
+                    ToolbarItem(placement: .topBarLeading) {
                         VStack(alignment: .leading, spacing: 4) {
                             
                             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
                             
                             TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlue, fontName: .bold, fontSize: 24)
-                        }.id(UUID())
+                        }
                     }
                     
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItem(placement: .topBarTrailing) {
                         Button {
                             viewRouter.pushHomePath(.notifications)
                         } label: {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
-                        }.id(UUID())
+                        }
                     }
                     
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
