@@ -126,7 +126,7 @@ struct TransferDetailView: View {
                 }
                 
                 // add amount validation
-                ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil), label: NSLocalizedString("sendMoney", comment: "")) {
+                ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
                     navigateToConfirmation.toggle()
                     
                 }.padding(.top, 12)

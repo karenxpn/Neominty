@@ -95,6 +95,7 @@ public struct CardValidationTF: View {
         TextField(subtitle, text: $text)
             .font(tfFont)
             .foregroundColor(tfColor)
+            .keyboardType(.asciiCapable)
             .valueChanged(value: text) { name in
                 withAnimation(.linear) {
                     self.isValid = CardValidationTF.isCardHolderNameValid(text)
