@@ -1558,7 +1558,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_CFBundleDisplayName = NeoMinty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
@@ -1598,7 +1598,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_CFBundleDisplayName = NeoMinty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";

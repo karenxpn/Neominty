@@ -41,7 +41,7 @@ struct PhoneAuthentication: View {
                             .cornerRadius(16, corners: [.topLeft, .bottomLeft])
                     }
                     
-                    TextField("(555) 555-1234", text: $authVM.phoneNumber)
+                    TextField(NSLocalizedString("enterPhoneNumber", comment: ""), text: $authVM.phoneNumber)
                         .keyboardType(.phonePad)
                         .font(.custom(Roboto.regular.rawValue, size: 16))
                         .padding(.leading, 5)
