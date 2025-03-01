@@ -16,15 +16,22 @@ struct IntroductionPage: View {
     var body: some View {
         ZStack {
             
-            ImageHelper(image: introduction.image,
-                        contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width * 0.6,
-                   height: UIScreen.main.bounds.height * 0.5)
+            LottieView(name: index == 0 ? "lottie-1" : "lottie-2", loopMode: .playOnce, onComplete: {
+                if index == count-1 {
+                    authenticate = true
+                } else {
+                    withAnimation {
+                        index += 1
+                    }
+                }
+            }).id(index)
+                .frame(width: UIScreen.main.bounds.width * 0.6,
+                       height: UIScreen.main.bounds.height * 0.4)
             
             VStack {
                 Spacer()
                 VStack(spacing: 16) {
-
+                    
                     TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                         .multilineTextAlignment(.center)
                     
@@ -62,7 +69,7 @@ struct IntroductionPage: View {
                     
                 }.padding(45)
                     .background(Color.white)
-                    .shadow(color: .white, radius: 25, y: -50)
+                    .shadow(color: .white, radius: 25, y: -25)
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {
@@ -72,7 +79,7 @@ struct IntroductionPage: View {
                             authenticate = true
                         } label: {
                             TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: .bold, fontSize: 16)
-                        }                        
+                        }
                     }
                 }
             }.navigationDestination(isPresented: $authenticate) {

@@ -126,12 +126,13 @@ struct TransferDetailView: View {
                 }
                 
                 // add amount validation
-                ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil), label: NSLocalizedString("sendMoney", comment: "")) {
+                ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
                     navigateToConfirmation.toggle()
                     
                 }.padding(.top, 12)
                     .fullScreenCover(isPresented: $navigateToConfirmation) {
-                        CustomAlert {
+
+                        CustomAlert(loading: $transferVM.loading) {
                             
                             VStack(spacing: 31) {
                                 TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)

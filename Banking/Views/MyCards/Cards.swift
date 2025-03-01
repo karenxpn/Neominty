@@ -43,7 +43,10 @@ struct Cards: View {
                     ToolbarItem(placement: .principal) {
                         TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
-                }.task {
+                }.refreshable {
+                    cardsVM.getCards()
+                }
+                .task {
                     cardsVM.getCards()
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }

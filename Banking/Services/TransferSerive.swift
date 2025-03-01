@@ -14,6 +14,9 @@ protocol TransferServiceProtocol {
     func fetchRecentTransferHistory(userID: String) async -> Result<[TransactionPreview], Error>
     func fetchTransactionHistory(userID: String, lastDoc: QueryDocumentSnapshot?) async -> Result<([TransactionPreview], QueryDocumentSnapshot?), Error>
     func requestTransfer(amount: String) async -> Result<GlobalResponse, Error>
+    
+    // transactions
+    func bindingToCardTransaction(sender: String, card: String, amount: String, currency: String) async throws -> GlobalResponse
 }
 
 class TransferService {
@@ -24,6 +27,25 @@ class TransferService {
 }
 
 extension TransferService: TransferServiceProtocol {
+    func bindingToCardTransaction(sender: String, card: String, amount: String, currency: String) async throws -> GlobalResponse {
+        
+        print("amount = \(amount)")
+        let params = [
+            "sender": sender,
+            "receiver": card,
+            "amount": Int(amount),
+            "currency": currency
+        ] as [String : Any]
+        
+        do {
+            return try await APIHelper.shared.onCallRequest(params: params, name: "bindingToCardPayment", responseType: GlobalResponse.self)
+        } catch {
+            throw error
+        }
+        
+        
+    }
+    
     func fetchRecentTransferHistory(userID: String) async -> Result<[TransactionPreview], Error> {
         do {
             let docs = try await db

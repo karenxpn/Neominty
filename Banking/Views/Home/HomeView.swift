@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
-import SnapPagerCarousel
-import CarouselStack
 import Shimmer
 import FirebaseAuth
+import ACarousel
+
 
 struct HomeView: View {
     @EnvironmentObject private var viewRouter: ViewRouter
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
+    @State private var cardIndex = 0
     
 
     
@@ -54,31 +55,13 @@ struct HomeView: View {
                             }
                             
                             else {
-                                CarouselStack(homeVM.cards, initialIndex: 0) { card in
+                                
+                                ACarousel(homeVM.cards,
+                                          spacing: 10,
+                                          headspace: 30,
+                                          sidesScaling: 0.7) { card in
                                     UserCard(card: card, selected: card.defaultCard)
-                                        .frame(width: UIScreen.main.bounds.width * 0.8)
-                                }.carouselScale(0.8)
-                                    .carouselAnimation(.easeIn)
-                                    .carouselSpacing(15)
-
-                                .frame(height: 250)
-//                                SnapPager(items: $homeVM.cards,
-//                                          selection: .constant(homeVM.cards.filter{$0.defaultCard}.first),
-//                                          currentIndex: .constant(0),
-//                                          edgesOverlap: 30,
-//                                          itemsMargin: 100) { _, card in
-//                                    UserCard(card: card, selected: card.defaultCard)
-//                                        .frame(width: UIScreen.main.bounds.width * 0.8)
-//                                }.frame(height: 250)
-//                                ScalePageView(homeVM.cards) { card in
-//                                    UserCard(card: card, selected: card.defaultCard)
-//                                        .frame(width: UIScreen.main.bounds.width * 0.8)
-//                                }.options(options)
-//                                    .pagePadding(
-//                                        vertical: .absolute(40),
-//                                        horizontal: .absolute(50)
-//                                    )
-//                                    .frame(height: 250)
+                                }.frame(height: 250)
                             }
                             
                             HomeMenu(cards: homeVM.cards)
@@ -102,6 +85,12 @@ struct HomeView: View {
                     }
                 }
             }.padding(.top, 1)
+                .refreshable {
+                    homeVM.cards.removeAll(keepingCapacity: false)
+                    homeVM.transactions.removeAll(keepingCapacity: false)
+                    homeVM.getCards()
+                    homeVM.getRecentTransfers()
+                }
                 .task {
                     homeVM.getCards()
                     homeVM.getRecentTransfers()

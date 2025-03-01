@@ -10,12 +10,14 @@ import SwiftUI
 
 struct CustomAlert<Content: View>: View {
     @Environment(\.presentationMode) var presentationMode
+    @Binding var loading: Bool
     private var content: Content
     let action: () -> ()
 
     
-    init( @ViewBuilder content: () -> Content, action: @escaping () -> ()) {
+    init(loading: Binding<Bool>, @ViewBuilder content: () -> Content, action: @escaping () -> ()) {
         UITableView.appearance().backgroundColor = .clear
+        self._loading = loading
         self.content = content()
         self.action = action
     }
@@ -43,7 +45,7 @@ struct CustomAlert<Content: View>: View {
                         .padding(.top, 40)
                     
                     
-                    ButtonHelper(disabled: false, label: NSLocalizedString("okSendNow", comment: "")) {
+                    ButtonHelper(disabled: loading, label: NSLocalizedString("okSendNow", comment: "")) {
                         action()
                     }
                     
@@ -67,7 +69,7 @@ struct CustomAlert<Content: View>: View {
 
 struct CustomAlert_Previews: PreviewProvider {
     static var previews: some View {
-        CustomAlert(content: {
+        CustomAlert(loading: .constant(false), content: {
             
             VStack(spacing: 31) {
                 TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)

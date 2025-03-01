@@ -40,7 +40,7 @@ struct ScanQR: View {
                             qrVM.showAlert.toggle()
                             qrVM.alertMessage = error.localizedDescription
                         }
-                    }
+                    }.ignoresSafeArea(edges: .vertical)
                 }
                 
                 Button {

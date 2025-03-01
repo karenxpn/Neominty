@@ -47,8 +47,18 @@ class TransferViewModel: AlertViewModel, ObservableObject {
         loading = true
         
         Task {
-            NotificationCenter.default.post(name: Notification.Name("transferSuccess"), object: nil)
-
+            
+            do {
+                let result = try await manager.bindingToCardTransaction(sender: self.selectedCard?.bindingId ?? "",
+                                                                    card: self.selectedTransfer?.card ?? "",
+                                                                    amount: self.transferAmount,
+                                                                    currency: self.selectedCard?.currency.rawValue ?? "")
+                NotificationCenter.default.post(name: Notification.Name("transferSuccess"), object: nil)
+                
+                print("result = \(result)")
+            } catch {
+                print(error)
+            }
             
             if !Task.isCancelled {
                 loading = false

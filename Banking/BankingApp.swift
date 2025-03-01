@@ -12,6 +12,8 @@ struct BankingApp: App {
     // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var viewRouter = ViewRouter()
+    
+    @State private var showIntroLottie = true
 
     
     init() {
@@ -24,11 +26,20 @@ struct BankingApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(viewRouter)
-                .onAppear(perform: {
-                    delegate.app = self
-                })
+            
+            if showIntroLottie {
+                LottieView(name: "lottie-intro", loopMode: .playOnce) {
+                    showIntroLottie = false
+                }.frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .ignoresSafeArea()
+                    .background(Color(.darkBlue))
+            } else if showIntroLottie == false {
+                ContentView()
+                    .environmentObject(viewRouter)
+                    .onAppear(perform: {
+                        delegate.app = self
+                    })
+            }
         }
     }
 }

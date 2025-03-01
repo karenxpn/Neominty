@@ -38,6 +38,7 @@
 		FF20A3E62A12E6B600E41FC2 /* HexagonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E52A12E6B600E41FC2 /* HexagonStyles.swift */; };
 		FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF20A3E72A12EBA100E41FC2 /* SignedStyle.swift */; };
 		FF2A5A542AE008CC00DF8B43 /* SelectedSubCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2A5A532AE008CC00DF8B43 /* SelectedSubCategory.swift */; };
+		FF361B2A2D72502000F86A47 /* ACarousel in Frameworks */ = {isa = PBXBuildFile; productRef = FF361B292D72502000F86A47 /* ACarousel */; };
 		FF38E9F029CB75A100610F5C /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9EF29CB75A100610F5C /* Activity.swift */; };
 		FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F129CB75D500610F5C /* ActivityGraph.swift */; };
 		FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */; };
@@ -46,11 +47,9 @@
 		FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9F929CDDA8000610F5C /* ActivityCard.swift */; };
 		FF38E9FC29CDDF2F00610F5C /* ActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FB29CDDF2F00610F5C /* ActivityService.swift */; };
 		FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF38E9FD29CE00BB00610F5C /* AllTransferViewModel.swift */; };
-		FF39E3E42D722F09003380FB /* CarouselStack in Frameworks */ = {isa = PBXBuildFile; productRef = FF39E3E32D722F09003380FB /* CarouselStack */; };
 		FF3B61332D71DEE700FA7A54 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61322D71DEE700FA7A54 /* RegisterOrderResponse.swift */; };
 		FF3B61362D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61352D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift */; };
 		FF3B61372D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61342D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift */; };
-		FF3B613A2D72247200FA7A54 /* SnapPagerCarousel in Frameworks */ = {isa = PBXBuildFile; productRef = FF3B61392D72247200FA7A54 /* SnapPagerCarousel */; };
 		FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */; };
 		FF42813929F743D900E57567 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF42813829F743D900E57567 /* Alamofire */; };
 		FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */; };
@@ -192,6 +191,7 @@
 		FFDDB1C32C9B84A7007ED1A6 /* coins-hover.gif in Resources */ = {isa = PBXBuildFile; fileRef = FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */; };
 		FFDE8FE62A4723750005A35F /* Shimmer in Frameworks */ = {isa = PBXBuildFile; productRef = FFDE8FE52A4723750005A35F /* Shimmer */; };
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
+		FFE177372D7351B30042B2EE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE177362D7351AC0042B2EE /* LottieView.swift */; };
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
 		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
 		FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */; };
@@ -209,6 +209,10 @@
 		FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */; };
 		FFED57C02B5ABD4F00B0766D /* MockPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */; };
 		FFED57C22B5ABE7600B0766D /* QRViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */; };
+		FFF76B782D7285D100AD61BA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FFF76B772D7285D100AD61BA /* Lottie */; };
+		FFF76B7B2D72863400AD61BA /* lottie-2.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B7A2D72863300AD61BA /* lottie-2.json */; };
+		FFF76B7C2D72863400AD61BA /* lottie-1.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B792D72863300AD61BA /* lottie-1.json */; };
+		FFF76B7E2D7295A600AD61BA /* lottie-intro.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B7D2D7295A600AD61BA /* lottie-intro.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -406,6 +410,7 @@
 		FFDDB1C02C9B8449007ED1A6 /* GifImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifImageView.swift; sourceTree = "<group>"; };
 		FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "coins-hover.gif"; sourceTree = "<group>"; };
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
+		FFE177362D7351AC0042B2EE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
 		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
@@ -423,6 +428,9 @@
 		FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPayService.swift; sourceTree = "<group>"; };
 		FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModelTests.swift; sourceTree = "<group>"; };
+		FFF76B792D72863300AD61BA /* lottie-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-1.json"; sourceTree = "<group>"; };
+		FFF76B7A2D72863300AD61BA /* lottie-2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-2.json"; sourceTree = "<group>"; };
+		FFF76B7D2D7295A600AD61BA /* lottie-intro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-intro.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,11 +446,12 @@
 				FF88E6932CA1B34300B890E1 /* FirebaseAnalytics in Frameworks */,
 				FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */,
 				FF88E69B2CA1B34300B890E1 /* FirebaseFirestore in Frameworks */,
+				FFF76B782D7285D100AD61BA /* Lottie in Frameworks */,
 				FF88E6972CA1B34300B890E1 /* FirebaseAuth in Frameworks */,
 				FF88E6A12CA1B34300B890E1 /* FirebaseStorage in Frameworks */,
 				FF7A121529E6ED0A00286366 /* CodeScanner in Frameworks */,
+				FF361B2A2D72502000F86A47 /* ACarousel in Frameworks */,
 				FF95D94C2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent in Frameworks */,
-				FF3B613A2D72247200FA7A54 /* SnapPagerCarousel in Frameworks */,
 				FF18C27329BB37C5004EF3A3 /* SDWebImageSwiftUI in Frameworks */,
 				FF95D94A2ACDA6B900CEF7BC /* IdensicMobileSDK in Frameworks */,
 				FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */,
@@ -450,7 +459,6 @@
 				FF88E6992CA1B34300B890E1 /* FirebaseCrashlytics in Frameworks */,
 				FF1F4FE82AE5C4C50031BB36 /* SimpleToast in Frameworks */,
 				18C3663BB2628D87D16ED523 /* Pods_Banking.framework in Frameworks */,
-				FF39E3E42D722F09003380FB /* CarouselStack in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +517,7 @@
 		FF18C24E29BA8E1B004EF3A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FFE177362D7351AC0042B2EE /* LottieView.swift */,
 				FF45204F29C33B01003C6415 /* ViewPaths.swift */,
 				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
 				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
@@ -727,6 +736,9 @@
 			isa = PBXGroup;
 			children = (
 				FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */,
+				FFF76B792D72863300AD61BA /* lottie-1.json */,
+				FFF76B7A2D72863300AD61BA /* lottie-2.json */,
+				FFF76B7D2D7295A600AD61BA /* lottie-intro.json */,
 				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
@@ -957,8 +969,8 @@
 				FF88E69C2CA1B34300B890E1 /* FirebaseFunctions */,
 				FF88E69E2CA1B34300B890E1 /* FirebaseMessaging */,
 				FF88E6A02CA1B34300B890E1 /* FirebaseStorage */,
-				FF3B61392D72247200FA7A54 /* SnapPagerCarousel */,
-				FF39E3E32D722F09003380FB /* CarouselStack */,
+				FF361B292D72502000F86A47 /* ACarousel */,
+				FFF76B772D7285D100AD61BA /* Lottie */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -1011,7 +1023,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1600;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					FF628DF929BA2CD000FE35EE = {
 						CreatedOnToolsVersion = 14.2;
@@ -1047,8 +1059,8 @@
 				FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */,
 				FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 				FF88E6912CA1B34200B890E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */,
-				FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */,
+				FF361B282D72502000F86A47 /* XCRemoteSwiftPackageReference "ACarousel" */,
+				FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1071,6 +1083,7 @@
 				FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */,
 				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
 				FF88E6A42CA71C2800B890E1 /* Localizable.strings in Resources */,
+				FFF76B7E2D7295A600AD61BA /* lottie-intro.json in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FFB1A33B2B80FCF800EA6E64 /* Transfer Money.png in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
@@ -1084,6 +1097,8 @@
 				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
 				FFB1A3392B80FCF800EA6E64 /* Scan QR Code.jpg in Resources */,
 				FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */,
+				FFF76B7B2D72863400AD61BA /* lottie-2.json in Resources */,
+				FFF76B7C2D72863400AD61BA /* lottie-1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1297,6 +1312,7 @@
 				FF7A11D329D752C500286366 /* ViewInDevelopmentMode.swift in Sources */,
 				FF18C25A29BB25A6004EF3A3 /* AlertViewModel.swift in Sources */,
 				FF7A11EB29DB3B9800286366 /* AccountInfo.swift in Sources */,
+				FFE177372D7351B30042B2EE /* LottieView.swift in Sources */,
 				FF7A11FC29E047FE00286366 /* PayView.swift in Sources */,
 				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
@@ -1421,6 +1437,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1482,6 +1499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -1542,11 +1560,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Banking/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GVVA24YR6;
+				DEVELOPMENT_TEAM = L7PBV89KXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_CFBundleDisplayName = NeoMinty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
@@ -1565,7 +1583,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xpn-development.Banking";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xpn-development.neostacked.Banking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1582,11 +1600,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Banking/Preview Content\"";
-				DEVELOPMENT_TEAM = 8GVVA24YR6;
+				DEVELOPMENT_TEAM = L7PBV89KXB;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Banking/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Neominty;
+				INFOPLIST_KEY_CFBundleDisplayName = NeoMinty;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Give access to your camera to scan the QR code";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Authenticate yourself to unlock";
@@ -1605,7 +1623,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.xpn-development.Banking";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xpn-development.neostacked.Banking";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1755,20 +1773,12 @@
 				minimumVersion = 0.8.0;
 			};
 		};
-		FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */ = {
+		FF361B282D72502000F86A47 /* XCRemoteSwiftPackageReference "ACarousel" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/dscyrescotti/ShuffleIt.git";
+			repositoryURL = "https://github.com/JWAutumn/ACarousel";
 			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-		FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MaximeFILIPPI/SnapPagerCarousel";
-			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
 			};
 		};
 		FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */ = {
@@ -1827,6 +1837,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1845,15 +1863,10 @@
 			package = FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */;
 			productName = SimpleToast;
 		};
-		FF39E3E32D722F09003380FB /* CarouselStack */ = {
+		FF361B292D72502000F86A47 /* ACarousel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FF39E3E22D722F09003380FB /* XCRemoteSwiftPackageReference "ShuffleIt" */;
-			productName = CarouselStack;
-		};
-		FF3B61392D72247200FA7A54 /* SnapPagerCarousel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF3B61382D72247200FA7A54 /* XCRemoteSwiftPackageReference "SnapPagerCarousel" */;
-			productName = SnapPagerCarousel;
+			package = FF361B282D72502000F86A47 /* XCRemoteSwiftPackageReference "ACarousel" */;
+			productName = ACarousel;
 		};
 		FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1929,6 +1942,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		FFF76B772D7285D100AD61BA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
