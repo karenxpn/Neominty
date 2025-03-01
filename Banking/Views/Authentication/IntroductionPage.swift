@@ -6,6 +6,49 @@
 //
 
 import SwiftUI
+import Lottie
+
+struct LottieView: UIViewRepresentable {
+    let name: String
+    let loopMode: LottieLoopMode
+    var onComplete: (() -> Void)? // Add a completion handler
+    
+    private let animationView = LottieAnimationView()
+    
+    func makeUIView(context: Context) -> UIView {
+        let view = UIView(frame: .zero)
+        
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = loopMode
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(animationView)
+        
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            animationView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        
+        animationView.play { finished in
+            if finished {
+                self.onComplete?()
+            }
+        }
+        
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIView, context: Context) {
+        animationView.animation = LottieAnimation.named(name)
+        animationView.play { finished in
+            if finished {
+                self.onComplete?()
+            }
+        }
+    }
+}
+
 
 struct IntroductionPage: View {
     let introduction: IntroductionModel
@@ -16,15 +59,22 @@ struct IntroductionPage: View {
     var body: some View {
         ZStack {
             
-            ImageHelper(image: introduction.image,
-                        contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width * 0.6,
-                   height: UIScreen.main.bounds.height * 0.5)
+            LottieView(name: index == 0 ? "lottie-1" : "lottie-2", loopMode: .playOnce, onComplete: {
+                if index == count-1 {
+                    authenticate = true
+                } else {
+                    withAnimation {
+                        index += 1
+                    }
+                }
+            }).id(index)
+                .frame(width: UIScreen.main.bounds.width * 0.6,
+                       height: UIScreen.main.bounds.height * 0.4)
             
             VStack {
                 Spacer()
                 VStack(spacing: 16) {
-
+                    
                     TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
                         .multilineTextAlignment(.center)
                     
@@ -59,10 +109,14 @@ struct IntroductionPage: View {
                             }
                         }
                     }.padding(.top, 18)
+                        .onChange(of: index) { old, new in
+                            print("old value was \(old)")
+                            print("new value is \(new)")
+                        }
                     
                 }.padding(45)
                     .background(Color.white)
-                    .shadow(color: .white, radius: 25, y: -50)
+                    .shadow(color: .white, radius: 25, y: -25)
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {
@@ -72,7 +126,7 @@ struct IntroductionPage: View {
                             authenticate = true
                         } label: {
                             TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: .bold, fontSize: 16)
-                        }                        
+                        }
                     }
                 }
             }.navigationDestination(isPresented: $authenticate) {

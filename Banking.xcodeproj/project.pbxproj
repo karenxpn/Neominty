@@ -208,6 +208,9 @@
 		FFED57BE2B5ABA6F00B0766D /* NotificationsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */; };
 		FFED57C02B5ABD4F00B0766D /* MockPayService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */; };
 		FFED57C22B5ABE7600B0766D /* QRViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */; };
+		FFF76B782D7285D100AD61BA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FFF76B772D7285D100AD61BA /* Lottie */; };
+		FFF76B7B2D72863400AD61BA /* lottie-2.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B7A2D72863300AD61BA /* lottie-2.json */; };
+		FFF76B7C2D72863400AD61BA /* lottie-1.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B792D72863300AD61BA /* lottie-1.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,6 +425,8 @@
 		FFED57BD2B5ABA6F00B0766D /* NotificationsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57BF2B5ABD4F00B0766D /* MockPayService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPayService.swift; sourceTree = "<group>"; };
 		FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModelTests.swift; sourceTree = "<group>"; };
+		FFF76B792D72863300AD61BA /* lottie-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-1.json"; sourceTree = "<group>"; };
+		FFF76B7A2D72863300AD61BA /* lottie-2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-2.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +442,7 @@
 				FF88E6932CA1B34300B890E1 /* FirebaseAnalytics in Frameworks */,
 				FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */,
 				FF88E69B2CA1B34300B890E1 /* FirebaseFirestore in Frameworks */,
+				FFF76B782D7285D100AD61BA /* Lottie in Frameworks */,
 				FF88E6972CA1B34300B890E1 /* FirebaseAuth in Frameworks */,
 				FF88E6A12CA1B34300B890E1 /* FirebaseStorage in Frameworks */,
 				FF7A121529E6ED0A00286366 /* CodeScanner in Frameworks */,
@@ -725,6 +731,8 @@
 			isa = PBXGroup;
 			children = (
 				FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */,
+				FFF76B792D72863300AD61BA /* lottie-1.json */,
+				FFF76B7A2D72863300AD61BA /* lottie-2.json */,
 				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
@@ -956,6 +964,7 @@
 				FF88E69E2CA1B34300B890E1 /* FirebaseMessaging */,
 				FF88E6A02CA1B34300B890E1 /* FirebaseStorage */,
 				FF361B292D72502000F86A47 /* ACarousel */,
+				FFF76B772D7285D100AD61BA /* Lottie */,
 			);
 			productName = Banking;
 			productReference = FF628DFA29BA2CD000FE35EE /* Banking.app */;
@@ -1045,6 +1054,7 @@
 				FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */,
 				FF88E6912CA1B34200B890E1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FF361B282D72502000F86A47 /* XCRemoteSwiftPackageReference "ACarousel" */,
+				FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = FF628DFB29BA2CD000FE35EE /* Products */;
 			projectDirPath = "";
@@ -1080,6 +1090,8 @@
 				FF18C24D29BA84D6004EF3A3 /* GoogleService-Info.plist in Resources */,
 				FFB1A3392B80FCF800EA6E64 /* Scan QR Code.jpg in Resources */,
 				FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */,
+				FFF76B7B2D72863400AD61BA /* lottie-2.json in Resources */,
+				FFF76B7C2D72863400AD61BA /* lottie-1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1815,6 +1827,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1912,6 +1932,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */;
 			productName = Shimmer;
+		};
+		FFF76B772D7285D100AD61BA /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FFF76B762D7285D100AD61BA /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
