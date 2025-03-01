@@ -109,10 +109,6 @@ struct IntroductionPage: View {
                             }
                         }
                     }.padding(.top, 18)
-                        .onChange(of: index) { old, new in
-                            print("old value was \(old)")
-                            print("new value is \(new)")
-                        }
                     
                 }.padding(45)
                     .background(Color.white)
