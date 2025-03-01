@@ -211,6 +211,7 @@
 		FFF76B782D7285D100AD61BA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = FFF76B772D7285D100AD61BA /* Lottie */; };
 		FFF76B7B2D72863400AD61BA /* lottie-2.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B7A2D72863300AD61BA /* lottie-2.json */; };
 		FFF76B7C2D72863400AD61BA /* lottie-1.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B792D72863300AD61BA /* lottie-1.json */; };
+		FFF76B7E2D7295A600AD61BA /* lottie-intro.json in Resources */ = {isa = PBXBuildFile; fileRef = FFF76B7D2D7295A600AD61BA /* lottie-intro.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -427,6 +428,7 @@
 		FFED57C12B5ABE7600B0766D /* QRViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRViewModelTests.swift; sourceTree = "<group>"; };
 		FFF76B792D72863300AD61BA /* lottie-1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-1.json"; sourceTree = "<group>"; };
 		FFF76B7A2D72863300AD61BA /* lottie-2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-2.json"; sourceTree = "<group>"; };
+		FFF76B7D2D7295A600AD61BA /* lottie-intro.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lottie-intro.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -733,6 +735,7 @@
 				FFDDB1C22C9B84A7007ED1A6 /* coins-hover.gif */,
 				FFF76B792D72863300AD61BA /* lottie-1.json */,
 				FFF76B7A2D72863300AD61BA /* lottie-2.json */,
+				FFF76B7D2D7295A600AD61BA /* lottie-intro.json */,
 				FF18C25F29BB28F3004EF3A3 /* Info.plist */,
 				FF18C25329BA8E4E004EF3A3 /* Models */,
 				FF18C25229BA8E43004EF3A3 /* Services */,
@@ -1077,6 +1080,7 @@
 				FFC2BD0329BB72E300E774FD /* Roboto-Medium.ttf in Resources */,
 				FFC2BCF629BB612100E774FD /* Roboto-Regular.ttf in Resources */,
 				FF88E6A42CA71C2800B890E1 /* Localizable.strings in Resources */,
+				FFF76B7E2D7295A600AD61BA /* lottie-intro.json in Resources */,
 				FF628E0529BA2CD200FE35EE /* Preview Assets.xcassets in Resources */,
 				FFB1A33B2B80FCF800EA6E64 /* Transfer Money.png in Resources */,
 				FFC2BCF829BB612100E774FD /* Roboto-Black.ttf in Resources */,
