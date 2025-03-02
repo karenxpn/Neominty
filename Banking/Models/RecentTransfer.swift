@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct RecentTransfer: Identifiable, Codable {
+struct RecentTransfer: Identifiable, Codable, Equatable, Hashable {
     var id: String
     var name: String
     var image: String?

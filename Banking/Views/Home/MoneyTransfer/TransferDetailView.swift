@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct TransferDetailView: View {
-    @EnvironmentObject var transferVM: TransferViewModel
+    @StateObject var transferVM =  TransferViewModel()
     @EnvironmentObject var viewRouter: ViewRouter
+    
+    let card: CardModel
+    let selectedTransfer: RecentTransfer?
     @State private var isNameValid: Bool = false
     @State private var cardHolder: String = ""
     @State private var cardType = CreditCardType.nonIdentified
@@ -23,7 +26,7 @@ struct TransferDetailView: View {
             
             VStack(spacing: 24) {
                 
-                if let recentTransfer = transferVM.selectedTransfer {
+                if let recentTransfer = selectedTransfer {
                     
                     ZStack {
                         if let image = recentTransfer.image {
@@ -108,7 +111,7 @@ struct TransferDetailView: View {
                     }.padding(16)
                     
                     HStack {
-                        TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue ?? "USD")", colorResource: .appGray, fontName: .medium, fontSize: 16)
+                        TextHelper(text: "\(card.currency.rawValue ?? "USD")", colorResource: .appGray, fontName: .medium, fontSize: 16)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 8)
                             .background {
@@ -126,7 +129,7 @@ struct TransferDetailView: View {
                 }
                 
                 // add amount validation
-                ButtonHelper(disabled: (!isNameValid && transferVM.selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
+                ButtonHelper(disabled: (!isNameValid && selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
                     navigateToConfirmation.toggle()
                     
                 }.padding(.top, 12)
@@ -140,25 +143,25 @@ struct TransferDetailView: View {
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
                                                          bank: "Bank name",
-                                                         name: transferVM.selectedCard!.cardHolder,
-                                                         card: transferVM.selectedCard!.cardPan)
+                                                         name: card.cardHolder,
+                                                         card: card.cardPan)
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("to", comment: ""),
                                                          bank: "User's bank here",
-                                                         name: transferVM.selectedTransfer == nil ? cardHolder : transferVM.selectedTransfer!.name,
+                                                         name: selectedTransfer == nil ? cardHolder : selectedTransfer!.name,
                                                          card: transferVM.cardNumber)
                                 
                                 HStack {
                                     TextHelper(text: "Total", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
                                     Spacer()
-                                    TextHelper(text: "\(transferVM.selectedCard?.currency.rawValue.currencySymbol ?? CardCurrency.usd.rawValue.currencySymbol)\(transferVM.transferAmount)", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                                    TextHelper(text: "\(card.currency.rawValue.currencySymbol)\(transferVM.transferAmount)", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
                                 }
                                 
                             }
                             
                         } action: {
                             // start transaction
-                            transferVM.startTransaction()
+                            transferVM.startTransaction(card: card)
                         }
                     }
                 
@@ -176,9 +179,9 @@ struct TransferDetailView: View {
                     }
                     
                 }
-            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: "transferSuccess"))) { _ in
+            }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.transferSuccess.rawValue))) { _ in
                 viewRouter.pushHomePath(.transferSuccess(amount: transferVM.transferAmount,
-                                                         currency: transferVM.selectedCard?.currency ?? CardCurrency.usd,
+                                                         currency: card.currency,
                                                          action: CustomAction(action: {
                     viewRouter.popToHomeRoot()
 
@@ -194,8 +197,7 @@ struct TransferDetailView: View {
 
 struct TransferDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TransferDetailView()
-            .environmentObject(TransferViewModel())
+        TransferDetailView(card: PreviewModels.amexCard, selectedTransfer: nil)
             .environmentObject(ViewRouter())
     }
 }

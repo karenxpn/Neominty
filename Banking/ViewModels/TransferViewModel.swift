@@ -7,7 +7,6 @@
 
 import Foundation
 class TransferViewModel: AlertViewModel, ObservableObject {
-    @Published var selectedCard: CardModel?
     @Published var isCardValid: Bool = false
     @Published var selectedTransfer: RecentTransfer?
     @Published var transferAmount: String = ""
@@ -43,17 +42,17 @@ class TransferViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func startTransaction() {
+    @MainActor func startTransaction(card: CardModel) {
         loading = true
         
         Task {
             
             do {
-                let result = try await manager.bindingToCardTransaction(sender: self.selectedCard?.bindingId ?? "",
+                let result = try await manager.bindingToCardTransaction(sender: card.bindingId,
                                                                     card: self.selectedTransfer?.card ?? "",
                                                                     amount: self.transferAmount,
-                                                                    currency: self.selectedCard?.currency.rawValue ?? "")
-                NotificationCenter.default.post(name: Notification.Name("transferSuccess"), object: nil)
+                                                                    currency: card.currency.rawValue)
+                NotificationCenter.default.post(name: Notification.Name(NotificationName.transferSuccess.rawValue), object: nil)
                 
                 print("result = \(result)")
             } catch {

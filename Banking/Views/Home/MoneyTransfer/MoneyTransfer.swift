@@ -16,7 +16,6 @@ struct MoneyTransfer: View {
     
     @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
-    @State private var navigateToTransferDetails: Bool = false
     
     var options: ScaleTransformViewOptions {
         
@@ -124,13 +123,10 @@ struct MoneyTransfer: View {
                         }
                         
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
-                            transferVM.selectedCard = cards.first(where: {$0.id == selectedCard})
-                            navigateToTransferDetails.toggle()
-                        }.padding(.top, 20)
-                            .navigationDestination(isPresented: $navigateToTransferDetails) {
-                                TransferDetailView()
-                                    .environmentObject(transferVM)
+                            if let card = cards.first(where: {$0.id == selectedCard}) {
+                                viewRouter.pushHomePath(.transferDetails(card: card, recentTransfer: transferVM.selectedTransfer))
                             }
+                        }.padding(.top, 20)
                     }.padding(.horizontal, 20)
                 }
                 
@@ -160,6 +156,5 @@ struct MoneyTransfer_Previews: PreviewProvider {
     static var previews: some View {
         MoneyTransfer(cards: [PreviewModels.masterCard, PreviewModels.visaCard])
             .environmentObject(ViewRouter())
-            .environmentObject(TransferViewModel())
     }
 }
