@@ -13,11 +13,12 @@ struct TransferDetailView: View {
     
     let card: CardModel
     let selectedTransfer: RecentTransfer?
+    let receiverCardNumber: String
+    
     @State private var isNameValid: Bool = false
     @State private var cardHolder: String = ""
     @State private var cardType = CreditCardType.nonIdentified
     @State private var navigateToConfirmation: Bool = false
-    @State private var showGallery: Bool = false
 
     
     var body: some View {
@@ -29,21 +30,14 @@ struct TransferDetailView: View {
                 if let recentTransfer = selectedTransfer {
                     
                     ZStack {
-                        if let image = recentTransfer.image {
-                            ImageHelper(image: image, contentMode: .fill)
-                                .frame(width: 90, height: 90)
-                                .clipShape(Circle())
-                        } else {
-                            Image("anonymous-mask")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 90, height: 90)
-                                .clipShape(Circle())
-                        }
-                        
                         Circle()
-                            .strokeBorder(.black, lineWidth: 1.5)
-                            .frame(width: 110, height: 110)
+                            .fill(recentTransfer.color)
+                            .frame(width: 90, height: 90)
+
+                        TextHelper(text: String(recentTransfer.name.first!),
+                                   color: .white,
+                                   fontName: .bold,
+                                   fontSize: 35)
                     }
                     
                     TextHelper(text: "\(NSLocalizedString("to", comment: "")) \(recentTransfer.name)",
@@ -54,29 +48,16 @@ struct TransferDetailView: View {
                 } else {
                     
                     ZStack {
-                        
-                        Button {
-                            showGallery.toggle()
-                        } label: {
-                            if transferVM.newTransferImage == nil {
-                                Image("plus-sign")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 90, height: 90)
-                                    .clipShape(Circle())
-                            } else {
-                                Image(uiImage: UIImage(data: transferVM.newTransferImage!) ?? UIImage())
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(width: 90, height: 90)
-                                    .clipShape(Circle())
-                                
-                            }
-                        }
-                        
                         Circle()
-                            .strokeBorder(.black, lineWidth: 1.5)
-                            .frame(width: 110, height: 110)
+                            .fill(transferVM.randomColor)
+                            .frame(width: 90, height: 90)
+
+                        
+                        let first = !cardHolder.isEmpty ? String(cardHolder[cardHolder.startIndex]) : ""
+                        TextHelper(text: first,
+                                   color: .white,
+                                   fontName: .bold,
+                                   fontSize: 35)
                     }
                     
                     CardValidationTF(text: $cardHolder,
@@ -111,7 +92,7 @@ struct TransferDetailView: View {
                     }.padding(16)
                     
                     HStack {
-                        TextHelper(text: "\(card.currency.rawValue ?? "USD")", colorResource: .appGray, fontName: .medium, fontSize: 16)
+                        TextHelper(text: "\(card.currency.rawValue)", colorResource: .appGray, fontName: .medium, fontSize: 16)
                             .padding(.vertical, 4)
                             .padding(.horizontal, 8)
                             .background {
@@ -130,6 +111,7 @@ struct TransferDetailView: View {
                 
                 // add amount validation
                 ButtonHelper(disabled: (!isNameValid && selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
+                    hideKeyboard()
                     navigateToConfirmation.toggle()
                     
                 }.padding(.top, 12)
@@ -142,14 +124,14 @@ struct TransferDetailView: View {
                                 
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
-                                                         bank: "Bank name",
+                                                         bank: "Card Number",
                                                          name: card.cardHolder,
                                                          card: card.cardPan)
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("to", comment: ""),
-                                                         bank: "User's bank here",
+                                                         bank: "Card Number",
                                                          name: selectedTransfer == nil ? cardHolder : selectedTransfer!.name,
-                                                         card: transferVM.cardNumber)
+                                                         card: selectedTransfer == nil ? receiverCardNumber : selectedTransfer!.card)
                                 
                                 HStack {
                                     TextHelper(text: "Total", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
@@ -161,7 +143,7 @@ struct TransferDetailView: View {
                             
                         } action: {
                             // start transaction
-                            transferVM.startTransaction(card: card)
+                            transferVM.startTransaction(card: card, recentTransfer: selectedTransfer, cardNumber: receiverCardNumber)
                         }
                     }
                 
@@ -186,10 +168,10 @@ struct TransferDetailView: View {
                     viewRouter.popToHomeRoot()
 
                 })))
-            }.sheet(isPresented: $showGallery, content: {
-                Gallery { image in
-                    // store image
-                }
+            }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
+                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }, message: {
+                Text(transferVM.alertMessage)
             })
     }
 
@@ -197,7 +179,7 @@ struct TransferDetailView: View {
 
 struct TransferDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TransferDetailView(card: PreviewModels.amexCard, selectedTransfer: nil)
+        TransferDetailView(card: PreviewModels.amexCard, selectedTransfer: nil, receiverCardNumber: "")
             .environmentObject(ViewRouter())
     }
 }

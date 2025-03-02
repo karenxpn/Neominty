@@ -6,23 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
+
 class TransferViewModel: AlertViewModel, ObservableObject {
-    @Published var isCardValid: Bool = false
     @Published var selectedTransfer: RecentTransfer?
     @Published var transferAmount: String = ""
     @Published var newTransferImage: Data?
-
-    @Published var cardNumber: String = ""
+    
     @Published var transactionUsers = [RecentTransfer]()
     
     @Published var loading: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
     
+    var randomColor: Color
+    
     var manager: TransferServiceProtocol
     
     init(manager: TransferServiceProtocol = TransferService.shared) {
         self.manager = manager
+        self.randomColor = [.red, .blue, .green, .yellow, .purple].randomElement() ?? .black
     }
     
     @MainActor func getRecentTransfers() {
@@ -42,21 +45,22 @@ class TransferViewModel: AlertViewModel, ObservableObject {
         }
     }
     
-    @MainActor func startTransaction(card: CardModel) {
+    @MainActor func startTransaction(card: CardModel, recentTransfer: RecentTransfer?, cardNumber: String?) {
         loading = true
         
         Task {
             
             do {
                 let result = try await manager.bindingToCardTransaction(sender: card.bindingId,
-                                                                    card: self.selectedTransfer?.card ?? "",
-                                                                    amount: self.transferAmount,
-                                                                    currency: card.currency.rawValue)
+                                                                        card: recentTransfer?.card ?? cardNumber!,
+                                                                        amount: self.transferAmount,
+                                                                        currency: card.currency.rawValue)
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.transferSuccess.rawValue), object: nil)
                 
                 print("result = \(result)")
             } catch {
                 print(error)
+                self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             }
             
             if !Task.isCancelled {

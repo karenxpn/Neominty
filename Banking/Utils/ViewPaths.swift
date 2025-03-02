@@ -22,7 +22,7 @@ enum ViewPaths: String, Identifiable {
 
 enum HomeViewPaths: Equatable, Hashable {
     case send(cards: [CardModel])
-    case transferDetails(card: CardModel, recentTransfer: RecentTransfer?)
+    case transferDetails(card: CardModel, recentTransfer: RecentTransfer?, receiverCardNumber: String)
     case pay
     case receive
     case more

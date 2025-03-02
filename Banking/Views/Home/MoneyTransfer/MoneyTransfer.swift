@@ -14,6 +14,7 @@ struct MoneyTransfer: View {
     let cards: [CardModel]
     @State private var selectedCard: String??
     
+    @State private var cardNumber: String = ""
     @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
     
@@ -72,13 +73,13 @@ struct MoneyTransfer: View {
                                     .clipped()
                             }
                             
-                            CardValidationTF(text: $transferVM.cardNumber,
+                            CardValidationTF(text: $cardNumber,
                                              isValid: $isCardValid,
                                              bankCardType: $cardType,
                                              tfType: .cardNumber,
                                              tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                              subtitle: "**** **** **** ****")
-                            .onChange(of: transferVM.cardNumber) { value in
+                            .onChange(of: cardNumber) { value in
                                 print(cardType)
                                 transferVM.selectedTransfer = transferVM
                                     .transactionUsers
@@ -88,14 +89,14 @@ struct MoneyTransfer: View {
                         }.padding(19)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
+                                    .strokeBorder(cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
                                     .background {
                                         RoundedRectangle(cornerRadius: 16)
                                             .fill(Color(.superLightGray))
                                     }
                             }
                         
-                        if transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid {
+                        if cardNumber.onlyNumbers().count == 16 && !isCardValid {
                             TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
                                        color: .red, fontName: .regular, fontSize: 10)
                         }
@@ -119,12 +120,14 @@ struct MoneyTransfer: View {
                         } else {
                             TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                             
-                            RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
+                            RecentTransferUsersList(card: $cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
                         
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
                             if let card = cards.first(where: {$0.id == selectedCard}) {
-                                viewRouter.pushHomePath(.transferDetails(card: card, recentTransfer: transferVM.selectedTransfer))
+                                viewRouter.pushHomePath(.transferDetails(card: card,
+                                                                         recentTransfer: transferVM.selectedTransfer,
+                                                                         receiverCardNumber: cardNumber))
                             }
                         }.padding(.top, 20)
                     }.padding(.horizontal, 20)
