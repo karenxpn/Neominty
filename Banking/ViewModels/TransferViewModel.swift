@@ -21,11 +21,15 @@ class TransferViewModel: AlertViewModel, ObservableObject {
     
     var randomColor: Color
     
+    
     var manager: TransferServiceProtocol
     
     init(manager: TransferServiceProtocol = TransferService.shared) {
         self.manager = manager
-        self.randomColor = [.red, .blue, .green, .yellow, .purple].randomElement() ?? .black
+        self.randomColor = Color(hex: [
+            "#1DAB87", "#1D3A70", "#6B7280", "#1D2734",
+            "#59E3A7", "#FB923C", "#000000", "#004D40"
+        ].randomElement() ?? "#000000")!
     }
     
     @MainActor func getRecentTransfers() {
