@@ -56,7 +56,7 @@ class TransferViewModel: AlertViewModel, ObservableObject {
             
             do {
                 let result = try await manager.bindingToCardTransaction(sender: card.bindingId,
-                                                                        card: recentTransfer?.card ?? cardNumber!,
+                                                                        receiver: recentTransfer?.card ?? cardNumber!,
                                                                         amount: self.transferAmount,
                                                                         currency: card.currency.rawValue)
                 NotificationCenter.default.post(name: Notification.Name(NotificationName.transferSuccess.rawValue), object: nil)
