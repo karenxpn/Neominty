@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CollectionViewPagingLayout
+import ACarousel
 
 struct MoneyTransfer: View {
     @EnvironmentObject var viewRouter: ViewRouter
@@ -14,16 +14,11 @@ struct MoneyTransfer: View {
     let cards: [CardModel]
     @State private var selectedCard: String??
     
+    @State private var cardNumber: String = ""
     @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
-    @State private var navigateToTransferDetails: Bool = false
+    @State private var cardIndex: Int = 0
     
-    var options: ScaleTransformViewOptions {
-        
-        var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
-        viewOptions.shadowEnabled = false
-        return viewOptions
-    }
     
     init(cards: [CardModel]) {
         self.cards = cards
@@ -44,17 +39,17 @@ struct MoneyTransfer: View {
                         viewRouter.pushHomePath(.attachCard)
                     }.padding(.horizontal)
                 } else {
-                    ScalePageView(cards, selection: $selectedCard) { card in
+                    ACarousel(cards,
+                              index: $cardIndex,
+                              spacing: 10,
+                              headspace: 30,
+                              sidesScaling: 0.7) { card in
                         UserCard(card: card, selected: card.id == selectedCard)
-                            .frame(width: UIScreen.main.bounds.width * 0.8)
-                    }.options(options)
-                        .pagePadding(
-                            vertical: .absolute(40),
-                            horizontal: .absolute(80)
-                        )
-                        .frame(height: 250)
+                    }.frame(height: 250)
+                        .onChange(of: cardIndex) { oldValue, newValue in
+                            selectedCard = cards.get(newValue)?.id
+                        }
                 }
-                
                 
                 
                 VStack(alignment: .leading, spacing: 15) {
@@ -73,14 +68,13 @@ struct MoneyTransfer: View {
                                     .clipped()
                             }
                             
-                            CardValidationTF(text: $transferVM.cardNumber,
+                            CardValidationTF(text: $cardNumber,
                                              isValid: $isCardValid,
                                              bankCardType: $cardType,
                                              tfType: .cardNumber,
                                              tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                              subtitle: "**** **** **** ****")
-                            .onChange(of: transferVM.cardNumber) { value in
-                                print(cardType)
+                            .onChange(of: cardNumber) { _, value in
                                 transferVM.selectedTransfer = transferVM
                                     .transactionUsers
                                     .first(where: { $0.card.filter { !$0.isWhitespace } == value.filter { !$0.isWhitespace } })
@@ -89,14 +83,14 @@ struct MoneyTransfer: View {
                         }.padding(19)
                             .background {
                                 RoundedRectangle(cornerRadius: 16)
-                                    .strokeBorder(transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
+                                    .strokeBorder(cardNumber.onlyNumbers().count == 16 && !isCardValid ? Color.red : Color.clear, lineWidth: 1)
                                     .background {
                                         RoundedRectangle(cornerRadius: 16)
                                             .fill(Color(.superLightGray))
                                     }
                             }
                         
-                        if transferVM.cardNumber.onlyNumbers().count == 16 && !isCardValid {
+                        if cardNumber.onlyNumbers().count == 16 && !isCardValid {
                             TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
                                        color: .red, fontName: .regular, fontSize: 10)
                         }
@@ -120,17 +114,16 @@ struct MoneyTransfer: View {
                         } else {
                             TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                             
-                            RecentTransferUsersList(card: $transferVM.cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
+                            RecentTransferUsersList(card: $cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
                         
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
-                            transferVM.selectedCard = cards.first(where: {$0.id == selectedCard})
-                            navigateToTransferDetails.toggle()
-                        }.padding(.top, 20)
-                            .navigationDestination(isPresented: $navigateToTransferDetails) {
-                                TransferDetailView()
-                                    .environmentObject(transferVM)
+                            if let card = cards.first(where: {$0.id == selectedCard}) {
+                                viewRouter.pushHomePath(.transferDetails(card: card,
+                                                                         recentTransfer: transferVM.selectedTransfer,
+                                                                         receiverCardNumber: cardNumber))
                             }
+                        }.padding(.top, 20)
                     }.padding(.horizontal, 20)
                 }
                 
@@ -160,6 +153,13 @@ struct MoneyTransfer_Previews: PreviewProvider {
     static var previews: some View {
         MoneyTransfer(cards: [PreviewModels.masterCard, PreviewModels.visaCard])
             .environmentObject(ViewRouter())
-            .environmentObject(TransferViewModel())
+    }
+}
+
+
+
+extension Array {
+    func get(_ index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }

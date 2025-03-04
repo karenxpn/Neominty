@@ -37,6 +37,8 @@ class ViewRouter: ObservableObject {
             AllTransactions()
         case .send(let cards):
             MoneyTransfer(cards: cards)
+        case .transferDetails(let card, let recentTransfer, let receiver):
+            TransferDetailView(card: card, selectedTransfer: recentTransfer, receiverCardNumber: receiver)
         case .pay:
             PayView()
         case .receive:

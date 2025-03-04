@@ -56,6 +56,11 @@ extension View {
             }
         }
     }
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+
 }
 
 struct RoundedCorner: Shape {
@@ -593,4 +598,29 @@ extension URL {
         }
     }
 
+}
+
+
+extension Color {
+    init?(hex: String) {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
+        hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
+
+        var rgb: UInt64 = 0
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+
+        let r = Double((rgb >> 16) & 0xFF) / 255.0
+        let g = Double((rgb >> 8) & 0xFF) / 255.0
+        let b = Double(rgb & 0xFF) / 255.0
+
+        self.init(red: r, green: g, blue: b)
+    }
+
+    func toHex() -> String {
+        guard let uiColor = UIColor(self).cgColor.components else { return "#000000" }
+        let r = Int(uiColor[0] * 255)
+        let g = Int(uiColor[1] * 255)
+        let b = Int(uiColor[2] * 255)
+        return String(format: "#%02X%02X%02X", r, g, b)
+    }
 }

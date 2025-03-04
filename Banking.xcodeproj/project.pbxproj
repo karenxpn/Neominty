@@ -50,7 +50,6 @@
 		FF3B61332D71DEE700FA7A54 /* RegisterOrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61322D71DEE700FA7A54 /* RegisterOrderResponse.swift */; };
 		FF3B61362D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61352D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift */; };
 		FF3B61372D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B61342D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift */; };
-		FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */ = {isa = PBXBuildFile; productRef = FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */; };
 		FF42813929F743D900E57567 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FF42813829F743D900E57567 /* Alamofire */; };
 		FF42814029F7CF0B00E57567 /* SwiftUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */; };
 		FF42814229F7D2AC00E57567 /* VPOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF42814129F7D2AC00E57567 /* VPOS.swift */; };
@@ -444,7 +443,6 @@
 				FF88E6952CA1B34300B890E1 /* FirebaseAppCheck in Frameworks */,
 				FF1383402A03DB8A00607BDB /* PhoneNumberKit in Frameworks */,
 				FF88E6932CA1B34300B890E1 /* FirebaseAnalytics in Frameworks */,
-				FF3C7BAC2A12925D00BC0CB1 /* CollectionViewPagingLayout in Frameworks */,
 				FF88E69B2CA1B34300B890E1 /* FirebaseFirestore in Frameworks */,
 				FFF76B782D7285D100AD61BA /* Lottie in Frameworks */,
 				FF88E6972CA1B34300B890E1 /* FirebaseAuth in Frameworks */,
@@ -956,7 +954,6 @@
 				FF7A121429E6ED0A00286366 /* CodeScanner */,
 				FF42813829F743D900E57567 /* Alamofire */,
 				FF13833F2A03DB8A00607BDB /* PhoneNumberKit */,
-				FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */,
 				FFDE8FE52A4723750005A35F /* Shimmer */,
 				FF95D9492ACDA6B900CEF7BC /* IdensicMobileSDK */,
 				FF95D94B2ACDA6B900CEF7BC /* IdensicMobileSDK_VideoIdent */,
@@ -1054,7 +1051,6 @@
 				FF7A121329E6ED0900286366 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				FF13833E2A03DB8A00607BDB /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
-				FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */,
 				FFDE8FE42A4723740005A35F /* XCRemoteSwiftPackageReference "SwiftUI-Shimmer" */,
 				FF95D9482ACDA6B800CEF7BC /* XCRemoteSwiftPackageReference "IdensicMobileSDK-iOS" */,
 				FF1F4FE62AE5C4C50031BB36 /* XCRemoteSwiftPackageReference "SimpleToast" */,
@@ -1781,14 +1777,6 @@
 				minimumVersion = 0.2.0;
 			};
 		};
-		FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amirdew/CollectionViewPagingLayout";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		FF42813729F743D900E57567 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -1867,11 +1855,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FF361B282D72502000F86A47 /* XCRemoteSwiftPackageReference "ACarousel" */;
 			productName = ACarousel;
-		};
-		FF3C7BAB2A12925D00BC0CB1 /* CollectionViewPagingLayout */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FF3C7BAA2A12925D00BC0CB1 /* XCRemoteSwiftPackageReference "CollectionViewPagingLayout" */;
-			productName = CollectionViewPagingLayout;
 		};
 		FF42813829F743D900E57567 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

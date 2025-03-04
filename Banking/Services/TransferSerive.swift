@@ -16,7 +16,7 @@ protocol TransferServiceProtocol {
     func requestTransfer(amount: String) async -> Result<GlobalResponse, Error>
     
     // transactions
-    func bindingToCardTransaction(sender: String, card: String, amount: String, currency: String) async throws -> GlobalResponse
+    func bindingToCardTransaction(sender: String, receiver: String, amount: String, currency: String) async throws -> GlobalResponse
 }
 
 class TransferService {
@@ -27,13 +27,13 @@ class TransferService {
 }
 
 extension TransferService: TransferServiceProtocol {
-    func bindingToCardTransaction(sender: String, card: String, amount: String, currency: String) async throws -> GlobalResponse {
+    func bindingToCardTransaction(sender: String, receiver: String, amount: String, currency: String) async throws -> GlobalResponse {
         
         print("amount = \(amount)")
         let params = [
             "sender": sender,
-            "receiver": card,
-            "amount": Int(amount),
+            "receiver": receiver,
+            "amount": Decimal(string: amount),
             "currency": currency
         ] as [String : Any]
         

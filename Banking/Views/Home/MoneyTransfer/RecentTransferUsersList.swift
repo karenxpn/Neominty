@@ -40,16 +40,15 @@ struct RecentTransferUsersList: View {
                             }
                             
                             VStack(spacing: 16) {
-                                if transfer.image != nil {
-                                    ImageHelper(image: transfer.image!, contentMode: .fill)
-                                        .frame(width: 48, height: 48)
-                                        .clipShape(Circle())
-                                } else {
-                                    Image("anonymous-mask")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 48, height: 48)
-                                        .clipShape(Circle())
+                                ZStack {
+                                    Circle()
+                                        .fill(transfer.color)
+                                        .frame(width: 50, height: 50)
+                                    
+                                    TextHelper(text: String(transfer.name.first!),
+                                               color: .white,
+                                               fontName: .bold,
+                                               fontSize: 20)
                                 }
                                 
                                 
