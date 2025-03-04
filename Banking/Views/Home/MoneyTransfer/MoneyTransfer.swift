@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CollectionViewPagingLayout
+import ACarousel
 
 struct MoneyTransfer: View {
     @EnvironmentObject var viewRouter: ViewRouter
@@ -17,6 +18,7 @@ struct MoneyTransfer: View {
     @State private var cardNumber: String = ""
     @State private var cardType = CreditCardType.nonIdentified
     @State private var isCardValid: Bool = false
+    @State private var cardIndex: Int = 0
     
     var options: ScaleTransformViewOptions {
         
@@ -44,17 +46,17 @@ struct MoneyTransfer: View {
                         viewRouter.pushHomePath(.attachCard)
                     }.padding(.horizontal)
                 } else {
-                    ScalePageView(cards, selection: $selectedCard) { card in
+                    ACarousel(cards,
+                              index: $cardIndex,
+                              spacing: 10,
+                              headspace: 30,
+                              sidesScaling: 0.7) { card in
                         UserCard(card: card, selected: card.id == selectedCard)
-                            .frame(width: UIScreen.main.bounds.width * 0.8)
-                    }.options(options)
-                        .pagePadding(
-                            vertical: .absolute(40),
-                            horizontal: .absolute(80)
-                        )
-                        .frame(height: 250)
+                    }.frame(height: 250)
+                        .onChange(of: cardIndex) { oldValue, newValue in
+                            selectedCard = cards.get(newValue)?.id
+                        }
                 }
-                
                 
                 
                 VStack(alignment: .leading, spacing: 15) {
@@ -79,8 +81,7 @@ struct MoneyTransfer: View {
                                              tfType: .cardNumber,
                                              tfFont: .custom(Roboto.regular.rawValue, size: 16),
                                              subtitle: "**** **** **** ****")
-                            .onChange(of: cardNumber) { value in
-                                print(cardType)
+                            .onChange(of: cardNumber) { _, value in
                                 transferVM.selectedTransfer = transferVM
                                     .transactionUsers
                                     .first(where: { $0.card.filter { !$0.isWhitespace } == value.filter { !$0.isWhitespace } })
@@ -159,5 +160,13 @@ struct MoneyTransfer_Previews: PreviewProvider {
     static var previews: some View {
         MoneyTransfer(cards: [PreviewModels.masterCard, PreviewModels.visaCard])
             .environmentObject(ViewRouter())
+    }
+}
+
+
+
+extension Array {
+    func get(_ index: Int) -> Element? {
+        return indices.contains(index) ? self[index] : nil
     }
 }
