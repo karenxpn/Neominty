@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CollectionViewPagingLayout
 import ACarousel
 
 struct MoneyTransfer: View {
@@ -20,12 +19,6 @@ struct MoneyTransfer: View {
     @State private var isCardValid: Bool = false
     @State private var cardIndex: Int = 0
     
-    var options: ScaleTransformViewOptions {
-        
-        var viewOptions = ScaleTransformViewOptions.layout(.easeIn)
-        viewOptions.shadowEnabled = false
-        return viewOptions
-    }
     
     init(cards: [CardModel]) {
         self.cards = cards
