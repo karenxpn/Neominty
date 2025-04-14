@@ -32,7 +32,7 @@ struct UpdateAccountEmail: View {
                     .textInputAutocapitalization(.never)
                     .font(.custom(Roboto.medium.rawValue, size: 16))
                     .padding(.leading, 16)
-                    .onChange(of: email) { newValue in
+                    .onChange(of: email) { _, newValue in
                         emailValid = newValue.isEmail
                     }
             }, isValid: $emailValid)

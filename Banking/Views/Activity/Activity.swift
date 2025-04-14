@@ -44,7 +44,7 @@ struct Activity: View {
                                 .padding(.vertical, -20)
                                 .tabViewStyle(.page)
                                 .tabViewStyle(.page(indexDisplayMode: .always))
-                                .onChange(of: activityVM.selectedCard) { newValue in
+                                .onChange(of: activityVM.selectedCard) { _, newValue in
                                     activityVM.getActivity()
                                 }
                         } else {
@@ -108,7 +108,7 @@ struct Activity: View {
                                                     }
                                             }
                                         }
-                                    }.onChange(of: activityVM.selectedUnit) { value in
+                                    }.onChange(of: activityVM.selectedUnit) { _, value in
                                         activityVM.setValues()
                                     }
                                     

@@ -39,7 +39,7 @@ struct AccountInfo: View {
                                 .keyboardType(.asciiCapable)
                                 .font(.custom(Roboto.medium.rawValue, size: 16))
                                 .padding(.leading, 16)
-                                .onChange(of: name) { newValue in
+                                .onChange(of: name) { _, newValue in
                                     nameValid = newValue.isFullNameValid()
                                 }
                         }, isValid: $nameValid)

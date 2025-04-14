@@ -30,7 +30,7 @@ struct AmountTextField: View {
             .minimumScaleFactor(0.4)
             .foregroundColor(focused ? Color(.darkBlue) : Color.clear)
             .padding(.leading, 5)
-            .onChange(of: text, perform: { newValue in
+            .onChange(of: text, { oldValue, newValue in
                 text = newValue.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
             }).focused($focused)
             .overlay(alignment: .leading, content: {

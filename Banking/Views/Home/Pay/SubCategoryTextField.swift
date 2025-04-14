@@ -30,7 +30,7 @@ struct SubCategoryTextField: View {
             }
             .padding(.top, 16)
             .focused($focused)
-            .onChange(of: focused) { newValue in
+            .onChange(of: focused) { _, newValue in
                 if newValue {
                     text = fields[field.name] ?? ""
                 } else {
@@ -38,7 +38,7 @@ struct SubCategoryTextField: View {
                     validation[field.name] = NSPredicate(format:"SELF MATCHES %@", field.regex).evaluate(with: text)
 
                 }
-            }.onChange(of: text) { newValue in
+            }.onChange(of: text) { _, newValue in
             }
     }
 }

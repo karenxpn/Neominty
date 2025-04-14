@@ -12,7 +12,6 @@ struct Authentication: View {
     @StateObject private var authVM = AuthViewModel()
     @Environment(\.scenePhase) private var phase
 
-
     var body: some View {
         
         Group {
@@ -54,7 +53,7 @@ struct Authentication: View {
             
         }.task {
             authVM.checkPinExistence()
-        }.onChange(of: phase) { newScene in
+        }.onChange(of: phase) { _, newScene in
             switch newScene {
             case .background:
                 if authVM.authState == .authenticated {

@@ -21,7 +21,7 @@ struct GeneralSettingsCell: View {
                 TextHelper(text: message, colorResource: .appGray, fontSize: 12)
             }
         }.toggleStyle(SwitchToggleStyle(tint: Color(.appGreen)))
-            .onChange(of: toggler) { newValue in
+            .onChange(of: toggler) { _, newValue in
                 action(newValue)
             }
 
