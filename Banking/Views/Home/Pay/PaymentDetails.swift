@@ -9,9 +9,8 @@ import SwiftUI
 
 struct PaymentDetails: View {
     @EnvironmentObject var payVM: PayViewModel
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @State private var selectCard: Bool = false
-    @State private var completed: Bool = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -26,7 +25,7 @@ struct PaymentDetails: View {
                 } else {
                     if payVM.cards.isEmpty && payVM.selectedCard == nil && payVM.alertMessage.isEmpty {
                         AttachCardButtonLikeSelect {
-                            viewRouter.pushHomePath(.attachCard)
+                            router.pushHomePath(.attachCard)
                         }
                     } else if payVM.selectedCard != nil {
                         SelectCardButton(card: payVM.selectedCard!, buttonType: .popup) {
@@ -61,12 +60,7 @@ struct PaymentDetails: View {
                                  : NSLocalizedString("next", comment: "")) {
                         
                         payVM.performPayment()
-                    }.navigationDestination(isPresented: $completed) {
-                        TransferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd) {
-                            viewRouter.popToHomeRoot()
-                        }
-                    }
-                    
+                    }                    
                 }
                 
             }.padding(24)
@@ -96,7 +90,9 @@ struct PaymentDetails: View {
         }.onReceive(NotificationCenter
             .default
             .publisher(for:Notification.Name(rawValue: NotificationName.paymentCompleted.rawValue))) { _ in
-                completed.toggle()
+                router.pushHomePath(.transferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd, action: CustomAction(action: {
+                    router.popToHomeRoot()
+                })))
         }.alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
             Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
         }, message: {

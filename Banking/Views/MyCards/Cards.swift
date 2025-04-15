@@ -10,12 +10,12 @@ import Shimmer
 
 
 struct Cards: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject var cardsVM = CardsViewModel()
     @State private var showCardAttachedAlert: Bool = false
 
     var body: some View {
-        NavigationStack(path: $viewRouter.cardPath) {
+        NavigationStack(path: $router.cardPath) {
             ZStack {
                 if cardsVM.loadingCards {
                     CardsList(cards: [PreviewModels.masterCard, PreviewModels.visaCard, PreviewModels.amexCard],
@@ -54,10 +54,7 @@ struct Cards: View {
                     Text(cardsVM.alertMessage)
                 })
                 .navigationDestination(for: MyCardViewPaths.self) { value in
-                    switch value {
-                    case .attachCard:
-                        SelectCardStyle()
-                    }
+                    router.buildCardsView(page: value)
                 }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
                     showCardAttachedAlert.toggle()
                 }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
@@ -70,7 +67,7 @@ struct Cards: View {
                         }
                     } action: {
                         showCardAttachedAlert = false
-                        viewRouter.popToCardRoot()
+                        router.popToCardRoot()
                     }
                 })
         }
@@ -80,6 +77,6 @@ struct Cards: View {
 struct Cards_Previews: PreviewProvider {
     static var previews: some View {
         Cards()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

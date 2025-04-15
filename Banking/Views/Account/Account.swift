@@ -12,12 +12,12 @@ struct Account: View {
     @AppStorage("userID") var userID: String = ""
 
     @Environment(\.requestReview) var requestReview
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var accountVM = AccountViewModel()
     
     var body: some View {
         
-        NavigationStack(path: $viewRouter.accountPath) {
+        NavigationStack(path: $router.accountPath) {
             
             ScrollView(showsIndicators: false) {
                 
@@ -35,26 +35,26 @@ struct Account: View {
                     }.frame(height: 170)
                     
                     AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
-                        viewRouter.pushAccountPath(.info(name: accountVM.info?.name, flag: accountVM.info?.flag, phone: accountVM.info?.phone, email: accountVM.info?.email))
+                        router.pushAccountPath(.info(name: accountVM.info?.name, flag: accountVM.info?.flag, phone: accountVM.info?.phone, email: accountVM.info?.email))
                     }.disabled(accountVM.info == nil)
                     
                     AccountListButton(icon: "settings", label: NSLocalizedString("generalSettings", comment: "")) {
-                        viewRouter.pushAccountPath(.settings)
+                        router.pushAccountPath(.settings)
 
                     }
                     
                     AccountListButton(icon: "change-pin", label: NSLocalizedString("changePin", comment: "")) {
-                        viewRouter.pushAccountPath(.changePin)
+                        router.pushAccountPath(.changePin)
                     }
                     
                     AccountListButton(icon: "verify-identity-icon", label: NSLocalizedString("verifyIdentity", comment: "")) {
-                        viewRouter.pushAccountPath(.verifyAccount)
+                        router.pushAccountPath(.verifyAccount)
                     }
                     
                     Divider()
                     
                     AccountListButton(icon: "faq", label: NSLocalizedString("faq", comment: "")) {
-                        viewRouter.pushAccountPath(.faq)
+                        router.pushAccountPath(.faq)
                     }
                     
                     AccountListButton(icon: "rate", label: NSLocalizedString("rateUs", comment: "")) {
@@ -84,7 +84,7 @@ struct Account: View {
                             accountVM.getAccountInfo()
                         }
                     }.navigationDestination(for: AccountViewPaths.self) { page in
-                        viewRouter.buildAccountView(page: page)
+                        router.buildAccountView(page: page)
                     }
         }
     }
@@ -93,6 +93,6 @@ struct Account: View {
 struct Account_Previews: PreviewProvider {
     static var previews: some View {
         Account()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

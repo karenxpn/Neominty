@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TransferDetailView: View {
     @StateObject var transferVM =  TransferViewModel()
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     
     let card: CardModel
     let selectedTransfer: RecentTransfer?
@@ -162,10 +162,10 @@ struct TransferDetailView: View {
                     
                 }
             }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.transferSuccess.rawValue))) { _ in
-                viewRouter.pushHomePath(.transferSuccess(amount: transferVM.transferAmount,
+                router.pushHomePath(.transferSuccess(amount: transferVM.transferAmount,
                                                          currency: card.currency,
                                                          action: CustomAction(action: {
-                    viewRouter.popToHomeRoot()
+                    router.popToHomeRoot()
 
                 })))
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
@@ -180,6 +180,6 @@ struct TransferDetailView: View {
 struct TransferDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TransferDetailView(card: PreviewModels.amexCard, selectedTransfer: nil, receiverCardNumber: "")
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

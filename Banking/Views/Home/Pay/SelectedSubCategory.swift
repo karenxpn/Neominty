@@ -9,12 +9,12 @@ import SwiftUI
 
 struct SelectedSubCategory: View {
     @Environment(\.dismiss) var dismiss
-
+    @EnvironmentObject var router: Router
     @EnvironmentObject var payVM: PayViewModel
+    
     let subCategory: SubCategory
     @State private var fields = [String: String]()
     @State private var fieldsValidation = [String: Bool]()
-    @Binding var navigate: Bool
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -39,7 +39,7 @@ struct SelectedSubCategory: View {
                     
                     payVM.selectedPaymentCategory = subCategory
                     payVM.fields = fields
-                    navigate.toggle()
+                    router.pushHomePath(.paymentDetails(vm: payVM))
                     dismiss()
                     
                 }.padding(.top, 100)
@@ -50,5 +50,5 @@ struct SelectedSubCategory: View {
 }
 
 #Preview {
-    SelectedSubCategory(subCategory: PreviewModels.payCategories[0].subCategories[0], navigate: .constant(false))
+    SelectedSubCategory(subCategory: PreviewModels.payCategories[0].subCategories[0])
 }

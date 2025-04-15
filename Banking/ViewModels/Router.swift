@@ -1,5 +1,5 @@
 //
-//  ViewRouter.swift
+//  Router.swift
 //  Banking
 //
 //  Created by Karen Mirakyan on 14.03.23.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 
-class ViewRouter: ObservableObject {
+class Router: ObservableObject {
     @AppStorage("firstInstall") var firstInstall: Bool = true
     
     @Published var tab: Int = 0
@@ -41,6 +41,12 @@ class ViewRouter: ObservableObject {
             TransferDetailView(card: card, selectedTransfer: recentTransfer, receiverCardNumber: receiver)
         case .pay:
             PayView()
+        case .paymentDetails(let vm):
+            PaymentDetails()
+                .environmentObject(vm)
+        case .selectPaySubcategory(let category, let vm):
+            SelectSubCategory(category: category)
+                .environmentObject(vm)
         case .receive:
             RequestTransfer()
         case .more:
@@ -84,12 +90,24 @@ class ViewRouter: ObservableObject {
             UpdateAccountEmail(email: email)
         case .faq:
             FAQ()
+        case .allFaq:
+            AllFAQs()
         case .verifyAccount:
             IdentityVerification()
         case .accountVerified:
             AccountVerificationApproved()
         case .accountRejected:
             AccountVerificationRejected()
+        }
+    }
+    
+    @ViewBuilder
+    func buildCardsView(page: MyCardViewPaths) -> some View {
+        switch page {
+        case .selectNewCardStyle:
+            SelectCardStyle()
+        case .attachCard(let design):
+            AddNewCard(style: design)
         }
     }
     

@@ -9,7 +9,7 @@ import SwiftUI
 import CodeScanner
 
 struct ScanQR: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var qrVM = QrViewModel()
     @Binding var presented: Bool
     

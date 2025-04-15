@@ -220,7 +220,7 @@ enum NotificationType: RawRepresentable, CaseIterable, Codable {
 }
 
 
-enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable {
+enum FieldKeyboardType: RawRepresentable, CaseIterable, Codable, Hashable {
     
     typealias RawValue = String
     

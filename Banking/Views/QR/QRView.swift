@@ -11,7 +11,7 @@ import CoreImage.CIFilterBuiltins
 
 
 struct QRView: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var qrVM = QrViewModel()
     @State private var selectCard: Bool = false
     @State private var scanQR: Bool = false
@@ -22,7 +22,7 @@ struct QRView: View {
 
     
     var body: some View {
-        NavigationStack(path: $viewRouter.scanPath) {
+        NavigationStack(path: $router.scanPath) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 60) {
                     
@@ -30,7 +30,7 @@ struct QRView: View {
                         ProgressView()
                     } else if qrVM.selectedCard == nil && qrVM.alertMessage.isEmpty {
                         AttachCardButtonLikeSelect {
-                            viewRouter.pushScanPath(.attachCard)
+                            router.pushScanPath(.attachCard)
                         }
                         
                         Image(uiImage: generateQRCode(from: "Welcome To Neominty)"))
@@ -112,7 +112,7 @@ struct QRView: View {
                     }
                 }
                 .navigationDestination(for: ScanViewPaths.self) { page in
-                    viewRouter.buildQrView(page: page)
+                    router.buildQrView(page: page)
                 }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()
@@ -126,7 +126,7 @@ struct QRView: View {
                 }
             } action: {
                 showCardAttachedAlert = false
-                viewRouter.popToScanRoot()
+                router.popToScanRoot()
             }
         })
     }
@@ -147,6 +147,6 @@ struct QRView: View {
 struct QRView_Previews: PreviewProvider {
     static var previews: some View {
         QRView()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

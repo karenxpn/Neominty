@@ -14,7 +14,7 @@ struct PayCategory: Identifiable, Codable {
     var subCategories: [SubCategory]
 }
 
-struct SubCategory: Identifiable, Codable {
+struct SubCategory: Identifiable, Codable, Hashable {
     var id: String
     var image: String
     var name: String
@@ -23,7 +23,7 @@ struct SubCategory: Identifiable, Codable {
 }
 
 
-struct PayCategoryViewModel: Identifiable {
+struct PayCategoryViewModel: Identifiable, Hashable {
     var model: PayCategory
     init(model: PayCategory)  {
         self.model = model
@@ -33,9 +33,23 @@ struct PayCategoryViewModel: Identifiable {
     var title: String   { NSLocalizedString("\(self.model.title.lowercased())", comment: "")}
     var image: String   { self.model.title.lowercased() + "-icon" }
     var subCategories: [SubCategory]    { self.model.subCategories }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+        hasher.combine(title)
+        hasher.combine(image)
+        hasher.combine(subCategories)
+    }
+    
+    static func == (lhs: PayCategoryViewModel, rhs: PayCategoryViewModel) -> Bool {
+        return lhs.id == rhs.id &&
+               lhs.title == rhs.title &&
+               lhs.image == rhs.image &&
+               lhs.subCategories == rhs.subCategories
+    }
 }
 
-struct SubcategoryField: Identifiable, Codable {
+struct SubcategoryField: Identifiable, Codable, Hashable {
     var id: String
     var placeholder: String
     var regex: String

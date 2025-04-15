@@ -53,6 +53,6 @@ struct TransferSuccess_Previews: PreviewProvider {
         TransferSuccess(amount: "123,3", currency: .amd) {
             
         }
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

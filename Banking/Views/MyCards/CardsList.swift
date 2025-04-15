@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardsList: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @EnvironmentObject var cardsVM: CardsViewModel
     let cards: [CardModel]
     @Binding var loading: Bool
@@ -41,7 +41,7 @@ struct CardsList: View {
             
             if !loading {
                 Button {
-                    viewRouter.pushCardPath(.attachCard)
+                    router.pushCardPath(.selectNewCardStyle)
                 } label: {
                     
                     HStack(spacing: 12) {

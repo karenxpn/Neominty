@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 
 struct RequestTransferSuccess: View {
     @EnvironmentObject var requestVM: RequestTransferViewModel
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     var body: some View {
         
         VStack(spacing: 20) {
@@ -30,7 +30,7 @@ struct RequestTransferSuccess: View {
             }
             
             ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {
-                viewRouter.popToHomeRoot()
+                router.popToHomeRoot()
             }
         }.padding(58)
     }

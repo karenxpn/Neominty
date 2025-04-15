@@ -9,6 +9,8 @@ import SwiftUI
 import FirebaseFirestore
 
 struct SelectCardStyle: View {
+    @EnvironmentObject var router: Router
+    
     let styles: [CardDesign] = [.hex, .signed, .standard]
     let standardCard = CardModel(cardPan: "xxxx xxxx xxxx xxxx", cardHolder: "John Smith", expirationDate: "13/24", currency: .usd, bankName: "American Bank", defaultCard: false, cardStyle: .standardGreen, cardType: .masterCard, createdAt: Timestamp(date: Date()), bindingId: "")
     
@@ -21,7 +23,9 @@ struct SelectCardStyle: View {
             
             LazyVStack(spacing: 16) {
                 ForEach(styles, id: \.id) { style in
-                    NavigationLink(value: style) {
+                    Button {
+                        router.pushCardPath(.attachCard(style: style))
+                    } label: {
                         switch style {
                         case .standard:
                             SelectCardStyleCell(style: style, card: standardCard)
@@ -44,8 +48,6 @@ struct SelectCardStyle: View {
                     ToolbarItem(placement: .principal) {
                         TextHelper(text: NSLocalizedString("chooseYourStyle", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                     }
-                }.navigationDestination(for: CardDesign.self) { design in
-                    AddNewCard(style: design)
                 }
         
     }

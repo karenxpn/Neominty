@@ -10,7 +10,7 @@ import FirebaseFirestore
 
 struct Activity: View {
     @StateObject private var activityVM = ActivityViewModel()
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @State private var showCardAttachedAlert: Bool = false
     
     init() {
@@ -20,7 +20,7 @@ struct Activity: View {
     
     var body: some View {
         
-        NavigationStack(path: $viewRouter.analyticsPath) {
+        NavigationStack(path: $router.analyticsPath) {
             
             ZStack {
                 if activityVM.loading {
@@ -49,7 +49,7 @@ struct Activity: View {
                                 }
                         } else {
                             AttachCardButtonLikeSelect {
-                                viewRouter.pushAnalyicsPath(.attachCard)
+                                router.pushAnalyicsPath(.attachCard)
                             } .frame(width: UIScreen.main.bounds.width * 0.9)
                         }
                         
@@ -142,7 +142,7 @@ struct Activity: View {
                         
                         if let transactions = activityVM.activity?.transactions {
                             RecentTransactions(transactions: transactions) {
-                                viewRouter.pushAnalyicsPath(.allTransactions)
+                                router.pushAnalyicsPath(.allTransactions)
                             }
                         } else {
                             NoTransactionsToShow()
@@ -187,7 +187,7 @@ struct Activity: View {
                 }
             } action: {
                 showCardAttachedAlert = false
-                viewRouter.popToAnalyticsRoot()
+                router.popToAnalyticsRoot()
             }
         })
     }
@@ -196,6 +196,6 @@ struct Activity: View {
 struct Activity_Previews: PreviewProvider {
     static var previews: some View {
         Activity()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

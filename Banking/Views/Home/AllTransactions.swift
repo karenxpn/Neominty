@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllTransactions: View {
-    @EnvironmentObject private var viewRouter: ViewRouter
+    @EnvironmentObject private var router: Router
     @StateObject private var allTransferVM = AllTransferViewModel()
     
     var body: some View {
@@ -77,6 +77,6 @@ struct AllTransactions: View {
 struct AllTransactions_Previews: PreviewProvider {
     static var previews: some View {
         AllTransactions()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

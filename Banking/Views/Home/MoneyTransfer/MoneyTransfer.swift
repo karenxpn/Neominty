@@ -9,7 +9,7 @@ import SwiftUI
 import ACarousel
 
 struct MoneyTransfer: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var transferVM = TransferViewModel()
     let cards: [CardModel]
     @State private var selectedCard: String??
@@ -36,7 +36,7 @@ struct MoneyTransfer: View {
                 
                 if cards.isEmpty {
                     AttachNewCardButton {
-                        viewRouter.pushHomePath(.attachCard)
+                        router.pushHomePath(.attachCard)
                     }.padding(.horizontal)
                 } else {
                     ACarousel(cards,
@@ -119,7 +119,7 @@ struct MoneyTransfer: View {
                         
                         ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
                             if let card = cards.first(where: {$0.id == selectedCard}) {
-                                viewRouter.pushHomePath(.transferDetails(card: card,
+                                router.pushHomePath(.transferDetails(card: card,
                                                                          recentTransfer: transferVM.selectedTransfer,
                                                                          receiverCardNumber: cardNumber))
                             }
@@ -152,7 +152,7 @@ struct MoneyTransfer: View {
 struct MoneyTransfer_Previews: PreviewProvider {
     static var previews: some View {
         MoneyTransfer(cards: [PreviewModels.masterCard, PreviewModels.visaCard])
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }
 
