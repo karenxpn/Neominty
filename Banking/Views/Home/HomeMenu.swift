@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeMenu: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     
     let icons = ["money-send", "money-exchange", "money-receive", "more"]
     let labels = [NSLocalizedString("send", comment: ""),
@@ -30,8 +30,8 @@ struct HomeMenu: View {
         HStack {
             ForEach(0..<icons.count, id: \.self) { id in
                 HomeMenuItem(icon: icons[id], label: labels[id]) {
-                    viewRouter.pushHomePath(paths[id])
-                }.environmentObject(viewRouter)
+                    router.pushHomePath(paths[id])
+                }.environmentObject(router)
             }
         }.padding(.vertical, 15)
             .background(Color(.whiteOpacity))
@@ -41,6 +41,6 @@ struct HomeMenu: View {
 struct HomeMenu_Previews: PreviewProvider {
     static var previews: some View {
         HomeMenu(cards: [])
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

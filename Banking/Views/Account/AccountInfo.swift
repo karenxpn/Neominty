@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountInfo: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var accountVM = AccountViewModel()
     @State private var name: String
     @State private var flag: String
@@ -80,7 +80,7 @@ struct AccountInfo: View {
                         TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
                         
                         Button {
-                            viewRouter.pushAccountPath(.accountEmail(email: email))
+                            router.pushAccountPath(.accountEmail(email: email))
                         } label: {
                             HStack {
                                 TextHelper(text: email.isEmpty ? NSLocalizedString("example@domain.com", comment: "") : email, colorResource: .appGray, fontName: .medium, fontSize: 16)
@@ -125,7 +125,7 @@ struct AccountInfo: View {
                 }
             }.onReceive(NotificationCenter.default.publisher(for:
                                                                 Notification.Name(rawValue: NotificationName.infoUpdated.rawValue))) { _ in
-                viewRouter.popToAccountRoot()
+                router.popToAccountRoot()
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
             }, message: {
@@ -137,6 +137,6 @@ struct AccountInfo: View {
 struct AccountInfo_Previews: PreviewProvider {
     static var previews: some View {
         AccountInfo(name: "Karen Mirakyan", flag: "🇦🇲", phone: "93936313", email: nil)
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewCard: View {
     
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var cardsVM = CardsViewModel()
     
     @State private var navigate: Bool = false

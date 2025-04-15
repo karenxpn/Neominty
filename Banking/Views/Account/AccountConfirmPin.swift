@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountConfirmPin: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @EnvironmentObject var authVM: AuthViewModel
     
     var body: some View {
@@ -27,7 +27,7 @@ struct AccountConfirmPin: View {
                     ButtonHelper(disabled: authVM.passcode != authVM.passcodeConfirm,
                                  label: NSLocalizedString("confirm", comment: "")) {
                         authVM.storeChangedPin()
-                        viewRouter.popToAccountRoot()
+                        router.popToAccountRoot()
                     }.padding(.bottom, 30)
                 }
                 .frame(minHeight: geometry.size.height - 98)

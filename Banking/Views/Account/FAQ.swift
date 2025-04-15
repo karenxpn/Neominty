@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FAQ: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var faqVM = FAQViewModel()
     @State private var navigate: Bool = false
     
@@ -38,7 +38,7 @@ struct FAQ: View {
                 Spacer()
                 
                 Button {
-                    viewRouter.pushAccountPath(.allFaq)
+                    router.pushAccountPath(.allFaq)
                 } label: {
                     TextHelper(text: NSLocalizedString("viewAll", comment: ""),
                                fontName: .bold,

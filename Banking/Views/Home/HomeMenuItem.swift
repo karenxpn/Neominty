@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeMenuItem: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     
     let icon: String
     let label: String
@@ -38,6 +38,6 @@ struct HomeMenuItem_Previews: PreviewProvider {
     static var previews: some View {
         HomeMenuItem(icon: "money-send", label: NSLocalizedString("send", comment: ""), action: {
             
-        }).environmentObject(ViewRouter())
+        }).environmentObject(Router())
     }
 }

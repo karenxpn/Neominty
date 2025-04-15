@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RequestToAddNewCard: View {
     
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     var body: some View {
         ScrollView {
             VStack(spacing: 48) {
@@ -31,7 +31,7 @@ struct RequestToAddNewCard: View {
                 }
                 
                 ButtonHelper(disabled: false, label: NSLocalizedString("attachCard", comment: "")) {
-                    viewRouter.pushCardPath(.attachCard)
+                    router.pushCardPath(.attachCard)
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)

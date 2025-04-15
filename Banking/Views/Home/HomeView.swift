@@ -12,7 +12,7 @@ import ACarousel
 
 
 struct HomeView: View {
-    @EnvironmentObject private var viewRouter: ViewRouter
+    @EnvironmentObject private var router: Router
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
@@ -21,7 +21,7 @@ struct HomeView: View {
 
     
     var body: some View {
-        NavigationStack(path: $viewRouter.homePath) {
+        NavigationStack(path: $router.homePath) {
             
             ScrollView(showsIndicators: false) {
                 
@@ -50,7 +50,7 @@ struct HomeView: View {
                             
                             if homeVM.cards.isEmpty && homeVM.alertMessage.isEmpty {
                                 AttachNewCardButton {
-                                    viewRouter.pushHomePath(.attachCard)
+                                    router.pushHomePath(.attachCard)
                                 }.padding(24)
                             }
                             
@@ -65,14 +65,14 @@ struct HomeView: View {
                             }
                             
                             HomeMenu(cards: homeVM.cards)
-                                .environmentObject(viewRouter)
+                                .environmentObject(router)
                         }
                     }
                 }
                 
                 if homeVM.loadingTransactions {
                     RecentTransactions(transactions: PreviewModels.transactionList) {
-                        viewRouter.pushHomePath(.allTransactions)
+                        router.pushHomePath(.allTransactions)
                     }.redacted(reason: .placeholder)
                         .shimmering(
                             active: homeVM.loading,
@@ -81,7 +81,7 @@ struct HomeView: View {
                         )
                 } else {
                     RecentTransactions(transactions: homeVM.transactions) {
-                        viewRouter.pushHomePath(.allTransactions)
+                        router.pushHomePath(.allTransactions)
                     }
                 }
             }.padding(.top, 1)
@@ -109,7 +109,7 @@ struct HomeView: View {
                     
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            viewRouter.pushHomePath(.notifications)
+                            router.pushHomePath(.notifications)
                         } label: {
                             Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
                         }
@@ -121,7 +121,7 @@ struct HomeView: View {
                     Text(homeVM.alertMessage)
                 })
                 .navigationDestination(for: HomeViewPaths.self) { page in
-                    viewRouter.buildHomeView(page: page)
+                    router.buildHomeView(page: page)
                 }
         }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
             showCardAttachedAlert.toggle()
@@ -135,7 +135,7 @@ struct HomeView: View {
                 }
             } action: {
                 showCardAttachedAlert = false
-                viewRouter.popToHomeRoot()
+                router.popToHomeRoot()
             }
         })
     }
@@ -146,6 +146,6 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         
         HomeView()
-            .environmentObject(ViewRouter())
+            .environmentObject(Router())
     }
 }

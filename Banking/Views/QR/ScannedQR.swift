@@ -9,7 +9,7 @@ import SwiftUI
 import CodeScanner
 
 struct ScannedQR: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @EnvironmentObject var qrVM: QrViewModel
     
     let result: String
@@ -92,16 +92,12 @@ struct ScannedQR: View {
                                  label: qrVM.loadingPayment ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
                         qrVM.performPayment(receiver: result,
                                             amount: amount, action: {
-                            print(viewRouter.scanPath.count)
-
                             presented.toggle()
-                            viewRouter.pushScanPath(.transferSuccess(amount: amount,
+                            router.pushScanPath(.transferSuccess(amount: amount,
                                                                      currency: qrVM.selectedCard!.currency,
                                                                      action: CustomAction(action: {
-                                viewRouter.popToScanRoot()
+                                router.popToScanRoot()
                             })))
-                            
-                            print(viewRouter.scanPath.count)
                         })
                     }
                     

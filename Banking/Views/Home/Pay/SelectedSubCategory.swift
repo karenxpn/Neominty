@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SelectedSubCategory: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var router: ViewRouter
+    @EnvironmentObject var router: Router
     @EnvironmentObject var payVM: PayViewModel
     
     let subCategory: SubCategory

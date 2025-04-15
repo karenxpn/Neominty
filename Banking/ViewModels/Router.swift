@@ -1,5 +1,5 @@
 //
-//  ViewRouter.swift
+//  Router.swift
 //  Banking
 //
 //  Created by Karen Mirakyan on 14.03.23.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseAuth
 
-class ViewRouter: ObservableObject {
+class Router: ObservableObject {
     @AppStorage("firstInstall") var firstInstall: Bool = true
     
     @Published var tab: Int = 0

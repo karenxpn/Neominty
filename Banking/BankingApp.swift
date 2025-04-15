@@ -9,9 +9,8 @@ import SwiftUI
 
 @main
 struct BankingApp: App {
-    // register app delegate for Firebase setup
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var viewRouter = ViewRouter()
+    @StateObject private var router = Router()
     
     @State private var showIntroLottie = true
 
@@ -35,7 +34,7 @@ struct BankingApp: App {
                     .background(Color(.darkBlue))
             } else if showIntroLottie == false {
                 ContentView()
-                    .environmentObject(viewRouter)
+                    .environmentObject(router)
                     .onAppear(perform: {
                         delegate.app = self
                     })
@@ -46,6 +45,6 @@ struct BankingApp: App {
 
 extension BankingApp {
     func handleDeeplink(from url: URL) {
-        viewRouter.handleDeeplink(from: url)
+        router.handleDeeplink(from: url)
     }
 }

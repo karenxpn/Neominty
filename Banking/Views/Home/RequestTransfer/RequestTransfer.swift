@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RequestTransfer: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     @StateObject private var requestVM = RequestTransferViewModel()
     @State private var selectCard: Bool = false
     @State private var requestSuccess: Bool = false
@@ -29,7 +29,7 @@ struct RequestTransfer: View {
                         } else {
                             if !requestVM.loading && requestVM.cards.isEmpty && requestVM.alertMessage.isEmpty {
                                 AttachCardButtonLikeSelect {
-                                    viewRouter.pushHomePath(.attachCard)
+                                    router.pushHomePath(.attachCard)
                                 }
                             } else if requestVM.selectedCard != nil {
                                 SelectCardButton(card: requestVM.selectedCard!, buttonType: .popup) {

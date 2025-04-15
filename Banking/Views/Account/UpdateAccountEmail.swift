@@ -11,7 +11,7 @@ struct UpdateAccountEmail: View {
     @State private var email: String
     @State private var emailValid: Bool
     @StateObject private var accountVM = AccountViewModel()
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     
     
     init(email: String?) {
@@ -55,7 +55,7 @@ struct UpdateAccountEmail: View {
                     }
                 }.onReceive(NotificationCenter.default.publisher(for:
                                                                     Notification.Name(rawValue: NotificationName.emailUpdated.rawValue))) { _ in
-                    viewRouter.popToAccountRoot()
+                    router.popToAccountRoot()
                 }.alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
                     Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
                 }, message: {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CheckPin: View {
-    @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var router: Router
     
     @StateObject private var authVM = AuthViewModel()
     @State private var navigate: Bool = false

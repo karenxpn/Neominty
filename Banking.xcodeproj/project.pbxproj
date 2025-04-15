@@ -57,7 +57,7 @@
 		FF45204829C07B1E003C6415 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FF45204729C07B1E003C6415 /* KeychainSwift */; };
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
 		FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204B29C0FB3D003C6415 /* MainView.swift */; };
-		FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204D29C0FB95003C6415 /* ViewRouter.swift */; };
+		FF45204E29C0FB95003C6415 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204D29C0FB95003C6415 /* Router.swift */; };
 		FF45205329C33D9B003C6415 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205229C33D9B003C6415 /* HomeView.swift */; };
 		FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205429C33DD7003C6415 /* AllTransactions.swift */; };
 		FF45205729C66453003C6415 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205629C66453003C6415 /* CardModel.swift */; };
@@ -288,7 +288,7 @@
 		FF45204429C079C3003C6415 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		FF45204D29C0FB95003C6415 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		FF45204D29C0FB95003C6415 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FF45205229C33D9B003C6415 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FF45205429C33DD7003C6415 /* AllTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactions.swift; sourceTree = "<group>"; };
 		FF45205629C66453003C6415 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
@@ -568,7 +568,7 @@
 			children = (
 				FF18C25929BB25A6004EF3A3 /* AlertViewModel.swift */,
 				FF18C25729BB259D004EF3A3 /* AuthViewModel.swift */,
-				FF45204D29C0FB95003C6415 /* ViewRouter.swift */,
+				FF45204D29C0FB95003C6415 /* Router.swift */,
 				FF45206C29C733B7003C6415 /* HomeViewModel.swift */,
 				FF45207229C7A565003C6415 /* TransferViewModel.swift */,
 				FF38E9F329CB75E300610F5C /* ActivityViewModel.swift */,
@@ -1332,7 +1332,7 @@
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
 				FF3B61362D71DEEE00FA7A54 /* BindingToCardPaymentResponseModel.swift in Sources */,
 				FF3B61372D71DEEE00FA7A54 /* BindingToBindingPaymentResponseModel.swift in Sources */,
-				FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */,
+				FF45204E29C0FB95003C6415 /* Router.swift in Sources */,
 				FFC2BD0929BBC7E100E774FD /* CreatePin.swift in Sources */,
 				FFAFCE242AD85F2500FC84DE /* AccountVerificationApproved.swift in Sources */,
 				FF45207E29C7B57A003C6415 /* CardTextField.swift in Sources */,

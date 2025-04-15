@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PayCategoryCell: View {
-    @EnvironmentObject var router: ViewRouter
+    @EnvironmentObject var router: Router
     @EnvironmentObject var payVM: PayViewModel
     let category: PayCategoryViewModel
     @State private var showCategory: Bool = false
