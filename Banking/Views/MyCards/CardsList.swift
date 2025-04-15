@@ -41,7 +41,7 @@ struct CardsList: View {
             
             if !loading {
                 Button {
-                    router.pushCardPath(.attachCard)
+                    router.pushCardPath(.selectNewCardStyle)
                 } label: {
                     
                     HStack(spacing: 12) {

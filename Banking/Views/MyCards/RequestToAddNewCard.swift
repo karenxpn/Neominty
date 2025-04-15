@@ -31,7 +31,7 @@ struct RequestToAddNewCard: View {
                 }
                 
                 ButtonHelper(disabled: false, label: NSLocalizedString("attachCard", comment: "")) {
-                    router.pushCardPath(.attachCard)
+                    router.pushCardPath(.selectNewCardStyle)
                 }
             }.padding(24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)

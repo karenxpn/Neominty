@@ -55,8 +55,10 @@ struct Cards: View {
                 })
                 .navigationDestination(for: MyCardViewPaths.self) { value in
                     switch value {
-                    case .attachCard:
+                    case .selectNewCardStyle:
                         SelectCardStyle()
+                    case .attachCard(let design):
+                        AddNewCard(style: design)
                     }
                 }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
                     showCardAttachedAlert.toggle()

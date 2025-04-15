@@ -7,10 +7,7 @@
 
 import Foundation
 
-enum MyCardViewPaths: String, Identifiable {
-    case attachCard
-    
-    var id: String {
-        self.rawValue
-    }
+enum MyCardViewPaths: Equatable, Hashable {
+    case selectNewCardStyle
+    case attachCard(style: CardDesign)
 }
