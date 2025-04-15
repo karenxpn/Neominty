@@ -54,12 +54,7 @@ struct Cards: View {
                     Text(cardsVM.alertMessage)
                 })
                 .navigationDestination(for: MyCardViewPaths.self) { value in
-                    switch value {
-                    case .selectNewCardStyle:
-                        SelectCardStyle()
-                    case .attachCard(let design):
-                        AddNewCard(style: design)
-                    }
+                    router.buildCardsView(page: value)
                 }.onReceive(NotificationCenter.default.publisher(for: Notification.Name(rawValue: NotificationName.cardAttached.rawValue))) { _ in
                     showCardAttachedAlert.toggle()
                 }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {

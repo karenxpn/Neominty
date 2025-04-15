@@ -101,6 +101,16 @@ class Router: ObservableObject {
         }
     }
     
+    @ViewBuilder
+    func buildCardsView(page: MyCardViewPaths) -> some View {
+        switch page {
+        case .selectNewCardStyle:
+            SelectCardStyle()
+        case .attachCard(let design):
+            AddNewCard(style: design)
+        }
+    }
+    
     // add new view
     func pushHomePath(_ page: HomeViewPaths) {
         homePath.append(page)
