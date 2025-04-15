@@ -1,26 +1,13 @@
 //
-//  ViewPaths.swift
+//  HomePaths.swift
 //  Banking
 //
-//  Created by Karen Mirakyan on 16.03.23.
+//  Created by Karen Mirakyan on 15.04.25.
 //
 
 import Foundation
-import SwiftUI
 
-enum ViewPaths: String, Identifiable {
-        
-    case setPasscode
-    case confirmPasscode
-    case enableBiometric
-    case verifyPhoneNumber
-    
-    var id: String {
-        self.rawValue
-    }
-}
-
-enum HomeViewPaths: Equatable, Hashable {    
+enum HomeViewPaths: Equatable, Hashable {
     case send(cards: [CardModel])
     case transferDetails(card: CardModel, recentTransfer: RecentTransfer?, receiverCardNumber: String)
     case pay
@@ -95,6 +82,7 @@ enum HomeViewPaths: Equatable, Hashable {
     }
 }
 
+
 struct CustomAction {
     let action: () -> Void
 }
@@ -112,40 +100,4 @@ extension CustomAction: Hashable {
         // Create a unique hash value based on the action
         ObjectIdentifier(action as AnyObject).hash(into: &hasher)
     }
-}
-
-
-enum MyCardViewPaths: String, Identifiable {
-    case attachCard
-    
-    var id: String {
-        self.rawValue
-    }
-}
-
-enum ScanViewPaths: Equatable, Hashable {
-    case attachCard
-    case transferSuccess(amount: String, currency: CardCurrency, action: CustomAction)
-}
-
-enum AnalyticsViewPaths: String, Identifiable {
-    case allTransactions
-    case attachCard
-    
-    var id: String {
-        self.rawValue
-    }
-}
-
-enum AccountViewPaths: Equatable, Hashable {
-    
-    case info(name: String?, flag: String?, phone: String?, email: String?)
-    case accountEmail(email: String?)
-    case settings
-    case changePin
-    case faq
-    case allFaq
-    case verifyAccount
-    case accountRejected
-    case accountVerified
 }

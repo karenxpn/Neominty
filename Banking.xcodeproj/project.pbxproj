@@ -58,7 +58,6 @@
 		FF45204A29C09705003C6415 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204929C09705003C6415 /* CustomTabView.swift */; };
 		FF45204C29C0FB3D003C6415 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204B29C0FB3D003C6415 /* MainView.swift */; };
 		FF45204E29C0FB95003C6415 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204D29C0FB95003C6415 /* ViewRouter.swift */; };
-		FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45204F29C33B01003C6415 /* ViewPaths.swift */; };
 		FF45205329C33D9B003C6415 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205229C33D9B003C6415 /* HomeView.swift */; };
 		FF45205529C33DD7003C6415 /* AllTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205429C33DD7003C6415 /* AllTransactions.swift */; };
 		FF45205729C66453003C6415 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45205629C66453003C6415 /* CardModel.swift */; };
@@ -192,6 +191,12 @@
 		FFE0C6A92A1A45D10043E5FF /* ScannedQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */; };
 		FFE177372D7351B30042B2EE /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE177362D7351AC0042B2EE /* LottieView.swift */; };
 		FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */; };
+		FFE9F68B2DAE7B93003E465B /* ViewPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F68A2DAE7B93003E465B /* ViewPaths.swift */; };
+		FFE9F68D2DAE7BAC003E465B /* HomePaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F68C2DAE7BAC003E465B /* HomePaths.swift */; };
+		FFE9F68F2DAE7C31003E465B /* CardPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F68E2DAE7C31003E465B /* CardPaths.swift */; };
+		FFE9F6912DAE7C47003E465B /* ScanPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6902DAE7C47003E465B /* ScanPaths.swift */; };
+		FFE9F6932DAE7C61003E465B /* AnalyticsPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6922DAE7C61003E465B /* AnalyticsPaths.swift */; };
+		FFE9F6952DAE7C77003E465B /* AccountPaths.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE9F6942DAE7C77003E465B /* AccountPaths.swift */; };
 		FFED57A22B591F9500B0766D /* MockAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A12B591F9500B0766D /* MockAuthService.swift */; };
 		FFED57A62B5921A400B0766D /* AuthViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */; };
 		FFED57A82B59479F00B0766D /* MockAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFED57A72B59479F00B0766D /* MockAccountService.swift */; };
@@ -284,7 +289,6 @@
 		FF45204929C09705003C6415 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		FF45204B29C0FB3D003C6415 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FF45204D29C0FB95003C6415 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
-		FF45204F29C33B01003C6415 /* ViewPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPaths.swift; sourceTree = "<group>"; };
 		FF45205229C33D9B003C6415 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FF45205429C33DD7003C6415 /* AllTransactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTransactions.swift; sourceTree = "<group>"; };
 		FF45205629C66453003C6415 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
@@ -411,6 +415,12 @@
 		FFE0C6A82A1A45D10043E5FF /* ScannedQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedQR.swift; sourceTree = "<group>"; };
 		FFE177362D7351AC0042B2EE /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		FFE6801D2ACDDF7000FEF277 /* VerificationToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationToken.swift; sourceTree = "<group>"; };
+		FFE9F68A2DAE7B93003E465B /* ViewPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPaths.swift; sourceTree = "<group>"; };
+		FFE9F68C2DAE7BAC003E465B /* HomePaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePaths.swift; sourceTree = "<group>"; };
+		FFE9F68E2DAE7C31003E465B /* CardPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaths.swift; sourceTree = "<group>"; };
+		FFE9F6902DAE7C47003E465B /* ScanPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanPaths.swift; sourceTree = "<group>"; };
+		FFE9F6922DAE7C61003E465B /* AnalyticsPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsPaths.swift; sourceTree = "<group>"; };
+		FFE9F6942DAE7C77003E465B /* AccountPaths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPaths.swift; sourceTree = "<group>"; };
 		FFED57A12B591F9500B0766D /* MockAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthService.swift; sourceTree = "<group>"; };
 		FFED57A52B5921A400B0766D /* AuthViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModelTests.swift; sourceTree = "<group>"; };
 		FFED57A72B59479F00B0766D /* MockAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountService.swift; sourceTree = "<group>"; };
@@ -516,7 +526,6 @@
 			isa = PBXGroup;
 			children = (
 				FFE177362D7351AC0042B2EE /* LottieView.swift */,
-				FF45204F29C33B01003C6415 /* ViewPaths.swift */,
 				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
 				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
 				FF18C26F29BB34BB004EF3A3 /* ImageHelper.swift */,
@@ -534,6 +543,7 @@
 		FF18C24F29BA8E26004EF3A3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FFE9F6892DAE7B81003E465B /* ViewPaths */,
 				FF130E9B2A1517B400F7A5B8 /* EmptyPageHelpers */,
 				FF7A120929E43AFC00286366 /* QR */,
 				FF7A11CF29D7529400286366 /* Account */,
@@ -900,6 +910,19 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		FFE9F6892DAE7B81003E465B /* ViewPaths */ = {
+			isa = PBXGroup;
+			children = (
+				FFE9F68A2DAE7B93003E465B /* ViewPaths.swift */,
+				FFE9F68C2DAE7BAC003E465B /* HomePaths.swift */,
+				FFE9F68E2DAE7C31003E465B /* CardPaths.swift */,
+				FFE9F6902DAE7C47003E465B /* ScanPaths.swift */,
+				FFE9F6922DAE7C61003E465B /* AnalyticsPaths.swift */,
+				FFE9F6942DAE7C77003E465B /* AccountPaths.swift */,
+			);
+			path = ViewPaths;
+			sourceTree = "<group>";
+		};
 		FFED579F2B591F5B00B0766D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1123,9 +1146,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking/Pods-Banking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking/Pods-Banking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1162,9 +1189,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking-BankingUITests/Pods-Banking-BankingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking-BankingUITests/Pods-Banking-BankingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1266,6 +1297,7 @@
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
 				FFAC1DEC29D1C7A400947CBC /* CardsViewModel.swift in Sources */,
+				FFE9F6912DAE7C47003E465B /* ScanPaths.swift in Sources */,
 				FFAC1DF229D1DB5D00947CBC /* CardService.swift in Sources */,
 				FFB1C97E29EB30410063DD24 /* NotificationsViewModel.swift in Sources */,
 				FF130EA12A151CA100F7A5B8 /* NoTransactionsToShow.swift in Sources */,
@@ -1294,6 +1326,7 @@
 				FFAFCE222AD8592F00FC84DE /* AccountVerificationRejected.swift in Sources */,
 				FFAC1DFA29D2587C00947CBC /* CardStylingSelector.swift in Sources */,
 				FF45206529C66DAD003C6415 /* Notifications.swift in Sources */,
+				FFE9F6952DAE7C77003E465B /* AccountPaths.swift in Sources */,
 				FF7A11D129D752A000286366 /* Account.swift in Sources */,
 				FF7A11F929DCA43A00286366 /* FAQDetail.swift in Sources */,
 				FF821BCC29D5C0CB00F3BA0C /* RequestTransfer.swift in Sources */,
@@ -1318,14 +1351,17 @@
 				FF18C25E29BB2677004EF3A3 /* APIHelper.swift in Sources */,
 				FF821BD029D5C47300F3BA0C /* SelectCardButton.swift in Sources */,
 				FF7A11F129DC6BC200286366 /* FAQ.swift in Sources */,
+				FFE9F68F2DAE7C31003E465B /* CardPaths.swift in Sources */,
 				FF38E9F429CB75E300610F5C /* ActivityViewModel.swift in Sources */,
 				FF04FC5C2A13A9E40049D42F /* SelectCardStyle.swift in Sources */,
 				FF45208C29CA1C32003C6415 /* TransferDetailView.swift in Sources */,
 				FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */,
 				FF7A11CE29D70C7F00286366 /* RequestTransferSuccess.swift in Sources */,
+				FFE9F68B2DAE7B93003E465B /* ViewPaths.swift in Sources */,
 				FF20A3E42A12E39100E41FC2 /* StandardStyles.swift in Sources */,
 				FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */,
 				FFB1C98129EB36BC0063DD24 /* NotificationCell.swift in Sources */,
+				FFE9F6932DAE7C61003E465B /* AnalyticsPaths.swift in Sources */,
 				FF38E9FE29CE00BB00610F5C /* AllTransferViewModel.swift in Sources */,
 				FF7A11F729DCA34700286366 /* AllFAQs.swift in Sources */,
 				FFE6801E2ACDDF7000FEF277 /* VerificationToken.swift in Sources */,
@@ -1353,12 +1389,12 @@
 				FF80569429BDF7230081AD76 /* Authentication.swift in Sources */,
 				FF864DFB29EB796900EC883E /* AmountTextField.swift in Sources */,
 				FF7A120429E057E800286366 /* PayService.swift in Sources */,
+				FFE9F68D2DAE7BAC003E465B /* HomePaths.swift in Sources */,
 				FF20A3E82A12EBA100E41FC2 /* SignedStyle.swift in Sources */,
 				FF7A11DB29D77FCF00286366 /* AccountViewModel.swift in Sources */,
 				FFAC1DF029D1DA8A00947CBC /* CardsList.swift in Sources */,
 				FF18C26129BB29DA004EF3A3 /* PhoneAuthentication.swift in Sources */,
 				FF18C27029BB34BB004EF3A3 /* ImageHelper.swift in Sources */,
-				FF45205029C33B01003C6415 /* ViewPaths.swift in Sources */,
 				FF7A120029E051FD00286366 /* PayCategory.swift in Sources */,
 				FF821BCE29D5C10500F3BA0C /* RequestTransferViewModel.swift in Sources */,
 				FF38E9F029CB75A100610F5C /* Activity.swift in Sources */,
