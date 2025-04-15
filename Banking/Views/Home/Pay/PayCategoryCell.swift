@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PayCategoryCell: View {
+    @EnvironmentObject var router: ViewRouter
     @EnvironmentObject var payVM: PayViewModel
     let category: PayCategoryViewModel
     @State private var showCategory: Bool = false
     
     var body: some View {
         Button {
-            showCategory.toggle()
+            router.pushHomePath(.selectPaySubcategory(category: category, vm: payVM))
         } label: {
             LazyVStack(alignment: .leading, spacing: 13) {
                 Image(category.image)
@@ -25,10 +26,7 @@ struct PayCategoryCell: View {
                     RoundedRectangle(cornerRadius: 16)
                         .strokeBorder(Color(.lightGray), lineWidth: 1)
                 }.cornerRadius(16)
-        }.navigationDestination(isPresented: $showCategory, destination: {
-            SelectSubCategory(category: category)
-                .environmentObject(payVM)
-        })
+        }
     }
 }
 

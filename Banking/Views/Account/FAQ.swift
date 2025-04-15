@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FAQ: View {
-    
+    @EnvironmentObject var viewRouter: ViewRouter
     @StateObject private var faqVM = FAQViewModel()
     @State private var navigate: Bool = false
     
@@ -38,13 +38,11 @@ struct FAQ: View {
                 Spacer()
                 
                 Button {
-                    navigate.toggle()
+                    viewRouter.pushAccountPath(.allFaq)
                 } label: {
                     TextHelper(text: NSLocalizedString("viewAll", comment: ""),
                                fontName: .bold,
                                fontSize: 16)
-                }.navigationDestination(isPresented: $navigate) {
-                    AllFAQs()
                 }
             }.padding(.top, 10)
             

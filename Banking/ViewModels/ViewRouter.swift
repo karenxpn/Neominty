@@ -41,6 +41,12 @@ class ViewRouter: ObservableObject {
             TransferDetailView(card: card, selectedTransfer: recentTransfer, receiverCardNumber: receiver)
         case .pay:
             PayView()
+        case .paymentDetails(let vm):
+            PaymentDetails()
+                .environmentObject(vm)
+        case .selectPaySubcategory(let category, let vm):
+            SelectSubCategory(category: category)
+                .environmentObject(vm)
         case .receive:
             RequestTransfer()
         case .more:
@@ -84,6 +90,8 @@ class ViewRouter: ObservableObject {
             UpdateAccountEmail(email: email)
         case .faq:
             FAQ()
+        case .allFaq:
+            AllFAQs()
         case .verifyAccount:
             IdentityVerification()
         case .accountVerified:

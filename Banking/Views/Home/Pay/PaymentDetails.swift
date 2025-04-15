@@ -11,7 +11,6 @@ struct PaymentDetails: View {
     @EnvironmentObject var payVM: PayViewModel
     @EnvironmentObject var viewRouter: ViewRouter
     @State private var selectCard: Bool = false
-    @State private var completed: Bool = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -61,12 +60,7 @@ struct PaymentDetails: View {
                                  : NSLocalizedString("next", comment: "")) {
                         
                         payVM.performPayment()
-                    }.navigationDestination(isPresented: $completed) {
-                        TransferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd) {
-                            viewRouter.popToHomeRoot()
-                        }
-                    }
-                    
+                    }                    
                 }
                 
             }.padding(24)
@@ -96,7 +90,9 @@ struct PaymentDetails: View {
         }.onReceive(NotificationCenter
             .default
             .publisher(for:Notification.Name(rawValue: NotificationName.paymentCompleted.rawValue))) { _ in
-                completed.toggle()
+                viewRouter.pushHomePath(.transferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd, action: CustomAction(action: {
+                    viewRouter.popToHomeRoot()
+                })))
         }.alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
             Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
         }, message: {

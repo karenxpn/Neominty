@@ -11,7 +11,6 @@ struct SelectSubCategory: View {
     @EnvironmentObject private var payVM: PayViewModel
     let category: PayCategoryViewModel
     @State private var selectedCategory: SubCategory?
-    @State private var navigate: Bool = false
     
     var body: some View {
         
@@ -58,7 +57,7 @@ struct SelectSubCategory: View {
             }.padding([.horizontal, .bottom], 24)
                 .padding(.bottom, UIScreen.main.bounds.height * 0.15)
                 .sheet(item: $selectedCategory, content: { item in
-                    SelectedSubCategory(subCategory: item, navigate: $navigate)
+                    SelectedSubCategory(subCategory: item)
                 })
             
         }.scrollDismissesKeyboard(.immediately)
@@ -67,9 +66,6 @@ struct SelectSubCategory: View {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: category.title, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
                 }
-            }.navigationDestination(isPresented: $navigate) {
-                PaymentDetails()
-                    .environmentObject(payVM)
             }
     }
 }
