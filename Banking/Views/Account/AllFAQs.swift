@@ -20,7 +20,7 @@ struct AllFAQs: View {
                         showDetail.toggle()
                     } label: {
                         VStack(alignment: .leading, spacing: 8) {
-                            TextHelper(text: faq.question, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                            TextHelper(text: faq.question, colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
                             TextHelper(text: faq.answer, colorResource: .appGray, fontSize: 12)
@@ -57,7 +57,7 @@ struct AllFAQs: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

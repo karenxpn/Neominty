@@ -22,7 +22,7 @@ struct RecentTransactions: View {
                     action()
                 } label: {
                     HStack(spacing: 0) {
-                        TextHelper(text: NSLocalizedString("allTransactions", comment: ""), colorResource: .darkBlue, fontName: .medium, fontSize: 14)
+                        TextHelper(text: NSLocalizedString("allTransactions", comment: ""), colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
                         
                         Image("chevron-right")
                     }
@@ -43,13 +43,13 @@ struct RecentTransactions: View {
                             .cornerRadius(12)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            TextHelper(text: transaction.name, colorResource: .darkBlue, fontName: .bold, fontSize: 14)
+                            TextHelper(text: transaction.name, colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
                             //                        TextHelper(text: transaction.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
                         }
                         
                         Spacer()
                         
-                        TextHelper(text: transaction.amount, colorResource: transaction.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlue, fontName: .bold, fontSize: 14)
+                        TextHelper(text: transaction.amount, colorResource: transaction.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlueText, fontName: .bold, fontSize: 14)
                         
                     }
                     

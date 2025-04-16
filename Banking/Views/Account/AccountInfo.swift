@@ -121,7 +121,7 @@ struct AccountInfo: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.onReceive(NotificationCenter.default.publisher(for:
                                                                 Notification.Name(rawValue: NotificationName.infoUpdated.rawValue))) { _ in

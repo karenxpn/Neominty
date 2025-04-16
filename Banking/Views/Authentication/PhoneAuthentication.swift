@@ -20,7 +20,7 @@ struct PhoneAuthentication: View {
                 
                 
                 VStack( alignment: .leading, spacing: 8) {
-                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                     TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), colorResource: .appGray, fontSize: 16)
                 }
                 

@@ -14,7 +14,7 @@ struct IdentityVerification: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
-                TextHelper(text: NSLocalizedString("letsVerifyIdentity", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                TextHelper(text: NSLocalizedString("letsVerifyIdentity", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                 TextHelper(text: NSLocalizedString("weAreRequiredByLaw", comment: ""), colorResource: .appGray, fontSize: 16)
                 
             }.frame(

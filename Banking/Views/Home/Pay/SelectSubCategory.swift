@@ -33,7 +33,7 @@ struct SelectSubCategory: View {
                                         .frame(height: 100)
                                         .clipped()
                                     
-                                    TextHelper(text: sub.name, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
+                                    TextHelper(text: sub.name, colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
                                     
                                 }.padding(16)
                                     .background {
@@ -64,7 +64,7 @@ struct SelectSubCategory: View {
             .navigationTitle(Text(""))
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: category.title, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: category.title, colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

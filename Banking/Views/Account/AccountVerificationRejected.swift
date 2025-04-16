@@ -34,7 +34,7 @@ struct AccountVerificationRejected: View {
                 }
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
                     TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), colorResource: .appGray, fontSize: 16)
                         .multilineTextAlignment(.center)
@@ -56,7 +56,7 @@ struct AccountVerificationRejected: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

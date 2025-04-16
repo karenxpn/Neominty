@@ -70,7 +70,7 @@ struct AddNewCard: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("newCard", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("newCard", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
                 Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }

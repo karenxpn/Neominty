@@ -64,7 +64,7 @@ struct CongratulationAlert_Previews: PreviewProvider {
         CongratulationAlert(content: {
             
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 
                 TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
             }

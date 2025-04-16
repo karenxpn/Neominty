@@ -20,7 +20,7 @@ struct PayCategoryCell: View {
             LazyVStack(alignment: .leading, spacing: 13) {
                 Image(category.image)
                     .foregroundColor(.black)
-                TextHelper(text: category.title, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
+                TextHelper(text: category.title, colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
             }.padding(16)
                 .background {
                     RoundedRectangle(cornerRadius: 16)

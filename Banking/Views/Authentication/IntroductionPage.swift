@@ -32,7 +32,7 @@ struct IntroductionPage: View {
                 Spacer()
                 VStack(spacing: 16) {
                     
-                    TextHelper(text: introduction.title, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                    TextHelper(text: introduction.title, colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                         .multilineTextAlignment(.center)
                     
                     

@@ -17,7 +17,7 @@ struct NotificationCell: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    TextHelper(text: notification.title, colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                    TextHelper(text: notification.title, colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                     Spacer()
                     TextHelper(text: notification.createdAt,
                                colorResource: .appGray,

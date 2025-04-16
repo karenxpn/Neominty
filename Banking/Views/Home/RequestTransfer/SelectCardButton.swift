@@ -23,7 +23,7 @@ struct SelectCardButton: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
-                    TextHelper(text: card.cardHolder, colorResource: .darkBlue, fontName: .medium, fontSize: 16)
+                    TextHelper(text: card.cardHolder, colorResource: .darkBlueText, fontName: .medium, fontSize: 16)
                     TextHelper(text: card.cardPan, colorResource: .appGray, fontName: .medium, fontSize: 12)
                 }
                 

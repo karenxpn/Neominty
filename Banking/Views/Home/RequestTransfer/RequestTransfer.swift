@@ -60,7 +60,7 @@ struct RequestTransfer: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("request", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("request", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 requestVM.getCards()

@@ -64,7 +64,7 @@ struct GeneralSettings: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("generalSettings", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("generalSettings", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

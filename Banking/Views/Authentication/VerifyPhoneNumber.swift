@@ -17,7 +17,7 @@ struct VerifyPhoneNumber: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                 TextHelper(text: "\(NSLocalizedString("weSentCode", comment: "")) \(phone).\n\(NSLocalizedString("enterItHere", comment: ""))", colorResource: .appGray, fontSize: 16)
 
                 OTPTextFieldView(pin: $authVM.OTP, authState: .notDetermind) { otp in

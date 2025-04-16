@@ -16,7 +16,7 @@ struct ViewFailedToLoad: View {
             
             Image("request-transfer-success")
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     .multilineTextAlignment(.center)
 
                 TextHelper(text: NSLocalizedString("viewFiledToLoad", comment: ""), colorResource: .appGray, fontSize: 14)

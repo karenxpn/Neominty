@@ -21,7 +21,7 @@ struct RequestToAddNewCard: View {
                 
                 VStack(alignment: .leading, spacing: 16) {
                     TextHelper(text: NSLocalizedString("createYourNeomintyCard", comment: ""),
-                               colorResource: .darkBlue,
+                               colorResource: .darkBlueText,
                                fontName: .bold,
                                fontSize: 32)
                     

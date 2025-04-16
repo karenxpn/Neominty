@@ -45,7 +45,7 @@ struct PaymentDetails: View {
                     if let category = payVM.selectedPaymentCategory {
                         HStack {
                             VStack(alignment: .leading, spacing: 9) {
-                                TextHelper(text: category.name, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                                TextHelper(text: category.name, colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                                 TextHelper(text: "\(category.fields.first!.placeholder): \(payVM.fields[category.fields.first!.name]!)", colorResource: .appGray, fontSize: 16)
                             }
                             Spacer()

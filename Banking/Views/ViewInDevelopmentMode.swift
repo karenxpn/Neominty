@@ -20,7 +20,7 @@ struct ViewInDevelopmentMode: View {
 //            .frame(height: 200)
 
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     .multilineTextAlignment(.center)
 
                 TextHelper(text: NSLocalizedString("thisPageIsInDevelopmentMode", comment: ""), colorResource: .appGray, fontSize: 14)

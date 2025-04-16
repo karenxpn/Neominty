@@ -15,7 +15,7 @@ struct FAQ: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
             TextHelper(text: NSLocalizedString("youHaveQuestion", comment: ""),
-                       colorResource: .darkBlue,
+                       colorResource: .darkBlueText,
                        fontName: .bold,
                        fontSize: 24)
             
@@ -60,7 +60,7 @@ struct FAQ: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }
