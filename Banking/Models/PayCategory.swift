@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
-struct PayCategory: Identifiable, Codable {
+struct PayCategory: Identifiable, Codable, Hashable {
     @DocumentID var id: String?
     var title: String
     var subCategories: [SubCategory]
@@ -33,20 +33,6 @@ struct PayCategoryViewModel: Identifiable, Hashable {
     var title: String   { NSLocalizedString("\(self.model.title.lowercased())", comment: "")}
     var image: String   { self.model.title.lowercased() + "-icon" }
     var subCategories: [SubCategory]    { self.model.subCategories }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-        hasher.combine(title)
-        hasher.combine(image)
-        hasher.combine(subCategories)
-    }
-    
-    static func == (lhs: PayCategoryViewModel, rhs: PayCategoryViewModel) -> Bool {
-        return lhs.id == rhs.id &&
-               lhs.title == rhs.title &&
-               lhs.image == rhs.image &&
-               lhs.subCategories == rhs.subCategories
-    }
 }
 
 struct SubcategoryField: Identifiable, Codable, Hashable {
