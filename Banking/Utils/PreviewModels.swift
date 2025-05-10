@@ -34,7 +34,7 @@ struct PreviewModels {
                                                                                         currency: "AMD",
                                                                                         name: "Monthly phone payment",
                                                                                         recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
-                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))),
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .received), createdAt: Timestamp(date: Date()))),
                                   TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
                                                                                         amount: 1200,
                                                                                         currency: "AMD",

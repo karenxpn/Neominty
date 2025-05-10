@@ -15,6 +15,7 @@ struct ActivityGraph: View {
     @State private var location: CGPoint = .zero
     @State private var amount: Decimal = 0
     @State private var selectedPoint: String? = nil
+    @Environment(\.colorScheme) var colorScheme
 
     
     var body: some View {
@@ -100,7 +101,7 @@ struct ActivityGraph: View {
         }.chartYAxis(.hidden)
             .chartPlotStyle { plotArea in
                 plotArea
-                    .background(.white)
+                    .background(colorScheme == .light ? .white : .black)
             }.chartYScale(domain: 0...Int((points.map{Int(truncating: $0.amount as NSNumber)}.max() ?? 75) ))
             .chartXAxis() {
                 AxisMarks(position: .bottom) { value in

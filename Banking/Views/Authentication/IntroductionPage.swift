@@ -12,6 +12,8 @@ struct IntroductionPage: View {
     let count: Int
     @Binding var index: Int
     @State private var authenticate: Bool = false
+    @Environment(\.colorScheme) var colorScheme
+
     
     var body: some View {
         ZStack {
@@ -68,8 +70,8 @@ struct IntroductionPage: View {
                     }.padding(.top, 18)
                     
                 }.padding(45)
-                    .background(Color.white)
-                    .shadow(color: .white, radius: 25, y: -25)
+                    .background(colorScheme == .light ? Color.white : Color.black)
+                    .shadow(color: colorScheme == .light ? .white : .black, radius: 25, y: -25)
             }
         }.edgesIgnoringSafeArea(.all)
             .toolbar {
