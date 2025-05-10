@@ -63,20 +63,20 @@ struct ActivityGraph: View {
                     .annotation(alignment: .bottom, spacing: 0) {
 
                         VStack(spacing: 0) {
-                            TextHelper(text: "\(currencySymbol) \(point.amount)", color: .white, fontName: .medium, fontSize: 10)
+                            TextHelper(text: "\(currencySymbol) \(point.amount)", color: colorScheme == .light ? .white : .black, fontName: .medium, fontSize: 10)
                                 .padding(.horizontal, 8)
                                 .padding(.vertical, 5)
                                 .background {
                                     RoundedRectangle(cornerRadius: 6)
-                                        .fill(.black)
+                                        .fill(colorScheme == .light ? .black : .white)
                                 }
 
                             Rectangle()
-                                .fill(Color.black)
+                                .fill(colorScheme == .light ? .black : .white)
                                 .frame(width: 0.5, height: 40)
                         }
 
-                    }.foregroundStyle(.black)
+                    }.foregroundStyle(Color(.darkBlue))
                         .interpolationMethod(.catmullRom)
 
                 }
@@ -138,8 +138,8 @@ struct ActivityGraph: View {
     }
 }
 
-//struct ActivityGraph_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ActivityGraph(points: PreviewModels.expensesPoints, currencySymbol: "USD".currencySymbol)
-//    }
-//}
+struct ActivityGraph_Previews: PreviewProvider {
+    static var previews: some View {
+        ActivityGraph(points: PreviewModels.expensesPoints.map(ExpensePointViewModel.init), currencySymbol: "USD".currencySymbol)
+    }
+}
