@@ -50,7 +50,7 @@ struct TransactionPreviewViewModel: Identifiable {
         case .sent:
             return "notifications-transfer"
         case .utility:
-            return "utility-icon"
+            return "notifications-utility"
         case .unknown(_):
             return "notifications-default"
         }
