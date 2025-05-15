@@ -41,7 +41,7 @@ struct OTPTextFieldView: View {
                 ZStack {
                     
                     RoundedRectangle(cornerRadius: 12)
-                        .strokeBorder(focus == index ? .black : .clear, lineWidth: 1)
+                        .strokeBorder(focus == index ? (colorScheme == .light ? .black : .white) : .clear, lineWidth: 1)
                         .background(RoundedRectangle(cornerRadius: 12)
                             .fill(Color(colorScheme == .light ? .superLightGray : .lightGray))
                         )
