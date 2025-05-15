@@ -40,8 +40,8 @@ struct AllTransactions: View {
                         Spacer()
                         
                         TextHelper(text: transfer.amount, colorResource: transfer.amount.contains(where: { $0 == "+"}) ? .appGreen : .darkBlueText, fontName: .bold, fontSize: 14)
-                    }.onAppear {
-                        if transfer.id == allTransferVM.transfers.last?.id && !allTransferVM.loading {
+                    }.task {
+                        if transfer.id == allTransferVM.transfers.last?.id && !allTransferVM.loading && allTransferVM.lastTransfer != nil {
                             allTransferVM.getTransactionList()
                         }
                     }
