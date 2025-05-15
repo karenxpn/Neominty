@@ -93,7 +93,7 @@ struct Activity: View {
                                                 activityVM.selectedUnit = unit
                                             } label: {
                                                 TextHelper(text: NSLocalizedString(unit, comment: ""),
-                                                           color: activityVM.selectedUnit == unit ? .black : nil,
+                                                           color: activityVM.selectedUnit == unit ? .primary : nil,
                                                            colorResource: activityVM.selectedUnit != unit ? .appGray : nil,
                                                            fontName: .medium, fontSize: 14)
                                                     .lineLimit(1)

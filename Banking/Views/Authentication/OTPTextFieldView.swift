@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OTPTextFieldView: View {
     @AppStorage("biometricEnabled") var biometricEnabled: Bool = false
+    @Environment(\.colorScheme) var colorScheme
 
     var maxDigits: Int = 6
     @Binding var pin: String
@@ -41,7 +42,9 @@ struct OTPTextFieldView: View {
                     
                     RoundedRectangle(cornerRadius: 12)
                         .strokeBorder(focus == index ? .black : .clear, lineWidth: 1)
-                        .background(RoundedRectangle(cornerRadius: 12).fill(Color(.superLightGray)))
+                        .background(RoundedRectangle(cornerRadius: 12)
+                            .fill(Color(colorScheme == .light ? .superLightGray : .lightGray))
+                        )
                         .frame(width: boxWidth, height: boxHeight)
                     
                     TextHelper(text: self.getDigits(at: index), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)

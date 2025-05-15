@@ -24,7 +24,7 @@ public struct CardValidationTF: View {
         bankCardType: Binding<CreditCardType>,
         tfType: CardTextField,
         tfFont: Font = Font.title,
-        tfColor: Color = .black.opacity(0.9),
+        tfColor: Color = .primary.opacity(0.9),
         subtitle: String = ""
     ) {
         self._text = text

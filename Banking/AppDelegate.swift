@@ -10,19 +10,33 @@ import SwiftUI
 import FirebaseCore
 import FirebaseAuth
 import UserNotifications
+import FirebaseAppCheck
+import FirebaseMessaging
 
 
-class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
+class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, MessagingDelegate {
     @ObservedObject var notificationVM = PushNotificationViewModel()
     var app: BankingApp?
     
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
         FirebaseApp.configure()
+        
+        let providerFactory = AppCheckDebugProviderFactory()
+        AppCheck.setAppCheckProviderFactory(providerFactory)
+
         UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+
         
         return true
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("🌐 Firebase registration token: \(String(describing: fcmToken))")
+        // You can send this token to your backend server if needed
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
