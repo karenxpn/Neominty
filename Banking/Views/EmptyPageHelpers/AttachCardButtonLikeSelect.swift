@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AttachCardButtonLikeSelect: View {
+    @Environment(\.colorScheme) var colorScheme
     let action: () -> ()
 
     var body: some View {
@@ -34,7 +35,7 @@ struct AttachCardButtonLikeSelect: View {
                 .padding(.horizontal, 20)
                 .background {
                     RoundedRectangle(cornerRadius: 16)
-                        .strokeBorder(Color(.lightGray), lineWidth: 1)
+                        .strokeBorder(Color(colorScheme == .light ? .lightGray : .appGray), lineWidth: 1)
                 }
         }
     }
