@@ -66,7 +66,7 @@ struct Activity: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             TextHelper(text: NSLocalizedString("income", comment: ""), colorResource: .appGray, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", colorResource: .darkBlue, fontName: .bold, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
                                             
                                         }
                                     }
@@ -78,7 +78,7 @@ struct Activity: View {
                                         VStack(alignment: .leading, spacing: 2) {
                                             TextHelper(text: NSLocalizedString("expenses", comment: ""), colorResource: .appGray, fontSize: 12)
                                             
-                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", colorResource: .darkBlue, fontName: .bold, fontSize: 14)
+                                            TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
                                         }
                                     }
                                     
@@ -93,7 +93,7 @@ struct Activity: View {
                                                 activityVM.selectedUnit = unit
                                             } label: {
                                                 TextHelper(text: NSLocalizedString(unit, comment: ""),
-                                                           color: activityVM.selectedUnit == unit ? .black : nil,
+                                                           color: activityVM.selectedUnit == unit ? .primary : nil,
                                                            colorResource: activityVM.selectedUnit != unit ? .appGray : nil,
                                                            fontName: .medium, fontSize: 14)
                                                     .lineLimit(1)
@@ -154,7 +154,7 @@ struct Activity: View {
             }.navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.refreshable {
                     activityVM.cards.removeAll(keepingCapacity: false)
@@ -180,7 +180,7 @@ struct Activity: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
 
                     TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 

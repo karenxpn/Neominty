@@ -12,6 +12,7 @@ import ACarousel
 
 
 struct HomeView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject private var router: Router
     @StateObject private var homeVM = HomeViewModel()
     @StateObject var transferVM = TransferViewModel()
@@ -27,8 +28,10 @@ struct HomeView: View {
                 
                 ZStack(alignment: .bottom) {
                     
-                    Image("layer-blur")
-                        .opacity(0.9)
+                    if colorScheme == .light {
+                        Image("layer-blur")
+                            .opacity(0.9)
+                    }
                     
                     VStack {
                         
@@ -65,6 +68,7 @@ struct HomeView: View {
                             }
                             
                             HomeMenu(cards: homeVM.cards)
+                                .padding(.horizontal, 24)
                                 .environmentObject(router)
                         }
                     }
@@ -103,7 +107,7 @@ struct HomeView: View {
                             
                             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
                             
-                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                         }
                     }
                     
@@ -128,7 +132,7 @@ struct HomeView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
                     TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
                     

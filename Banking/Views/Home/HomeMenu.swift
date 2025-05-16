@@ -35,6 +35,7 @@ struct HomeMenu: View {
             }
         }.padding(.vertical, 15)
             .background(Color(.whiteOpacity))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 

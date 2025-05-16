@@ -32,9 +32,9 @@ struct PreviewModels {
     static let transactionList = [TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
                                                                                         amount: 1200,
                                                                                         currency: "AMD",
-                                                                                        name: "Monthly phone payment",
+                                                                                        name: "Payment received",
                                                                                         recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
-                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date()))),
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .received), createdAt: Timestamp(date: Date()))),
                                   TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
                                                                                         amount: 1200,
                                                                                         currency: "AMD",
@@ -44,9 +44,9 @@ struct PreviewModels {
                                   TransactionPreviewViewModel(model: TransactionPreview(id: UUID().uuidString,
                                                                                         amount: 1200,
                                                                                         currency: "AMD",
-                                                                                        name: "Monthly phone payment",
+                                                                                        name: "April utility payment",
                                                                                         recipientInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "UCOM", paymentType: .received),
-                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .phone), createdAt: Timestamp(date: Date())))]
+                                                                                        senderInfo: TransactionParticipantInfo(id: UUID().uuidString, name: "Karen Mirakyan", paymentType: .utility), createdAt: Timestamp(date: Date())))]
     
     static let recentTransferList = [RecentTransfer(id: UUID().uuidString, name: "Karen Mirakyan", card: Credentials.masterCard),
                                      RecentTransfer(id: UUID().uuidString, name: "Martin Mirakyan", card: Credentials.visaCard),

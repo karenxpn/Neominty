@@ -27,7 +27,7 @@ struct SelectedSubCategory: View {
                     .clipped()
 
 
-                TextHelper(text: subCategory.name, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                TextHelper(text: subCategory.name, colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                 TextHelper(text: subCategory.address, colorResource: .appGray, fontSize: 12)
 
                 ForEach(subCategory.fields, id: \.id) { field in

@@ -12,7 +12,7 @@ struct FAQDetail: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 20) {
-                TextHelper(text: faq.question, colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                TextHelper(text: faq.question, colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                     .lineLimit(nil)
                 TextHelper(text: faq.answer, colorResource: .appGray, fontSize: 12)
                     .lineLimit(nil)

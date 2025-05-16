@@ -51,7 +51,7 @@ struct UpdateAccountEmail: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("verifyYourEmail", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("verifyYourEmail", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.onReceive(NotificationCenter.default.publisher(for:
                                                                     Notification.Name(rawValue: NotificationName.emailUpdated.rawValue))) { _ in

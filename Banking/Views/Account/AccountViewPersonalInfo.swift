@@ -67,7 +67,7 @@ struct AccountViewPersonalInfo: View {
             
             VStack(spacing: 8) {
                 if info.name != nil {
-                    TextHelper(text: info.name!, colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: info.name!, colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
                 
                 if info.email != nil {

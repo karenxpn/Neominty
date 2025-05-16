@@ -24,9 +24,9 @@ struct TransferConfirmationCell: View {
             }
             
             HStack {
-                TextHelper(text: name, colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                TextHelper(text: name, colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                 Spacer()
-                TextHelper(text: card, colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                TextHelper(text: card, colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
             }
             
             Divider()

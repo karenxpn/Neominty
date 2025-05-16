@@ -24,7 +24,7 @@ struct CustomTabView: View {
                 ZStack {
                     
                     Rectangle()
-                        .fill(.white)
+                        .fill(Color("tabBackground"))
                         .shadow(color: Color(.tabviewShadow), radius: 16, y: -12)
                     
                     HStack {
@@ -53,7 +53,7 @@ struct CustomTabView: View {
                                     Image(id == 2 ? icons[id] : router.tab == id ? "\(icons[id]).fill" : icons[id])
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(id == 2 ? .white : router.tab == id ? Color(.darkBlue) : Color(.appGray))
+                                        .foregroundColor(id == 2 ? .white : router.tab == id ? Color(.tabSelection) : Color(.appGray))
                                         .frame(width: 28, height: 28)
                                         .background(id == 2 ?
                                                     AnyView(Circle()
@@ -63,7 +63,7 @@ struct CustomTabView: View {
                                     
                                     
                                     if id != 2 {
-                                        TextHelper(text: icon_lables[id], color: router.tab == id ? Color(.darkBlue) : Color(.appGray))
+                                        TextHelper(text: icon_lables[id], color: router.tab == id ? Color(.tabSelection) : Color(.appGray))
                                     }
                                 }
                             }

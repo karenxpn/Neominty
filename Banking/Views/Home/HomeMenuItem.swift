@@ -24,7 +24,7 @@ struct HomeMenuItem: View {
                 VStack(spacing: 8) {
                     Image(icon)
                     
-                    TextHelper(text: label, colorResource: .darkBlue, fontName: .medium, fontSize: 12)
+                    TextHelper(text: label, colorResource: .darkBlueText, fontName: .medium, fontSize: 12)
                 }
                 Spacer()
             }

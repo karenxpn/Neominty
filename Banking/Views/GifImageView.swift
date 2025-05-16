@@ -15,14 +15,27 @@ struct GifImageView: UIViewRepresentable {
     init(_ name: String) {
         self.name = name
     }
-func makeUIView(context: Context) -> WKWebView {
+    func makeUIView(context: Context) -> WKWebView {
         let webview = WKWebView()
+        
+        let isDarkMode = UITraitCollection.current.userInterfaceStyle == .dark
+
+        // Set background color
+        webview.isOpaque = false
+        webview.backgroundColor = isDarkMode ? .black : .white
+        webview.scrollView.backgroundColor = isDarkMode ? .black : .white
+
+        
         let url = Bundle.main.url(forResource: name, withExtension: "gif")!
         let data = try! Data(contentsOf: url)
         webview.load(data, mimeType: "image/gif", characterEncodingName: "UTF-8", baseURL: url.deletingLastPathComponent())
         return webview
     }
     func updateUIView(_ uiView: WKWebView, context: Context) {
+        let isDarkMode = UITraitCollection.current.userInterfaceStyle == .dark
+        uiView.backgroundColor = isDarkMode ? .black : .white
+        uiView.scrollView.backgroundColor = isDarkMode ? .black : .white
+
         uiView.reload()
     }
 }

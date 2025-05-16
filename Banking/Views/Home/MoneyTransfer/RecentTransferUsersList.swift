@@ -53,7 +53,7 @@ struct RecentTransferUsersList: View {
                                 
                                 
                                 TextHelper(text: transfer.name,
-                                           colorResource: .darkBlue,
+                                           colorResource: .darkBlueText,
                                            fontName: .bold,
                                            fontSize: 12)
                                 

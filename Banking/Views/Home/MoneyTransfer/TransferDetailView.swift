@@ -41,7 +41,7 @@ struct TransferDetailView: View {
                     }
                     
                     TextHelper(text: "\(NSLocalizedString("to", comment: "")) \(recentTransfer.name)",
-                               colorResource: .darkBlue,
+                               colorResource: .darkBlueText,
                                fontName: .bold,
                                fontSize: 14)
                     
@@ -120,7 +120,7 @@ struct TransferDetailView: View {
                         CustomAlert(loading: $transferVM.loading) {
                             
                             VStack(spacing: 31) {
-                                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                                 
                                 
                                 TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
@@ -134,9 +134,9 @@ struct TransferDetailView: View {
                                                          card: selectedTransfer == nil ? receiverCardNumber : selectedTransfer!.card)
                                 
                                 HStack {
-                                    TextHelper(text: "Total", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                                    TextHelper(text: "Total", colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                                     Spacer()
-                                    TextHelper(text: "\(card.currency.rawValue.currencySymbol)\(transferVM.transferAmount)", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                                    TextHelper(text: "\(card.currency.rawValue.currencySymbol)\(transferVM.transferAmount)", colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                                 }
                                 
                             }

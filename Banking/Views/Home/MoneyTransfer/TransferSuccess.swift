@@ -18,7 +18,7 @@ struct TransferSuccess: View {
                 Image("transfer-success")
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), colorResource: .darkBlue,
+                    TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), colorResource: .darkBlueText,
                                fontName: .bold, fontSize: 24)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
@@ -29,7 +29,7 @@ struct TransferSuccess: View {
                     .multilineTextAlignment(.center)
                 }
                 
-                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", colorResource: .darkBlue,
+                TextHelper(text: "\(currency.rawValue.currencySymbol) \(amount)", colorResource: .darkBlueText,
                            fontName: .bold, fontSize: 31)
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)

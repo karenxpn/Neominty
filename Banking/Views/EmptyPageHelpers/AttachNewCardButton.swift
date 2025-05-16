@@ -31,7 +31,7 @@ struct AttachNewCardButton: View {
 
                     Text( NSLocalizedString("addNewCard", comment: "") )
                         .font(.custom(Roboto.bold.rawValue, size: 16))
-                        .foregroundColor(Color(.darkBlue))
+                        .foregroundColor(Color(.darkBlueText))
 
                 }.frame(height: 56)
                     .padding(.horizontal, 35)

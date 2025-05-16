@@ -25,7 +25,7 @@ struct CardDetailTextFieldDecorator<Content: View>: View {
                     .strokeBorder(!isValid ? Color.red : Color.clear, lineWidth: 1)
                     .background {
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(Color(.superLightGray))
+                            .fill(Color(.lightGray))
                     }
             }
     }

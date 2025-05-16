@@ -17,7 +17,7 @@ struct GeneralSettingsCell: View {
     var body: some View {
         Toggle(isOn: $toggler) {
             VStack(alignment: .leading, spacing: 4) {
-                TextHelper(text: title, colorResource: .darkBlue, fontName: .medium, fontSize: 14)
+                TextHelper(text: title, colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
                 TextHelper(text: message, colorResource: .appGray, fontSize: 12)
             }
         }.toggleStyle(SwitchToggleStyle(tint: Color(.appGreen)))

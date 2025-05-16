@@ -28,7 +28,7 @@ struct AmountTextField: View {
             .keyboardType(.decimalPad)
             .font(.custom(Roboto.bold.rawValue, size: fontSize))
             .minimumScaleFactor(0.4)
-            .foregroundColor(focused ? Color(.darkBlue) : Color.clear)
+            .foregroundColor(focused ? Color(.darkBlueText) : Color.clear)
             .padding(.leading, 5)
             .onChange(of: text, { oldValue, newValue in
                 text = newValue.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
@@ -38,7 +38,7 @@ struct AmountTextField: View {
                     Button(action: {
                         focused = true
                     }, label: {
-                        TextHelper(text: formatText(text: text), colorResource: .darkBlue, fontName: .bold, fontSize: fontSize)
+                        TextHelper(text: formatText(text: text), colorResource: .darkBlueText, fontName: .bold, fontSize: fontSize)
                             .minimumScaleFactor(0.4)
                             .lineLimit(1)
                     })

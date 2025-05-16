@@ -41,7 +41,7 @@ struct Cards: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                        TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.refreshable {
                     cardsVM.getCards()
@@ -60,7 +60,7 @@ struct Cards: View {
                 }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
                     CongratulationAlert {
                         VStack(spacing: 12) {
-                            TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                            TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
 
                             TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
 

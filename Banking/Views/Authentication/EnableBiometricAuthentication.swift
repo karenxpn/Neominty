@@ -23,7 +23,7 @@ struct EnableBiometricAuthentication: View {
                 Spacer()
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("enableBiometric", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 24)
+                    TextHelper(text: NSLocalizedString("enableBiometric", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                     TextHelper(text: NSLocalizedString("biometricAccessMessage", comment: ""), colorResource: .appGray, fontSize: 16)
                 }
                 

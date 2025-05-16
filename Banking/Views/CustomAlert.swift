@@ -52,8 +52,8 @@ struct CustomAlert<Content: View>: View {
                     
                 }.padding(24)
                     .background {
-
-                        Color.white.clipShape(AlertShape())
+                        Color("tabBackground")
+                            .clipShape(AlertShape())
                             .cornerRadius(24)
                     }
             }.padding(24)
@@ -72,7 +72,7 @@ struct CustomAlert_Previews: PreviewProvider {
         CustomAlert(loading: .constant(false), content: {
             
             VStack(spacing: 31) {
-                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                TextHelper(text: "Transfer Confirmation", colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 
                 
                 VStack(spacing: 8) {
@@ -83,9 +83,9 @@ struct CustomAlert_Previews: PreviewProvider {
                     }
                     
                     HStack {
-                        TextHelper(text: "Tonny Monthana", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                        TextHelper(text: "Tonny Monthana", colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                         Spacer()
-                        TextHelper(text: "**** 1121", colorResource: .darkBlue, fontName: .bold, fontSize: 16)
+                        TextHelper(text: "**** 1121", colorResource: .darkBlueText, fontName: .bold, fontSize: 16)
                     }
                     
                     Divider()

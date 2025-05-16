@@ -61,7 +61,7 @@ struct AccountInfo: View {
                                     
                                 }.frame(height: 56)
                                     .padding(.horizontal, 10)
-                                    .background(Color(.superLightGray))
+                                    .background(Color(.lightGray))
                                     .cornerRadius(16, corners: [.topLeft, .bottomLeft])
                             }.disabled(true)
                             
@@ -70,7 +70,7 @@ struct AccountInfo: View {
                                 .font(.custom(Roboto.regular.rawValue, size: 16))
                                 .padding(.leading, 5)
                                 .frame(height: 56)
-                                .background(Color(.superLightGray))
+                                .background(Color(.lightGray))
                                 .cornerRadius(16, corners: [.topRight, .bottomRight])
                                 .disabled(true)
                         }
@@ -91,7 +91,7 @@ struct AccountInfo: View {
                                         .strokeBorder(Color.clear, lineWidth: 1)
                                         .background {
                                             RoundedRectangle(cornerRadius: 16)
-                                                .fill(Color(.superLightGray))
+                                                .fill(Color(.lightGray))
                                         }
                                 }
                         }
@@ -121,7 +121,7 @@ struct AccountInfo: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlue, fontName: .bold, fontSize: 20)
+                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.onReceive(NotificationCenter.default.publisher(for:
                                                                 Notification.Name(rawValue: NotificationName.infoUpdated.rawValue))) { _ in
