@@ -14,40 +14,73 @@ struct MainView: View {
     
     
     var body: some View {
-        ZStack( alignment: .bottom) {
-            
-            VStack {
-                
-                if router.tab == 0 {
-                    HomeView()
-                        .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                } else if router.tab == 1 {
-                    Cards()
-                        .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                } else if router.tab == 2{
-                    QRView()
-                        .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                } else if router.tab == 3{
-                    Activity()
-                        .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        Group {
+            if #available(iOS 26.0, *) {
+                TabView(selection: $router.tab) {
+                    Tab(NSLocalizedString("home", comment: ""),
+                        image: router.tab == 0 ? "home_icon.fill" : "home_icon",
+                        value: 0) {
+                        HomeView()
+                    }
                     
-                } else if router.tab == 4 {
-                    Account()
-                        .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                }
+                    Tab(NSLocalizedString("myCard", comment: ""),
+                        image: router.tab == 1 ? "card_icon.fill" : "card_icon",
+                        value: 1) {
+                        Cards()
+                    }
+                                        
+                    Tab("", image: "scan_icon", value: 2, role: .search) {
+                        QRView()
+                    }
+                    
+                    Tab(NSLocalizedString("activity", comment: ""),
+                        image: router.tab == 3 ?  "activity_icon.fill" : "activity_icon",
+                        value: 3) {
+                        Activity()
+                    }
+                                        
+                    Tab(NSLocalizedString("profile", comment: ""),
+                        image: router.tab == 4 ? "profile_icon.fill" : "profile_icon",
+                        value: 4) {
+                        Account()
+                    }
+                }.tint(Color(.tabSelection))
+            } else {
+                ZStack( alignment: .bottom) {
+                    
+                    VStack {
+                        
+                        if router.tab == 0 {
+                            HomeView()
+                                .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        } else if router.tab == 1 {
+                            Cards()
+                                .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        } else if router.tab == 2{
+                            QRView()
+                                .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        } else if router.tab == 3{
+                            Activity()
+                                .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                            
+                        } else if router.tab == 4 {
+                            Account()
+                                .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        }
+                    }
+                    
+                    CustomTabView()
+                    
+                }.edgesIgnoringSafeArea(.bottom)
             }
-            
-            CustomTabView()
-            
-        }.edgesIgnoringSafeArea(.bottom)
-            .task({
-                await notificationVM.requestPermission()
-                await notificationVM.checkPermission()
-            }).environmentObject(router)
-            .onOpenURL { url in
-                print(url)
-                router.handleDeeplink(from: url)
-            }
+        }.task({
+            await notificationVM.requestPermission()
+            await notificationVM.checkPermission()
+        }).environmentObject(router)
+        .onOpenURL { url in
+            print(url)
+            router.handleDeeplink(from: url)
+        }
     }
 }
 
