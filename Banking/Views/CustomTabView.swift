@@ -54,13 +54,7 @@ struct CustomTabView: View {
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
                                         .foregroundColor(id == 2 ? .white : router.tab == id ? Color(.tabSelection) : Color(.appGray))
-                                        .frame(width: 28, height: 28)
-                                        .background(id == 2 ?
-                                                    AnyView(Circle()
-                                                        .fill(Color(.appGreen))
-                                                        .frame(width: 48, height: 48)) :
-                                                        AnyView(EmptyView()))
-                                    
+                                        .frame(width: id == 2 ? 48 : 28, height: id == 2 ? 48 : 28)
                                     
                                     if id != 2 {
                                         TextHelper(text: icon_lables[id], color: router.tab == id ? Color(.tabSelection) : Color(.appGray))
