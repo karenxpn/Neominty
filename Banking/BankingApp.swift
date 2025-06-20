@@ -16,11 +16,14 @@ struct BankingApp: App {
 
     
     init() {
-        let newAppearance = UINavigationBarAppearance()
-        newAppearance.setBackIndicatorImage(UIImage(named: "back"), transitionMaskImage: UIImage(named: "back"))
-        newAppearance.configureWithOpaqueBackground()
-        newAppearance.backgroundColor = .none
-        UINavigationBar.appearance().standardAppearance = newAppearance
+        if #available(iOS 26, *) {
+        } else {
+            let newAppearance = UINavigationBarAppearance()
+            newAppearance.setBackIndicatorImage(UIImage(named: "back"), transitionMaskImage: UIImage(named: "back"))
+            newAppearance.configureWithOpaqueBackground()
+            newAppearance.backgroundColor = .none
+            UINavigationBar.appearance().standardAppearance = newAppearance
+        }
     }
     
     var body: some Scene {

@@ -102,12 +102,13 @@ struct HomeView: View {
                 .navigationBarTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            
-                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
-                            
-                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    if #available(iOS 26.0, *) {
+                        ToolbarItem( placement: .principal) {
+                            UserGreeting
+                        }
+                    } else {
+                        ToolbarItem(placement: .topBarLeading) {
+                            UserGreeting
                         }
                     }
                     
@@ -142,6 +143,14 @@ struct HomeView: View {
                 router.popToHomeRoot()
             }
         })
+    }
+    
+    var UserGreeting: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
+            
+            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+        }
     }
 }
 
