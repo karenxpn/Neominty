@@ -17,31 +17,31 @@ struct MainView: View {
         Group {
             if #available(iOS 26.0, *) {
                 TabView(selection: $router.tab) {
-                    Tab(NSLocalizedString("home", comment: ""),
-                        image: router.tab == 0 ? "home_icon.fill" : "home_icon",
-                        value: 0) {
+                    Tab(Tabs.home.label,
+                        image: router.tab == .home ? "\(Tabs.home.icon).fill" : Tabs.home.icon,
+                        value: Tabs.home) {
                         HomeView()
                     }
                     
-                    Tab(NSLocalizedString("myCard", comment: ""),
-                        image: router.tab == 1 ? "card_icon.fill" : "card_icon",
-                        value: 1) {
+                    Tab(Tabs.cards.label,
+                        image: router.tab == .cards ? "\(Tabs.cards.icon).fill" : Tabs.cards.icon,
+                        value: Tabs.cards) {
                         Cards()
                     }
                                         
-                    Tab("", image: "scan_icon", value: 2, role: .search) {
+                    Tab(Tabs.scan.label, image: Tabs.scan.icon, value: Tabs.scan, role: .search) {
                         QRView()
                     }
                     
-                    Tab(NSLocalizedString("activity", comment: ""),
-                        image: router.tab == 3 ?  "activity_icon.fill" : "activity_icon",
-                        value: 3) {
+                    Tab(Tabs.activity.label,
+                        image: router.tab == .activity ?  "\(Tabs.activity.icon).fill" : Tabs.activity.icon,
+                        value: Tabs.activity) {
                         Activity()
                     }
                                         
-                    Tab(NSLocalizedString("profile", comment: ""),
-                        image: router.tab == 4 ? "profile_icon.fill" : "profile_icon",
-                        value: 4) {
+                    Tab(Tabs.profile.label,
+                        image: router.tab == .profile ? "\(Tabs.profile.icon).fill" : Tabs.profile.icon,
+                        value: Tabs.profile) {
                         Account()
                     }
                 }.tint(Color(.tabSelection))
@@ -49,21 +49,20 @@ struct MainView: View {
                 ZStack( alignment: .bottom) {
                     
                     VStack {
-                        
-                        if router.tab == 0 {
+                        switch router.tab {
+                        case .home:
                             HomeView()
                                 .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        } else if router.tab == 1 {
+                        case .cards:
                             Cards()
                                 .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        } else if router.tab == 2{
+                        case .scan:
                             QRView()
                                 .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        } else if router.tab == 3{
+                        case .activity:
                             Activity()
                                 .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                            
-                        } else if router.tab == 4 {
+                        case .profile:
                             Account()
                                 .frame( minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                         }

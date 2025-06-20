@@ -9,12 +9,6 @@ import SwiftUI
 
 struct CustomTabView: View {
     @EnvironmentObject var router: Router
-    let icons = ["home_icon", "card_icon", "scan_icon", "activity_icon", "profile_icon"]
-    let icon_lables = [NSLocalizedString("home", comment: ""),
-                       NSLocalizedString("myCard", comment: ""),
-                       NSLocalizedString("", comment: ""),
-                       NSLocalizedString("activity", comment: ""),
-                       NSLocalizedString("profile", comment: "")]
     @State private var tab: Bool = true
     
     
@@ -29,35 +23,35 @@ struct CustomTabView: View {
                     
                     HStack {
                         
-                        ForEach ( 0..<icons.count, id: \.self ) { id in
+                        ForEach (Tabs.allCases, id: \.self ) { tab in
                             
                             Spacer()
                             Button {
-                                if router.tab == id {
-                                    if id == 0 {
+                                if router.tab == tab {
+                                    if tab == .home {
                                         router.popToHomeRoot()
-                                    } else if id == 1 {
+                                    } else if tab == .cards {
                                         router.popToCardRoot()
-                                    } else if id == 2 {
+                                    } else if tab == .scan {
                                         router.popToScanRoot()
-                                    } else if id == 3 {
+                                    } else if tab == .activity {
                                         router.popToAnalyticsRoot()
-                                    } else if id == 4 {
+                                    } else if tab == .profile {
                                         router.popToAccountRoot()
                                     }
                                 }
-                                router.tab = id
+                                router.tab = tab
                             } label: {
                                 VStack(spacing: 4) {
                                     
-                                    Image(id == 2 ? icons[id] : router.tab == id ? "\(icons[id]).fill" : icons[id])
+                                    Image(tab == .scan ? tab.icon : router.tab == tab ? "\(tab.icon).fill" : tab.icon)
                                         .resizable()
                                         .aspectRatio(contentMode: .fill)
-                                        .foregroundColor(id == 2 ? .white : router.tab == id ? Color(.tabSelection) : Color(.appGray))
-                                        .frame(width: id == 2 ? 48 : 28, height: id == 2 ? 48 : 28)
+                                        .foregroundColor(tab == .scan ? .white : router.tab == tab ? Color(.tabSelection) : Color(.appGray))
+                                        .frame(width: tab == .scan ? 48 : 28, height: tab == .scan ? 48 : 28)
                                     
-                                    if id != 2 {
-                                        TextHelper(text: icon_lables[id], color: router.tab == id ? Color(.tabSelection) : Color(.appGray))
+                                    if tab != .scan {
+                                        TextHelper(text: tab.label, color: router.tab == tab ? Color(.tabSelection) : Color(.appGray))
                                     }
                                 }
                             }
