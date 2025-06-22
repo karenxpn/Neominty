@@ -18,7 +18,6 @@ struct HomeView: View {
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
     @State private var cardIndex = 0
-    
 
     
     var body: some View {
@@ -103,9 +102,12 @@ struct HomeView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     if #available(iOS 26.0, *) {
-                        ToolbarItem( placement: .principal) {
+                        
+                        ToolbarItem( placement: .topBarLeading) {
                             UserGreeting
-                        }
+                                .frame(width: max(100, UIScreen.main.bounds.size.width * 0.5))
+                        }.sharedBackgroundVisibility(.hidden)
+                        
                     } else {
                         ToolbarItem(placement: .topBarLeading) {
                             UserGreeting
@@ -150,6 +152,7 @@ struct HomeView: View {
             TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
             
             TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                .lineLimit(1)
         }
     }
 }
