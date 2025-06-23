@@ -51,7 +51,6 @@ struct PayView: View {
                             .padding(.top, 16)
                     }
                 }.padding([.horizontal, .bottom], 24)
-                    .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             }
             
         }.padding(.top, 1)

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "account-info.svg",
+      "filename" : "Vector.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "account.svg",
+      "filename" : "Vector (1).svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

@@ -27,11 +27,8 @@ struct AllTransactions: View {
                 ForEach(allTransferVM.transfers, id: \.id) { transfer in
                     HStack(spacing: 16) {
                         
-                        Image(transfer.icon)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                        
+                        IconGenerator(icon: transfer.icon)
+
                         VStack(alignment: .leading, spacing: 4) {
                             TextHelper(text: transfer.name, colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
 //                            TextHelper(text: transfer.type.rawValue, color: AppColors.gray, fontName: Roboto.medium.rawValue, fontSize: 12)
@@ -60,7 +57,6 @@ struct AllTransactions: View {
                 }
                 
             }.padding(20)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
         }.padding(.top, 1)
             .navigationTitle(Text(NSLocalizedString("allTransactions", comment: "")))
             .navigationBarTitleDisplayMode(.inline)

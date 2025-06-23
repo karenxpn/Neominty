@@ -13,7 +13,7 @@ struct NotificationCell: View {
     var body: some View {
         
         HStack(spacing: 16) {
-            Image(notification.image)
+            IconGenerator(icon: notification.image)
             
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
