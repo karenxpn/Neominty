@@ -254,7 +254,7 @@ extension Data {
         let fileName = "\(NSUUID().uuidString).mov"
         let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
         try! self.write(to: fullURL!)
-        let asset = AVAsset(url: fullURL!)
+        let asset = AVURLAsset(url: fullURL!)
         return asset
     }
 }
