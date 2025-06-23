@@ -11,10 +11,7 @@ struct NoTransactionsToShow: View {
     var body: some View {
         HStack(spacing: 16) {
             
-            Image("wallet-green")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 48, height: 48)
+            IconGenerator(icon: "wallet-green")
             
             VStack(alignment: .leading, spacing: 4) {
                 TextHelper(text: NSLocalizedString("nothingToShow", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 14)

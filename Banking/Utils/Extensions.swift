@@ -49,7 +49,9 @@ extension View {
     @ViewBuilder
     func valueChanged<T: Equatable>(value: T, onChange: @escaping (T) -> Void) -> some View {
         if #available(iOS 14.0, tvOS 14.0, macOS 11.0, watchOS 7.0, *) {
-            self.onChange(of: value, perform: onChange)
+            self.onChange(of: value) { oldValue, newValue in
+                onChange(newValue)
+            }
         } else {
             self.onReceive(Just(value)) { value in
                 onChange(value)
@@ -252,7 +254,7 @@ extension Data {
         let fileName = "\(NSUUID().uuidString).mov"
         let fullURL = NSURL.fileURL(withPathComponents: [directory, fileName])
         try! self.write(to: fullURL!)
-        let asset = AVAsset(url: fullURL!)
+        let asset = AVURLAsset(url: fullURL!)
         return asset
     }
 }

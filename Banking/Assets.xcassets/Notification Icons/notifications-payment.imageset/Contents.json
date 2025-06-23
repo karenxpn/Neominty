@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "icon (3).svg",
+      "filename" : "credit-card.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "icon (12).svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

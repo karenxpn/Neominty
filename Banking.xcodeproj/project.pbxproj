@@ -82,6 +82,8 @@
 		FF45208E29CA53E9003C6415 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208D29CA53E9003C6415 /* CustomAlert.swift */; };
 		FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */; };
 		FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45209129CB247B003C6415 /* TransferSuccess.swift */; };
+		FF4C7FA72E060A27006FEC37 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C7FA62E060A20006FEC37 /* Tabs.swift */; };
+		FF4C7FA92E09CC08006FEC37 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -313,6 +315,8 @@
 		FF45208D29CA53E9003C6415 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferConfirmationCell.swift; sourceTree = "<group>"; };
 		FF45209129CB247B003C6415 /* TransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccess.swift; sourceTree = "<group>"; };
+		FF4C7FA62E060A20006FEC37 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -525,6 +529,7 @@
 		FF18C24E29BA8E1B004EF3A3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FF4C7FA62E060A20006FEC37 /* Tabs.swift */,
 				FFE177362D7351AC0042B2EE /* LottieView.swift */,
 				FF18C26229BB2D0B004EF3A3 /* Enums.swift */,
 				FF18C26A29BB31C2004EF3A3 /* PreviewModels.swift */,
@@ -536,6 +541,7 @@
 				FF7A11DE29D7876600286366 /* Gallery.swift */,
 				FF864DFA29EB796900EC883E /* AmountTextField.swift */,
 				FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */,
+				FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1146,9 +1152,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking/Pods-Banking-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking/Pods-Banking-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1185,9 +1195,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking-BankingUITests/Pods-Banking-BankingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Banking-BankingUITests/Pods-Banking-BankingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1285,6 +1299,7 @@
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF4C7FA92E09CC08006FEC37 /* IconGenerator.swift in Sources */,
 				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
@@ -1337,6 +1352,7 @@
 				FF7A11FC29E047FE00286366 /* PayView.swift in Sources */,
 				FF45208529C8F087003C6415 /* RecentTransfer.swift in Sources */,
 				FF45205D29C66A88003C6415 /* MoneyTransfer.swift in Sources */,
+				FF4C7FA72E060A27006FEC37 /* Tabs.swift in Sources */,
 				FFAC1DEA29D1C79500947CBC /* Cards.swift in Sources */,
 				FFC2BD0129BB6F0600E774FD /* Extensions.swift in Sources */,
 				FF45208029C7B890003C6415 /* CardValidationTF.swift in Sources */,
@@ -1579,7 +1595,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1761C9B030DA2C0B25F50E8C /* Pods-Banking.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1600,7 +1616,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1618,7 +1634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5888A874BF181753B2287406 /* Pods-Banking.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1639,7 +1655,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

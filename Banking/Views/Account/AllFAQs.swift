@@ -45,7 +45,6 @@ struct AllFAQs: View {
                     ProgressView()
                 }
             }.padding(24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.padding(.top, 1)
             .alert(NSLocalizedString("error", comment: ""), isPresented: $faqVM.showAlert, actions: {

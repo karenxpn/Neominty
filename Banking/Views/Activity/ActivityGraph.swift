@@ -114,29 +114,44 @@ struct ActivityGraph: View {
                 }
             }
             .frame(height:150)
-
-            .chartOverlay { chart in
-                GeometryReader { geometry in
-                    Rectangle()
-                        .fill(Color.clear)
-                        .contentShape(Rectangle())
-                        .onTapGesture(perform: { value in
-
-                            let currentX = value.x - geometry[chart.plotAreaFrame].origin.x
-                            guard currentX >= 0, currentX < chart.plotAreaSize.width else {
-                                return
-                            }
-
-                            guard let index = chart.value(atX: currentX, as: String.self) else {
-                                return
-                            }
-
-                            selectedPoint = index
-                        })
-                }
+            .chartOverlay { proxy in
+                ChartOverlayView(chart: proxy, selectedPoint: $selectedPoint)
             }
+
+
     }
 }
+
+struct ChartOverlayView: View {
+    let chart: ChartProxy
+    @Binding var selectedPoint: String?
+
+    var body: some View {
+        GeometryReader { geometry in
+            Color.clear
+                .contentShape(Rectangle())
+                .gesture(
+                    DragGesture(minimumDistance: 0).onChanged { value in
+                        guard let plotAnchor = chart.plotFrame else {
+                            return
+                        }
+                        let plotRect = geometry[plotAnchor]
+                        let locX = value.location.x
+                        let currentX = locX - plotRect.origin.x
+
+                        guard currentX >= 0, currentX < chart.plotSize.width else {
+                            return
+                        }
+
+                        if let index: String = chart.value(atX: currentX, as: String.self) {
+                            selectedPoint = index
+                        }
+                    }
+                )
+        }
+    }
+}
+
 
 struct ActivityGraph_Previews: PreviewProvider {
     static var previews: some View {

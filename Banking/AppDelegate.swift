@@ -56,8 +56,11 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, MessagingD
         let state = application.applicationState
         switch state {
         case .background:
-            application.applicationIconBadgeNumber = application.applicationIconBadgeNumber + 1
+            UNUserNotificationCenter.current().setBadgeCount(+1) { error in
+                print(error as Any)
+            }
         default:
+            UNUserNotificationCenter.current().setBadgeCount(0)
             break
         }
         

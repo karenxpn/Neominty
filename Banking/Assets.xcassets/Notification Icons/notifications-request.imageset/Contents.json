@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "icon.svg",
+      "filename" : "money-recive.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "icon (13).svg",
+      "filename" : "money-recive (1).svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

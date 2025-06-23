@@ -36,11 +36,7 @@ struct RecentTransactions: View {
                 ForEach(transactions, id: \.id) { transaction in
                     HStack(spacing: 16) {
                         
-                        Image(transaction.icon)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 48, height: 48)
-                            .cornerRadius(12)
+                        IconGenerator(icon: transaction.icon)
                         
                         VStack(alignment: .leading, spacing: 4) {
                             TextHelper(text: transaction.name, colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
@@ -61,7 +57,6 @@ struct RecentTransactions: View {
 
             
         }.padding(20)
-            .padding(.bottom, UIScreen.main.bounds.height * 0.15)
     }
 }
 

@@ -12,7 +12,7 @@ import FirebaseAuth
 class Router: ObservableObject {
     @AppStorage("firstInstall") var firstInstall: Bool = true
     
-    @Published var tab: Int = 0
+    @Published var tab: Tabs = .home
     @Published var homePath = NavigationPath()
     @Published var cardPath = NavigationPath()
     @Published var scanPath = NavigationPath()
@@ -25,7 +25,7 @@ class Router: ObservableObject {
         self.accountManager = accountManager
         
         if self.firstInstall {
-            tab = 1
+            tab = .cards
             self.firstInstall = false
         }
     }
@@ -189,7 +189,7 @@ class Router: ObservableObject {
                 let destination = url.pathComponents[1]
                 switch DeeplinkURLs(rawValue: host) {
                 case .home:
-                    tab = 0
+                    tab = .home
                     if DeeplinkURLs(rawValue: destination) == .transferSuccess {
                         let queryParams = url.queryParameters
                         guard let amount = queryParams?["amount"] as? String,
@@ -202,11 +202,11 @@ class Router: ObservableObject {
                         self.pushHomePath(.notifications)
                     }
                 case .cards:
-                    tab = 1
+                    tab = .cards
                 case .qr:
-                    tab = 2
+                    tab = .scan
                 case .account:
-                    tab = 4
+                    tab = .profile
                     if DeeplinkURLs(rawValue: destination) == .accountVerified {
                         self.pushAccountPath(.accountVerified)
                     } else if DeeplinkURLs(rawValue: destination) == .accountRejected {

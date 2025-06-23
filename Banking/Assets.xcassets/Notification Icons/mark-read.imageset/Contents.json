@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "mark-read.svg",
+      "filename" : "tabler_checks.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "icon (15).svg",
+      "filename" : "tabler_checks (1).svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

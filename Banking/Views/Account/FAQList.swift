@@ -46,7 +46,7 @@ struct FAQList: View {
                     
                     faqVM.getFAQs()
                 }.padding(.top, 35)
-            }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
+            }
         }.scrollDismissesKeyboard(.immediately)
     }
 }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "verify-identity-icon.svg",
+      "filename" : "Group 18316.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,7 +12,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "identity.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

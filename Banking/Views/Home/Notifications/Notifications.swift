@@ -23,7 +23,6 @@ struct Notifications: View {
                         }
                 }
             }.padding(24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
             if notificationsVM.loading {
                 ProgressView()
@@ -40,9 +39,16 @@ struct Notifications: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         notificationsVM.markAsRead()
-                        // mark all notifications as read
                     } label: {
-                        Image("mark-read")
+                        if #available(iOS 26.0, *) {
+                            Image("mark-read")
+                        } else {
+                            IconGenerator(width: 40, height: 40, icon: "mark-read")
+                                .background {
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .stroke(Color.primary, lineWidth: 1)
+                                }
+                        }
                     }
 
                 }

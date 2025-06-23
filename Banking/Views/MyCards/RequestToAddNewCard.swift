@@ -34,7 +34,6 @@ struct RequestToAddNewCard: View {
                     router.pushCardPath(.selectNewCardStyle)
                 }
             }.padding(24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
         }.padding(.top, 1)
     }
 }

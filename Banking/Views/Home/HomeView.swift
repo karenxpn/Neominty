@@ -18,7 +18,6 @@ struct HomeView: View {
     @StateObject var transferVM = TransferViewModel()
     @State private var showCardAttachedAlert: Bool = false
     @State private var cardIndex = 0
-    
 
     
     var body: some View {
@@ -102,12 +101,16 @@ struct HomeView: View {
                 .navigationBarTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
-                    ToolbarItem(placement: .topBarLeading) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            
-                            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
-                            
-                            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    if #available(iOS 26.0, *) {
+                        
+                        ToolbarItem( placement: .topBarLeading) {
+                            UserGreeting
+                                .frame(width: max(100, UIScreen.main.bounds.size.width * 0.5))
+                        }.sharedBackgroundVisibility(.hidden)
+                        
+                    } else {
+                        ToolbarItem(placement: .topBarLeading) {
+                            UserGreeting
                         }
                     }
                     
@@ -115,7 +118,11 @@ struct HomeView: View {
                         Button {
                             router.pushHomePath(.notifications)
                         } label: {
-                            Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            if #available(iOS 26.0, *) {
+                                Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            } else {
+                                IconGenerator(icon: homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            }
                         }
                     }
                     
@@ -142,6 +149,15 @@ struct HomeView: View {
                 router.popToHomeRoot()
             }
         })
+    }
+    
+    var UserGreeting: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
+            
+            TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                .lineLimit(1)
+        }
     }
 }
 

@@ -60,11 +60,7 @@ struct CardsList: View {
                     
                 }.buttonStyle(.plain)
             }
-            
-            Spacer()
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
-                .listRowSeparator(.hidden)
-            
+                        
         }.listStyle(.plain)
             .padding(.top, 1)
             .alert(NSLocalizedString("areYourSureToDeleteTheCard", comment: ""), isPresented: $showConfirmationDialog) {

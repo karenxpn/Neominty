@@ -42,7 +42,6 @@ struct AccountVerificationApproved: View {
                 maxHeight: .infinity,
                 alignment: .center
             ).padding(24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
         }).padding(.top, 1)
             .onAppear {
                 animate.toggle()
