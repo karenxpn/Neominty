@@ -38,9 +38,7 @@ struct SelectCardStyle: View {
                         }
                     }
                 }
-            }.padding(24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
-            
+            }.padding(24)            
         }.padding(.top, 1)
             .navigationTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)

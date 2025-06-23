@@ -83,6 +83,7 @@
 		FF45209029CA5C93003C6415 /* TransferConfirmationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */; };
 		FF45209229CB247B003C6415 /* TransferSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF45209129CB247B003C6415 /* TransferSuccess.swift */; };
 		FF4C7FA72E060A27006FEC37 /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C7FA62E060A20006FEC37 /* Tabs.swift */; };
+		FF4C7FA92E09CC08006FEC37 /* IconGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */; };
 		FF628DFE29BA2CD000FE35EE /* BankingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFD29BA2CD000FE35EE /* BankingApp.swift */; };
 		FF628E0029BA2CD000FE35EE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF628DFF29BA2CD000FE35EE /* ContentView.swift */; };
 		FF628E0229BA2CD200FE35EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF628E0129BA2CD200FE35EE /* Assets.xcassets */; };
@@ -315,6 +316,7 @@
 		FF45208F29CA5C93003C6415 /* TransferConfirmationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferConfirmationCell.swift; sourceTree = "<group>"; };
 		FF45209129CB247B003C6415 /* TransferSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSuccess.swift; sourceTree = "<group>"; };
 		FF4C7FA62E060A20006FEC37 /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGenerator.swift; sourceTree = "<group>"; };
 		FF628DFA29BA2CD000FE35EE /* Banking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Banking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF628DFD29BA2CD000FE35EE /* BankingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankingApp.swift; sourceTree = "<group>"; };
 		FF628DFF29BA2CD000FE35EE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				FF7A11DE29D7876600286366 /* Gallery.swift */,
 				FF864DFA29EB796900EC883E /* AmountTextField.swift */,
 				FF42813F29F7CF0B00E57567 /* SwiftUIWebView.swift */,
+				FF4C7FA82E09CC08006FEC37 /* IconGenerator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1296,6 +1299,7 @@
 				FF38E9FA29CDDA8000610F5C /* ActivityCard.swift in Sources */,
 				FFAC1DE729D1C33E00947CBC /* CongratulationAlert.swift in Sources */,
 				FF18C26329BB2D0B004EF3A3 /* Enums.swift in Sources */,
+				FF4C7FA92E09CC08006FEC37 /* IconGenerator.swift in Sources */,
 				FFAC1DF829D253FE00947CBC /* RequestToAddNewCard.swift in Sources */,
 				FF38E9F229CB75D500610F5C /* ActivityGraph.swift in Sources */,
 				FF80568E29BDF4CE0081AD76 /* AuthenticateWithPin.swift in Sources */,
@@ -1591,7 +1595,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1761C9B030DA2C0B25F50E8C /* Pods-Banking.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1630,7 +1634,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5888A874BF181753B2287406 /* Pods-Banking.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon 1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

@@ -80,7 +80,6 @@ struct QRView: View {
                     
                     
                 }.padding(24)
-                    .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             }.padding(.top, 1)
                 .navigationTitle(Text(""))
                 .navigationBarTitleDisplayMode(.inline)

@@ -149,7 +149,6 @@ struct TransferDetailView: View {
                 
             }.padding(.horizontal, 24)
                 .padding(.top, 40)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
         }.padding(.top, 1)
             .scrollDismissesKeyboard(.immediately)

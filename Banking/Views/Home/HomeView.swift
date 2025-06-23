@@ -118,7 +118,11 @@ struct HomeView: View {
                         Button {
                             router.pushHomePath(.notifications)
                         } label: {
-                            Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            if #available(iOS 26.0, *) {
+                                Image(homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            } else {
+                                IconGenerator(icon: homeVM.hasUnreadNotification ? "notification-unread" : "notification")
+                            }
                         }
                     }
                     

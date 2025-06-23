@@ -55,7 +55,6 @@ struct SelectSubCategory: View {
                         .padding(.top, 16)
                 }
             }.padding([.horizontal, .bottom], 24)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
                 .sheet(item: $selectedCategory, content: { item in
                     SelectedSubCategory(subCategory: item)
                 })

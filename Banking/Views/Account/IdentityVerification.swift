@@ -39,7 +39,6 @@ struct IdentityVerification: View {
                 
             }.padding(.horizontal, 24)
                 .padding(.top, 138)
-                .padding(.bottom, UIScreen.main.bounds.height * 0.15)
             
             
         }.padding(.top, 1)
