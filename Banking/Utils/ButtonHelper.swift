@@ -18,19 +18,44 @@ struct ButtonHelper: View {
     let action: (() -> Void)
 
     var body: some View {
-        Button(action: action) {
-            HStack {
-                Spacer()
-                
-                Text( label )
-                    .font(.custom("Roboto-Bold", size: 16))
-                    .foregroundColor(labelColor)
-                
-                Spacer()
-            }.frame(height: height)
-            .background(color)
-                .opacity(disabled ? 0.5 : 1)
-                .cornerRadius(16)
-        }.disabled(disabled)
+        if #available(iOS 26.0, *) {
+            Button(action: action) {
+                HStack {
+                    Spacer()
+                    
+                    Text( label )
+                        .font(.custom("Roboto-Bold", size: 16))
+                        .foregroundColor(labelColor)
+                    
+                    Spacer()
+                }.frame(height: height)
+            }.disabled(disabled)
+                .glassEffect(.regular
+                    .tint(color.opacity(disabled ? 0.5 : 1)).interactive(!disabled),
+                             in: .capsule)
+
+        } else {
+            Button(action: action) {
+                HStack {
+                    Spacer()
+                    
+                    Text( label )
+                        .font(.custom("Roboto-Bold", size: 16))
+                        .foregroundColor(labelColor)
+                    
+                    Spacer()
+                }.frame(height: height)
+                .background(color)
+                    .opacity(disabled ? 0.5 : 1)
+                    .cornerRadius(16)
+            }.disabled(disabled)
+        }
+
     }
+}
+
+#Preview {
+    ButtonHelper(disabled: false, label: "Continue") {
+        
+    }.padding()
 }
