@@ -65,6 +65,7 @@ struct OTPTextFieldView: View {
             .keyboardType(.numberPad)
             .foregroundColor(.clear)
             .accentColor(.clear)
+            .opacity(0)
     }
     
     
