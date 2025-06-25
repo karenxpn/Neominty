@@ -20,6 +20,7 @@ struct CardsList: View {
         List {
             ForEach(cards, id: \.id) { card in
                 UserCard(card: card, selected: false)
+                    .contentShape(.dragPreview, RoundedRectangle(cornerRadius: 16))
                     .listRowSeparator(.hidden)
                     .swipeActions {
                         if !card.defaultCard && !loading {
