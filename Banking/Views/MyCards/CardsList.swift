@@ -59,6 +59,7 @@ struct CardsList: View {
                         .cornerRadius(16)
                     
                 }.buttonStyle(.plain)
+                    .listRowSeparator(.hidden)
             }
                         
         }.listStyle(.plain)

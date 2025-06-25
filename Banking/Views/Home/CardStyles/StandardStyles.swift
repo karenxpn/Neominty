@@ -63,7 +63,7 @@ struct StandardStyles: View {
 
 struct StandardStyles_Previews: PreviewProvider {
     static var previews: some View {
-        StandardStyles(card: PreviewModels.amexCard, selected: true)
+        StandardStyles(card: PreviewModels.amexCard, selected: true).padding()
         StandardStyles(card: PreviewModels.visaCard, selected: false)
         StandardStyles(card: PreviewModels.masterCard, selected: false)
         StandardStyles(card: PreviewModels.mirCard, selected: false)
