@@ -33,7 +33,7 @@ extension TransferService: TransferServiceProtocol {
         let params = [
             "sender": sender,
             "receiver": receiver,
-            "amount": Decimal(string: amount),
+            "amount": Decimal(string: amount)!,
             "currency": currency
         ] as [String : Any]
         

@@ -32,9 +32,9 @@ class APIHelper {
         }
     }
     
-    func onCallRequest<T>(params: [String: Any]? = nil,
+    func onCallRequest<T: Decodable>(params: [String: Any]? = nil,
                           name: String,
-                          responseType: T.Type) async throws -> T where T : Decodable {
+                          responseType: T.Type) async throws -> T {
         
         do {
             let result = try await function.httpsCallable(name).call(params)
@@ -56,10 +56,10 @@ class APIHelper {
         
     }
     
-    func httpRequest<T, P>(params: P?,
+    func httpRequest<T: Codable & Sendable, P: Encodable>(params: P?,
                            url: URL,
                            method: HTTPMethod = .get,
-                           responseType: T.Type) async throws -> T where T : Decodable, P : Encodable {
+                           responseType: T.Type) async throws -> T {
         
         
         
