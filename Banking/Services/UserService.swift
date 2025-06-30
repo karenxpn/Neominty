@@ -19,7 +19,7 @@ protocol UserServiceProtocol {
     func updateNotificationsPreferences(userID: String, receive: Bool) async -> Result<Void, Error>
     func updateAvatar(userID: String, image: Data) async -> Result<Void, Error>
     func fetchUserPreferences(userID: String) async -> Result<UserPreferences, Error>
-    func fetchFaqs(query: String, page: Int) async throws -> FAQListModel
+    func fetchFaqs(lastDoc: QueryDocumentSnapshot?) async -> Result<([FAQModel], QueryDocumentSnapshot?), Error>
     func updateEmail(userID: String, email: String) async -> Result<Void, Error>
 }
 
@@ -32,34 +32,21 @@ class UserSerive {
 }
 
 extension UserSerive: UserServiceProtocol {
-    func fetchFaqs(query: String, page: Int) async throws -> FAQListModel {
-        let url = URL(string: "https://\(Credentials.algolia_app_id)-dsn.algolia.net/1/indexes/faqs/query")!
-        let headers: HTTPHeaders = ["X-Algolia-Application-Id": Credentials.algolia_app_id,
-                                    "X-Algolia-API-Key": Credentials.algolia_api_key]
-        
-        let params: Parameters = [ "params" : "query=\(query)&hitsPerPage=5&page=\(page)" ]
-        
-        return try await withUnsafeThrowingContinuation({ continuation in
-            AF.request(url,
-                       method: .post,
-                       parameters: params,
-                       encoding: JSONEncoding.default,
-                       headers: headers)
-            .validate()
-            .responseDecodable(of: FAQListModel.self) { response in
-
-                if response.error != nil {
-                    response.error.map { err in
-                        let backendError = response.data.flatMap { try? JSONDecoder().decode(BackendError.self, from: $0)}
-                        continuation.resume(throwing: NetworkError(initialError: err, backendError: backendError))
-                    }
-                }
-                
-                if let faqs = response.value {
-                    continuation.resume(returning: faqs)
-                }
-            }
-        })
+    func fetchFaqs(lastDoc: QueryDocumentSnapshot?) async -> Result<([FAQModel], QueryDocumentSnapshot?), Error> {
+        do {
+            var query: Query = db.collection(Paths.faqs.rawValue)
+            
+            if lastDoc == nil   { query = query.limit(to: 30) }
+            else                { query = query.start(afterDocument: lastDoc!).limit(to: 30) }
+            
+            let docs = try await query.getDocuments().documents
+            let faqs = try docs.map { try $0.data(as: FAQModel.self ) }
+            
+            return .success((faqs, docs.last))
+        } catch {
+            print("error \(error.localizedDescription)")
+            return .failure(error)
+        }
     }
     
     

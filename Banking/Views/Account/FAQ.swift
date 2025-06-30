@@ -62,6 +62,8 @@ struct FAQ: View {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
+            }.task {
+                faqVM.getFAQs()
             }
     }
 }

@@ -15,7 +15,7 @@ struct AllFAQs: View {
         ScrollView(showsIndicators: false) {
             
             LazyVStack {
-                ForEach(faqVM.faqs, id: \.id) { faq in
+                ForEach(faqVM.faqs.filter{ faqVM.search.isEmpty ? true : ($0.question.localizedCaseInsensitiveContains(faqVM.search) || $0.answer.localizedCaseInsensitiveContains(faqVM.search))}, id: \.id) { faq in
                     Button {
                         showDetail.toggle()
                     } label: {
@@ -31,8 +31,8 @@ struct AllFAQs: View {
                             .background {
                                 RoundedRectangle(cornerRadius: 20)
                                     .strokeBorder(Color(.border), lineWidth: 1)
-                            }.onAppear {
-                                if faq.id == faqVM.faqs.last?.id && !faqVM.loading {
+                            }.task {
+                                if faq.id == faqVM.faqs.last?.id && !faqVM.loading && faqVM.lastDoc != nil {
                                     faqVM.getFAQs()
                                 }
                             }
@@ -58,6 +58,8 @@ struct AllFAQs: View {
                 ToolbarItem(placement: .principal) {
                     TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
+            }.task {
+                faqVM.getFAQs()
             }
     }
 }

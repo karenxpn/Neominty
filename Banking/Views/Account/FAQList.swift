@@ -16,7 +16,7 @@ struct FAQList: View {
             
             LazyVStack {
                 
-                ForEach(faqVM.faqs, id: \.id) { faq in
+                ForEach(faqVM.faqs.filter{ faqVM.search.isEmpty ? true : ($0.question.localizedCaseInsensitiveContains(faqVM.search) || $0.answer.localizedCaseInsensitiveContains(faqVM.search))}, id: \.id) { faq in
                     Button {
                         showDetail.toggle()
                     } label: {
