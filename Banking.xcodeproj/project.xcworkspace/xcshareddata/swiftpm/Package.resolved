@@ -1,5 +1,5 @@
 {
-  "originHash" : "1d64657292910e8c72acc171e3e55770d2a338ce8b565b139ba3736a3b79e0bf",
+  "originHash" : "56b79f13fbb838b4e4983754024620c80c1c583c5a88d85cbf31804601395333",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire.git",
       "state" : {
-        "revision" : "78424be314842833c04bc3bef5b72e85fff99204",
-        "version" : "5.6.4"
+        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
+        "version" : "5.10.2"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "https://github.com/karenxpn/CodeScanner",
       "state" : {
         "branch" : "main",
-        "revision" : "73c463ec09f4f939e39527204910f438f0076948"
+        "revision" : "553210716143dc6fba04452eec555319fdb680ee"
       }
     },
     {
@@ -51,8 +51,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/firebase-ios-sdk",
       "state" : {
-        "revision" : "fbd463894af94d90eb4d6a4e54080459a8179519",
-        "version" : "11.12.0"
+        "revision" : "fdc352fabaf5916e7faa1f96ad02b1957e93e5a5",
+        "version" : "11.15.0"
+      }
+    },
+    {
+      "identity" : "google-ads-on-device-conversion-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/googleads/google-ads-on-device-conversion-ios-sdk",
+      "state" : {
+        "revision" : "428d8bb138e00f9a3f4f61cc6cd8863607524f65",
+        "version" : "2.1.0"
       }
     },
     {
@@ -60,8 +69,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "f7460ea630bddf172115c28493ae8b3798d95ce3",
-        "version" : "11.12.0"
+        "revision" : "45ce435e9406d3c674dd249a042b932bee006f60",
+        "version" : "11.15.0"
       }
     },
     {
@@ -105,8 +114,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SumSubstance/IdensicMobileSDK-iOS.git",
       "state" : {
-        "revision" : "d37575d957d618e4b9514f5a6ad1991f90248667",
-        "version" : "1.35.1"
+        "revision" : "de2d8f77baaa5b1bb2ca475d4b6fffa21529be67",
+        "version" : "1.36.0"
       }
     },
     {
@@ -124,7 +133,7 @@
       "location" : "https://github.com/evgenyneu/keychain-swift",
       "state" : {
         "branch" : "master",
-        "revision" : "c1fde55798b164cad44b5e23cfa2f0f1ebcd76af"
+        "revision" : "5e1b02b6a9dac2a759a1d5dbc175c86bd192a608"
       }
     },
     {
@@ -132,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/leveldb.git",
       "state" : {
-        "revision" : "0706abcc6b0bd9cedfbb015ba840e4a780b5159b",
-        "version" : "1.22.2"
+        "revision" : "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
+        "version" : "1.22.5"
       }
     },
     {
@@ -141,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-ios",
       "state" : {
-        "revision" : "047aa81b77adcbf583a966dfef620d17650cc656",
-        "version" : "4.5.1"
+        "revision" : "a004050748dc197c56256a14dca49a035d74726c",
+        "version" : "4.5.2"
       }
     },
     {
@@ -168,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "6edd6e38a30aec087cb97f7377edf876c29a427e",
-        "version" : "3.5.9"
+        "revision" : "c107075aa8d394be7aced273a46e944afe8b321b",
+        "version" : "3.8.0"
       }
     },
     {
@@ -186,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "fb50c1d20f24db5322b2f8f379de3618f75fe08e",
-        "version" : "5.15.5"
+        "revision" : "b62cb63bf4ed1f04c961a56c9c6c9d5ab8524ec6",
+        "version" : "5.21.1"
       }
     },
     {
@@ -196,7 +205,7 @@
       "location" : "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
       "state" : {
         "branch" : "master",
-        "revision" : "61fefe9c284fd41ddef77d02749e88f00c305196"
+        "revision" : "ea241055c576d977c607d8cac5fac840c90f80f4"
       }
     },
     {
@@ -204,8 +213,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/sanzaru/SimpleToast",
       "state" : {
-        "revision" : "99330cceeea6a9068d40ccbe27efb75d240098ef",
-        "version" : "0.10.1"
+        "revision" : "8d49c8c16d218b03c3428a0d1c8fe79f4e2707a6",
+        "version" : "0.11.0"
+      }
+    },
+    {
+      "identity" : "ssswiftuigifview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SimformSolutionsPvtLtd/SSSwiftUIGIFView.git",
+      "state" : {
+        "revision" : "bd16555ae068ec4c01f9bdb913526caa08eb30b1",
+        "version" : "2.0.0"
       }
     },
     {
@@ -213,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-protobuf.git",
       "state" : {
-        "revision" : "0af9125c4eae12a4973fb66574c53a54962a9e1e",
-        "version" : "1.21.0"
+        "revision" : "102a647b573f60f73afdce5613a51d71349fe507",
+        "version" : "1.30.0"
       }
     },
     {
