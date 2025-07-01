@@ -31,14 +31,11 @@ class FAQViewModel: AlertViewModel, ObservableObject {
         Task {
             defer { loading = false }
             let result = await manager.fetchFaqs(lastDoc: lastDoc)
-            print(result)
             switch result {
             case .failure(let error):
                 self.makeAlert(with: error, message: &self.alertMessage, alert: &self.showAlert)
             case .success(let res):
-                print(res)
                 self.faqs.append(contentsOf: res.0)
-                print(self.faqs)
                 self.lastDoc = res.1
             }
         }

@@ -11,12 +11,20 @@ struct FAQList: View {
     @EnvironmentObject var faqVM: FAQViewModel
     @State private var showDetail: Bool = false
     
+    
+    var filteredFAQs: [FAQModel] {
+        faqVM.faqs.filter{
+            faqVM.search.isEmpty ? true :
+            ($0.question.localizedCaseInsensitiveContains(faqVM.search) || $0.answer.localizedCaseInsensitiveContains(faqVM.search))
+        }
+    }
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             
             LazyVStack {
                 
-                ForEach(faqVM.faqs.filter{ faqVM.search.isEmpty ? true : ($0.question.localizedCaseInsensitiveContains(faqVM.search) || $0.answer.localizedCaseInsensitiveContains(faqVM.search))}, id: \.id) { faq in
+                ForEach(filteredFAQs, id: \.id) { faq in
                     Button {
                         showDetail.toggle()
                     } label: {
