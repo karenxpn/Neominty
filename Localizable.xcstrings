@@ -38,6 +38,12 @@
             "state" : "translated",
             "value" : "Account"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաշիվ"
+          }
         }
       }
     },
@@ -48,6 +54,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Account Info"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաշվի տվյալներ"
           }
         }
       }
@@ -60,6 +72,12 @@
             "state" : "translated",
             "value" : "Activity"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գործողություն"
+          }
         }
       }
     },
@@ -70,6 +88,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add new card"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ավելացնել նոր քարտ"
           }
         }
       }
@@ -82,6 +106,12 @@
             "state" : "translated",
             "value" : "Afternoon"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ցերեկ"
+          }
         }
       }
     },
@@ -92,6 +122,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "All Transactions"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բոլոր գործարքները"
           }
         }
       }
@@ -104,6 +140,12 @@
             "state" : "translated",
             "value" : "Amount"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "գումարը"
+          }
         }
       }
     },
@@ -114,6 +156,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Are you sure you want to delete the card?"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Համոզվա՞ծ եք, որ ցանկանում եք ջնջել քարտը:"
           }
         }
       }
@@ -126,6 +174,12 @@
             "state" : "translated",
             "value" : "Attach Card"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կցել քարտը"
+          }
         }
       }
     },
@@ -136,6 +190,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Attach a new card"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կցել նոր քարտ"
           }
         }
       }
@@ -148,6 +208,12 @@
             "state" : "translated",
             "value" : "Back to Home"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վերադառնալ գլխավոր էջ"
+          }
         }
       }
     },
@@ -158,6 +224,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Login quickly and securely with the fingerprint stored on this device"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտք գործեք արագ և անվտանգ՝ օգտագործելով ձեր սարքում պահված կենսաչափական տվյալները"
           }
         }
       }
@@ -170,6 +242,12 @@
             "state" : "translated",
             "value" : "Cancel"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Չեղարկել"
+          }
         }
       }
     },
@@ -180,6 +258,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Great! your card is ready🙂"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հիանալի է! Ձեր քարտը պատրաստ է 🙂"
           }
         }
       }
@@ -192,6 +276,12 @@
             "state" : "translated",
             "value" : "Now you can shop, transmit and transfer conveniently"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Այժմ կարող եք հարմար կերպով գնումներ կատարել, վճարել և փոխանցումներ իրականացնել"
+          }
         }
       }
     },
@@ -202,6 +292,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Card number is not valid"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Քարտի համարը անվավեր է"
           }
         }
       }
@@ -214,6 +310,12 @@
             "state" : "translated",
             "value" : "Change Log In PIN"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Փոխել մուտքի PIN կոդը"
+          }
         }
       }
     },
@@ -224,6 +326,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Choose Card"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրեք քարտը"
           }
         }
       }
@@ -236,6 +344,12 @@
             "state" : "translated",
             "value" : "Choose your style"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրեք ձեր ոճը"
+          }
         }
       }
     },
@@ -246,6 +360,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Confirm"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատել"
           }
         }
       }
@@ -258,6 +378,12 @@
             "state" : "translated",
             "value" : "Confirm your new passcode"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատեք ձեր նոր ծածկագիրը"
+          }
         }
       }
     },
@@ -268,6 +394,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Congratulations"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Շնորհավորում ենք"
           }
         }
       }
@@ -280,6 +412,12 @@
             "state" : "translated",
             "value" : "Contact Support"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կապ հաստատել հաճախորդների սպասարկման մասնագետների հետ"
+          }
         }
       }
     },
@@ -290,6 +428,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Continue"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Շարունակել"
           }
         }
       }
@@ -302,6 +446,12 @@
             "state" : "translated",
             "value" : "The customizable, no hidden fee, instant discount debit or credit card"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կարգավորվող, առանց թաքնված վճարների, անմիջապես զեղչվող դեբետային կամ վարկային քարտ"
+          }
         }
       }
     },
@@ -312,6 +462,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Create your Neominty Card"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ստեղծեք ձեր Neominty քարտը"
           }
         }
       }
@@ -324,6 +480,12 @@
             "state" : "translated",
             "value" : "Day"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Օր"
+          }
         }
       }
     },
@@ -334,6 +496,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Delete"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ջնջել"
           }
         }
       }
@@ -346,6 +514,12 @@
             "state" : "translated",
             "value" : "After you delete the card, the information will be removed and you will not be able to use this card"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Քարտը հեռացնելուց հետո տեղեկատվությունը կհեռացվի, և դուք չեք կարողանա օգտագործել այս քարտը:"
+          }
         }
       }
     },
@@ -356,6 +530,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "I’ll do this later"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կանեմ ավելի ուշ"
           }
         }
       }
@@ -368,6 +548,12 @@
             "state" : "translated",
             "value" : "Email"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Էլ. հասցե"
+          }
         }
       }
     },
@@ -378,6 +564,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your mail address will be used for receiving mail promotions.\\nIn order to not receive mail promotions, please delete your mail address"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր էլ. փոստի հասցեն կօգտագործվի առաջարկներ ստանալու համար:\\nԵթե ցանկանում եք դադարեցնել, հեռացրեք ձեր էլ. հասցեն:"
           }
         }
       }
@@ -390,6 +582,12 @@
             "state" : "translated",
             "value" : "You want to receive email\\npromotions, news and offers"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր էլ. փոստի հասցեով կստանաք նորություններ և առաջարկներ"
+          }
         }
       }
     },
@@ -400,6 +598,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enable biometric Access"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ակտիվացնել կենսաչափական մուտքը"
           }
         }
       }
@@ -412,6 +616,12 @@
             "state" : "translated",
             "value" : "Enter amount:"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք գումարը:"
+          }
         }
       }
     },
@@ -422,6 +632,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter Full Name"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք ամբողջական անունը"
           }
         }
       }
@@ -434,6 +650,12 @@
             "state" : "translated",
             "value" : "Enter it here to verify your identity"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք այն այստեղ՝ ձեր ինքնությունը հաստատելու համար"
+          }
         }
       }
     },
@@ -444,6 +666,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter your phone number"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք ձեր հեռախոսահամարը"
           }
         }
       }
@@ -456,6 +684,12 @@
             "state" : "translated",
             "value" : "Enter Receiver Card Details"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք ստացողի քարտի տվյալները"
+          }
         }
       }
     },
@@ -466,6 +700,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter sender phone number"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք ուղարկողի հեռախոսահամարը"
           }
         }
       }
@@ -478,6 +718,12 @@
             "state" : "translated",
             "value" : "Enter your passcode"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մուտքագրեք ձեր ծածկագիրը"
+          }
         }
       }
     },
@@ -488,6 +734,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Error"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սխալ"
           }
         }
       }
@@ -500,6 +752,12 @@
             "state" : "translated",
             "value" : "Evening"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Երեկո"
+          }
         }
       }
     },
@@ -511,6 +769,12 @@
             "state" : "translated",
             "value" : "Everything you need"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ամեն ինչ, ինչ ձեզ անհրաժեշտ է"
+          }
         }
       }
     },
@@ -521,6 +785,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We need to know this for regulatory reasons. And also we’re curious!"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մենք դա պետք է իմանանք կարգավորող նկատառումներից ելնելով, նաև մենք հետաքրքրված ենք!"
           }
         }
       }
@@ -544,6 +814,12 @@
             "state" : "translated",
             "value" : "Expenses"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ծախսեր"
+          }
         }
       }
     },
@@ -566,6 +842,12 @@
             "state" : "translated",
             "value" : "Your want to unlock with Face ID\\nand confirm trasactions"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դուք ցանկանում եք մուտք գործել Face ID-ով և հաստատել գործարքները"
+          }
         }
       }
     },
@@ -576,6 +858,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "FAQs"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ՀՏՀ"
           }
         }
       }
@@ -588,6 +876,12 @@
             "state" : "translated",
             "value" : "Forgot Passcode?"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մոռացել եք ծածկագիրը՞"
+          }
         }
       }
     },
@@ -598,6 +892,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Frequently Asked"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաճախ տրվող հարցեր"
           }
         }
       }
@@ -610,6 +910,12 @@
             "state" : "translated",
             "value" : "From"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ումից"
+          }
         }
       }
     },
@@ -620,6 +926,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "General Settings"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընդհանուր կարգավորումներ"
           }
         }
       }
@@ -632,6 +944,12 @@
             "state" : "translated",
             "value" : "Get Started"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սկսել"
+          }
         }
       }
     },
@@ -642,6 +960,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Good"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարի"
           }
         }
       }
@@ -654,6 +978,12 @@
             "state" : "translated",
             "value" : "Got It"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Շատ լավ"
+          }
         }
       }
     },
@@ -664,6 +994,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hi There! 👋"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարև! 👋"
           }
         }
       }
@@ -676,6 +1012,12 @@
             "state" : "translated",
             "value" : "Home"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գլխավոր"
+          }
         }
       }
     },
@@ -687,6 +1029,12 @@
             "state" : "translated",
             "value" : "Income"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Եկամուտ"
+          }
         }
       }
     },
@@ -697,6 +1045,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your pin is incorrect, if you forgot it you can restore."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր պին կոդը սխալ է, եթե մոռացել եք, կարող եք վերականգնել այն."
           }
         }
       }
@@ -710,7 +1064,8 @@
             "value" : "John Smith"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "justNow" : {
       "extractionState" : "manual",
@@ -719,6 +1074,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Just Now"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հենց հիմա"
           }
         }
       }
@@ -731,6 +1092,12 @@
             "state" : "translated",
             "value" : "Let’s verify your identity"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Եկեք հաստատենք ձեր ինքնությունը"
+          }
         }
       }
     },
@@ -741,6 +1108,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Loading…"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բեռնվում է..."
           }
         }
       }
@@ -753,6 +1126,12 @@
             "state" : "translated",
             "value" : "Load more"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բեռնել ավելին"
+          }
         }
       }
     },
@@ -764,6 +1143,12 @@
             "state" : "translated",
             "value" : "Log Out"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դուրս գալ"
+          }
         }
       }
     },
@@ -774,6 +1159,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Make your first transaction"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կատարեք ձեր առաջին գործարքը"
           }
         }
       }
@@ -787,7 +1178,8 @@
             "value" : "max $12,652"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "month" : {
       "extractionState" : "manual",
@@ -796,6 +1188,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Month"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ամիս"
           }
         }
       }
@@ -808,6 +1206,12 @@
             "state" : "translated",
             "value" : "More"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ավելին"
+          }
         }
       }
     },
@@ -818,6 +1222,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Morning"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Առավոտ"
           }
         }
       }
@@ -830,6 +1240,12 @@
             "state" : "translated",
             "value" : "My Cards"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Իմ քարտերը"
+          }
         }
       }
     },
@@ -840,6 +1256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "New Card"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Նոր քարտ"
           }
         }
       }
@@ -852,6 +1274,12 @@
             "state" : "translated",
             "value" : "Next"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաջորդ"
+          }
         }
       }
     },
@@ -862,6 +1290,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Night"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գիշեր"
           }
         }
       }
@@ -874,6 +1308,12 @@
             "state" : "translated",
             "value" : "Noon"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կեսօր"
+          }
         }
       }
     },
@@ -884,6 +1324,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No Recent Transactions"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վերջին գործարքներ չկան"
           }
         }
       }
@@ -896,6 +1342,12 @@
             "state" : "translated",
             "value" : "Nothing to show"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ցուցադրելու բան չկա"
+          }
         }
       }
     },
@@ -906,6 +1358,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notifications"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ծանուցումներ"
           }
         }
       }
@@ -918,6 +1376,12 @@
             "state" : "translated",
             "value" : "Scanned QR code is not in valid form"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սկանավորված QR կոդը անվավեր է"
+          }
         }
       }
     },
@@ -928,6 +1392,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "now"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "հիմա"
           }
         }
       }
@@ -940,6 +1410,12 @@
             "state" : "translated",
             "value" : "Ok, I’m ready!"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Լավ, պատրաստ եմ!"
+          }
         }
       }
     },
@@ -950,6 +1426,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ok, Send Now!"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Լավ, ուղարկել հիմա!"
           }
         }
       }
@@ -962,6 +1444,12 @@
             "state" : "translated",
             "value" : "Pay"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վճարել"
+          }
         }
       }
     },
@@ -972,6 +1460,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Phone Number"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հեռախոսահամար"
           }
         }
       }
@@ -984,6 +1478,12 @@
             "state" : "translated",
             "value" : "Please wait..."
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Խնդրում ենք սպասել..."
+          }
         }
       }
     },
@@ -994,6 +1494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Profile"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաշիվ"
           }
         }
       }
@@ -1006,6 +1512,12 @@
             "state" : "translated",
             "value" : "Push Notifications"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ծանուցումներ"
+          }
         }
       }
     },
@@ -1016,6 +1528,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You want to receive bill\\nreminders before a bill is due."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեզ անհրաժեշտ է ստանալ ծանուցումներ հաշվից առաջ:"
           }
         }
       }
@@ -1028,6 +1546,12 @@
             "state" : "translated",
             "value" : "Rate Us"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Գնահատեք մեզ"
+          }
         }
       }
     },
@@ -1038,6 +1562,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Recent Transactions"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վերջին գործարքները"
           }
         }
       }
@@ -1050,6 +1580,12 @@
             "state" : "translated",
             "value" : "Reload"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Վերաբեռնել"
+          }
         }
       }
     },
@@ -1060,6 +1596,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Request"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հարցում"
           }
         }
       }
@@ -1072,6 +1614,12 @@
             "state" : "translated",
             "value" : "Resend Code"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կրկին ուղարկել կոդը"
+          }
         }
       }
     },
@@ -1082,6 +1630,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Save"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Պահպանել"
           }
         }
       }
@@ -1094,6 +1648,12 @@
             "state" : "translated",
             "value" : "Scan QR Code"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սկանավորել QR կոդը"
+          }
         }
       }
     },
@@ -1104,6 +1664,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Search"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Որոնել"
           }
         }
       }
@@ -1116,6 +1682,12 @@
             "state" : "translated",
             "value" : "Select your card"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ընտրեք ձեր քարտը"
+          }
         }
       }
     },
@@ -1126,6 +1698,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Send"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ուղարկել"
           }
         }
       }
@@ -1138,6 +1716,12 @@
             "state" : "translated",
             "value" : "Send Money"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ուղարկել գումար"
+          }
         }
       }
     },
@@ -1148,6 +1732,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Set new passcode"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Սահմանել նոր ծածկագիր"
           }
         }
       }
@@ -1160,6 +1750,12 @@
             "state" : "translated",
             "value" : "Share the link"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Կիսվել հղումով"
+          }
         }
       }
     },
@@ -1170,6 +1766,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show QR Code"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ցույց տալ QR կոդը"
           }
         }
       }
@@ -1182,6 +1784,12 @@
             "state" : "translated",
             "value" : "Skip"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բաց թողնել"
+          }
         }
       }
     },
@@ -1192,6 +1800,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sorry for Inconvenience"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ներողություն անհարմարության համար"
           }
         }
       }
@@ -1204,6 +1818,12 @@
             "state" : "translated",
             "value" : "Successful Transfer"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Փոխանցումը հաջողվեց"
+          }
         }
       }
     },
@@ -1214,6 +1834,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "This page is in development mode and you will be able to access this page soon."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Այս էջը գտնվում է մշակման ռեժիմում և շուտով կկարողանաք մուտք գործել այս էջը."
           }
         }
       }
@@ -1226,6 +1852,12 @@
             "state" : "translated",
             "value" : "To"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ում"
+          }
         }
       }
     },
@@ -1236,6 +1868,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Transfer"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Փոխանցում"
           }
         }
       }
@@ -1248,6 +1886,12 @@
             "state" : "translated",
             "value" : "Transfers are reviewed which may result in delays or funds being frozen"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Փոխանցումները վերանայվում են, ինչը կարող է հանգեցնել ուշացումների կամ միջոցների սառեցման"
+          }
         }
       }
     },
@@ -1258,6 +1902,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Update"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Թարմացնել"
           }
         }
       }
@@ -1270,6 +1920,12 @@
             "state" : "translated",
             "value" : "Verification Status"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատման կարգավիճակ"
+          }
         }
       }
     },
@@ -1280,6 +1936,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verify Identity"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատել ինքնությունը"
           }
         }
       }
@@ -1292,6 +1954,12 @@
             "state" : "translated",
             "value" : "Verify it’s you"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատեք, որ դա դուք եք"
+          }
         }
       }
     },
@@ -1302,6 +1970,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verify Email Address"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հաստատել էլ. փոստի հասցեն"
           }
         }
       }
@@ -1314,6 +1988,12 @@
             "state" : "translated",
             "value" : "View All"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Դիտել բոլորը"
+          }
         }
       }
     },
@@ -1324,6 +2004,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to load this screen please try again later or press Reload button"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Չհաջողվեց բեռնել այս էջը, փորձեք կրկին կամ սեղմեք Վերաբեռնել կոճակը"
           }
         }
       }
@@ -1336,6 +2022,12 @@
             "state" : "translated",
             "value" : "We’re required by law to verify your identity before we expand your limits"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Օրենքով մենք պարտավոր ենք հաստատել ձեր ինքնությունը, նախքան ձեր սահմանաչափերը ընդլայնելը"
+          }
         }
       }
     },
@@ -1347,6 +2039,12 @@
             "state" : "translated",
             "value" : "We are sorry"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ներողություն ենք խնդրում"
+          }
         }
       }
     },
@@ -1357,6 +2055,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Week"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Շաբաթ"
           }
         }
       }
@@ -1380,6 +2084,12 @@
             "state" : "translated",
             "value" : "Welcome back, Sign in to your account"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Բարի վերադարձ!"
+          }
         }
       }
     },
@@ -1390,6 +2100,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "We've sent the code to "
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Մենք ուղարկել ենք կոդը "
           }
         }
       }
@@ -1402,6 +2118,12 @@
             "state" : "translated",
             "value" : "Year"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Տարի"
+          }
         }
       }
     },
@@ -1412,6 +2134,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Do you have any question?"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Հարցեր ունե՞ք:"
           }
         }
       }
@@ -1424,6 +2152,12 @@
             "state" : "translated",
             "value" : "Your account is now verified, so you unlocked the limits on your account with some other features."
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր հաշիվը հաստատված է, այժմ դուք ընդլայնել եք սահմանաչափերը և լրացուցիչ հնարավորությունները."
+          }
         }
       }
     },
@@ -1434,6 +2168,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your account was rejected, please contact our support team to try again."
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր հաշիվը մերժվել է, դիմեք մեր աջակցման ծառայությանը՝ կրկին փորձելու համար."
           }
         }
       }
@@ -1446,6 +2186,12 @@
             "state" : "translated",
             "value" : "Your email is not verified yet. Please visit you email and verify it."
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր էլ. փոստը դեռևս հաստատված չէ: Խնդրում ենք ստուգել ձեր էլեկտրոնային հասցեն և հաստատել այն:"
+          }
         }
       }
     },
@@ -1456,6 +2202,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Your link is ready!"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր հղումը պատրաստ է!"
           }
         }
       }
@@ -1468,6 +2220,12 @@
             "state" : "translated",
             "value" : "Your Name"
           }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ձեր անունը"
+          }
         }
       }
     },
@@ -1478,6 +2236,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ℹ︎ You will receive a verification email tap on the link in that mail to verify it"
+          }
+        },
+        "hy" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ℹ︎ Դուք կստանաք հաստատման նամակ, սեղմեք նամակում հղումը՝ հաստատելու համար"
           }
         }
       }
