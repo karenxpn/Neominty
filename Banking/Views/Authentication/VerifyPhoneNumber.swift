@@ -17,8 +17,8 @@ struct VerifyPhoneNumber: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("verifyItsYou", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
-                TextHelper(text: "\(NSLocalizedString("weSentCode", comment: "")) \(phone).\n\(NSLocalizedString("enterItHere", comment: ""))", colorResource: .appGray, fontSize: 16)
+                TextHelper(text: String(localized: .verifyItsYou), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                TextHelper(text: "\(String(localized: .weSentCode)) \(phone).\n\(String(localized: .enterItHere))", colorResource: .appGray, fontSize: 16)
 
                 OTPTextFieldView(pin: $authVM.OTP, authState: .notDetermind) { otp in
                     authVM.OTP = otp
@@ -30,7 +30,7 @@ struct VerifyPhoneNumber: View {
                         authVM.sendVerificationCode(send: false)
                         authVM.OTP = ""
                     } label: {
-                        TextHelper(text: NSLocalizedString("resendCode", comment: ""), colorResource: .appGreen, fontName: .bold, fontSize: 16)
+                        TextHelper(text: String(localized: .resendCode), colorResource: .appGreen, fontName: .bold, fontSize: 16)
                     }
 
                     Spacer()
@@ -38,7 +38,7 @@ struct VerifyPhoneNumber: View {
                 
                 Spacer()
                 ButtonHelper(disabled: authVM.OTP.count != 6,
-                             label: NSLocalizedString("confirm", comment: "")) {
+                             label: String(localized: .confirm)) {
                     authVM.checkVerificationCode(auth: auth)
                 }
             }.ignoresSafeArea(.keyboard, edges: .bottom)
@@ -52,8 +52,8 @@ struct VerifyPhoneNumber: View {
                 alignment: .topLeading
             )
             .padding(.bottom, UIScreen.main.bounds.height * 0.08)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $authVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(authVM.alertMessage)
             })

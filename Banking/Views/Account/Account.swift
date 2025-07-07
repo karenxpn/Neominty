@@ -34,30 +34,30 @@ struct Account: View {
                         
                     }.frame(height: 170)
                     
-                    AccountListButton(icon: "account-info", label: NSLocalizedString("accountInfo", comment: "")) {
+                    AccountListButton(icon: "account-info", label: String(localized: .accountInfo)) {
                         router.pushAccountPath(.info(name: accountVM.info?.name, flag: accountVM.info?.flag, phone: accountVM.info?.phone, email: accountVM.info?.email))
                     }.disabled(accountVM.info == nil)
                     
-                    AccountListButton(icon: "settings", label: NSLocalizedString("generalSettings", comment: "")) {
+                    AccountListButton(icon: "settings", label: String(localized: .generalSettings)) {
                         router.pushAccountPath(.settings)
 
                     }
                     
-                    AccountListButton(icon: "change-pin", label: NSLocalizedString("changePin", comment: "")) {
+                    AccountListButton(icon: "change-pin", label: String(localized: .changePin)) {
                         router.pushAccountPath(.changePin)
                     }
                     
-                    AccountListButton(icon: "verify-identity-icon", label: NSLocalizedString("verifyIdentity", comment: "")) {
+                    AccountListButton(icon: "verify-identity-icon", label: String(localized: .verifyIdentity)) {
                         router.pushAccountPath(.verifyAccount)
                     }
                     
                     Divider()
                     
-                    AccountListButton(icon: "faq", label: NSLocalizedString("faq", comment: "")) {
+                    AccountListButton(icon: "faq", label: String(localized: .faq)) {
                         router.pushAccountPath(.faq)
                     }
                     
-                    AccountListButton(icon: "rate", label: NSLocalizedString("rateUs", comment: "")) {
+                    AccountListButton(icon: "rate", label: String(localized: .rateUs)) {
                         requestReview()
                     }
                     
@@ -69,14 +69,14 @@ struct Account: View {
                 }
                 .navigationTitle(Text(""))
                     .navigationBarTitleDisplayMode(.inline)
-                    .alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
-                        Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                    .alert(String(localized: .error), isPresented: $accountVM.showAlert, actions: {
+                        Button(String(localized: .gotIt), role: .cancel) { }
                     }, message: {
                         Text(accountVM.alertMessage)
                     })
                     .toolbar {
                         ToolbarItem(placement: .principal) {
-                            TextHelper(text: NSLocalizedString("account", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                            TextHelper(text: String(localized: .account), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                         }
                     }.task {
                         if !userID.isEmpty {

@@ -18,12 +18,12 @@ struct TransferSuccess: View {
                 Image("transfer-success")
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("successfulTransfer", comment: ""), colorResource: .darkBlueText,
+                    TextHelper(text: String(localized: .successfulTransfer), colorResource: .darkBlueText,
                                fontName: .bold, fontSize: 24)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
                     
-                    TextHelper(text: NSLocalizedString("transfersAreReviewed", comment: ""),
+                    TextHelper(text: String(localized: .transfersAreReviewed),
                                colorResource: .appGray, fontSize: 11)
                     .padding(.horizontal, 36)
                     .multilineTextAlignment(.center)
@@ -38,7 +38,7 @@ struct TransferSuccess: View {
                         .fill(Color(.lightGray))
                 }
                 
-                ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {
+                ButtonHelper(disabled: false, label: String(localized: .backToHome)) {
                     action()
                 }
             }.padding(24)

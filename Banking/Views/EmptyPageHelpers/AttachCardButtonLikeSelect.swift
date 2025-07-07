@@ -21,7 +21,7 @@ struct AttachCardButtonLikeSelect: View {
                 Image("neominty-logo")
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    TextHelper(text: NSLocalizedString("attachNewCard", comment: ""), colorResource: .darkBlueText, fontName: .medium, fontSize: 16)
+                    TextHelper(text: String(localized: .attachNewCard), colorResource: .darkBlueText, fontName: .medium, fontSize: 16)
                     TextHelper(text: "**** **** **** ****", colorResource: .appGray, fontName: .medium, fontSize: 12)
                 }
                 

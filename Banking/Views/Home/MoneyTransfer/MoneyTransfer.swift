@@ -31,7 +31,7 @@ struct MoneyTransfer: View {
             
             VStack(alignment: .leading, spacing: 16) {
                 
-                TextHelper(text: NSLocalizedString("chooseCard", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                TextHelper(text: String(localized: .chooseCard), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     .padding(.leading, 20)
                 
                 if cards.isEmpty {
@@ -53,7 +53,7 @@ struct MoneyTransfer: View {
                 
                 
                 VStack(alignment: .leading, spacing: 15) {
-                    TextHelper(text: NSLocalizedString("enterReceiverDetails", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .enterReceiverDetails), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
@@ -91,7 +91,7 @@ struct MoneyTransfer: View {
                             }
                         
                         if cardNumber.onlyNumbers().count == 16 && !isCardValid {
-                            TextHelper(text: NSLocalizedString("cardNotValid", comment: ""),
+                            TextHelper(text: String(localized: .cardNotValid),
                                        color: .red, fontName: .regular, fontSize: 10)
                         }
                     }
@@ -107,17 +107,17 @@ struct MoneyTransfer: View {
                 } else {
                     VStack(alignment: .leading, spacing: 10) {
                         if transferVM.transactionUsers.isEmpty {
-                            TextHelper(text: NSLocalizedString("noRecentTransactions", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                            TextHelper(text: String(localized: .noRecentTransactions), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                                 .frame(minWidth: 0,
                                        maxWidth: .infinity)
                                 .padding(.vertical, UIScreen.main.bounds.height * 0.1)
                         } else {
-                            TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                            TextHelper(text: String(localized: .recentTransactions), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                             
                             RecentTransferUsersList(card: $cardNumber, selected: $transferVM.selectedTransfer, transfers: transferVM.transactionUsers)
                         }
                         
-                        ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: NSLocalizedString("continue", comment: "")) {
+                        ButtonHelper(disabled: selectedCard == nil || !isCardValid, label: String(localized: .`continue`)) {
                             if let card = cards.first(where: {$0.id == selectedCard}) {
                                 router.pushHomePath(.transferDetails(card: card,
                                                                          recentTransfer: transferVM.selectedTransfer,
@@ -135,14 +135,14 @@ struct MoneyTransfer: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack(alignment: .leading, spacing: 4) {
-                        TextHelper(text: NSLocalizedString("transfer", comment: ""), color: .black, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .transfer), color: .black, fontName: .bold, fontSize: 20)
                     }
                     
                 }
             }.task {
                 transferVM.getRecentTransfers()
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $transferVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(transferVM.alertMessage)
             })

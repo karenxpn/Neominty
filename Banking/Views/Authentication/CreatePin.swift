@@ -13,7 +13,7 @@ struct CreatePin: View {
     var body: some View {
         VStack( alignment: .leading, spacing: 12) {
             
-            TextHelper(text: NSLocalizedString("setNewPasscode", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+            TextHelper(text: String(localized: .setNewPasscode), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
 
             OTPTextFieldView(maxDigits: 5, pin: $authVM.passcode, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                 
@@ -21,7 +21,7 @@ struct CreatePin: View {
 
             Spacer()
             ButtonHelper(disabled: authVM.passcode.count != 5,
-                         label: NSLocalizedString("next", comment: "")) {
+                         label: String(localized: .next)) {
                 authVM.path.append(ViewPaths.confirmPasscode)
             }
         }.ignoresSafeArea(.keyboard, edges: .bottom)

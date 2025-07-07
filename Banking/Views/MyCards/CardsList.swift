@@ -50,7 +50,7 @@ struct CardsList: View {
                         
                         Image("plus-without-circle")
                         
-                        Text( NSLocalizedString("addNewCard", comment: "") )
+                        Text( String(localized: .addNewCard) )
                             .font(.custom(Roboto.bold.rawValue, size: 16))
                             .foregroundColor(Color(.darkBlue))
                         
@@ -65,8 +65,8 @@ struct CardsList: View {
                         
         }.listStyle(.plain)
             .padding(.top, 1)
-            .alert(NSLocalizedString("areYourSureToDeleteTheCard", comment: ""), isPresented: $showConfirmationDialog) {
-                Button(NSLocalizedString("delete", comment: "")) {
+            .alert(String(localized: .areYourSureToDeleteTheCard), isPresented: $showConfirmationDialog) {
+                Button(String(localized: .delete)) {
                     // delete
                     if let selectedToDelete, let id = selectedToDelete.id{
                         cardsVM.deleteCard(id: id)
@@ -76,11 +76,11 @@ struct CardsList: View {
                 Button(role: .cancel) {
                     selectedToDelete = nil
                 } label: {
-                    Text(NSLocalizedString("cancel", comment: ""))
+                    Text(String(localized: .cancel))
                 }
 
             } message: {
-                Text(NSLocalizedString("deleteCardMessage", comment: ""))
+                Text(String(localized: .deleteCardMessage))
             }
     }
     

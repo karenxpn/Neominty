@@ -20,8 +20,8 @@ struct PhoneAuthentication: View {
                 
                 
                 VStack( alignment: .leading, spacing: 8) {
-                    TextHelper(text: NSLocalizedString("hiThere", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("welcomeBack", comment: ""), colorResource: .appGray, fontSize: 16)
+                    TextHelper(text: String(localized: .hiThere), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    TextHelper(text: String(localized: .welcomeBack), colorResource: .appGray, fontSize: 16)
                 }
                 
                 HStack(spacing: 0) {
@@ -41,7 +41,7 @@ struct PhoneAuthentication: View {
                             .cornerRadius(16, corners: [.topLeft, .bottomLeft])
                     }
                     
-                    TextField(NSLocalizedString("enterPhoneNumber", comment: ""), text: $authVM.phoneNumber)
+                    TextField(String(localized: .enterPhoneNumber), text: $authVM.phoneNumber)
                         .keyboardType(.phonePad)
                         .font(.custom(Roboto.regular.rawValue, size: 16))
                         .padding(.leading, 5)
@@ -54,7 +54,7 @@ struct PhoneAuthentication: View {
                 
                 
                 ButtonHelper(disabled: authVM.phoneNumber == "" || authVM.loading,
-                             label: NSLocalizedString("next", comment: "")) {
+                             label: String(localized: .next)) {
                     authVM.sendVerificationCode()
                 }.padding(.horizontal, 7)
                     .navigationDestination(isPresented: $authVM.navigate, destination: {
@@ -75,8 +75,8 @@ struct PhoneAuthentication: View {
             )
             .sheet(isPresented: $showPicker) {
                 CountryCodeSelection(isPresented: $showPicker, country: $authVM.country, code: $authVM.code, flag: $authVM.flag)
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $authVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(authVM.alertMessage)
             })

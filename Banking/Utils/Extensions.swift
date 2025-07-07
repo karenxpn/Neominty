@@ -291,7 +291,7 @@ extension Date {
         formatter.unitsStyle = .short
         let string = formatter.localizedString(for: self, relativeTo: currentDate)
         
-        return currentDate.millisecondsSince1970 - self.millisecondsSince1970 < 3000 ? NSLocalizedString("justNow", comment: "") : string
+        return currentDate.millisecondsSince1970 - self.millisecondsSince1970 < 3000 ? String(localized: .justNow) : string
     }
     
     // Convert local time to UTC (or GMT)
@@ -356,11 +356,11 @@ extension Date {
     func getDayTime() -> String {
         let hour = Calendar.current.component(.hour, from: self)
         switch hour {
-        case 6..<12 : return (NSLocalizedString("morning", comment: ""))
-        case 12 : return (NSLocalizedString("noon", comment: ""))
-        case 13..<18 : return (NSLocalizedString("afternoon", comment: ""))
-        case 18..<24 : return (NSLocalizedString("evening", comment: ""))
-        default: return NSLocalizedString("night", comment: "")
+        case 6..<12 : return (String(localized: .morning))
+        case 12 : return (String(localized: .noon))
+        case 13..<18 : return (String(localized: .afternoon))
+        case 18..<24 : return (String(localized: .evening))
+        default: return String(localized: .night)
         }
     }
 }

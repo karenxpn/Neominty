@@ -24,7 +24,7 @@ struct Loading<Content>: View where Content: View {
                 VStack(spacing: 10) {
                     ProgressView()
                         .scaleEffect(1.5)
-                    TextHelper(text: NSLocalizedString("loading", comment: ""),
+                    TextHelper(text: String(localized: .loading),
                                color: .primary,
                                fontSize: 18)
                 }

@@ -11,10 +11,10 @@ struct HomeMenu: View {
     @EnvironmentObject var router: Router
     
     let icons = ["money-send", "money-exchange", "money-receive", "more"]
-    let labels = [NSLocalizedString("send", comment: ""),
-                  NSLocalizedString("pay", comment: ""),
-                  NSLocalizedString("request", comment: ""),
-                  NSLocalizedString("more", comment: "")]
+    let labels = [String(localized: .send),
+                  String(localized: .pay),
+                  String(localized: .request),
+                  String(localized: .more)]
     let cards: [CardModel]
     let paths: [HomeViewPaths]
     

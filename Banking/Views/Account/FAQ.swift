@@ -14,7 +14,7 @@ struct FAQ: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 24) {
-            TextHelper(text: NSLocalizedString("youHaveQuestion", comment: ""),
+            TextHelper(text: String(localized: .youHaveQuestion),
                        colorResource: .darkBlueText,
                        fontName: .bold,
                        fontSize: 24)
@@ -23,7 +23,7 @@ struct FAQ: View {
             HStack(spacing: 10) {
                 Image("search")
                 
-                TextField(NSLocalizedString("search", comment: ""), text: $faqVM.search)
+                TextField(String(localized: .search), text: $faqVM.search)
                     .font(.custom(Roboto.regular.rawValue, size: 16))
                     .padding(.vertical, 16)
             }.padding(.horizontal, 18)
@@ -32,7 +32,7 @@ struct FAQ: View {
             
             
             HStack {
-                TextHelper(text: NSLocalizedString("frequentlyAsked", comment: ""),
+                TextHelper(text: String(localized: .frequentlyAsked),
                            fontName: .bold,
                            fontSize: 20)
                 Spacer()
@@ -40,7 +40,7 @@ struct FAQ: View {
                 Button {
                     router.pushAccountPath(.allFaq)
                 } label: {
-                    TextHelper(text: NSLocalizedString("viewAll", comment: ""),
+                    TextHelper(text: String(localized: .viewAll),
                                fontName: .bold,
                                fontSize: 16)
                 }
@@ -51,8 +51,8 @@ struct FAQ: View {
             
             
         }.padding(24)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $faqVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $faqVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(faqVM.alertMessage)
             })
@@ -60,7 +60,7 @@ struct FAQ: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .faq), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 faqVM.getFAQs()

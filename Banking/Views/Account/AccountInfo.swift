@@ -31,11 +31,11 @@ struct AccountInfo: View {
                 VStack(spacing: 24) {
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        TextHelper(text: NSLocalizedString("yourName", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
+                        TextHelper(text: String(localized: .yourName), colorResource: .appGray, fontName: .bold, fontSize: 16)
                         
                         
                         CardDetailTextFieldDecorator(content: {
-                            TextField(NSLocalizedString("John Smith", comment: ""), text: $name)
+                            TextField(String(localized: .johnSmith), text: $name)
                                 .keyboardType(.asciiCapable)
                                 .font(.custom(Roboto.medium.rawValue, size: 16))
                                 .padding(.leading, 16)
@@ -47,7 +47,7 @@ struct AccountInfo: View {
                     
                     VStack(alignment: .leading, spacing: 12) {
                         
-                        TextHelper(text: NSLocalizedString("phoneNumber", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
+                        TextHelper(text: String(localized: .phoneNumber), colorResource: .appGray, fontName: .bold, fontSize: 16)
 
                         HStack(spacing: 0) {
                             
@@ -65,7 +65,7 @@ struct AccountInfo: View {
                                     .cornerRadius(16, corners: [.topLeft, .bottomLeft])
                             }.disabled(true)
                             
-                            TextField(NSLocalizedString("enterSenderPhone", comment: ""), text: $phone)
+                            TextField(String(localized: .enterSenderPhone), text: $phone)
                                 .keyboardType(.phonePad)
                                 .font(.custom(Roboto.regular.rawValue, size: 16))
                                 .padding(.leading, 5)
@@ -77,13 +77,13 @@ struct AccountInfo: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 12) {
-                        TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
+                        TextHelper(text: String(localized: .email), colorResource: .appGray, fontName: .bold, fontSize: 16)
                         
                         Button {
                             router.pushAccountPath(.accountEmail(email: email))
                         } label: {
                             HStack {
-                                TextHelper(text: email.isEmpty ? NSLocalizedString("example@domain.com", comment: "") : email, colorResource: .appGray, fontName: .medium, fontSize: 16)
+                                TextHelper(text: email.isEmpty ? String(localized: .exampleDomainCom) : email, colorResource: .appGray, fontName: .medium, fontSize: 16)
                                 Spacer()
                             }.padding(16)
                                 .background {
@@ -99,7 +99,7 @@ struct AccountInfo: View {
                     
                     HStack(alignment: .firstTextBaseline, spacing: 6) {
                         Image("info")
-                        TextHelper(text: NSLocalizedString("emailInfo", comment: ""), colorResource: .appGray, fontSize: 11)
+                        TextHelper(text: String(localized: .emailInfo), colorResource: .appGray, fontSize: 11)
                         
                     }.padding(.top, 38)
                     
@@ -107,7 +107,7 @@ struct AccountInfo: View {
                     Spacer()
                     
                     ButtonHelper(disabled: !nameValid || accountVM.loading,
-                                 label: accountVM.loading ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("save", comment: "")) {
+                                 label: accountVM.loading ? String(localized: .pleaseWait) : String(localized: .save)) {
                         accountVM.updateInfo(name: name)
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     
@@ -121,13 +121,13 @@ struct AccountInfo: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("accountInfo", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .accountInfo), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.onReceive(NotificationCenter.default.publisher(for:
                                                                 Notification.Name(rawValue: NotificationName.infoUpdated.rawValue))) { _ in
                 router.popToAccountRoot()
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $accountVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(accountVM.alertMessage)
             })

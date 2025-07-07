@@ -21,10 +21,10 @@ enum Tabs: Hashable, Equatable, CaseIterable {
     
     var label: String {
         switch self {
-        case .home:     NSLocalizedString("home", comment: "")
-        case .cards:    NSLocalizedString("myCards", comment: "")
-        case .activity: NSLocalizedString("activity", comment: "")
-        case .profile:  NSLocalizedString("profile", comment: "")
+        case .home:     String(localized: .home)
+        case .cards:    String(localized: .myCards)
+        case .activity: String(localized: .activity)
+        case .profile:  String(localized: .profile)
         case .scan:     ""
         }
     }

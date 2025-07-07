@@ -34,7 +34,7 @@ struct ScanQR: View {
                                 self.result = result.string
                             } else {
                                 qrVM.showAlert.toggle()
-                                qrVM.alertMessage = NSLocalizedString("notValidQR", comment: "")
+                                qrVM.alertMessage = String(localized: .notValidQR)
                             }
                         case .failure(let error):
                             qrVM.showAlert.toggle()
@@ -51,8 +51,8 @@ struct ScanQR: View {
                 }
             }).gesture(DragGesture().onChanged({ _ in
                 UIApplication.shared.endEditing()
-            })).alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            })).alert(String(localized: .error), isPresented: $qrVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(qrVM.alertMessage)
                 }).toolbar(.hidden, for: .navigationBar)

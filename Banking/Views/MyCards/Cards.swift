@@ -41,15 +41,15 @@ struct Cards: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("myCards", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .myCards), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.refreshable {
                     cardsVM.getCards()
                 }
                 .task {
                     cardsVM.getCards()
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $cardsVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }.alert(String(localized: .error), isPresented: $cardsVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(cardsVM.alertMessage)
                 })
@@ -60,9 +60,9 @@ struct Cards: View {
                 }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
                     CongratulationAlert {
                         VStack(spacing: 12) {
-                            TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                            TextHelper(text: String(localized: .cardIsReady), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
 
-                            TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
+                            TextHelper(text: String(localized: .cardIsReadyMessage), colorResource: .appGray, fontSize: 12)
 
                         }
                     } action: {

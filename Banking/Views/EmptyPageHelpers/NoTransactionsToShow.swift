@@ -14,8 +14,8 @@ struct NoTransactionsToShow: View {
             IconGenerator(icon: "wallet-green")
             
             VStack(alignment: .leading, spacing: 4) {
-                TextHelper(text: NSLocalizedString("nothingToShow", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
-                TextHelper(text: NSLocalizedString("makeYourFirstTransaction", comment: ""), colorResource: .appGray, fontName: .medium, fontSize: 12)
+                TextHelper(text: String(localized: .nothingToShow), colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
+                TextHelper(text: String(localized: .makeYourFirstTransaction), colorResource: .appGray, fontName: .medium, fontSize: 12)
             }
             
             Spacer()

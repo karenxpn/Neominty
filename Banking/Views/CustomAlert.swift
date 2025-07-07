@@ -45,7 +45,7 @@ struct CustomAlert<Content: View>: View {
                         .padding(.top, 40)
                     
                     
-                    ButtonHelper(disabled: loading, label: NSLocalizedString("okSendNow", comment: "")) {
+                    ButtonHelper(disabled: loading, label: String(localized: .okSendNow)) {
                         action()
                     }
                     

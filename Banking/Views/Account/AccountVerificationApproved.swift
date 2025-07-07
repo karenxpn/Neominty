@@ -30,9 +30,9 @@ struct AccountVerificationApproved: View {
                 }
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("congratulations", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .congratulations), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("yourAccountIsVerified", comment: ""), colorResource: .appGray, fontSize: 16)
+                    TextHelper(text: String(localized: .yourAccountIsVerified), colorResource: .appGray, fontSize: 16)
                         .multilineTextAlignment(.center)
                 }
             }.frame(
@@ -50,7 +50,7 @@ struct AccountVerificationApproved: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .verificationStatus), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

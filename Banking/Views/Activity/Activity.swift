@@ -64,7 +64,7 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("income-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("income", comment: ""), colorResource: .appGray, fontSize: 12)
+                                            TextHelper(text: String(localized: .income), colorResource: .appGray, fontSize: 12)
                                             
                                             TextHelper(text: activityVM.activity == nil ? "$0" : "not calculated", colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
                                             
@@ -76,7 +76,7 @@ struct Activity: View {
                                     HStack(spacing: 12) {
                                         Image("expense-icon")
                                         VStack(alignment: .leading, spacing: 2) {
-                                            TextHelper(text: NSLocalizedString("expenses", comment: ""), colorResource: .appGray, fontSize: 12)
+                                            TextHelper(text: String(localized: .expenses), colorResource: .appGray, fontSize: 12)
                                             
                                             TextHelper(text: activityVM.activity == nil ? "$0" :  "\(activityVM.cards.first(where: { $0.bindingId == activityVM.selectedCard })?.currency.rawValue.currencySymbol ?? "USD".currencySymbol) \(activityVM.expense)", colorResource: .darkBlueText, fontName: .bold, fontSize: 14)
                                         }
@@ -154,7 +154,7 @@ struct Activity: View {
             }.navigationBarTitle(Text(""), displayMode: .inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("activity", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .activity), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.refreshable {
                     activityVM.cards.removeAll(keepingCapacity: false)
@@ -170,8 +170,8 @@ struct Activity: View {
                     case .attachCard:
                         SelectCardStyle()
                     }
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $activityVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }.alert(String(localized: .error), isPresented: $activityVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(activityVM.alertMessage)
                 })
@@ -180,9 +180,9 @@ struct Activity: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .cardIsReady), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
 
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
+                    TextHelper(text: String(localized: .cardIsReadyMessage), colorResource: .appGray, fontSize: 12)
 
                 }
             } action: {

@@ -71,7 +71,7 @@ struct QRView: View {
                                 .shadow(color: Color(.shadow), radius: 25, x: 2, y: 15)
                         }
                         
-                        ButtonHelper(disabled: qrVM.selectedCard == nil, label: NSLocalizedString("scanQR", comment: "")) {
+                        ButtonHelper(disabled: qrVM.selectedCard == nil, label: String(localized: .scanQR)) {
                             scanQR.toggle()
                         }.fullScreenCover(isPresented: $scanQR, content: {
                             ScanQR(presented: $scanQR)
@@ -85,10 +85,10 @@ struct QRView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("showQrCode", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .showQrCode), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $qrVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }.alert(String(localized: .error), isPresented: $qrVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(qrVM.alertMessage)
                 }).task {
@@ -118,9 +118,9 @@ struct QRView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .cardIsReady), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
+                    TextHelper(text: String(localized: .cardIsReadyMessage), colorResource: .appGray, fontSize: 12)
                     
                 }
             } action: {

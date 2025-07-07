@@ -33,7 +33,7 @@ struct Notifications: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("notifications", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .notifications), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -53,8 +53,8 @@ struct Notifications: View {
 
                 }
                 
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $notificationsVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $notificationsVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(notificationsVM.alertMessage)
             }).task {

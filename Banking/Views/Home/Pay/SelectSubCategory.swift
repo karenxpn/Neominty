@@ -46,7 +46,7 @@ struct SelectSubCategory: View {
                     HStack(spacing: 10) {
                         Image("search")
                         
-                        TextField(NSLocalizedString("search", comment: ""), text: $payVM.search)
+                        TextField(String(localized: .search), text: $payVM.search)
                             .font(.custom(Roboto.regular.rawValue, size: 16))
                             .padding(.vertical, 16)
                     }.padding(.horizontal, 18)

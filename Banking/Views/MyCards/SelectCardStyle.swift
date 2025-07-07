@@ -44,7 +44,7 @@ struct SelectCardStyle: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("chooseYourStyle", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .chooseYourStyle), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }
         

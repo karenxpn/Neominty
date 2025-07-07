@@ -23,8 +23,8 @@ struct EnableBiometricAuthentication: View {
                 Spacer()
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("enableBiometric", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
-                    TextHelper(text: NSLocalizedString("biometricAccessMessage", comment: ""), colorResource: .appGray, fontSize: 16)
+                    TextHelper(text: String(localized: .enableBiometric), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    TextHelper(text: String(localized: .biometricAccessMessage), colorResource: .appGray, fontSize: 16)
                 }
                 
                 Spacer()
@@ -34,7 +34,7 @@ struct EnableBiometricAuthentication: View {
                 Spacer()
                 
                 VStack( spacing: 24 ) {
-                    ButtonHelper(disabled: false, label: NSLocalizedString("enableBiometric", comment: "")) {
+                    ButtonHelper(disabled: false, label: String(localized: .enableBiometric)) {
                         authVM.biometricAuthentication()
                     }
                     
@@ -42,7 +42,7 @@ struct EnableBiometricAuthentication: View {
                         biometricEnabled = false
                         authVM.path = []
                     } label: {
-                        TextHelper(text: NSLocalizedString("doItLater", comment: ""), colorResource: .appGreen, fontName: .bold, fontSize: 16)
+                        TextHelper(text: String(localized: .doItLater), colorResource: .appGreen, fontName: .bold, fontSize: 16)
                     }
                 }
 

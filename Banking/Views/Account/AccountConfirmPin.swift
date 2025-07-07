@@ -17,7 +17,7 @@ struct AccountConfirmPin: View {
             ScrollView(showsIndicators: false) {
                 VStack( alignment: .leading, spacing: 12) {
                     
-                    TextHelper(text: NSLocalizedString("confirmYourNewPasscode", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    TextHelper(text: String(localized: .confirmYourNewPasscode), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                     
                     OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                         
@@ -25,7 +25,7 @@ struct AccountConfirmPin: View {
                     
                     Spacer()
                     ButtonHelper(disabled: authVM.passcode != authVM.passcodeConfirm,
-                                 label: NSLocalizedString("confirm", comment: "")) {
+                                 label: String(localized: .confirm)) {
                         authVM.storeChangedPin()
                         router.popToAccountRoot()
                     }.padding(.bottom, 30)

@@ -48,17 +48,17 @@ struct ActivityGraph: View {
 
                 if let selectedPoint, selectedPoint == point.interval {
                     RectangleMark(
-                        x: .value("Week Day", point.interval),
-                        yStart: .value("Amount", 0),
-                        yEnd: .value("Amount", point.amount + 1),
+                        x: .value(LocalizedStringResource.weekDay, point.interval),
+                        yStart: .value(LocalizedStringResource.amount, 0),
+                        yEnd: .value(LocalizedStringResource.amount, point.amount + 1),
                         width: 24
                     ).foregroundStyle(rectangleMarkGradient)
                         .cornerRadius(8)
                         .opacity(0.8)
 
                     PointMark(
-                        x: .value("Week Day", point.interval),
-                        y: .value("Amount", point.amount)
+                        x: .value(LocalizedStringResource.weekDay, point.interval),
+                        y: .value(LocalizedStringResource.amount, point.amount)
                         )
                     .annotation(alignment: .bottom, spacing: 0) {
 
@@ -82,8 +82,8 @@ struct ActivityGraph: View {
                 }
 
                 LineMark(
-                    x: .value("Week Day", point.interval),
-                    y: .value("Amount", point.amount)
+                    x: .value(LocalizedStringResource.weekDay, point.interval),
+                    y: .value(LocalizedStringResource.amount, point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(Color(.appGreen))
@@ -91,8 +91,8 @@ struct ActivityGraph: View {
                 .accessibilityHidden(false)
 
                 AreaMark(
-                    x: .value("Week Day", point.interval),
-                    y: .value("Amount", point.amount)
+                    x: .value(LocalizedStringResource.weekDay, point.interval),
+                    y: .value(LocalizedStringResource.amount, point.amount)
                 )
                 .interpolationMethod(.catmullRom)
                 .foregroundStyle(curGradient)

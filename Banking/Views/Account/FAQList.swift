@@ -50,7 +50,7 @@ struct FAQList: View {
                     ProgressView()
                 }
                 
-                ButtonHelper(disabled: faqVM.loading, label: NSLocalizedString("loadMore", comment: ""), color: Color(.superLightGray), labelColor: Color(.darkBlue)) {
+                ButtonHelper(disabled: faqVM.loading, label: String(localized: .loadMore), color: Color(.superLightGray), labelColor: Color(.darkBlue)) {
                     
                     faqVM.getFAQs()
                 }.padding(.top, 35)

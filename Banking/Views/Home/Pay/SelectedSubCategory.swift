@@ -35,7 +35,7 @@ struct SelectedSubCategory: View {
                 }
 
                 ButtonHelper(disabled: fieldsValidation.values.contains(false)
-                             || subCategory.fields.map({fieldsValidation[$0.name] == nil}).contains(true), label: NSLocalizedString("continue", comment: "")) {
+                             || subCategory.fields.map({fieldsValidation[$0.name] == nil}).contains(true), label: String(localized: .`continue`)) {
                     
                     payVM.selectedPaymentCategory = subCategory
                     payVM.fields = fields

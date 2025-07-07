@@ -58,8 +58,8 @@ struct IntroductionPage: View {
                     // carousel
                     
                     ButtonHelper(disabled: false, label: index == count-1 ?
-                                 NSLocalizedString("getStarted", comment: "") :
-                                    NSLocalizedString("next", comment: "")) {
+                                 String(localized: .getStarted) :
+                                    String(localized: .next)) {
                         if index == count-1 {
                             authenticate = true
                         } else {
@@ -80,7 +80,7 @@ struct IntroductionPage: View {
                         Button {
                             authenticate = true
                         } label: {
-                            TextHelper(text: NSLocalizedString("skip", comment: ""), fontName: .bold, fontSize: 16)
+                            TextHelper(text: String(localized: .skip), fontName: .bold, fontSize: 16)
                         }
                     }
                 }

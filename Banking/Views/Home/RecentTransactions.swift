@@ -15,14 +15,14 @@ struct RecentTransactions: View {
     var body: some View {
         LazyVStack(spacing: 16) {
             HStack {
-                TextHelper(text: NSLocalizedString("recentTransactions", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 14)
+                TextHelper(text: String(localized: .recentTransactions), colorResource: .appGray, fontName: .bold, fontSize: 14)
                 Spacer()
                 
                 Button {
                     action()
                 } label: {
                     HStack(spacing: 0) {
-                        TextHelper(text: NSLocalizedString("allTransactions", comment: ""), colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
+                        TextHelper(text: String(localized: .allTransactions), colorResource: .darkBlueText, fontName: .medium, fontSize: 14)
                         
                         Image("chevron-right")
                     }

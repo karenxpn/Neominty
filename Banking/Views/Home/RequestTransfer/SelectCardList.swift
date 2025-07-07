@@ -17,7 +17,7 @@ struct SelectCardList: View {
         ScrollView(showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 24) {
                 
-                TextHelper(text: NSLocalizedString("selectYourCard", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                TextHelper(text: String(localized: .selectYourCard), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     .padding(.top)
                 
                 ForEach(cards, id: \.id) { card in
@@ -33,7 +33,7 @@ struct SelectCardList: View {
                     }
                 }
                 
-                ButtonHelper(disabled: false, label: NSLocalizedString("confirm", comment: "")) {
+                ButtonHelper(disabled: false, label: String(localized: .confirm)) {
                     show.toggle()
                 }.padding(.top, 80)
             }.padding(24)

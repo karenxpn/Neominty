@@ -18,18 +18,18 @@ struct RequestTransferSuccess: View {
             
             VStack(spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("yourLinkIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                TextHelper(text: String(localized: .yourLinkIsReady), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                 
                 TextHelper(text: requestVM.generatedLink, colorResource: .appGray, fontName: .bold, fontSize: 13)
                     .multilineTextAlignment(.center)
                 
                 ShareLink(item: requestVM.generatedLink) {
-                    Label(NSLocalizedString("shareLink", comment: ""), systemImage: "paperplane")
+                    Label(String(localized: .shareLink), systemImage: "paperplane")
                         .accentColor(Color(.appGreen))
                 }
             }
             
-            ButtonHelper(disabled: false, label: NSLocalizedString("backToHome", comment: "")) {
+            ButtonHelper(disabled: false, label: String(localized: .backToHome)) {
                 router.popToHomeRoot()
             }
         }.padding(58)

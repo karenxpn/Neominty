@@ -47,8 +47,8 @@ struct AllFAQs: View {
             }.padding(24)
             
         }.padding(.top, 1)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $faqVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $faqVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(faqVM.alertMessage)
             })
@@ -56,7 +56,7 @@ struct AllFAQs: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("faq", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .faq), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 faqVM.getFAQs()

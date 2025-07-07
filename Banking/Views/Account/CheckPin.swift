@@ -20,7 +20,7 @@ struct CheckPin: View {
             ScrollView(showsIndicators: false) {
                 VStack( alignment: .leading, spacing: 12) {
                     
-                    TextHelper(text: NSLocalizedString("enterYourPasscode", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                    TextHelper(text: String(localized: .enterYourPasscode), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                     
                     OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .setPasscode) { otp in
                         
@@ -30,7 +30,7 @@ struct CheckPin: View {
                     Spacer()
                     
                     ButtonHelper(disabled: authVM.passcodeConfirm.count != 5,
-                                 label: NSLocalizedString("confirm", comment: "")) {
+                                 label: String(localized: .confirm)) {
                         if authVM.checkPinToPass() {
                             navigate.toggle()
                         }
@@ -48,8 +48,8 @@ struct CheckPin: View {
                 .scrollDismissesKeyboard(.immediately)
         }.navigationTitle(Text(""))
             .navigationBarTitleDisplayMode(.inline)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $authVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(authVM.alertMessage)
             })

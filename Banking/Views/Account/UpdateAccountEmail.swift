@@ -24,10 +24,10 @@ struct UpdateAccountEmail: View {
         
         VStack(alignment: .leading, spacing: 12) {
             
-            TextHelper(text: NSLocalizedString("email", comment: ""), colorResource: .appGray, fontName: .bold, fontSize: 16)
+            TextHelper(text: String(localized: .email), colorResource: .appGray, fontName: .bold, fontSize: 16)
             
             CardDetailTextFieldDecorator(content: {
-                TextField(NSLocalizedString("example@domain.com", comment: ""), text: $email)
+                TextField(String(localized: .exampleDomainCom), text: $email)
                     .keyboardType(.emailAddress)
                     .textInputAutocapitalization(.never)
                     .font(.custom(Roboto.medium.rawValue, size: 16))
@@ -37,10 +37,10 @@ struct UpdateAccountEmail: View {
                     }
             }, isValid: $emailValid)
             
-            TextHelper(text: NSLocalizedString("youWillReceiveVerificationEmail", comment: ""), colorResource: .appGray)
+            TextHelper(text: String(localized: .youWillReceiveVerificationEmail), colorResource: .appGray)
             
             
-            ButtonHelper(disabled: !emailValid || (emailValid && email.isEmpty) || accountVM.loading, label: NSLocalizedString("update", comment: "")) {
+            ButtonHelper(disabled: !emailValid || (emailValid && email.isEmpty) || accountVM.loading, label: String(localized: .update)) {
                 accountVM.updateEmail(email: email)
             }.padding(.top, 100)
             
@@ -51,13 +51,13 @@ struct UpdateAccountEmail: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
-                        TextHelper(text: NSLocalizedString("verifyYourEmail", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .verifyYourEmail), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     }
                 }.onReceive(NotificationCenter.default.publisher(for:
                                                                     Notification.Name(rawValue: NotificationName.emailUpdated.rawValue))) { _ in
                     router.popToAccountRoot()
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $accountVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }.alert(String(localized: .error), isPresented: $accountVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(accountVM.alertMessage)
                 })

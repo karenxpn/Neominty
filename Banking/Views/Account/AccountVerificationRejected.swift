@@ -34,13 +34,13 @@ struct AccountVerificationRejected: View {
                 }
                 
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("weAreSorry", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .weAreSorry), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("yourAccountWasRejected", comment: ""), colorResource: .appGray, fontSize: 16)
+                    TextHelper(text: String(localized: .yourAccountWasRejected), colorResource: .appGray, fontSize: 16)
                         .multilineTextAlignment(.center)
                 }
                 
-                ButtonHelper(disabled: false, label: NSLocalizedString("contactSupport", comment: "")) {
+                ButtonHelper(disabled: false, label: String(localized: .contactSupport)) {
                     openURL(URL(string: "https://neominty.com/")!)
                 }
             }.frame(
@@ -55,7 +55,7 @@ struct AccountVerificationRejected: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("verificationStatus", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .verificationStatus), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

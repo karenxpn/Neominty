@@ -16,14 +16,14 @@ struct ViewFailedToLoad: View {
             
             Image("request-transfer-success")
             VStack(spacing: 12) {
-                TextHelper(text: NSLocalizedString("sorryForInconvenience", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                TextHelper(text: String(localized: .sorryForInconvenience), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     .multilineTextAlignment(.center)
 
-                TextHelper(text: NSLocalizedString("viewFiledToLoad", comment: ""), colorResource: .appGray, fontSize: 14)
+                TextHelper(text: String(localized: .viewFiledToLoad), colorResource: .appGray, fontSize: 14)
                     .multilineTextAlignment(.center)
             }
             
-            ButtonHelper(disabled: false, label: NSLocalizedString("reload", comment: "")) {
+            ButtonHelper(disabled: false, label: String(localized: .reload)) {
                 action()
             }
             

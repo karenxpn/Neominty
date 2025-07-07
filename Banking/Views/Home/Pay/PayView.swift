@@ -12,8 +12,8 @@ struct PayView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 12) {
-                TextHelper(text: NSLocalizedString("everythingYouNeed", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
-                TextHelper(text: NSLocalizedString("everythingYouNeedMessage", comment: ""), colorResource: .appGray, fontSize: 16)
+                TextHelper(text: String(localized: .everythingYouNeed), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                TextHelper(text: String(localized: .everythingYouNeedMessage), colorResource: .appGray, fontSize: 16)
                 
             }.frame(
                 minWidth: 0,
@@ -42,7 +42,7 @@ struct PayView: View {
                         HStack(spacing: 10) {
                             Image("search")
                             
-                            TextField(NSLocalizedString("search", comment: ""), text: $payVM.search)
+                            TextField(String(localized: .search), text: $payVM.search)
                                 .font(.custom(Roboto.regular.rawValue, size: 16))
                                 .padding(.vertical, 16)
                         }.padding(.horizontal, 18)
@@ -54,8 +54,8 @@ struct PayView: View {
             }
             
         }.padding(.top, 1)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $payVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(payVM.alertMessage)
             })
@@ -64,7 +64,7 @@ struct PayView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("pay", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .pay), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 payVM.getCategories()

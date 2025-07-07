@@ -58,10 +58,10 @@ struct AllTransactions: View {
                 
             }.padding(20)
         }.padding(.top, 1)
-            .navigationTitle(Text(NSLocalizedString("allTransactions", comment: "")))
+            .navigationTitle(Text(String(localized: .allTransactions)))
             .navigationBarTitleDisplayMode(.inline)
-            .alert(NSLocalizedString("error", comment: ""), isPresented: $allTransferVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            .alert(String(localized: .error), isPresented: $allTransferVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(allTransferVM.alertMessage)
             }).task {

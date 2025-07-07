@@ -15,7 +15,7 @@ struct AuthenticateWithPin: View {
         Loading(isShowing: $authVM.loading) {
             VStack( alignment: .leading, spacing: 12) {
                 
-                TextHelper(text: NSLocalizedString("enterYourPasscode", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
+                TextHelper(text: String(localized: .enterYourPasscode), colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
 
                 OTPTextFieldView(maxDigits: 5, pin: $authVM.passcodeConfirm, boxWidth: 56, boxHeight: 56, authState: .enterPasscode) { otp in
                     
@@ -25,13 +25,13 @@ struct AuthenticateWithPin: View {
                     authVM.sendVerificationCode()
                     biometricEnabled = false
                 } label: {
-                    TextHelper(text: NSLocalizedString("forgotPasscode", comment: ""), colorResource: .appGreen, fontName: .bold, fontSize: 16)
+                    TextHelper(text: String(localized: .forgotPasscode), colorResource: .appGreen, fontName: .bold, fontSize: 16)
                 }.padding(.top, 12)
 
 
                 Spacer()
                 ButtonHelper(disabled: authVM.passcodeConfirm.count != 5,
-                             label: NSLocalizedString("confirm", comment: "")) {
+                             label: String(localized: .confirm)) {
                     authVM.checkPin()
                 }
             }.ignoresSafeArea(.keyboard, edges: .bottom)
@@ -43,8 +43,8 @@ struct AuthenticateWithPin: View {
                 minHeight: 0,
                 maxHeight: .infinity,
                 alignment: .topLeading
-            ).alert(NSLocalizedString("error", comment: ""), isPresented: $authVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            ).alert(String(localized: .error), isPresented: $authVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(authVM.alertMessage)
             })

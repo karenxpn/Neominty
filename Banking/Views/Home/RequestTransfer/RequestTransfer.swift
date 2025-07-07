@@ -45,7 +45,7 @@ struct RequestTransfer: View {
                                     .frame(width: UIScreen.main.bounds.width * 0.4)
                             }
                             
-                            ButtonHelper(disabled: (requestVM.loadingRequest) || (requestVM.selectedCard == nil), label: requestVM.loadingRequest ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("next", comment: "")) {
+                            ButtonHelper(disabled: (requestVM.loadingRequest) || (requestVM.selectedCard == nil), label: requestVM.loadingRequest ? String(localized: .pleaseWait) : String(localized: .next)) {
                                 requestVM.requestPayment()
                             }
                         }
@@ -59,12 +59,12 @@ struct RequestTransfer: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("request", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .request), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }.task {
                 requestVM.getCards()
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $requestVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $requestVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(requestVM.alertMessage)
             }).sheet(isPresented: $selectCard) {

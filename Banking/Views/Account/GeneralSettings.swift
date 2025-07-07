@@ -19,8 +19,8 @@ struct GeneralSettings: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 27) {
                     
-                        GeneralSettingsCell(title: NSLocalizedString("pushNotifications", comment: ""),
-                                            message: NSLocalizedString("pushNotificationsMessage", comment: ""), toggler: $accountVM.receiveNotifications) { value in
+                        GeneralSettingsCell(title: String(localized: .pushNotifications),
+                                            message: String(localized: .pushNotificationsMessage), toggler: $accountVM.receiveNotifications) { value in
                             accountVM.updateNotificationPreference(receive: value)
                         }.disabled(accountVM.loading)
                         .overlay {
@@ -29,13 +29,13 @@ struct GeneralSettings: View {
                             }
                         }
                         
-                        GeneralSettingsCell(title: NSLocalizedString("faceId", comment: ""),
-                                            message: NSLocalizedString("faceIdMessage", comment: ""), toggler: $biometricEnabled) { value in
+                        GeneralSettingsCell(title: String(localized: .faceId),
+                                            message: String(localized: .faceIdMessage), toggler: $biometricEnabled) { value in
                             biometricEnabled = value
                         }
                         
-                        GeneralSettingsCell(title: NSLocalizedString("email", comment: ""),
-                                            message: NSLocalizedString("emailMessage", comment: ""), toggler: $accountVM.receiveEmails) { value in
+                        GeneralSettingsCell(title: String(localized: .email),
+                                            message: String(localized: .emailMessage), toggler: $accountVM.receiveEmails) { value in
                             accountVM.updateEmailPreference(receive: value)
                         }.disabled(accountVM.loading)
                         .overlay {
@@ -46,7 +46,7 @@ struct GeneralSettings: View {
                     
                     Spacer()
                     
-                    ButtonHelper(disabled: false, label: NSLocalizedString("logout", comment: ""), color: Color(.appGreen)) {
+                    ButtonHelper(disabled: false, label: String(localized: .logout), color: Color(.appGreen)) {
                         authVM.signOut()
                     }.padding(.bottom, UIScreen.main.bounds.height * 0.15)
                     
@@ -64,7 +64,7 @@ struct GeneralSettings: View {
             }
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    TextHelper(text: NSLocalizedString("generalSettings", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .generalSettings), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                 }
             }
     }

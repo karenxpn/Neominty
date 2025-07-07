@@ -20,17 +20,17 @@ struct RequestToAddNewCard: View {
                            height: UIScreen.main.bounds.height * 0.3)
                 
                 VStack(alignment: .leading, spacing: 16) {
-                    TextHelper(text: NSLocalizedString("createYourNeomintyCard", comment: ""),
+                    TextHelper(text: String(localized: .createYourNeomintyCard),
                                colorResource: .darkBlueText,
                                fontName: .bold,
                                fontSize: 32)
                     
-                    TextHelper(text: NSLocalizedString("createYourCardMessage", comment: ""),
+                    TextHelper(text: String(localized: .createYourCardMessage),
                                colorResource: .appGray,
                                fontSize: 16)
                 }
                 
-                ButtonHelper(disabled: false, label: NSLocalizedString("attachCard", comment: "")) {
+                ButtonHelper(disabled: false, label: String(localized: .attachCard)) {
                     router.pushCardPath(.selectNewCardStyle)
                 }
             }.padding(24)

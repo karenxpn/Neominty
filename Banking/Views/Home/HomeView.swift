@@ -126,8 +126,8 @@ struct HomeView: View {
                         }
                     }
                     
-                }.alert(NSLocalizedString("error", comment: ""), isPresented: $homeVM.showAlert, actions: {
-                    Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+                }.alert(String(localized: .error), isPresented: $homeVM.showAlert, actions: {
+                    Button(String(localized: .gotIt), role: .cancel) { }
                 }, message: {
                     Text(homeVM.alertMessage)
                 })
@@ -139,9 +139,9 @@ struct HomeView: View {
         }.fullScreenCover(isPresented: $showCardAttachedAlert, content: {
             CongratulationAlert {
                 VStack(spacing: 12) {
-                    TextHelper(text: NSLocalizedString("cardIsReady", comment: ""), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
+                    TextHelper(text: String(localized: .cardIsReady), colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                     
-                    TextHelper(text: NSLocalizedString("cardIsReadyMessage", comment: ""), colorResource: .appGray, fontSize: 12)
+                    TextHelper(text: String(localized: .cardIsReadyMessage), colorResource: .appGray, fontSize: 12)
                     
                 }
             } action: {
@@ -153,7 +153,7 @@ struct HomeView: View {
     
     var UserGreeting: some View {
         VStack(alignment: .leading, spacing: 4) {
-            TextHelper(text: NSLocalizedString("good", comment: "") + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
+            TextHelper(text: String(localized: .good) + " " + Date.now.getDayTime() + "!", colorResource: .appGray, fontName: .medium, fontSize: 12)
             
             TextHelper(text: Auth.auth().currentUser?.displayName ?? "", colorResource: .darkBlueText, fontName: .bold, fontSize: 24)
                 .lineLimit(1)

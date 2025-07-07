@@ -56,8 +56,8 @@ struct PaymentDetails: View {
                                  || payVM.selectedCard == nil
                                  || payVM.loadingPayment,
                                  label: payVM.loadingPayment
-                                 ? NSLocalizedString("pleaseWait", comment: "")
-                                 : NSLocalizedString("next", comment: "")) {
+                                 ? String(localized: .pleaseWait)
+                                 : String(localized: .next)) {
                         
                         payVM.performPayment()
                     }                    
@@ -93,8 +93,8 @@ struct PaymentDetails: View {
                 router.pushHomePath(.transferSuccess(amount: payVM.amount, currency: payVM.selectedCard?.currency ?? CardCurrency.usd, action: CustomAction(action: {
                     router.popToHomeRoot()
                 })))
-        }.alert(NSLocalizedString("error", comment: ""), isPresented: $payVM.showAlert, actions: {
-            Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+        }.alert(String(localized: .error), isPresented: $payVM.showAlert, actions: {
+            Button(String(localized: .gotIt), role: .cancel) { }
         }, message: {
             Text(payVM.alertMessage)
         }).navigationTitle(Text(""))

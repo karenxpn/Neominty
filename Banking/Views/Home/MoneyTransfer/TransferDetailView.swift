@@ -40,7 +40,7 @@ struct TransferDetailView: View {
                                    fontSize: 35)
                     }
                     
-                    TextHelper(text: "\(NSLocalizedString("to", comment: "")) \(recentTransfer.name)",
+                    TextHelper(text: "\(String(localized: .to)) \(recentTransfer.name)",
                                colorResource: .darkBlueText,
                                fontName: .bold,
                                fontSize: 14)
@@ -66,7 +66,7 @@ struct TransferDetailView: View {
                                      tfType: .cardHolder,
                                      tfFont: .custom(Roboto.bold.rawValue, size: 14),
                                      tfColor: Color(.darkBlue),
-                                     subtitle: NSLocalizedString("enterFullName", comment: ""))
+                                     subtitle: String(localized: .enterFullName))
                     .multilineTextAlignment(.center)
                     .padding(16)
                     .background {
@@ -82,12 +82,12 @@ struct TransferDetailView: View {
                 
                 VStack {
                     HStack {
-                        TextHelper(text: NSLocalizedString("enterAmount", comment: ""), colorResource: .appGray,
+                        TextHelper(text: String(localized: .enterAmount), colorResource: .appGray,
                                    fontName: .medium, fontSize: 12)
                         
                         Spacer()
                         
-                        TextHelper(text: NSLocalizedString("max $12,652", comment: ""), colorResource: .appGray,
+                        TextHelper(text: String(localized: .max$12652), colorResource: .appGray,
                                    fontName: .medium, fontSize: 12)
                     }.padding(16)
                     
@@ -110,7 +110,7 @@ struct TransferDetailView: View {
                 }
                 
                 // add amount validation
-                ButtonHelper(disabled: (!isNameValid && selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: NSLocalizedString("sendMoney", comment: "")) {
+                ButtonHelper(disabled: (!isNameValid && selectedTransfer == nil) || transferVM.transferAmount.isEmpty, label: String(localized: .sendMoney)) {
                     hideKeyboard()
                     navigateToConfirmation.toggle()
                     
@@ -123,12 +123,12 @@ struct TransferDetailView: View {
                                 TextHelper(text: "Transfer Confirmation", colorResource: .darkBlueText, fontName: .bold, fontSize: 20)
                                 
                                 
-                                TransferConfirmationCell(direction: NSLocalizedString("from", comment: ""),
+                                TransferConfirmationCell(direction: String(localized: .from),
                                                          bank: "Card Number",
                                                          name: card.cardHolder,
                                                          card: card.cardPan)
                                 
-                                TransferConfirmationCell(direction: NSLocalizedString("to", comment: ""),
+                                TransferConfirmationCell(direction: String(localized: .to),
                                                          bank: "Card Number",
                                                          name: selectedTransfer == nil ? cardHolder : selectedTransfer!.name,
                                                          card: selectedTransfer == nil ? receiverCardNumber : selectedTransfer!.card)
@@ -156,7 +156,7 @@ struct TransferDetailView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     VStack(alignment: .leading, spacing: 4) {
-                        TextHelper(text: NSLocalizedString("sendMoney", comment: ""), color: .black, fontName: .bold, fontSize: 20)
+                        TextHelper(text: String(localized: .sendMoney), color: .black, fontName: .bold, fontSize: 20)
                     }
                     
                 }
@@ -167,8 +167,8 @@ struct TransferDetailView: View {
                     router.popToHomeRoot()
 
                 })))
-            }.alert(NSLocalizedString("error", comment: ""), isPresented: $transferVM.showAlert, actions: {
-                Button(NSLocalizedString("gotIt", comment: ""), role: .cancel) { }
+            }.alert(String(localized: .error), isPresented: $transferVM.showAlert, actions: {
+                Button(String(localized: .gotIt), role: .cancel) { }
             }, message: {
                 Text(transferVM.alertMessage)
             })

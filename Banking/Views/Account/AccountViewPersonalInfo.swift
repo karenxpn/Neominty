@@ -93,7 +93,7 @@ struct AccountViewPersonalInfo: View {
             }
         }.simpleToast(isPresented: $showToast, options: toastOptions) {
             Label(
-                title: { TextHelper(text: NSLocalizedString("yourEmailIsNotVerifiedYet", comment: ""), color: .black, fontSize: 16) },
+                title: { TextHelper(text: String(localized: .yourEmailIsNotVerifiedYet), color: .black, fontSize: 16) },
                 icon: { Image(systemName: "exclamationmark.triangle.fill")
                         .foregroundStyle(.yellow)
                 }

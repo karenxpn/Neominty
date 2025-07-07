@@ -55,13 +55,13 @@ struct ScannedQR: View {
                     
                     VStack {
                         HStack {
-                            TextHelper(text: NSLocalizedString("enterAmount", comment: ""),
+                            TextHelper(text: String(localized: .enterAmount),
                                        colorResource: .appGray,
                                        fontName: .medium, fontSize: 12)
                             
                             Spacer()
                             
-                            TextHelper(text: NSLocalizedString("max $12,652", comment: ""), colorResource: .appGray,
+                            TextHelper(text: String(localized: .max$12652), colorResource: .appGray,
                                        fontName: .medium, fontSize: 12)
                         }.padding(16)
                         
@@ -89,7 +89,7 @@ struct ScannedQR: View {
                     ButtonHelper(disabled: amount.isEmpty
                                  || qrVM.loadingPayment
                                  || qrVM.selectedCard == nil,
-                                 label: qrVM.loadingPayment ? NSLocalizedString("pleaseWait", comment: "") : NSLocalizedString("sendMoney", comment: "")) {
+                                 label: qrVM.loadingPayment ? String(localized: .pleaseWait) : String(localized: .sendMoney)) {
                         qrVM.performPayment(receiver: result,
                                             amount: amount, action: {
                             presented.toggle()

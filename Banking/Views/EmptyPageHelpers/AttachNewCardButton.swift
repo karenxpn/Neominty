@@ -29,7 +29,7 @@ struct AttachNewCardButton: View {
                 HStack(spacing: 12) {
                     Image("plus-without-circle")
 
-                    Text( NSLocalizedString("addNewCard", comment: "") )
+                    Text( String(localized: .addNewCard) )
                         .font(.custom(Roboto.bold.rawValue, size: 16))
                         .foregroundColor(Color(.darkBlueText))
 

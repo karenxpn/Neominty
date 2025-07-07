@@ -44,7 +44,7 @@ struct CongratulationAlert<Content: View>: View {
                         .padding(.top, 40)
                     
                     
-                    ButtonHelper(disabled: false, label: NSLocalizedString("okIamReady", comment: "")) {
+                    ButtonHelper(disabled: false, label: String(localized: .okIamReady)) {
                         action()
                     }
                     
