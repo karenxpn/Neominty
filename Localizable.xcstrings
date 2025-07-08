@@ -42,7 +42,7 @@
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Հաշիվ"
+            "value" : "Անձնական էջ"
           }
         }
       }
@@ -59,7 +59,7 @@
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Հաշվի տվյալներ"
+            "value" : "Անձնական տվյալներ"
           }
         }
       }
@@ -76,7 +76,7 @@
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Գործողություն"
+            "value" : "Պատմություն"
           }
         }
       }
@@ -1499,7 +1499,7 @@
         "hy" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Հաշիվ"
+            "value" : "Անձնական էջ"
           }
         }
       }
