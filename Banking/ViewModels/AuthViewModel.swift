@@ -54,7 +54,7 @@ final class AuthViewModel: AlertViewModel, ObservableObject {
     }
     
     func listenToAuthState() {
-        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+        _ = Auth.auth().addStateDidChangeListener { [weak self] _, user in
             guard let self = self else {
                 return
             }
